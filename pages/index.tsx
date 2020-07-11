@@ -1,16 +1,21 @@
 import Head from "next/head";
 import React from "react";
-import HomePage from "@components/ExampleContainer/ExampleContainer";
+import ExampleContainer from "@components/ExampleContainer/ExampleContainer";
+import { ThemeProvider } from "styled-components";
+import themeVariant from "@utils/themeVariant";
+import { GlobalStyled } from "@shared/styles/global.styled";
+import { Theme } from "@@types/Theme";
 
 const Home = () => {
   return (
-    <div className="container">
-      <HomePage />
+    <ThemeProvider theme={themeVariant[Theme.DEFAULT]}>
       <Head>
-        <title>Create Next App</title>
+        <title>Next Boilerplate</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-    </div>
+      <GlobalStyled />
+      <ExampleContainer />
+    </ThemeProvider>
   );
 };
 

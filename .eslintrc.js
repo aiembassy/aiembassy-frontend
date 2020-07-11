@@ -28,6 +28,8 @@ module.exports = {
     "react/jsx-filename-extension": [1, { extensions: [".ts", ".tsx"] }],
     "import/extensions": "off",
     "react/prop-types": "off",
+    "import/no-unresolved": "off",
+    "import/prefer-default-export": "off",
     "react/jsx-props-no-spreading": ["error", { custom: "ignore" }],
     "prettier/prettier": "error",
     "jsx-a11y/anchor-is-valid": "off",
@@ -37,7 +39,9 @@ module.exports = {
   },
   settings: {
     "import/resolver": {
-      typescript: {},
+      node: {
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
+      },
     },
   },
 };

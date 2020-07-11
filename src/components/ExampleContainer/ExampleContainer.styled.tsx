@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Title } from "@shared/styles/typography.styled";
 
 export const ExampleWrapper = styled.div`
   align-items: center;
@@ -8,6 +9,6 @@ export const ExampleWrapper = styled.div`
   width: 100%;
 `;
 
-export const Title = styled.h1`
-  color: red;
+export const ExampleTitle = styled(Title)`
+  color: ${({ theme }) => theme.colors.blue};
 `;

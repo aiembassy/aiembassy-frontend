@@ -1,15 +1,4 @@
 {
   "presets": ["next/babel", "@zeit/next-typescript/babel"],
-  "plugins": [["styled-components", { "ssr": true }], [
-    "module-resolver",
-    {
-      "alias": {
-        "@components": "./src/components",
-        "@containers": "./src/containers",
-        "@types": "./src/types",
-        "@utils": "./src/utils",
-        "@public": "./public"
-      }
-    }
-  ]]
+  "plugins": [["styled-components", { "ssr": true }]]
 }

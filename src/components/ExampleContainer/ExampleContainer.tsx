@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  ExampleWrapper,
-  Title,
-} from "@components/ExampleContainer/ExampleContainer.styled";
+import { ExampleWrapper, ExampleTitle } from "./ExampleContainer.styled";
 
 type IProps = {
   title?: string;
@@ -11,7 +8,9 @@ type IProps = {
 const ExampleContainer: React.FC<IProps> = ({ title }) => {
   return (
     <ExampleWrapper>
-      <Title>Next.js + HTML + Styled Components + TypeScript Boilerplate</Title>
+      <ExampleTitle>
+        Next.js + HTML + Styled Components + TypeScript Boilerplate
+      </ExampleTitle>
     </ExampleWrapper>
   );
 };

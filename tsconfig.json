@@ -2,7 +2,12 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*"]
+      "@components/*": ["src/components/*"],
+      "@containers/*": ["src/containers/*"],
+      "@shared/*": ["src/shared/*"],
+      "@@types/*": ["src/types/*"],
+      "@utils/*": ["src/utils/*"],
+      "@public/*": ["public/*"]
     },
     "jsx": "preserve",
     "target": "es5",
@@ -29,5 +34,5 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ]
+  ],
 }
