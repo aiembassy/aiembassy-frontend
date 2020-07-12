@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { ColorType, FontWeight, FontSizes } from "@@types/CommonTypes";
+import { ColorType, FontSizes, FontWeight } from "@@types/CommonTypes";
 
 export interface ITextProps {
   center?: boolean;

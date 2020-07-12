@@ -4,6 +4,7 @@ import { Title } from "@shared/styles/typography.styled";
 export const ExampleWrapper = styled.div`
   align-items: center;
   display: flex;
+  flex-direction: column;
   height: 100vh;
   justify-content: center;
   width: 100%;
