@@ -2,9 +2,7 @@ import React from "react";
 import Form from "@components/_forms/Form";
 import { ExampleWrapper, ExampleTitle } from "./ExampleContainer.styled";
 
-type IProps = {};
-
-const ExampleContainer: React.FC<IProps> = () => {
+const ExampleContainer: React.FC = () => {
   return (
     <ExampleWrapper>
       <ExampleTitle>
