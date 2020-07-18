@@ -4,11 +4,14 @@ import { Title } from "@shared/styles/typography.styled";
 export const ExampleWrapper = styled.div`
   align-items: center;
   display: flex;
+  flex-direction: column;
   height: 100vh;
   justify-content: center;
   width: 100%;
 `;
 
 export const ExampleTitle = styled(Title)`
-  color: ${({ theme }) => theme.colors.blue};
+  color: ${({ theme }) => theme.colors.text};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  padding: 50px 0;
 `;

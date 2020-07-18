@@ -1,21 +1,19 @@
-import Head from "next/head";
 import React from "react";
 import ExampleContainer from "@components/ExampleContainer/ExampleContainer";
-import { ThemeProvider } from "styled-components";
-import themeVariant from "@utils/themeVariant";
-import { GlobalStyled } from "@shared/styles/global.styled";
-import { Theme } from "@@types/Theme";
+import Layout from "@components/_layout/Layout.view";
 
 const Home = () => {
   return (
-    <ThemeProvider theme={themeVariant[Theme.DEFAULT]}>
-      <Head>
-        <title>Next Boilerplate</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <GlobalStyled />
+    <Layout
+      meta={{
+        title: "Next BoilerPlate - Homepage",
+        description: "HomePage component",
+        keywords:
+          "next, next.js, html, styled components, react, redux, typescript",
+      }}
+    >
       <ExampleContainer />
-    </ThemeProvider>
+    </Layout>
   );
 };
 

@@ -1,13 +1,14 @@
 const defaultTheme = {
   colors: {
     black: "#000000",
-    text: "#333333",
+    text: "#3B4949",
     red: "#FF2C2C",
     green: "#2AABA0",
     yellow: "#FFE27E",
     blue: "#009FE3",
     hover: "#0086BF",
     border: "#C8D2DC",
+    bg: "#F6F6F6",
     white: "#FFFFFF",
   },
   fontSizes: {

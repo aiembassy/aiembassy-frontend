@@ -1,16 +1,14 @@
 import React from "react";
+import Form from "@components/_forms/FormComponent";
 import { ExampleWrapper, ExampleTitle } from "./ExampleContainer.styled";
 
-type IProps = {
-  title?: string;
-};
-
-const ExampleContainer: React.FC<IProps> = ({ title }) => {
+const ExampleContainer: React.FC = () => {
   return (
     <ExampleWrapper>
       <ExampleTitle>
         Next.js + HTML + Styled Components + TypeScript Boilerplate
       </ExampleTitle>
+      <Form />
     </ExampleWrapper>
   );
 };
