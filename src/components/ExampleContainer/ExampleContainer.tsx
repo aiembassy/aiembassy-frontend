@@ -1,5 +1,5 @@
 import React from "react";
-import Form from "@components/_forms/Form";
+import Form from "@components/_forms/FormComponent";
 import { ExampleWrapper, ExampleTitle } from "./ExampleContainer.styled";
 
 const ExampleContainer: React.FC = () => {

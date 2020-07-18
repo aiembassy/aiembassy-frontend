@@ -11,5 +11,7 @@ export const ExampleWrapper = styled.div`
 `;
 
 export const ExampleTitle = styled(Title)`
-  color: ${({ theme }) => theme.colors.blue};
+  color: ${({ theme }) => theme.colors.text};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  padding: 50px 0;
 `;
