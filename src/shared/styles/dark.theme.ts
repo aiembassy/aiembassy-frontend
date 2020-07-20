@@ -1,8 +1,8 @@
-import { ThemeType } from "@@types/CommonTypes";
-import defaultTheme from "./default.theme";
+import { ThemeType } from '@@types/CommonTypes';
+import defaultTheme from './default.theme';
 
 const darkTheme: ThemeType = {
-  ...defaultTheme,
+    ...defaultTheme,
 };
 
 export default darkTheme;
