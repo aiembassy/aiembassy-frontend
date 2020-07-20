@@ -31,6 +31,7 @@ module.exports = {
     "import/no-unresolved": "off",
     "import/prefer-default-export": "off",
     "react/jsx-props-no-spreading": ["error", { custom: "ignore" }],
+    "no-underscore-dangle": "off",
     "prettier/prettier": "error",
     "jsx-a11y/anchor-is-valid": "off",
     "jsx-a11y/label-has-associated-control": "off",

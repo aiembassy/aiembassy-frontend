@@ -13,3 +13,8 @@ export interface IMetaTags {
   description?: string;
   keywords?: string;
 }
+
+export enum EnvType {
+  development = "development",
+  production = "production",
+}

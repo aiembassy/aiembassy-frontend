@@ -1,15 +1,23 @@
 const defaultTheme = {
+  borderRadius: {
+    default: 8,
+    button: 10,
+  },
   colors: {
     black: "#000000",
     text: "#3B4949",
     red: "#FF2C2C",
-    green: "#2AABA0",
-    yellow: "#FFE27E",
+    green: "#287871",
+    yellow: "#D7C4A3",
     blue: "#009FE3",
-    hover: "#0086BF",
+    hover: "#2d948b",
     border: "#C8D2DC",
     bg: "#F6F6F6",
     white: "#FFFFFF",
+  },
+  fontFamily: {
+    openSans: '"Open Sans", sans-serif',
+    roboto: '"Roboto", sans-serif',
   },
   fontSizes: {
     xs: 10,
@@ -25,11 +33,6 @@ const defaultTheme = {
     regular: 400,
     bold: 700,
     black: 900,
-  },
-  borderRadius: {
-    default: 6,
-    switch: 15,
-    button: 50,
   },
   transitions: {
     default: 0.5,

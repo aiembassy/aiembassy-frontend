@@ -12,6 +12,9 @@
     "prettier:write": "yarn prettier --write */*.{ts,tsx,json} && yarn prettier --write .{ts,tsx,json}"
   },
   "dependencies": {
+    "@hookform/resolvers": "^0.0.6",
+    "axios": "^0.19.2",
+    "history": "^5.0.0",
     "next": "9.4.4",
     "polished": "^3.6.5",
     "react": "16.13.1",
@@ -19,11 +22,13 @@
     "react-hook-form": "^6.0.4",
     "styled-components": "^5.1.1",
     "styled-normalize": "^8.0.7",
-    "typescript": "^3.9.6"
+    "typescript": "^3.9.6",
+    "yup": "^0.29.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^9.1.1",
     "@commitlint/config-conventional": "^9.1.1",
+    "@types/history": "^4.7.6",
     "@types/next": "^9.0.0",
     "@types/node": "^14.0.14",
     "@types/prettier": "^2.0.1",
