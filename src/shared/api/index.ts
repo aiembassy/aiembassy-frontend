@@ -1,1 +1,1 @@
-export { default as exampleApi } from "./example/example";
+export { default as exampleApi } from './example/example';

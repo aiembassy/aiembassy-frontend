@@ -1,3 +1,3 @@
-import { IExample } from "@@types/models/Example";
+import { IExample } from '@@types/models/Example';
 
 export type IExampleRequest = IExample;

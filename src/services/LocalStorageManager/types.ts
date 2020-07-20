@@ -1,3 +1,3 @@
-type AuthKeys = "token";
+type AuthKeys = 'token';
 
 export type StorageKeys = AuthKeys;

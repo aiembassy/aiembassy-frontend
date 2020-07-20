@@ -1,20 +1,20 @@
-import React from "react";
-import MetaTags from "@components/MetaTags/MetaTags";
-import { IMetaTags } from "@@types/CommonTypes";
-import { LayoutWrapper } from "./Layout.styled";
+import React from 'react';
+import MetaTags from '@components/MetaTags/MetaTags';
+import { IMetaTags } from '@@types/CommonTypes';
+import { LayoutWrapper } from './Layout.styled';
 
 type IProps = {
-  children: React.ReactNode;
-  meta: IMetaTags;
+    children: React.ReactNode;
+    meta: IMetaTags;
 };
 
 const Layout: React.FC<IProps> = ({ children, meta }) => {
-  return (
-    <LayoutWrapper>
-      <MetaTags meta={meta} />
-      {children}
-    </LayoutWrapper>
-  );
+    return (
+        <LayoutWrapper>
+            <MetaTags meta={meta} />
+            {children}
+        </LayoutWrapper>
+    );
 };
 
 export default Layout;
