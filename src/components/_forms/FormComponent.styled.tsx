@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 import Button from '@components/_universal/Button/Button';
+import { DefaultText } from '@shared/styles/typography.styled';
 
 export const FormWrapper = styled.div`
-    align-items: center;
     background: ${({ theme }) => theme.colors.bg};
     display: flex;
-    flex: 1;
     flex-direction: column;
-    justify-content: center;
-    width: 100%;
+    max-width: 650px;
 `;
 
 export const Form = styled.form``;
@@ -35,7 +33,7 @@ export const InputField = styled.div`
 `;
 
 export const InputLabel = styled.label`
-    font-family: ${({ theme }) => theme.fontFamily.roboto};
+    font-family: ${({ theme }) => theme.fontFamily.openSans};
     font-size: ${({ theme }) => theme.fontSizes.m}px;
     line-height: 3.4;
     width: 200px;
@@ -46,7 +44,7 @@ export const Input = styled.input`
     border: 1px solid transparent;
     border-radius: ${({ theme }) => theme.borderRadius.default}px;
     color: ${({ theme }) => theme.colors.text};
-    font-family: ${({ theme }) => theme.fontFamily.roboto};
+    font-family: ${({ theme }) => theme.fontFamily.openSans};
     font-size: ${({ theme }) => theme.fontSizes.m}px;
     height: 48px;
     line-height: 1.7;
@@ -63,7 +61,7 @@ export const Input = styled.input`
 export const InputError = styled.span`
     color: ${({ theme }) => theme.colors.red};
     display: flex;
-    font-family: ${({ theme }) => theme.fontFamily.roboto};
+    font-family: ${({ theme }) => theme.fontFamily.openSans};
     font-size: ${({ theme }) => theme.fontSizes.s}px;
     height: 0;
     justify-content: flex-end;
@@ -76,7 +74,7 @@ export const TextArea = styled.textarea`
     border: 0;
     border-radius: ${({ theme }) => theme.borderRadius.default}px;
     color: ${({ theme }) => theme.colors.text};
-    font-family: ${({ theme }) => theme.fontFamily.roboto};
+    font-family: ${({ theme }) => theme.fontFamily.openSans};
     font-size: ${({ theme }) => theme.fontSizes.m}px;
     height: 105px;
     line-height: 1.7;
@@ -91,10 +89,19 @@ export const TextArea = styled.textarea`
 `;
 
 export const ButtonWrapper = styled.div`
+    align-items: flex-end;
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
 `;
 
 export const ButtonForm = styled(Button)`
+    width: 450px;
+`;
+
+export const PrivatePolicy = styled(DefaultText)`
+    color: ${({ theme }) => theme.colors.dark_gray};
+    font-size: ${({ theme }) => theme.fontSizes.s}px;
+    margin-top: 10px;
+    text-align: center;
     width: 450px;
 `;

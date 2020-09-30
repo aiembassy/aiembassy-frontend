@@ -6,7 +6,7 @@ export type ThemeType = typeof defaultTheme;
 export type ColorType = keyof typeof defaultTheme.colors;
 export type FontWeight = keyof typeof defaultTheme.fontWeight;
 export type FontSizes = keyof typeof defaultTheme.fontSizes;
-export type ButtonTypes = 'PRIMARY' | 'SECONDARY' | 'ERROR';
+export type ButtonTypes = 'PRIMARY' | 'SECONDARY' | 'ERROR' | 'TRANSPARENT';
 
 export interface IMetaTags {
     title?: string;

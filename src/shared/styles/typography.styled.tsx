@@ -12,7 +12,7 @@ export interface ITextProps {
 
 export const repeatableStyles = css<ITextProps>`
     color: ${({ theme, color }) =>
-        color ? theme.colors[color] : theme.colors.black};
+        color ? theme.colors[color] : theme.colors.text};
     font-style: ${({ italic }) => (italic ? 'italic' : 'normal')};
     font-weight: ${({ theme, fontWeight }) =>
         fontWeight ? theme.fontWeight : theme.fontWeight.regular};
@@ -21,20 +21,43 @@ export const repeatableStyles = css<ITextProps>`
 
 export const DefaultText = styled.p<ITextProps>`
     ${repeatableStyles};
+    font-size: ${({ theme, fontSize }) =>
+        fontSize ? theme.fontSizes[fontSize] : theme.fontSizes.l}px;
+    line-height: 1.5;
     margin-top: 0;
-    font-size: ${({ theme, fontSize }) =>
-        fontSize ? theme.fontSizes[fontSize] : theme.fontSizes.m}px;
 `;
 
-export const LinkText = styled(DefaultText)`
+export const LinkText = styled.a<ITextProps>`
     color: ${({ theme, color }) =>
-        color ? theme.colors[color] : theme.colors.blue};
+        color ? theme.colors[color] : theme.colors.green};
+    cursor: pointer;
+    display: inline;
     font-size: ${({ theme, fontSize }) =>
-        fontSize ? theme.fontSizes[fontSize] : theme.fontSizes.m}px;
+        fontSize ? theme.fontSizes[fontSize] : theme.fontSizes.l}px;
+    position: relative;
+    text-decoration: underline;
+    text-underline-position: under;
+    transition: all ${({ theme }) => theme.transitions.default}s;
+
+    &:hover {
+        color: ${({ theme, color }) =>
+            color ? theme.colors[color] : theme.colors.green_hover};
+    }
 `;
 
-export const Title = styled.h1<ITextProps>`
+export const BoldText = styled.span`
+    font-weight: ${({ theme }) => theme.fontWeight.semi_bold};
+`;
+
+export const Title = styled.h2<ITextProps>`
+    ${repeatableStyles};
+    font-family: ${({ theme }) => theme.fontFamily.merriweather};
+    font-size: ${({ theme, fontSize }) =>
+        fontSize ? theme.fontSizes[fontSize] : theme.fontSizes.section_title}px;
+`;
+
+export const Subtitle = styled.h3<ITextProps>`
     ${repeatableStyles};
     font-size: ${({ theme, fontSize }) =>
-        fontSize ? theme.fontSizes[fontSize] : theme.fontSizes.max}px;
+        fontSize ? theme.fontSizes[fontSize] : theme.fontSizes.xxl}px;
 `;

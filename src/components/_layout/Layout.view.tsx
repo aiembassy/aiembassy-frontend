@@ -4,7 +4,6 @@ import { IMetaTags } from '@@types/CommonTypes';
 import { LayoutWrapper } from './Layout.styled';
 
 type IProps = {
-    children: React.ReactNode;
     meta: IMetaTags;
 };
 

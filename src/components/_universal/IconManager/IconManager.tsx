@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as Icons from '@public/SVGs';
 import { ThemeContext } from 'styled-components';
 import { IconName, ColorType } from '@@types/CommonTypes';
+import { useState } from 'react';
 import { IconHolder } from './IconManager.styled';
 
 interface IProps {
@@ -27,6 +28,7 @@ const IconManager: React.FC<IProps> = ({
     size,
     sizeY,
 }) => {
+    const [isHover, setHover] = useState(false);
     const Icon = Icons[name || 'IconClose'];
     const { colors } = React.useContext(ThemeContext);
     const iconColor = fill && fill.map((item) => colors[item]);
@@ -37,10 +39,15 @@ const IconManager: React.FC<IProps> = ({
         <IconHolder
             center={center}
             className={className}
+            onMouseOver={() => setHover(true)}
+            onMouseOut={() => setHover(false)}
             rotate={rotate}
             size={size}
         >
-            <Icon fill={isActive ? iconActiveColor : iconColor} sizeY={sizeY} />
+            <Icon
+                fill={isActive || isHover ? iconActiveColor : iconColor}
+                sizeY={sizeY}
+            />
         </IconHolder>
     );
 };

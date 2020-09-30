@@ -1,19 +1,22 @@
 import React from 'react';
-import ExampleContainer from '@components/ExampleContainer/ExampleContainer';
 import Layout from '@components/_layout/Layout.view';
+import { motion } from 'framer-motion';
 
 const Home = () => {
     return (
-        <Layout
-            meta={{
-                title: 'Next BoilerPlate - Homepage',
-                description: 'HomePage component',
-                keywords:
-                    'next, next.js, html, styled components, react, redux, typescript',
-            }}
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
         >
-            <ExampleContainer />
-        </Layout>
+            <Layout
+                meta={{
+                    title: 'AI Embassy - Homepage',
+                    description: 'AI Embassy',
+                    keywords: 'AI, AI Embassy',
+                }}
+            />
+        </motion.div>
     );
 };
 

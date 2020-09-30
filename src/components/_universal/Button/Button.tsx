@@ -10,13 +10,16 @@ import {
 
 interface IProps {
     buttonType: ButtonTypes;
-    children: React.ReactNode;
+    children?: React.ReactNode;
     className?: string;
     iconActiveColor?: ColorType[];
     iconColor?: ColorType[];
+    iconPositionLeft?: boolean;
     iconSize?: number;
     iconType?: IconName;
-    isGradientBg?: boolean;
+    noPadding?: boolean;
+    onPress?: () => void;
+    width?: number;
 }
 
 const Button: React.FC<IProps> = ({
@@ -25,34 +28,40 @@ const Button: React.FC<IProps> = ({
     className,
     iconActiveColor,
     iconColor,
+    iconPositionLeft,
     iconSize,
     iconType,
-    isGradientBg,
+    noPadding,
+    onPress,
+    width,
 }) => {
     const [active, setActive] = useState(false);
+    const Icon = (
+        <StyledIconManager
+            activeFill={iconActiveColor}
+            fill={iconColor}
+            isActive={active}
+            iconPositionLeft={!!iconPositionLeft}
+            name={iconType}
+            size={iconSize || 24}
+            width={width}
+        />
+    );
 
     return (
         <ButtonHolder>
             <ButtonElement
                 buttonType={buttonType}
                 className={className}
+                noPadding={noPadding}
                 onMouseOver={() => setActive(true)}
                 onMouseOut={() => setActive(false)}
+                onClick={onPress}
+                width={width}
             >
-                {iconType && (
-                    <StyledIconManager
-                        activeFill={iconActiveColor}
-                        fill={iconColor}
-                        isActive={active}
-                        name={iconType}
-                        size={iconSize || 24}
-                    />
-                )}
-                {isGradientBg ? (
-                    <ButtonText>{children}</ButtonText>
-                ) : (
-                    { children }
-                )}
+                {iconType && iconPositionLeft && Icon}
+                <ButtonText>{children && children}</ButtonText>
+                {iconType && iconPositionLeft !== true && Icon}
             </ButtonElement>
         </ButtonHolder>
     );

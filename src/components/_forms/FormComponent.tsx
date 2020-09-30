@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers';
 import * as yup from 'yup';
+import { LinkText } from '@shared/styles/typography.styled';
 import {
     FormWrapper,
     Form,
@@ -13,6 +14,7 @@ import {
     TextArea,
     ButtonForm,
     ButtonWrapper,
+    PrivatePolicy,
 } from './FormComponent.styled';
 
 interface IFormInputs {
@@ -80,9 +82,12 @@ const FormComponent = () => {
                     </InputField>
                 </InputWrapper>
                 <ButtonWrapper>
-                    <ButtonForm buttonType="PRIMARY" isGradientBg>
-                        Wyślij
-                    </ButtonForm>
+                    <ButtonForm buttonType="PRIMARY">Wyślij</ButtonForm>
+                    <PrivatePolicy>
+                        Klikając wyślij zgdzasz się z{' '}
+                        <LinkText fontSize="s">Polityką Prywatności</LinkText>{' '}
+                        AI Embassy.
+                    </PrivatePolicy>
                 </ButtonWrapper>
             </Form>
         </FormWrapper>
