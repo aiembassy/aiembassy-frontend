@@ -1,3 +1,5 @@
+import * as Isotope from 'react-isotope';
+
 export const filtersHeader = [
     { label: 'all', name: 'Wszystkie', isChecked: true },
     { label: 'service', name: 'Usługi doradcze', isChecked: false },
