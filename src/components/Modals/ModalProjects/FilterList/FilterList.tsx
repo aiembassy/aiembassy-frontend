@@ -40,8 +40,8 @@ const FilterList: React.FC<IProps> = ({ filters }) => {
     return (
         <FilterListWrapper>
             <ScrollBar>
-                {/* @ts-ignore */}
                 <IsoTopeGrid
+                    //@ts-ignore
                     gridLayout={filtersList}
                     noOfCols={1}
                     unitWidth={100}
