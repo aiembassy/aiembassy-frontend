@@ -9,8 +9,7 @@
         "release": "standard-version",
         "lint": "eslint . --ext .ts,.tsx",
         "get-next-version": "node ./get-next-version.js",
-        "prettier:write": "yarn prettier --write */*.{ts,tsx,json} && yarn prettier --write .{ts,tsx,json}",
-        "heroku-postbuild": "yarn run build"
+        "prettier:write": "yarn prettier --write */*.{ts,tsx,json} && yarn prettier --write .{ts,tsx,json}"
     },
     "dependencies": {
         "@hookform/resolvers": "^0.0.6",
