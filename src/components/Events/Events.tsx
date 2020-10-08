@@ -80,175 +80,21 @@ const Events: React.FC = () => {
                         <SwiperSlide>
                             <SliderItem>
                                 <SliderImage>
-                                    <Image src="/images/smogathon.png" />
+                                    <Image src="/images/ghost_day.png" />
                                 </SliderImage>
                                 <SliderContentWrapper>
-                                    <PostData>Styczeń 2020</PostData>
-                                    <PostTitle>Tutaj kolejna nazwa</PostTitle>
+                                    <PostData>Październik 2020</PostData>
+                                    <PostTitle>Ghost DAY: AMLC</PostTitle>
                                     <PostDescription>
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adLorem ipsum dolor sit amet,
-                                        consectetur adipiscing elit. Ac
-                                        tincidunt ut dictumst urna dictum nulla.
-                                        ipiscing elit. Ac tincidunt ut dictumst
-                                        urna dictum nulla.
+                                        GHOST Day: AMLC jest wydarzeniem skupiającym się
+                                        na praktycznych zastosowaniach uczenia maszynowego,
+                                        badaniach nad sztuczną inteligencją i nieszablonowym
+                                        podejściu do statystyki.
                                     </PostDescription>
                                     <Link
                                         scroll={false}
-                                        href="/events/[eventsId]"
-                                        as="/events/konferencja-1"
-                                    >
-                                        <PostLinkWrapper>
-                                            <PostLink
-                                                buttonType="TRANSPARENT"
-                                                iconType="IconArrowRight"
-                                                iconSize={20}
-                                                iconActiveColor={[
-                                                    'green_hover',
-                                                ]}
-                                                noPadding
-                                            >
-                                                więcej
-                                            </PostLink>
-                                        </PostLinkWrapper>
-                                    </Link>
-                                </SliderContentWrapper>
-                            </SliderItem>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <SliderItem>
-                                <SliderImage>
-                                    <Image src="/images/smogathon.png" />
-                                </SliderImage>
-                                <SliderContentWrapper>
-                                    <PostData>Styczeń 2020</PostData>
-                                    <PostTitle>Tutaj kolejna nazwa</PostTitle>
-                                    <PostDescription>
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adLorem ipsum dolor sit amet,
-                                        consectetur adipiscing elit. Ac
-                                        tincidunt ut dictumst urna dictum nulla.
-                                        ipiscing elit. Ac tincidunt ut dictumst
-                                        urna dictum nulla.
-                                    </PostDescription>
-                                    <Link
-                                        scroll={false}
-                                        href="/events/[eventsId]"
-                                        as="/events/konferencja-1"
-                                    >
-                                        <PostLinkWrapper>
-                                            <PostLink
-                                                buttonType="TRANSPARENT"
-                                                iconType="IconArrowRight"
-                                                iconSize={20}
-                                                iconActiveColor={[
-                                                    'green_hover',
-                                                ]}
-                                                noPadding
-                                            >
-                                                więcej
-                                            </PostLink>
-                                        </PostLinkWrapper>
-                                    </Link>
-                                </SliderContentWrapper>
-                            </SliderItem>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <SliderItem>
-                                <SliderImage>
-                                    <Image src="/images/smogathon.png" />
-                                </SliderImage>
-                                <SliderContentWrapper>
-                                    <PostData>Styczeń 2020</PostData>
-                                    <PostTitle>Tutaj kolejna nazwa</PostTitle>
-                                    <PostDescription>
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adLorem ipsum dolor sit amet,
-                                        consectetur adipiscing elit. Ac
-                                        tincidunt ut dictumst urna dictum nulla.
-                                        ipiscing elit. Ac tincidunt ut dictumst
-                                        urna dictum nulla.
-                                    </PostDescription>
-                                    <Link
-                                        scroll={false}
-                                        href="/events/[eventsId]"
-                                        as="/events/konferencja-1"
-                                    >
-                                        <PostLinkWrapper>
-                                            <PostLink
-                                                buttonType="TRANSPARENT"
-                                                iconType="IconArrowRight"
-                                                iconSize={20}
-                                                iconActiveColor={[
-                                                    'green_hover',
-                                                ]}
-                                                noPadding
-                                            >
-                                                więcej
-                                            </PostLink>
-                                        </PostLinkWrapper>
-                                    </Link>
-                                </SliderContentWrapper>
-                            </SliderItem>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <SliderItem>
-                                <SliderImage>
-                                    <Image src="/images/smogathon.png" />
-                                </SliderImage>
-                                <SliderContentWrapper>
-                                    <PostData>Styczeń 2020</PostData>
-                                    <PostTitle>Tutaj kolejna nazwa</PostTitle>
-                                    <PostDescription>
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adLorem ipsum dolor sit amet,
-                                        consectetur adipiscing elit. Ac
-                                        tincidunt ut dictumst urna dictum nulla.
-                                        ipiscing elit. Ac tincidunt ut dictumst
-                                        urna dictum nulla.
-                                    </PostDescription>
-                                    <Link
-                                        scroll={false}
-                                        href="/events/[eventsId]"
-                                        as="/events/konferencja-1"
-                                    >
-                                        <PostLinkWrapper>
-                                            <PostLink
-                                                buttonType="TRANSPARENT"
-                                                iconType="IconArrowRight"
-                                                iconSize={20}
-                                                iconActiveColor={[
-                                                    'green_hover',
-                                                ]}
-                                                noPadding
-                                            >
-                                                więcej
-                                            </PostLink>
-                                        </PostLinkWrapper>
-                                    </Link>
-                                </SliderContentWrapper>
-                            </SliderItem>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <SliderItem>
-                                <SliderImage>
-                                    <Image src="/images/smogathon.png" />
-                                </SliderImage>
-                                <SliderContentWrapper>
-                                    <PostData>Styczeń 2020</PostData>
-                                    <PostTitle>Tutaj kolejna nazwa</PostTitle>
-                                    <PostDescription>
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adLorem ipsum dolor sit amet,
-                                        consectetur adipiscing elit. Ac
-                                        tincidunt ut dictumst urna dictum nulla.
-                                        ipiscing elit. Ac tincidunt ut dictumst
-                                        urna dictum nulla.
-                                    </PostDescription>
-                                    <Link
-                                        scroll={false}
-                                        href="/events/[eventsId]"
-                                        as="/events/konferencja-1"
+                                        href="/events/[eventId]"
+                                        as="/events/ghost-day-2020"
                                     >
                                         <PostLinkWrapper>
                                             <PostLink
