@@ -31,21 +31,19 @@ const Events: React.FC = () => {
         SwiperCore.use([Navigation]);
     }, []);
 
-    const eventsList = Object.keys(events).map((eventId) => {
-        const currentEvent = events[eventId];
+    const eventList = Object.keys(events).map((eventId) => {
+        const event = events[eventId];
         const eventLinkLocation = `/events/${eventId}`;
 
         return (
             <SliderItem key={eventLinkLocation}>
                 <SliderImage>
-                    <Image src={currentEvent.imagePath} />
+                    <Image src={event.imagePath} />
                 </SliderImage>
                 <SliderContentWrapper>
-                    <PostData>{currentEvent.date}</PostData>
-                    <PostTitle>{currentEvent.shortTitle}</PostTitle>
-                    <PostDescription>
-                        {currentEvent.shortDescription}
-                    </PostDescription>
+                    <PostData>{event.date}</PostData>
+                    <PostTitle>{event.shortTitle}</PostTitle>
+                    <PostDescription>{event.shortDescription}</PostDescription>
                     <Link
                         scroll={false}
                         href="/events/[eventId]"
@@ -115,7 +113,7 @@ const Events: React.FC = () => {
                             prevEl: '.button-prev',
                         }}
                     >
-                        <SwiperSlide>{eventsList}</SwiperSlide>
+                        <SwiperSlide>{eventList}</SwiperSlide>
                     </Swiper>
                     <Link scroll={false} href="/events" as="/events">
                         <ButtonWrapper>
