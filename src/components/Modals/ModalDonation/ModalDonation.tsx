@@ -51,11 +51,11 @@ const ModalDonation: React.FC<IProps> = ({ smallModal }) => {
                             <Text>
                                 Wykonaj przelew o tytule:{' '}
                                 <BoldText>
-                                    „darowizna na cele statutowe”
+                                    „Darowizna na cele statutowe”
                                 </BoldText>{' '}
-                                na konto Bank XXXXXXXX{' '}
+                                na konto Bank BNP Paribas{' '}
                                 <BoldText>
-                                    00 1111 2222 3333 4444 5555 6666
+                                    32 1600 1462 1885 3945 8000 0001
                                 </BoldText>
                             </Text>
                             <Text>

@@ -23,21 +23,21 @@ const Footer: React.FC = () => {
                     <FooterLink href="#">Sprawozdania finansowe</FooterLink>
                 </FooterLinks>
                 <FooterSocials>
-                    <LinkWrapper href="#">
+                    <LinkWrapper href="https://www.facebook.com/AIEmbassy">
                         <Facebook
                             name="IconFacebook"
                             size={21}
                             activeFill={['green_hover']}
                         />
                     </LinkWrapper>
-                    <LinkWrapper href="#">
+                    <LinkWrapper href="https://twitter.com/AIEmbassy">
                         <Twitter
                             name="IconTwitter"
                             size={23}
                             activeFill={['green_hover']}
                         />
                     </LinkWrapper>
-                    <LinkWrapper href="#">
+                    <LinkWrapper href="https://www.linkedin.com/company/ai-embassy">
                         <LinkedIn
                             name="IconLinkedIn"
                             size={21}

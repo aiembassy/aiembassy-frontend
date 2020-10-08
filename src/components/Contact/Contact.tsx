@@ -32,8 +32,10 @@ const Contact: React.FC = () => {
                     <TitleBox>Fundacja “AI Embassy”</TitleBox>
                     <TextBox>
                         Rynek Główny 28, 31-010 Kraków <br />
+                        KRS 0000823425 <br />
                         NIP 6762576428 <br />
-                        Nr konta 00 1111 2222 3333 4444 5555 6666
+                        REGON 385300695 <br />
+                        Nr konta <b>32 1600 1462 1885 3945 8000 0001</b>
                     </TextBox>
                     <MailToLink href="mailto:contact@embassy.ai">
                         <Icon
@@ -61,10 +63,10 @@ const Contact: React.FC = () => {
                 <InfoBox>
                     <TitleBox>Wspomóż nas</TitleBox>
                     <TextBox>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Ac tincidunt ut dictumst urna dictum nulla. Lorem ipsum
-                        dolor sit amet, consectetur adipiscing elit. Ac
-                        tincidunt ut dictumst urna dictum nulla.
+                        Działania prowadzone przez fundację wymagają nakładów
+                        finansowych. Jeśli również uważasz, że AI może być nową
+                        rewolucją i chcesz wesprzeć jej rozwój w Polsce, to
+                        wspomóż nasze wysiłki przez przekazanie darowizny.
                     </TextBox>
                     <Link scroll={false} href="/donation" as="/help-us">
                         <ButtonWrapper>
