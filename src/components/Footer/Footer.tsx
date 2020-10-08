@@ -20,7 +20,6 @@ const Footer: React.FC = () => {
                 <FooterLinks>
                     <FooterLink href="#">Polityka prywatności</FooterLink>
                     <FooterLink href="#">Statut fundacji</FooterLink>
-                    <FooterLink href="#">Sprawozdania finansowe</FooterLink>
                 </FooterLinks>
                 <FooterSocials>
                     <LinkWrapper href="https://www.facebook.com/AIEmbassy">
