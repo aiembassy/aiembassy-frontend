@@ -4,6 +4,7 @@ import SwiperCore, { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import ButtonLink from '@components/_universal/ButtonLink/ButtonLink';
 import Link from 'next/link';
+import events from '@shared/data/events';
 import {
     SectionTitle,
     DotsBg,
@@ -29,6 +30,43 @@ const Events: React.FC = () => {
     useLayoutEffect(() => {
         SwiperCore.use([Navigation]);
     }, []);
+
+    const eventsList = Object.keys(events).map((eventId) => {
+        const currentEvent = events[eventId];
+        const eventLinkLocation = `/events/${eventId}`;
+
+        return (
+            <SliderItem key={eventLinkLocation}>
+                <SliderImage>
+                    <Image src={currentEvent.imagePath} />
+                </SliderImage>
+                <SliderContentWrapper>
+                    <PostData>{currentEvent.date}</PostData>
+                    <PostTitle>{currentEvent.shortTitle}</PostTitle>
+                    <PostDescription>
+                        {currentEvent.shortDescription}
+                    </PostDescription>
+                    <Link
+                        scroll={false}
+                        href="/events/[eventId]"
+                        as={eventLinkLocation}
+                    >
+                        <PostLinkWrapper>
+                            <PostLink
+                                buttonType="TRANSPARENT"
+                                iconType="IconArrowRight"
+                                iconSize={20}
+                                iconActiveColor={['green_hover']}
+                                noPadding
+                            >
+                                więcej
+                            </PostLink>
+                        </PostLinkWrapper>
+                    </Link>
+                </SliderContentWrapper>
+            </SliderItem>
+        );
+    });
 
     return (
         <EventsWrapper id="conferences">
@@ -77,42 +115,7 @@ const Events: React.FC = () => {
                             prevEl: '.button-prev',
                         }}
                     >
-                        <SwiperSlide>
-                            <SliderItem>
-                                <SliderImage>
-                                    <Image src="/images/ghost_day.png" />
-                                </SliderImage>
-                                <SliderContentWrapper>
-                                    <PostData>Październik 2020</PostData>
-                                    <PostTitle>Ghost DAY: AMLC</PostTitle>
-                                    <PostDescription>
-                                        GHOST Day: AMLC jest wydarzeniem skupiającym się
-                                        na praktycznych zastosowaniach uczenia maszynowego,
-                                        badaniach nad sztuczną inteligencją i nieszablonowym
-                                        podejściu do statystyki.
-                                    </PostDescription>
-                                    <Link
-                                        scroll={false}
-                                        href="/events/[eventId]"
-                                        as="/events/ghost-day-2020"
-                                    >
-                                        <PostLinkWrapper>
-                                            <PostLink
-                                                buttonType="TRANSPARENT"
-                                                iconType="IconArrowRight"
-                                                iconSize={20}
-                                                iconActiveColor={[
-                                                    'green_hover',
-                                                ]}
-                                                noPadding
-                                            >
-                                                więcej
-                                            </PostLink>
-                                        </PostLinkWrapper>
-                                    </Link>
-                                </SliderContentWrapper>
-                            </SliderItem>
-                        </SwiperSlide>
+                        <SwiperSlide>{eventsList}</SwiperSlide>
                     </Swiper>
                     <Link scroll={false} href="/events" as="/events">
                         <ButtonWrapper>
