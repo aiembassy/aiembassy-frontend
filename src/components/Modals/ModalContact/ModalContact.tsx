@@ -24,7 +24,7 @@ const ModalContact: React.FC<IProps> = ({ smallModal }) => {
                     oparte o sztuczną inteligencję? <br />
                     Napisz do nas{' '}
                     <LinkText href="mailto:contact@embassy.ai">
-                        kontakt@embassy.ai
+                        contact@embassy.ai
                     </LinkText>{' '}
                     lub wypełnij formularz kontaktowy.
                 </ModalDescription>
