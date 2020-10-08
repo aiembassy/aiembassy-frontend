@@ -14,7 +14,6 @@ import Benefits from '@components/Benefits/Benefits';
 import Projects from '@components/Projects/Projects';
 import Team from '@components/Team/Team';
 import Opinions from '@components/Opinions/Opinions';
-import Support from '@components/Support/Support';
 import Events from '@components/Events/Events';
 import Contact from '@components/Contact/Contact';
 import Footer from '@components/Footer/Footer';
@@ -31,7 +30,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
             <Projects />
             <Team />
             <Opinions />
-            <Support />
+            {/* <Support /> */}
             <Events />
             <Contact />
             <Footer />
