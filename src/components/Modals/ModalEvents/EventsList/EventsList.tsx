@@ -7,7 +7,7 @@ import {
     EventImage,
     Image,
     EventContentWrapper,
-    EventData,
+    EventDate,
     EventTitle,
     EventDescription,
     EventLink,
@@ -26,7 +26,7 @@ const EventsList = () => {
                             <Image src="/images/smogathon.png" />
                         </EventImage>
                         <EventContentWrapper>
-                            <EventData>Styczeń 2020</EventData>
+                            <EventDate>Styczeń 2020</EventDate>
                             <EventTitle>Tutaj kolejna nazwa</EventTitle>
                             <EventDescription>
                                 Lorem ipsum dolor sit amet, consectetur adLorem

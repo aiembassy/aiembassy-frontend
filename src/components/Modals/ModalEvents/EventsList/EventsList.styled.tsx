@@ -60,7 +60,7 @@ export const EventContentWrapper = styled.div`
     padding: 0 35px 25px;
 `;
 
-export const EventData = styled(DefaultText)`
+export const EventDate = styled(DefaultText)`
     color: ${({ theme }) => theme.colors.text};
     font-size: ${({ theme }) => theme.fontSizes.m}px;
     line-height: 1.75;
