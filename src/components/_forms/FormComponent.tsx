@@ -42,7 +42,7 @@ const FormComponent = () => {
         <FormWrapper>
             <Form onSubmit={onSubmit}>
                 <InputWrapper marginBottom={16}>
-                    <InputLabel>Full name *</InputLabel>
+                    <InputLabel>Imię i nazwisko *</InputLabel>
                     <InputField className={errors.fullName ? 'error' : ''}>
                         <Input
                             autoComplete="off"
@@ -56,7 +56,7 @@ const FormComponent = () => {
                     </InputField>
                 </InputWrapper>
                 <InputWrapper marginBottom={16}>
-                    <InputLabel>Company</InputLabel>
+                    <InputLabel>Firma</InputLabel>
                     <InputField>
                         <Input
                             autoComplete="off"
@@ -76,7 +76,7 @@ const FormComponent = () => {
                     </InputField>
                 </InputWrapper>
                 <InputWrapper marginBottom={24}>
-                    <InputLabel>Your message</InputLabel>
+                    <InputLabel>Wiadomość</InputLabel>
                     <InputField>
                         <TextArea name="message" ref={register} />
                     </InputField>
