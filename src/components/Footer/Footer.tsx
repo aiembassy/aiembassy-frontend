@@ -19,7 +19,9 @@ const Footer: React.FC = () => {
                 <FooterCopyrights>© 2020 AI Embassy</FooterCopyrights>
                 <FooterLinks>
                     <FooterLink href="#">Polityka prywatności</FooterLink>
-                    <FooterLink href="#">Statut fundacji</FooterLink>
+                    <FooterLink href="/docs/statut_aiembassy.pdf">
+                        Statut fundacji
+                    </FooterLink>
                 </FooterLinks>
                 <FooterSocials>
                     <LinkWrapper href="https://www.facebook.com/AIEmbassy">
