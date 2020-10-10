@@ -38,9 +38,9 @@ const ModalProjects = () => {
             <ModalInfo>
                 <ModalTitle>Nasze projekty</ModalTitle>
                 <ModalDescription>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel
-                    facilisis sed cursus egestas scelerisque ut tellus vitae.
-                    Morbi consequat ullamcorper sit vulputate donec.
+                    Wierzymy, że sztuczna inteligencja może być wykorzystana do
+                    rozwiązania niektórych problemów społecznych, a także pomóc
+                    nam zautomatyzować pewne powtarzalne procesy.
                 </ModalDescription>
             </ModalInfo>
             <ModalContent>

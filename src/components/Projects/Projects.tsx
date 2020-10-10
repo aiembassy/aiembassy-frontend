@@ -2,6 +2,7 @@ import React from 'react';
 import { Container } from '@shared/styles/global.styled';
 import Button from '@components/_universal/Button/Button';
 import Link from 'next/link';
+import projects from '@shared/data/projects';
 import {
     SectionTitle,
     ProjectsWrapper,
@@ -21,6 +22,7 @@ import {
     ItemLink,
     ButtonWrapper,
 } from './Projects.styled';
+import {categoryName} from "@shared/data/projectsFilter";
 
 const Projects: React.FC = () => {
     return (
@@ -28,50 +30,61 @@ const Projects: React.FC = () => {
             <Container>
                 <SectionTitle>Nasze projekty</SectionTitle>
                 <ProjectsList>
-                    <ProjectWrapper>
-                        <ProjectItem>
-                            <ItemImage>
-                                <Image src="/images/hero_image_1.png" />
-                            </ItemImage>
-                            <ItemContent>
-                                <ItemInfo>
-                                    <ItemInfoInner>
-                                        <ItemService>
-                                            Usługi doradcze
-                                        </ItemService>
-                                        <ItemDate>Styczeń 2020</ItemDate>
-                                    </ItemInfoInner>
-                                    <Link
-                                        scroll={false}
-                                        href="/projects/[projectId]"
-                                        as="/projects/project-1"
-                                    >
-                                        <ItemLinkWrapper>
-                                            <ItemLink
-                                                buttonType="TRANSPARENT"
-                                                iconType="IconArrowRight"
-                                                iconSize={20}
-                                                iconActiveColor={[
-                                                    'green_hover',
-                                                ]}
-                                                noPadding
+                    {Object.keys(projects).map((projectId) => {
+                        const project = projects[projectId];
+                        const projectLink = `/projects/${projectId}`;
+
+                        return (
+                            <ProjectWrapper key={projectId}>
+                                <ProjectItem>
+                                    <ItemImage>
+                                        <Image src={project.imagePath} />
+                                    </ItemImage>
+                                    <ItemContent>
+                                        <ItemInfo>
+                                            <ItemInfoInner>
+                                                <ItemService>
+                                                    {
+                                                        categoryName[
+                                                            project.category
+                                                        ]
+                                                    }
+                                                </ItemService>
+                                                <ItemDate>
+                                                    {project.date}
+                                                </ItemDate>
+                                            </ItemInfoInner>
+                                            <Link
+                                                scroll={false}
+                                                href="/projects/[projectId]"
+                                                as={projectLink}
                                             >
-                                                więcej
-                                            </ItemLink>
-                                        </ItemLinkWrapper>
-                                    </Link>
-                                </ItemInfo>
-                                <ItemTitle>Tytuł projektu</ItemTitle>
-                                <ItemText>
-                                    Lorem ipsum dolor sit amet, consectetur
-                                    adipiscing elit. Ac tincidunt ut dictumst
-                                    urna dictum nulla. Ac tincidunt ut dictumst
-                                    urna dictum nulla. Ac tincidunt ut dictumst
-                                    urna dictum nulla.
-                                </ItemText>
-                            </ItemContent>
-                        </ProjectItem>
-                    </ProjectWrapper>
+                                                <ItemLinkWrapper>
+                                                    <ItemLink
+                                                        buttonType="TRANSPARENT"
+                                                        iconType="IconArrowRight"
+                                                        iconSize={20}
+                                                        iconActiveColor={[
+                                                            'green_hover',
+                                                        ]}
+                                                        noPadding
+                                                    >
+                                                        więcej
+                                                    </ItemLink>
+                                                </ItemLinkWrapper>
+                                            </Link>
+                                        </ItemInfo>
+                                        <ItemTitle>
+                                            {project.shortTitle}
+                                        </ItemTitle>
+                                        <ItemText>
+                                            {project.shortDescription}
+                                        </ItemText>
+                                    </ItemContent>
+                                </ProjectItem>
+                            </ProjectWrapper>
+                        );
+                    })}
                 </ProjectsList>
                 <Link scroll={false} href="/projects" as="/projects">
                     <ButtonWrapper>

@@ -18,7 +18,9 @@ const Footer: React.FC = () => {
             <FooterWrapper>
                 <FooterCopyrights>© 2020 AI Embassy</FooterCopyrights>
                 <FooterLinks>
-                    <FooterLink href="#">Polityka prywatności</FooterLink>
+                    <FooterLink href="/docs/polityka_prywatnosci.pdf">
+                        Polityka prywatności
+                    </FooterLink>
                     <FooterLink href="/docs/statut_aiembassy.pdf">
                         Statut fundacji
                     </FooterLink>

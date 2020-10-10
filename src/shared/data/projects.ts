@@ -1,38 +1,13 @@
 export default {
-    'project-1': {
-        id: 1,
-        title: 'Tytuł projektu 1',
+    smogspots: {
+        shortTitle: 'SmogSpots',
+        shortDescription:
+            'Zwycięski projekt Smogathonu 2019 w kategorii "Identyfikacja źródeł zanieczyszczeń". Metoda oparta o analizę danych do detekcji źródeł smogu.',
+        category: 'research',
+        imagePath: '/images/hero_image_1.png',
+        date: 'Styczeń 2020',
+        title: 'SmogSpots',
         text:
-            ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel facilisis sed cursus egestas scelerisque ut tellus vitae. Morbi consequat ullamcorper sit vulputate donec.',
-    },
-    'project-2': {
-        id: 2,
-        title: 'Tytuł projektu 2',
-        text:
-            ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel facilisis sed cursus egestas scelerisque ut tellus vitae. Morbi consequat ullamcorper sit vulputate donec.',
-    },
-    'project-3': {
-        id: 3,
-        title: 'Tytuł projektu 3',
-        text:
-            ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel facilisis sed cursus egestas scelerisque ut tellus vitae. Morbi consequat ullamcorper sit vulputate donec.',
-    },
-    'project-4': {
-        id: 4,
-        title: 'Tytuł projektu 4',
-        text:
-            ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel facilisis sed cursus egestas scelerisque ut tellus vitae. Morbi consequat ullamcorper sit vulputate donec.',
-    },
-    'project-5': {
-        id: 5,
-        title: 'Tytuł projektu 5',
-        text:
-            ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel facilisis sed cursus egestas scelerisque ut tellus vitae. Morbi consequat ullamcorper sit vulputate donec.',
-    },
-    'project-6': {
-        id: 6,
-        title: 'Tytuł projektu 6',
-        text:
-            ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel facilisis sed cursus egestas scelerisque ut tellus vitae. Morbi consequat ullamcorper sit vulputate donec.',
+            'Wiele krajów Europy Środkowo-Wschodniej cierpi na problem smogu. Istnieje wiele źródeł tego problemu, a dotychczasowe zmiany legislacyjne nie były w stanie go rozwiązać. W naszym regionie najbardziej problematyczna zdaje się być tzw. niska emisja, czyli wykorzystywanie niskiej jakości paliwa do ogrzewania domów. Pomimo wsparcia finansowego w wymianie pieców, stężenie rakotwórczego benzopirenu oraz pyłów zawieszonych każdej zimy osiąga bardzo wysokie poziomy. SmogSpots to zwycięski projekt Smogathonu 2019, stworzony przez ekipę “AI Embassy” - fundacji zajmującej się edukacją w zakresie AI. Celem projektu jest wykrywanie pojedynczych domostw, które produkują smog, aby pomóc ich właścicielom pozbyć się tego problemu. Proponujemy podejście z zakresu wytłumaczalnej sztucznej inteligencji, które pozwala wykryć źródła zanieczyszczeń, a także sposób na wykorzystanie danych satelitarnych w tym samym celu.',
     },
 };

@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers';
 import * as yup from 'yup';
 import { LinkText } from '@shared/styles/typography.styled';
+import { FooterLink } from '@components/Footer/Footer.styled';
 import {
     FormWrapper,
     Form,
@@ -85,7 +86,12 @@ const FormComponent = () => {
                     <ButtonForm buttonType="PRIMARY">Wyślij</ButtonForm>
                     <PrivatePolicy>
                         Klikając wyślij zgdzasz się z{' '}
-                        <LinkText fontSize="s">Polityką Prywatności</LinkText>{' '}
+                        <LinkText
+                            href="/docs/polityka_prywatnosci.pdf"
+                            fontSize="s"
+                        >
+                            Polityką Prywatności
+                        </LinkText>{' '}
                         AI Embassy.
                     </PrivatePolicy>
                 </ButtonWrapper>
