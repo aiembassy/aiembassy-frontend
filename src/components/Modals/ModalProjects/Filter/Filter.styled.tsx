@@ -4,7 +4,9 @@ export const FilterWrapper = styled.div`
     display: flex;
 `;
 
-export const FilterInput = styled.input``;
+export const FilterInput = styled.input`
+    display: none;
+`;
 
 export const FilterLabel = styled.label`
     align-items: center;
