@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
             </Header>
             <Container>
                 <HeroTitle as="h1">
-                    Fundacja AI Embassy wspiera rewolucję AI w Polsce.
+                    Fundacja AI Embassy wspiera rewolucję AI w Polsce
                 </HeroTitle>
                 <HeroSubtitle>
                     Zobacz, jak możemy Ci pomóc zostać częścią nadciągającej

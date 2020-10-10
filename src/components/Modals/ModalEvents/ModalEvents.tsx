@@ -17,9 +17,8 @@ const ModalEvents: React.FC<IProps> = ({ smallModal }) => {
             <ModalInfo>
                 <ModalTitle>Wydarzenia i konferencje</ModalTitle>
                 <ModalDescription>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel
-                    facilisis sed cursus egestas scelerisque ut tellus vitae.
-                    Morbi consequat ullamcorper sit vulputate donec.
+                    Na tych wydarzeniach można było bądź będzie można spotkać
+                    kogoś z nas.
                 </ModalDescription>
             </ModalInfo>
             <ModalContent>

@@ -1,12 +1,7 @@
 export default {
-    'szkolenie-1': {
-        title: 'Nazwa szkolenia 1',
+    'wstep-do-ai': {
+        title: 'Wstęp do sztucznej inteligencji',
         text:
-            ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel facilisis sed cursus egestas scelerisque ut tellus vitae. Morbi consequat ullamcorper sit vulputate donec.',
-    },
-    'szkolenie-2': {
-        title: 'Nazwa szkolenia 2',
-        text:
-            ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel facilisis sed cursus egestas scelerisque ut tellus vitae. Morbi consequat ullamcorper sit vulputate donec.',
+            'Sztuczna inteligencja zrewolucjonizuje świat, który znamy. Wierzymy, że każdy z nas powinien znać jej podstawy i możliwe zagrożenia.',
     },
 };

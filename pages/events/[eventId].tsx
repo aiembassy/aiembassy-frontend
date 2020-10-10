@@ -4,6 +4,7 @@ import Layout from '@components/_layout/Layout.view';
 import Modal from '@components/_universal/Modal/Modal';
 import ModalArticle from '@components/Modals/ModalArticle/ModalArticle';
 import events from '@shared/data/events';
+import siteConfig from '@shared/data/siteConfig';
 
 const EventPage = ({ eventId }) => {
     const router = useRouter();
@@ -17,8 +18,8 @@ const EventPage = ({ eventId }) => {
         <Layout
             meta={{
                 title: `AI Embassy - ${data.title}`,
-                description: 'AI Embassy',
-                keywords: 'AI, AI Embassy',
+                description: siteConfig.metaDescription,
+                keywords: siteConfig.metaKeywords,
             }}
         >
             <Modal isBackLink modalType="event">

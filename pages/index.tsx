@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '@components/_layout/Layout.view';
 import { motion } from 'framer-motion';
+import siteConfig from '@shared/data/siteConfig';
 
 const Home = () => {
     return (
@@ -11,9 +12,9 @@ const Home = () => {
         >
             <Layout
                 meta={{
-                    title: 'AI Embassy - Homepage',
-                    description: 'AI Embassy',
-                    keywords: 'AI, AI Embassy',
+                    title: 'AI Embassy - Supporting AI Revolution',
+                    description: siteConfig.metaDescription,
+                    keywords: siteConfig.metaKeywords,
                 }}
             />
         </motion.div>

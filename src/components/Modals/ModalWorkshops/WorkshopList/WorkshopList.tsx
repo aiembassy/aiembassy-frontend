@@ -12,7 +12,7 @@ import {
 } from './WorkshopList.styled';
 
 const WorkshopList = () => {
-    const itemsList = new Array(15).fill(1);
+    const itemsList = new Array(1).fill(1);
 
     return (
         <TableContent>
@@ -20,22 +20,25 @@ const WorkshopList = () => {
                 {itemsList.map((item, index) => (
                     <TableRow key={`index_${index}`}>
                         <CellWrapper>
-                            <WorkshopName>AI dla programistów</WorkshopName>
+                            <WorkshopName>
+                                Wstęp do sztucznej inteligencji
+                            </WorkshopName>
                         </CellWrapper>
                         <CellWrapper>
                             <DefaultText>
-                                Implementacja rozwiązań sztucznej inteligencji w
-                                systemach opartych o modelowanie danych
+                                Sztuczna inteligencja zrewolucjonizuje świat,
+                                który znamy. Wierzymy, że każdy z nas powinien
+                                znać jej podstawy i możliwe zagrożenia.
                             </DefaultText>
                         </CellWrapper>
                         <CellWrapper>
-                            <DefaultText>Nazwa kategorii</DefaultText>
+                            <DefaultText>Podstawy AI</DefaultText>
                         </CellWrapper>
                         <CellWrapper>
                             <Link
                                 scroll={false}
                                 href="/workshops/[workshopId]"
-                                as="/workshops/szkolenie-2"
+                                as="/workshops/wstep-do-ai"
                             >
                                 <ButtonWrapper>
                                     <ButtonLink

@@ -27,8 +27,8 @@ const Menu: React.FC = () => {
             <ScrollspyNav
                 scrollTargetIds={[
                     'about',
-                    'projects',
-                    'team',
+                    // 'projects',
+                    // 'team',
                     'media',
                     'conferences',
                     'contact',
@@ -42,12 +42,12 @@ const Menu: React.FC = () => {
                     <MenuItem>
                         <MenuLink href="#about">O fundacji</MenuLink>
                     </MenuItem>
-                    <MenuItem>
-                        <MenuLink href="#projects">Projekty</MenuLink>
-                    </MenuItem>
-                    <MenuItem>
-                        <MenuLink href="#team">Zespół</MenuLink>
-                    </MenuItem>
+                    {/* <MenuItem> */}
+                    {/*    <MenuLink href="#projects">Projekty</MenuLink> */}
+                    {/* </MenuItem> */}
+                    {/* <MenuItem> */}
+                    {/*    <MenuLink href="#team">Zespół</MenuLink> */}
+                    {/* </MenuItem> */}
                     <MenuItem>
                         <MenuLink href="#media">Media</MenuLink>
                     </MenuItem>
