@@ -22,7 +22,7 @@ export const filtersList = Object.entries(projects).map(
             category: [categoryName[project.category]],
             imageLink: project.imagePath,
             title: project.title,
-            text: project.text,
+            text: project.shortDescription,
             date: project.date,
             link: `/projects/${projectId}`,
         };
