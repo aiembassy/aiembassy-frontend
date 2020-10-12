@@ -18,7 +18,13 @@ const ModalArticle: React.FC<IProps> = ({ data }) => {
         <>
             <ModalInfo>
                 <ModalTitle>{data.title}</ModalTitle>
-                <ModalDescription>{data.text}</ModalDescription>
+                <ModalDescription>
+                    <div
+                        dangerouslySetInnerHTML={{
+                            __html: data.text,
+                        }}
+                    />
+                </ModalDescription>
             </ModalInfo>
             <ModalContent />
         </>
