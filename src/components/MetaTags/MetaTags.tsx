@@ -8,6 +8,20 @@ type IProps = {
 
 const MetaTags: React.FC<IProps> = ({ meta }) => (
     <Head>
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=UA-158334443-1"
+        />
+        <script
+            dangerouslySetInnerHTML={{
+                __html: `
+                 window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'UA-158334443-1');
+                `,
+            }}
+        />
         {meta?.title && <title>{meta.title}</title>}
         {meta?.description && (
             <meta name="description" content={meta.description} />
