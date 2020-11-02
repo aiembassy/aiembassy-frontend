@@ -38,7 +38,7 @@ const Hero: React.FC = () => {
                     <Menu />
                 </Container>
             </Header>
-            <Container>
+            <Container className="hero-inner">
                 <HeroTitle as="h1">
                     Fundacja AI Embassy wspiera rewolucję AI w Polsce
                 </HeroTitle>

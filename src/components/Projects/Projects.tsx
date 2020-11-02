@@ -3,6 +3,7 @@ import { Container } from '@shared/styles/global.styled';
 import Button from '@components/_universal/Button/Button';
 import Link from 'next/link';
 import projects from '@shared/data/projects';
+import { categoryName } from '@shared/data/projectsFilter';
 import {
     SectionTitle,
     ProjectsWrapper,
@@ -22,7 +23,6 @@ import {
     ItemLink,
     ButtonWrapper,
 } from './Projects.styled';
-import {categoryName} from "@shared/data/projectsFilter";
 
 const Projects: React.FC = () => {
     return (
@@ -35,54 +35,152 @@ const Projects: React.FC = () => {
                         const projectLink = `/projects/${projectId}`;
 
                         return (
-                            <ProjectWrapper key={projectId}>
-                                <ProjectItem>
-                                    <ItemImage>
-                                        <Image src={project.imagePath} />
-                                    </ItemImage>
-                                    <ItemContent>
-                                        <ItemInfo>
-                                            <ItemInfoInner>
-                                                <ItemService>
-                                                    {
-                                                        categoryName[
-                                                            project.category
-                                                        ]
-                                                    }
-                                                </ItemService>
-                                                <ItemDate>
-                                                    {project.date}
-                                                </ItemDate>
-                                            </ItemInfoInner>
-                                            <Link
-                                                scroll={false}
-                                                href="/projects/[projectId]"
-                                                as={projectLink}
-                                            >
-                                                <ItemLinkWrapper>
-                                                    <ItemLink
-                                                        buttonType="TRANSPARENT"
-                                                        iconType="IconArrowRight"
-                                                        iconSize={20}
-                                                        iconActiveColor={[
-                                                            'green_hover',
-                                                        ]}
-                                                        noPadding
-                                                    >
-                                                        więcej
-                                                    </ItemLink>
-                                                </ItemLinkWrapper>
-                                            </Link>
-                                        </ItemInfo>
-                                        <ItemTitle>
-                                            {project.shortTitle}
-                                        </ItemTitle>
-                                        <ItemText>
-                                            {project.shortDescription}
-                                        </ItemText>
-                                    </ItemContent>
-                                </ProjectItem>
-                            </ProjectWrapper>
+                            <React.Fragment key={projectId}>
+                                <ProjectWrapper>
+                                    <ProjectItem>
+                                        <ItemImage>
+                                            <Image src={project.imagePath} />
+                                        </ItemImage>
+                                        <ItemContent>
+                                            <ItemInfo>
+                                                <ItemInfoInner>
+                                                    <ItemService>
+                                                        {
+                                                            categoryName[
+                                                                project.category
+                                                            ]
+                                                        }
+                                                    </ItemService>
+                                                    <ItemDate>
+                                                        {project.date}
+                                                    </ItemDate>
+                                                </ItemInfoInner>
+                                                <Link
+                                                    scroll={false}
+                                                    href="/projects/[projectId]"
+                                                    as={projectLink}
+                                                >
+                                                    <ItemLinkWrapper>
+                                                        <ItemLink
+                                                            buttonType="TRANSPARENT"
+                                                            iconType="IconArrowRight"
+                                                            iconSize={20}
+                                                            iconActiveColor={[
+                                                                'green_hover',
+                                                            ]}
+                                                            noPadding
+                                                        >
+                                                            więcej
+                                                        </ItemLink>
+                                                    </ItemLinkWrapper>
+                                                </Link>
+                                            </ItemInfo>
+                                            <ItemTitle>
+                                                {project.shortTitle}
+                                            </ItemTitle>
+                                            <ItemText>
+                                                {project.shortDescription}
+                                            </ItemText>
+                                        </ItemContent>
+                                    </ProjectItem>
+                                </ProjectWrapper>
+                                {/* <ProjectWrapper key={projectId}> */}
+                                {/*    <ProjectItem> */}
+                                {/*        <ItemImage> */}
+                                {/*            <Image src={project.imagePath} /> */}
+                                {/*        </ItemImage> */}
+                                {/*        <ItemContent> */}
+                                {/*            <ItemInfo> */}
+                                {/*                <ItemInfoInner> */}
+                                {/*                    <ItemService> */}
+                                {/*                        { */}
+                                {/*                            categoryName[ */}
+                                {/*                                project.category */}
+                                {/*                            ] */}
+                                {/*                        } */}
+                                {/*                    </ItemService> */}
+                                {/*                    <ItemDate> */}
+                                {/*                        {project.date} */}
+                                {/*                    </ItemDate> */}
+                                {/*                </ItemInfoInner> */}
+                                {/*                <Link */}
+                                {/*                    scroll={false} */}
+                                {/*                    href="/projects/[projectId]" */}
+                                {/*                    as={projectLink} */}
+                                {/*                > */}
+                                {/*                    <ItemLinkWrapper> */}
+                                {/*                        <ItemLink */}
+                                {/*                            buttonType="TRANSPARENT" */}
+                                {/*                            iconType="IconArrowRight" */}
+                                {/*                            iconSize={20} */}
+                                {/*                            iconActiveColor={[ */}
+                                {/*                                'green_hover', */}
+                                {/*                            ]} */}
+                                {/*                            noPadding */}
+                                {/*                        > */}
+                                {/*                            więcej */}
+                                {/*                        </ItemLink> */}
+                                {/*                    </ItemLinkWrapper> */}
+                                {/*                </Link> */}
+                                {/*            </ItemInfo> */}
+                                {/*            <ItemTitle> */}
+                                {/*                {project.shortTitle} */}
+                                {/*            </ItemTitle> */}
+                                {/*            <ItemText> */}
+                                {/*                {project.shortDescription} */}
+                                {/*            </ItemText> */}
+                                {/*        </ItemContent> */}
+                                {/*    </ProjectItem> */}
+                                {/* </ProjectWrapper> */}
+                                {/* <ProjectWrapper key={projectId}> */}
+                                {/*    <ProjectItem> */}
+                                {/*        <ItemImage> */}
+                                {/*            <Image src={project.imagePath} /> */}
+                                {/*        </ItemImage> */}
+                                {/*        <ItemContent> */}
+                                {/*            <ItemInfo> */}
+                                {/*                <ItemInfoInner> */}
+                                {/*                    <ItemService> */}
+                                {/*                        { */}
+                                {/*                            categoryName[ */}
+                                {/*                                project.category */}
+                                {/*                            ] */}
+                                {/*                        } */}
+                                {/*                    </ItemService> */}
+                                {/*                    <ItemDate> */}
+                                {/*                        {project.date} */}
+                                {/*                    </ItemDate> */}
+                                {/*                </ItemInfoInner> */}
+                                {/*                <Link */}
+                                {/*                    scroll={false} */}
+                                {/*                    href="/projects/[projectId]" */}
+                                {/*                    as={projectLink} */}
+                                {/*                > */}
+                                {/*                    <ItemLinkWrapper> */}
+                                {/*                        <ItemLink */}
+                                {/*                            buttonType="TRANSPARENT" */}
+                                {/*                            iconType="IconArrowRight" */}
+                                {/*                            iconSize={20} */}
+                                {/*                            iconActiveColor={[ */}
+                                {/*                                'green_hover', */}
+                                {/*                            ]} */}
+                                {/*                            noPadding */}
+                                {/*                        > */}
+                                {/*                            więcej */}
+                                {/*                        </ItemLink> */}
+                                {/*                    </ItemLinkWrapper> */}
+                                {/*                </Link> */}
+                                {/*            </ItemInfo> */}
+                                {/*            <ItemTitle> */}
+                                {/*                {project.shortTitle} */}
+                                {/*            </ItemTitle> */}
+                                {/*            <ItemText> */}
+                                {/*                {project.shortDescription} */}
+                                {/*            </ItemText> */}
+                                {/*        </ItemContent> */}
+                                {/*    </ProjectItem> */}
+                                {/* </ProjectWrapper> */}
+                            </React.Fragment>
                         );
                     })}
                 </ProjectsList>
