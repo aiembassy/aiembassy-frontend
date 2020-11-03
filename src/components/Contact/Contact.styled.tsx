@@ -161,9 +161,9 @@ export const InfoBox = styled.div`
         }
 
         @media (max-width: 767px) {
-            margin-top: 750px;
             padding-left: 0;
             position: absolute;
+            top: 440px;
             width: 100%;
         }
 

@@ -6,18 +6,18 @@ export const GlobalStyled = createGlobalStyle`
     }
 
     html {
-        height: 100%;
         overflow-x: hidden !important;
     }
     
     body {
         background: #F6F6F6;
+        font-family: 'Open Sans', sans-serif;
         height: 100%;
         margin: 0;
-        font-family: 'Open Sans', sans-serif;
+        //overflow-x: hidden !important;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        //overflow: hidden;
+        overflow-x: hidden;
     }
     
     code {

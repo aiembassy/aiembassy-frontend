@@ -108,7 +108,7 @@ export const MenuIcon = styled.div<{
     height: 25px;
     margin: auto;
     position: absolute;
-    right: 50px;
+    right: 20px;
     top: 35px;
     width: 30px;
     z-index: 999;
@@ -222,7 +222,7 @@ export const MobileMenuWrapper = styled(MenuWrapper)`
     flex-direction: column;
     height: 100vh;
     justify-content: center;
-    padding: 0 20px;
+    padding: 0;
     margin: 0;
 `;
 

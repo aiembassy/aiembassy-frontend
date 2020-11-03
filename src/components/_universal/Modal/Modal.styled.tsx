@@ -88,6 +88,7 @@ export const IconClose = styled(Button)`
     position: absolute;
     right: 45px;
     top: 30px;
+    z-index: 9;
 `;
 
 export const ModalInner = styled.div`
