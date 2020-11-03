@@ -12,7 +12,7 @@ export const HeroWrapper = styled.div`
     width: 100%;
 
     @media (max-width: 767px) {
-        height: 95vh;
+        height: 500px;
     }
 
     .hero-inner {
