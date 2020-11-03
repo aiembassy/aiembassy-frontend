@@ -10,6 +10,29 @@ export const HeroWrapper = styled.div`
     height: 665px;
     padding-top: 100px;
     width: 100%;
+
+    @media (max-width: 767px) {
+        height: 95vh;
+    }
+
+    .hero-inner {
+        @media (max-width: 767px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: calc(100% - 50px);
+        }
+    }
+`;
+
+export const HeroInner = styled.div`
+    @media (max-width: 767px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        margin-top: -50px;
+    }
 `;
 
 export const Header = styled.div`
@@ -19,7 +42,7 @@ export const Header = styled.div`
     top: 0;
     transition: all ${({ theme }) => theme.transitions.default}s;
     width: 100%;
-    z-index: 99;
+    z-index: 9999;
 
     &.scrolling {
         background: ${({ theme }) => theme.colors.green_hover};
@@ -41,6 +64,15 @@ export const HeroTitle = styled(Title)`
     margin-bottom: 15px;
     margin-top: 100px;
     max-width: 750px;
+
+    @media (max-width: 991px) {
+        font-size: ${({ theme }) => theme.fontSizes.section_title}px;
+        margin-top: 25px;
+    }
+
+    @media (max-width: 767px) {
+        font-size: ${({ theme }) => theme.fontSizes.hero_subtitle}px;
+    }
 `;
 
 export const HeroSubtitle = styled(DefaultText)`
@@ -48,6 +80,10 @@ export const HeroSubtitle = styled(DefaultText)`
     font-size: ${({ theme }) => theme.fontSizes.hero_subtitle}px;
     margin-bottom: 40px;
     max-width: 650px;
+
+    @media (max-width: 767px) {
+        font-size: ${({ theme }) => theme.fontSizes.xl}px;
+    }
 `;
 
 export const ButtonWrapper = styled.div`
@@ -59,6 +95,14 @@ export const CircleGreen = styled(IconManager)`
     position: absolute;
     right: 600px;
     z-index: 9;
+
+    @media (max-width: 991px) {
+        bottom: -10px;
+    }
+
+    @media (max-width: 767px) {
+        display: none;
+    }
 `;
 
 export const CircleWhite = styled(IconManager)`
@@ -66,6 +110,10 @@ export const CircleWhite = styled(IconManager)`
     position: absolute;
     right: 100px;
     z-index: 9;
+
+    @media (max-width: 767px) {
+        display: none;
+    }
 `;
 
 export const HeroSmallImage = styled.div`
@@ -77,6 +125,10 @@ export const HeroSmallImage = styled.div`
     position: absolute;
     right: 0;
     width: 130px;
+
+    @media (max-width: 767px) {
+        display: none;
+    }
 `;
 
 export const HeroMiddleImage = styled.div`
@@ -89,6 +141,14 @@ export const HeroMiddleImage = styled.div`
     right: 450px;
     width: 225px;
     z-index: 9;
+
+    @media (max-width: 991px) {
+        bottom: 10px;
+    }
+
+    @media (max-width: 767px) {
+        display: none;
+    }
 `;
 
 export const HeroBigImage = styled.div`
@@ -100,4 +160,13 @@ export const HeroBigImage = styled.div`
     position: absolute;
     right: 140px;
     width: 355px;
+
+    @media (max-width: 991px) {
+        bottom: -30px;
+        height: 240px;
+    }
+
+    @media (max-width: 767px) {
+        display: none;
+    }
 `;

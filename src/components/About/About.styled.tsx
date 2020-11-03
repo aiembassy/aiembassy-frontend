@@ -12,11 +12,24 @@ export const globalBoxStyles = css`
 export const AboutWrapper = styled.div`
     padding-top: 125px;
     position: relative;
+
+    @media (max-width: 991px) {
+        padding-top: 60px;
+    }
+
+    @media (max-width: 767px) {
+        padding-top: 45px;
+    }
 `;
 
 export const SectionTitle = styled(Title)`
     line-height: 1.65;
     margin-bottom: 15px;
+
+    @media (max-width: 767px) {
+        font-size: ${({ theme }) => theme.fontSizes.modal_title}px;
+        margin-top: 0;
+    }
 `;
 
 export const SectionDescription = styled(DefaultText)`
@@ -24,18 +37,31 @@ export const SectionDescription = styled(DefaultText)`
     line-height: 1.65;
     margin-bottom: 70px;
     max-width: 750px;
+
+    @media (max-width: 767px) {
+        position: relative;
+        z-index: 9;
+    }
 `;
 
 export const BoxList = styled.div`
     align-items: flex-end;
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 991px) {
+        flex-direction: column;
+    }
 `;
 
 export const BoxListInner = styled.div`
     display: flex;
     flex-direction: column;
     width: calc(50% - 15px);
+
+    @media (max-width: 991px) {
+        width: 100%;
+    }
 `;
 
 export const BoxItemSmall = styled.div`
@@ -45,8 +71,16 @@ export const BoxItemSmall = styled.div`
     position: relative;
     z-index: 9;
 
+    @media (max-width: 575px) {
+        padding: 35px 35px 45px 35px;
+    }
+
     &:last-child {
         margin-bottom: 0;
+
+        @media (max-width: 991px) {
+            margin-bottom: 30px;
+        }
     }
 `;
 
@@ -55,6 +89,10 @@ export const BoxItemBig = styled.div`
     padding: 75px 75px 90px 55px;
     position: relative;
     z-index: 9;
+
+    @media (max-width: 575px) {
+        padding: 35px 35px 45px 35px;
+    }
 `;
 
 export const BoxTitle = styled(Subtitle)`
@@ -85,18 +123,30 @@ export const SummaryText = styled(DefaultText)`
     margin: 125px auto 40px;
     max-width: 750px;
     text-align: center;
+
+    @media (max-width: 575px) {
+        margin-top: 50px;
+    }
 `;
 
 export const IconA = styled(IconManager)`
     top: 470px;
     left: -100px;
     position: absolute;
+
+    @media (max-width: 767px) {
+        top: 670px;
+    }
 `;
 
 export const IconI = styled(IconManager)`
     bottom: -80px;
     left: 395px;
     position: absolute;
+
+    @media (max-width: 767px) {
+        left: 150px;
+    }
 `;
 
 export const IconE = styled(IconManager)`

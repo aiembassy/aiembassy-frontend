@@ -6,6 +6,17 @@ export const TableContent = styled.div`
     flex-direction: column;
     height: calc(100vh - 300px);
     width: calc(100% + 50px);
+
+    @media (max-width: 767px) {
+        display: inline-flex;
+    }
+
+    // remove scroll x in table content
+    .ps {
+        @media (max-width: 767px) {
+            overflow: inherit !important;
+        }
+    }
 `;
 
 export const TableRow = styled.div`
@@ -17,14 +28,30 @@ export const TableRow = styled.div`
     &:last-child {
         padding-bottom: 50px;
     }
+
+    @media (max-width: 767px) {
+        display: inline-flex;
+    }
 `;
 
 export const CellWrapper = styled.div`
     flex: 1;
     margin-right: 30px;
+
+    @media (max-width: 767px) {
+        width: 165px;
+    }
+
     &:nth-child(2) {
         flex: unset;
         width: 265px;
+    }
+
+    &:nth-child(3) {
+        @media (max-width: 767px) {
+            margin-right: 0;
+            width: 165px;
+        }
     }
 
     &:last-child {
@@ -39,4 +66,9 @@ export const WorkshopName = styled(DefaultText)`
 export const ButtonWrapper = styled.div`
     display: flex;
     justify-content: center;
+
+    .button-link {
+        min-width: auto !important;
+        width: 120px !important;
+    }
 `;

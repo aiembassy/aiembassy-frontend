@@ -7,15 +7,32 @@ export const FooterWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 40px 0;
+
+    @media (max-width: 1199px) {
+        justify-content: space-around;
+    }
+
+    @media (max-width: 767px) {
+        align-items: flex-start;
+        flex-direction: column;
+    }
 `;
 
 export const FooterCopyrights = styled(DefaultText)`
     font-size: ${({ theme }) => theme.fontSizes.m}px;
     margin-bottom: 0;
+
+    @media (max-width: 767px) {
+        margin-bottom: 15px;
+    }
 `;
 
 export const FooterLinks = styled.div`
     display: flex;
+
+    @media (max-width: 767px) {
+        margin-bottom: 20px;
+    }
 `;
 
 export const FooterLink = styled.a`

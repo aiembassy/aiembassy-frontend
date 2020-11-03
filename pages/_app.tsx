@@ -17,6 +17,7 @@ import Opinions from '@components/Opinions/Opinions';
 import Events from '@components/Events/Events';
 import Contact from '@components/Contact/Contact';
 import Footer from '@components/Footer/Footer';
+import Support from '@components/Support/Support';
 
 const App = ({ Component, pageProps, router }: AppProps) => {
     return (
@@ -34,7 +35,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
             <Events />
             <Contact />
             <Footer />
-            <div style={{ zIndex: 1000, position: 'relative' }}>
+            <div style={{ zIndex: 9999, position: 'relative' }}>
                 <AnimatePresence>
                     <Component key={router.route} {...pageProps} />
                 </AnimatePresence>
