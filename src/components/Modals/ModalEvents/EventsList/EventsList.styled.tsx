@@ -5,7 +5,7 @@ import { ItemLink } from '@components/Projects/Projects.styled';
 export const EventsListWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 300px);
+    height: calc(100vh - 350px);
     width: calc(100% + 50px);
 
     @-moz-document url-prefix() {
