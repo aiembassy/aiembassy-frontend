@@ -26,7 +26,7 @@ const ModalArticle: React.FC<IProps> = ({ data }) => {
                     />
                 </ModalDescription>
             </ModalInfo>
-            <ModalContent />
+            <ModalContent isEmptyComponent />
         </>
     );
 };
