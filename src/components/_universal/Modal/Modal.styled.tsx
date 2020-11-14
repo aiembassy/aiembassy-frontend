@@ -6,12 +6,19 @@ import Button from '../Button/Button';
 export const linkStyleCss = css`
     color: ${({ theme }) => theme.colors.green};
     cursor: pointer;
-    display: inline;
+    display: inline-block;
     font-size: ${({ theme }) => theme.fontSizes.l}px;
     position: relative;
     text-decoration: underline;
     text-underline-position: under;
     transition: all ${({ theme }) => theme.transitions.default}s;
+
+    @media (max-width: 767px) {
+        display: block;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
 
     &:hover {
         color: ${({ theme }) => theme.colors.green_hover};
@@ -89,6 +96,10 @@ export const IconClose = styled(Button)`
     right: 45px;
     top: 30px;
     z-index: 9;
+
+    @media (max-width: 1199px) {
+        right: 15px;
+    }
 `;
 
 export const ModalInner = styled.div`
@@ -110,7 +121,7 @@ export const ModalInfo = styled.div`
     }
 `;
 
-export const ModalContent = styled.div`
+export const ModalContent = styled.div<{ isEmptyComponent?: boolean }>`
     background: ${({ theme }) => theme.colors.bg};
     flex: 1;
     padding: 40px 100px 0;
@@ -122,13 +133,14 @@ export const ModalContent = styled.div`
     @media (max-width: 767px) {
         min-height: 100%;
         padding-bottom: 30px;
+        ${({ isEmptyComponent }) => isEmptyComponent && `display: none`};
     }
 `;
 
 export const ModalTitle = styled(Title)`
     font-size: ${({ theme }) => theme.fontSizes.modal_title}px;
     margin-bottom: 10px;
-    margin-top: 0;
+    margin-top: 20px;
     line-height: 1.45;
 
     @media (max-width: 767px) {

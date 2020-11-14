@@ -6,7 +6,9 @@ export const GlobalStyled = createGlobalStyle`
     }
 
     html {
-        overflow-x: hidden !important;
+        @media (max-width: 1199px) {
+            overflow-x: hidden;
+        }      
     }
     
     body {
@@ -14,10 +16,12 @@ export const GlobalStyled = createGlobalStyle`
         font-family: 'Open Sans', sans-serif;
         height: 100%;
         margin: 0;
-        //overflow-x: hidden !important;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        overflow-x: hidden;
+        
+        @media (max-width: 1199px) {
+            overflow-x: hidden !important;
+        }     
     }
     
     code {

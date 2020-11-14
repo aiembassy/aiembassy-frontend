@@ -20,23 +20,29 @@ export const CellTitleWrapper = styled.div`
     margin-right: 30px;
 
     @media (max-width: 767px) {
-        width: 165px;
     }
 
     &:nth-child(2) {
         flex: unset;
         width: 265px;
+
+        @media (max-width: 767px) {
+            display: none;
+        }
     }
 
     &:nth-child(3) {
         @media (max-width: 767px) {
-            margin-right: 0;
-            width: 165px;
+            display: none;
         }
     }
 
     &:last-child {
         margin-right: 0;
+
+        @media (max-width: 767px) {
+            display: none;
+        }
     }
 `;
 
