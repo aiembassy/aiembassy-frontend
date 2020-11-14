@@ -8,11 +8,26 @@ export const ProjectsWrapper = styled.div`
     padding-bottom: 140px;
     padding-top: 150px;
     position: relative;
+
+    @media (max-width: 991px) {
+        padding-bottom: 60px;
+        padding-top: 60px;
+    }
+
+    @media (max-width: 767px) {
+        padding-bottom: 45px;
+        padding-top: 45px;
+    }
 `;
 
 export const SectionTitle = styled(Title)`
     line-height: 1.65;
     margin-bottom: 50px;
+
+    @media (max-width: 767px) {
+        font-size: ${({ theme }) => theme.fontSizes.modal_title}px;
+        margin-bottom: 30px;
+    }
 `;
 
 export const ProjectsList = styled.div`
@@ -23,7 +38,6 @@ export const ProjectsList = styled.div`
 export const ProjectWrapper = styled.div`
     display: flex;
     margin-bottom: 25px;
-
     width: 100%;
 
     &:nth-child(2) {
@@ -32,7 +46,10 @@ export const ProjectWrapper = styled.div`
 
     &:nth-child(3) {
         justify-content: center;
-        margin-bottom: 60px;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
     }
 `;
 
@@ -43,8 +60,19 @@ export const ProjectItem = styled.div`
     box-shadow: 0 0 28px rgba(9, 90, 90, 0.1);
     display: flex;
     min-height: 240px;
+    position: relative;
     transition: all ${({ theme }) => theme.transitions.default}s;
     width: calc(100% - 200px);
+
+    @media (max-width: 991px) {
+        width: calc(100% - 50px);
+    }
+
+    @media (max-width: 767px) {
+        flex-direction: column;
+        padding-bottom: 30px;
+        width: 100%;
+    }
 
     &:hover {
         box-shadow: 0 0 28px rgba(9, 90, 90, 0.25);
@@ -56,6 +84,10 @@ export const ItemImage = styled.div`
     height: 240px;
     overflow: hidden;
     width: 240px;
+
+    @media (max-width: 767px) {
+        width: 100%;
+    }
 `;
 
 export const Image = styled.img`
@@ -100,7 +132,7 @@ export const ItemDate = styled(DefaultText)`
         height: 4px;
         left: -16px;
         position: absolute;
-        top: 6px;
+        top: 9px;
         width: 4px;
     }
 `;
@@ -123,6 +155,12 @@ export const ItemLink = styled(ButtonLink)`
 
     &:hover {
         color: ${({ theme }) => theme.colors.green_hover};
+    }
+
+    @media (max-width: 767px) {
+        bottom: 15px;
+        right: 15px;
+        position: absolute;
     }
 `;
 
@@ -147,4 +185,9 @@ export const ItemText = styled(DefaultText)`
 export const ButtonWrapper = styled.div`
     display: flex;
     justify-content: center;
+    margin-top: 60px;
+
+    @media (max-width: 767px) {
+        margin-top: 45px;
+    }
 `;

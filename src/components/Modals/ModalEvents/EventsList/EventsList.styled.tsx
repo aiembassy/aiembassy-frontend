@@ -8,10 +8,28 @@ export const EventsListWrapper = styled.div`
     height: calc(100vh - 300px);
     width: calc(100% + 50px);
 
+    @-moz-document url-prefix() {
+        & {
+            height: 100%;
+        }
+    }
+
+    @media (max-width: 767px) {
+        height: auto;
+        min-height: 100%;
+    }
+
     > div {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+    }
+
+    // remove scroll x in table content
+    .ps {
+        @media (max-width: 767px) {
+            overflow: inherit !important;
+        }
     }
 `;
 
@@ -22,19 +40,37 @@ export const Event = styled.div`
     flex-direction: column;
     height: 475px;
     margin: 50px 0 30px;
+    position: relative;
     width: calc(50% - 40px);
+
+    @media (max-width: 767px) {
+        margin-bottom: 100px;
+        width: calc(100% - 50px);
+    }
 
     &:nth-child(n + 3) {
         margin-top: -100px;
+        @media (max-width: 767px) {
+            margin-top: 0;
+        }
     }
 
     &:nth-child(2n) {
         margin-right: 50px;
         margin-top: 100px;
+
+        @media (max-width: 767px) {
+            margin-right: 0;
+            margin-top: 0;
+        }
     }
 
     &:nth-child(2) {
         margin-top: 250px;
+
+        @media (max-width: 767px) {
+            margin-top: 0;
+        }
     }
 `;
 

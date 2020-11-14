@@ -11,6 +11,21 @@ export const FilterListWrapper = styled.div`
     margin-top: 40px;
     position: relative;
     width: calc(100% + 50px);
+
+    @media (max-width: 991px) {
+        width: 100%;
+    }
+
+    @media (max-width: 767px) {
+        width: calc(100% + 50px);
+    }
+
+    // remove scroll x in table content
+    .ps {
+        @media (max-width: 767px) {
+            overflow: inherit !important;
+        }
+    }
 `;
 
 export const Card = styled('div')`
@@ -29,14 +44,19 @@ export const CardInner = styled.div`
     background: ${({ theme }) => theme.colors.white};
     border-bottom-right-radius: ${({ theme }) => theme.borderRadius.default}px;
     border-top-right-radius: ${({ theme }) => theme.borderRadius.default}px;
-    box-shadow: 0 0 28px rgba(9, 90, 90, 0.1);
+    box-shadow: 0 0 15px rgba(9, 90, 90, 0.05);
     display: flex;
     min-height: 240px;
     transition: all ${({ theme }) => theme.transitions.default}s;
     width: 100%;
 
+    @media (max-width: 767px) {
+        flex-direction: column;
+        padding-bottom: 30px;
+    }
+
     &:hover {
-        box-shadow: 0 0 28px rgba(9, 90, 90, 0.25);
+        box-shadow: 0 0 15px rgba(9, 90, 90, 0.15);
     }
 `;
 
@@ -45,6 +65,15 @@ export const CardImage = styled.div`
     height: 240px;
     overflow: hidden;
     width: 240px;
+
+    @media (max-width: 991px) {
+        height: 100%;
+    }
+
+    @media (max-width: 767px) {
+        height: 200px;
+        width: 100%;
+    }
 `;
 
 export const Image = styled.img`
@@ -109,6 +138,12 @@ export const CardLink = styled(ButtonLink)`
     text-decoration: none;
     text-transform: uppercase;
     transition: all ${({ theme }) => theme.transitions.default}s;
+
+    @media (max-width: 767px) {
+        bottom: 15px;
+        position: absolute;
+        right: 30px;
+    }
 
     &:hover {
         color: ${({ theme }) => theme.colors.green_hover};

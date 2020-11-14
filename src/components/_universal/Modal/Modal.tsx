@@ -143,7 +143,7 @@ const Modal: React.FC<IProps> = ({
                             buttonType="TRANSPARENT"
                             iconActiveColor={['green_hover']}
                             iconType="IconClose"
-                            iconSize={21}
+                            iconSize={22}
                             noPadding
                             onPress={() => handleClose()}
                         />

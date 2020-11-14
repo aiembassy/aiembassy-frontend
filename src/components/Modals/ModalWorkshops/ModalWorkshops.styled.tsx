@@ -1,16 +1,38 @@
 import styled from 'styled-components';
 import { DefaultText } from '@shared/styles/typography.styled';
 
+export const TableWrapper = styled.div`
+    @media (max-width: 767px) {
+        overflow-x: auto;
+    }
+`;
+
 export const TableHead = styled.div`
     display: flex;
+
+    @media (max-width: 767px) {
+        display: inline-flex;
+    }
 `;
 
 export const CellTitleWrapper = styled.div`
     flex: 1;
     margin-right: 30px;
+
+    @media (max-width: 767px) {
+        width: 165px;
+    }
+
     &:nth-child(2) {
         flex: unset;
         width: 265px;
+    }
+
+    &:nth-child(3) {
+        @media (max-width: 767px) {
+            margin-right: 0;
+            width: 165px;
+        }
     }
 
     &:last-child {

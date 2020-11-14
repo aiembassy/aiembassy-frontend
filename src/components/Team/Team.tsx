@@ -28,9 +28,7 @@ import {
 } from './Team.styled';
 
 const Team: React.FC = () => {
-    useLayoutEffect(() => {
-        SwiperCore.use([Navigation]);
-    }, []);
+    SwiperCore.use([Navigation]);
 
     return (
         <TeamWrapper id="team">
@@ -39,7 +37,7 @@ const Team: React.FC = () => {
                     <TeamSliderInner>
                         <SectionTitle center>Zespół</SectionTitle>
                         {/* <SliderNavigation> */}
-                        {/*    <ButtonPrev className="button-prev"> */}
+                        {/*    <ButtonPrev className="button-prev button-prev--team"> */}
                         {/*        <svg */}
                         {/*            xmlns="http://www.w3.org/2000/svg" */}
                         {/*            width="14" */}
@@ -53,7 +51,7 @@ const Team: React.FC = () => {
                         {/*            /> */}
                         {/*        </svg> */}
                         {/*    </ButtonPrev> */}
-                        {/*    <ButtonNext className="button-next"> */}
+                        {/*    <ButtonNext className="button-next button-next--team"> */}
                         {/*        <svg */}
                         {/*            xmlns="http://www.w3.org/2000/svg" */}
                         {/*            width="15" */}
@@ -71,13 +69,208 @@ const Team: React.FC = () => {
                     </TeamSliderInner>
 
                     {/* <Swiper */}
-                    {/*    spaceBetween={30} */}
-                    {/*    slidesPerView={3} */}
                     {/*    navigation={{ */}
-                    {/*        nextEl: '.button-next', */}
-                    {/*        prevEl: '.button-prev', */}
+                    {/*        nextEl: '.button-next--team', */}
+                    {/*        prevEl: '.button-prev--team', */}
+                    {/*    }} */}
+                    {/*    breakpoints={{ */}
+                    {/*        // when window width is >= 320px */}
+                    {/*        320: { */}
+                    {/*            spaceBetween: 30, */}
+                    {/*            slidesPerView: 1, */}
+                    {/*        }, */}
+
+                    {/*        // when window width is >= 768px */}
+                    {/*        768: { */}
+                    {/*            spaceBetween: 25, */}
+                    {/*            slidesPerView: 2, */}
+                    {/*        }, */}
+
+                    {/*        // when window width is >= 992px */}
+                    {/*        992: { */}
+                    {/*            spaceBetween: 30, */}
+                    {/*            slidesPerView: 2.5, */}
+                    {/*        }, */}
+
+                    {/*        // when window width is >= 1200px */}
+                    {/*        1200: { */}
+                    {/*            spaceBetween: 30, */}
+                    {/*            slidesPerView: 3, */}
+                    {/*        }, */}
                     {/*    }} */}
                     {/* > */}
+                    {/*    <SwiperSlide> */}
+                    {/*        <MemberItem> */}
+                    {/*            <MemberImage> */}
+                    {/*                <Image src="/images/kacper_lukawski.png" /> */}
+                    {/*            </MemberImage> */}
+                    {/*            <SliderContentWrapper> */}
+                    {/*                <MemberName center> */}
+                    {/*                    Kacper Łukawski */}
+                    {/*                </MemberName> */}
+                    {/*                <MemberPosition center> */}
+                    {/*                    Fundator / Prezes zarządu */}
+                    {/*                </MemberPosition> */}
+                    {/*                <MemberDescription center> */}
+                    {/*                    Lorem ipsum dolor sit amet, consectetur */}
+                    {/*                    adipiscing elit. Ac tincidunt ut */}
+                    {/*                    dictumst urna dictum nulla. */}
+                    {/*                </MemberDescription> */}
+                    {/*                <MemberSocial> */}
+                    {/*                    <SocialLink> */}
+                    {/*                        <IconManager */}
+                    {/*                            activeFill={['green_hover']} */}
+                    {/*                            name="IconMail" */}
+                    {/*                            size={27} */}
+                    {/*                        /> */}
+                    {/*                    </SocialLink> */}
+                    {/*                    <SocialLink> */}
+                    {/*                        <IconManager */}
+                    {/*                            activeFill={['green_hover']} */}
+                    {/*                            name="IconTwitter" */}
+                    {/*                            size={24} */}
+                    {/*                        /> */}
+                    {/*                    </SocialLink> */}
+                    {/*                    <SocialLink> */}
+                    {/*                        <IconManager */}
+                    {/*                            activeFill={['green_hover']} */}
+                    {/*                            name="IconLinkedIn" */}
+                    {/*                            size={20} */}
+                    {/*                        /> */}
+                    {/*                    </SocialLink> */}
+                    {/*                </MemberSocial> */}
+                    {/*            </SliderContentWrapper> */}
+                    {/*        </MemberItem> */}
+                    {/*    </SwiperSlide> */}
+                    {/*    <SwiperSlide> */}
+                    {/*        <MemberItem> */}
+                    {/*            <MemberImage> */}
+                    {/*                <Image src="/images/kacper_lukawski.png" /> */}
+                    {/*            </MemberImage> */}
+                    {/*            <SliderContentWrapper> */}
+                    {/*                <MemberName center> */}
+                    {/*                    Kacper Łukawski */}
+                    {/*                </MemberName> */}
+                    {/*                <MemberPosition center> */}
+                    {/*                    Fundator / Prezes zarządu */}
+                    {/*                </MemberPosition> */}
+                    {/*                <MemberDescription center> */}
+                    {/*                    Lorem ipsum dolor sit amet, consectetur */}
+                    {/*                    adipiscing elit. Ac tincidunt ut */}
+                    {/*                    dictumst urna dictum nulla. */}
+                    {/*                </MemberDescription> */}
+                    {/*                <MemberSocial> */}
+                    {/*                    <SocialLink> */}
+                    {/*                        <IconManager */}
+                    {/*                            activeFill={['green_hover']} */}
+                    {/*                            name="IconMail" */}
+                    {/*                            size={27} */}
+                    {/*                        /> */}
+                    {/*                    </SocialLink> */}
+                    {/*                    <SocialLink> */}
+                    {/*                        <IconManager */}
+                    {/*                            activeFill={['green_hover']} */}
+                    {/*                            name="IconTwitter" */}
+                    {/*                            size={24} */}
+                    {/*                        /> */}
+                    {/*                    </SocialLink> */}
+                    {/*                    <SocialLink> */}
+                    {/*                        <IconManager */}
+                    {/*                            activeFill={['green_hover']} */}
+                    {/*                            name="IconLinkedIn" */}
+                    {/*                            size={20} */}
+                    {/*                        /> */}
+                    {/*                    </SocialLink> */}
+                    {/*                </MemberSocial> */}
+                    {/*            </SliderContentWrapper> */}
+                    {/*        </MemberItem> */}
+                    {/*    </SwiperSlide> */}
+                    {/*    <SwiperSlide> */}
+                    {/*        <MemberItem> */}
+                    {/*            <MemberImage> */}
+                    {/*                <Image src="/images/kacper_lukawski.png" /> */}
+                    {/*            </MemberImage> */}
+                    {/*            <SliderContentWrapper> */}
+                    {/*                <MemberName center> */}
+                    {/*                    Kacper Łukawski */}
+                    {/*                </MemberName> */}
+                    {/*                <MemberPosition center> */}
+                    {/*                    Fundator / Prezes zarządu */}
+                    {/*                </MemberPosition> */}
+                    {/*                <MemberDescription center> */}
+                    {/*                    Lorem ipsum dolor sit amet, consectetur */}
+                    {/*                    adipiscing elit. Ac tincidunt ut */}
+                    {/*                    dictumst urna dictum nulla. */}
+                    {/*                </MemberDescription> */}
+                    {/*                <MemberSocial> */}
+                    {/*                    <SocialLink> */}
+                    {/*                        <IconManager */}
+                    {/*                            activeFill={['green_hover']} */}
+                    {/*                            name="IconMail" */}
+                    {/*                            size={27} */}
+                    {/*                        /> */}
+                    {/*                    </SocialLink> */}
+                    {/*                    <SocialLink> */}
+                    {/*                        <IconManager */}
+                    {/*                            activeFill={['green_hover']} */}
+                    {/*                            name="IconTwitter" */}
+                    {/*                            size={24} */}
+                    {/*                        /> */}
+                    {/*                    </SocialLink> */}
+                    {/*                    <SocialLink> */}
+                    {/*                        <IconManager */}
+                    {/*                            activeFill={['green_hover']} */}
+                    {/*                            name="IconLinkedIn" */}
+                    {/*                            size={20} */}
+                    {/*                        /> */}
+                    {/*                    </SocialLink> */}
+                    {/*                </MemberSocial> */}
+                    {/*            </SliderContentWrapper> */}
+                    {/*        </MemberItem> */}
+                    {/*    </SwiperSlide> */}
+                    {/*    <SwiperSlide> */}
+                    {/*        <MemberItem> */}
+                    {/*            <MemberImage> */}
+                    {/*                <Image src="/images/kacper_lukawski.png" /> */}
+                    {/*            </MemberImage> */}
+                    {/*            <SliderContentWrapper> */}
+                    {/*                <MemberName center> */}
+                    {/*                    Kacper Łukawski */}
+                    {/*                </MemberName> */}
+                    {/*                <MemberPosition center> */}
+                    {/*                    Fundator / Prezes zarządu */}
+                    {/*                </MemberPosition> */}
+                    {/*                <MemberDescription center> */}
+                    {/*                    Lorem ipsum dolor sit amet, consectetur */}
+                    {/*                    adipiscing elit. Ac tincidunt ut */}
+                    {/*                    dictumst urna dictum nulla. */}
+                    {/*                </MemberDescription> */}
+                    {/*                <MemberSocial> */}
+                    {/*                    <SocialLink> */}
+                    {/*                        <IconManager */}
+                    {/*                            activeFill={['green_hover']} */}
+                    {/*                            name="IconMail" */}
+                    {/*                            size={27} */}
+                    {/*                        /> */}
+                    {/*                    </SocialLink> */}
+                    {/*                    <SocialLink> */}
+                    {/*                        <IconManager */}
+                    {/*                            activeFill={['green_hover']} */}
+                    {/*                            name="IconTwitter" */}
+                    {/*                            size={24} */}
+                    {/*                        /> */}
+                    {/*                    </SocialLink> */}
+                    {/*                    <SocialLink> */}
+                    {/*                        <IconManager */}
+                    {/*                            activeFill={['green_hover']} */}
+                    {/*                            name="IconLinkedIn" */}
+                    {/*                            size={20} */}
+                    {/*                        /> */}
+                    {/*                    </SocialLink> */}
+                    {/*                </MemberSocial> */}
+                    {/*            </SliderContentWrapper> */}
+                    {/*        </MemberItem> */}
+                    {/*    </SwiperSlide> */}
                     {/*    <SwiperSlide> */}
                     {/*        <MemberItem> */}
                     {/*            <MemberImage> */}
