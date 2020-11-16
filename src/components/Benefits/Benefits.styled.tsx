@@ -65,9 +65,17 @@ export const StepInner = styled.div`
     transform: translate(-60%, -50%);
     width: 175px;
 
+    @media (max-width: 1199px) {
+        left: 52%;
+    }
+
     @media (max-width: 991px) {
         height: 140px;
-        width: 150px;
+        width: 145px;
+    }
+
+    @media (max-width: 767px) {
+        width: 140px;
     }
 `;
 
@@ -108,7 +116,8 @@ export const StepWrapper = styled.div`
 
     @media (max-width: 767px) {
         .icon-1 {
-            height: 260px;
+            font-size: 270px;
+            height: 270px;
 
             svg {
                 height: 260px;
@@ -116,7 +125,8 @@ export const StepWrapper = styled.div`
         }
 
         .icon-2 {
-            height: 260px;
+            font-size: 270px;
+            height: 270px;
 
             svg {
                 height: 260px;
@@ -124,8 +134,8 @@ export const StepWrapper = styled.div`
         }
 
         .icon-3 {
-            height: 260px;
-            font-size: 235px;
+            height: 270px;
+            font-size: 245px;
 
             svg {
                 height: 260px;
@@ -137,6 +147,10 @@ export const StepWrapper = styled.div`
     &:last-child {
         ${StepInner} {
             transform: translate(-50%, -50%);
+
+            @media (max-width: 767px) {
+                margin-left: -15px;
+            }
         }
     }
 `;
@@ -154,8 +168,12 @@ export const StepText = styled(DefaultText)`
     margin-top: 20px;
     text-align: center;
 
+    @media (max-width: 1199px) {
+        margin-top: 10px;
+    }
+
     @media (max-width: 991px) {
-        font-size: ${({ theme }) => theme.fontSizes.m}px;
+        font-size: ${({ theme }) => theme.fontSizes.button}px;
         margin-top: 10px;
     }
 `;
