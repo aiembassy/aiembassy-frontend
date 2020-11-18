@@ -17,7 +17,14 @@ export const FilterListWrapper = styled.div`
     }
 
     @media (max-width: 767px) {
+        height: 100%;
+        min-height: 100%;
         width: calc(100% + 50px);
+
+        div > div > div {
+            height: auto !important;
+            position: static !important;
+        }
     }
 
     // remove scroll x in table content
