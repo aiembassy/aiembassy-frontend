@@ -107,6 +107,6 @@ export const StyledIconManager = styled(IconManager)<{
     iconPositionLeft: boolean;
 }>`
     ${({ width }) => width && `width: ${width}px`};
-    margin-left: ${({ iconPositionLeft }) => (iconPositionLeft ? 0 : 16)}px;
-    margin-right: ${({ iconPositionLeft }) => (iconPositionLeft ? 16 : 0)}px;
+    //margin-left: ${({ iconPositionLeft }) => (iconPositionLeft ? 0 : 16)}px;
+    // margin-right: ${({ iconPositionLeft }) => (iconPositionLeft ? 16 : 0)}px;
 `;

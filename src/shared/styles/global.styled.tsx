@@ -6,18 +6,22 @@ export const GlobalStyled = createGlobalStyle`
     }
 
     html {
-        height: 100%;
-        overflow-x: hidden !important;
+        @media (max-width: 1199px) {
+            overflow-x: hidden;
+        }      
     }
     
     body {
         background: #F6F6F6;
+        font-family: 'Open Sans', sans-serif;
         height: 100%;
         margin: 0;
-        font-family: 'Open Sans', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        //overflow: hidden;
+        
+        @media (max-width: 1199px) {
+            overflow-x: hidden !important;
+        }     
     }
     
     code {

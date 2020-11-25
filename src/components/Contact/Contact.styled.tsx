@@ -10,6 +10,10 @@ export const ContactWrapper = styled.div`
     height: 650px;
     position: relative;
     width: 100%;
+
+    @media (max-width: 767px) {
+        height: 950px;
+    }
 `;
 
 export const ContainerWrapper = styled(Container)`
@@ -20,6 +24,10 @@ export const ContainerWrapper = styled(Container)`
     position: absolute;
     top: 0;
     transform: translateX(-50%);
+
+    @media (max-width: 1199px) {
+        margin: 0;
+    }
 `;
 
 export const ContactBgImage = styled.div`
@@ -32,15 +40,47 @@ export const ContactBgImage = styled.div`
     position: relative;
     top: 170px;
     width: 50%;
+
+    @media (max-width: 991px) {
+        width: 55%;
+    }
+
+    @media (max-width: 767px) {
+        height: 400px;
+        width: calc(100% - 15px);
+    }
 `;
 
 export const ContactBg = styled.div`
     background: ${({ theme }) => theme.colors.bg_gray};
     width: 50%;
+
+    @media (max-width: 767px) {
+        width: 0;
+    }
 `;
 
 export const IconBrand = styled(IconManager)`
     padding: 50px 0 40px 90px;
+
+    @media (max-width: 1199px) {
+        margin: 0 auto;
+        padding-left: 15px;
+        width: 960px;
+    }
+
+    @media (max-width: 991px) {
+        width: 720px;
+    }
+
+    @media (max-width: 767px) {
+        padding-left: 0;
+        width: 540px;
+    }
+
+    @media (max-width: 575px) {
+        width: 100%;
+    }
 `;
 
 export const ContainerInner = styled.div`
@@ -54,6 +94,22 @@ export const ContainerInner = styled.div`
     transform: translateX(-50%);
     width: 1140px;
     z-index: 999;
+
+    @media (max-width: 1199px) {
+        width: 960px;
+    }
+
+    @media (max-width: 991px) {
+        width: 720px;
+    }
+
+    @media (max-width: 767px) {
+        width: 540px;
+    }
+
+    @media (max-width: 575px) {
+        width: 100%;
+    }
 `;
 
 export const TitleBox = styled(DefaultText)`
@@ -80,8 +136,40 @@ export const InfoBox = styled.div`
     padding-left: 100px;
     width: 50%;
 
+    @media (max-width: 1199px) {
+        padding-left: 15px;
+    }
+
+    @media (max-width: 767px) {
+        padding-left: 0;
+        width: 100%;
+    }
+
+    @media (max-width: 575px) {
+        padding: 0 15px;
+    }
+
     &:last-child {
         padding-left: 70px;
+
+        @media (max-width: 1199px) {
+            padding-right: 15px;
+        }
+
+        @media (max-width: 991px) {
+            padding-left: 60px;
+        }
+
+        @media (max-width: 767px) {
+            padding-left: 0;
+            position: absolute;
+            top: 440px;
+            width: 100%;
+        }
+
+        @media (max-width: 575px) {
+            padding: 0 15px;
+        }
 
         & ${TitleBox}, & ${TextBox} {
             color: ${({ theme }) => theme.colors.text};

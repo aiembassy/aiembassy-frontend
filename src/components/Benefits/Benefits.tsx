@@ -24,6 +24,7 @@ const Benefits: React.FC = () => {
                             name="IconBenefits1"
                             size={362}
                             sizeY={337}
+                            className="icon-1"
                         />
                         <StepInner>
                             <StepIcon>
@@ -39,6 +40,7 @@ const Benefits: React.FC = () => {
                             name="IconBenefits2"
                             size={362}
                             sizeY={337}
+                            className="icon-2"
                         />
                         <StepInner>
                             <StepIcon>
@@ -58,6 +60,7 @@ const Benefits: React.FC = () => {
                             name="IconBenefits3"
                             size={337}
                             sizeY={337}
+                            className="icon-3"
                         />
                         <StepInner>
                             <StepIcon>

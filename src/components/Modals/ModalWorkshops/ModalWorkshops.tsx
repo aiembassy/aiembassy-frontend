@@ -6,6 +6,7 @@ import {
     ModalContent,
 } from '@components/_universal/Modal/Modal.styled';
 import {
+    TableWrapper,
     CellTitleWrapper,
     TitleName,
     TableHead,
@@ -16,7 +17,7 @@ const ModalWorskshops = () => {
     return (
         <>
             <ModalInfo>
-                <ModalTitle>Darmowe warsztaty i szkolenia</ModalTitle>
+                <ModalTitle>Darmowe warsztaty i&nbsp;szkolenia</ModalTitle>
                 <ModalDescription>
                     Fundacja pomoże Ci rozwijać Twoje kompetencje w dziedzinie
                     sztucznej inteligencji poprzez prowadzenie darmowych szkoleń
@@ -24,19 +25,21 @@ const ModalWorskshops = () => {
                 </ModalDescription>
             </ModalInfo>
             <ModalContent>
-                <TableHead>
-                    <CellTitleWrapper>
-                        <TitleName>Nazwa szkolenia</TitleName>
-                    </CellTitleWrapper>
-                    <CellTitleWrapper>
-                        <TitleName>Opis</TitleName>
-                    </CellTitleWrapper>
-                    <CellTitleWrapper>
-                        <TitleName>Kategoria</TitleName>
-                    </CellTitleWrapper>
-                    <CellTitleWrapper />
-                </TableHead>
-                <WorkshopList />
+                <TableWrapper>
+                    <TableHead>
+                        <CellTitleWrapper>
+                            <TitleName>Nazwa szkolenia</TitleName>
+                        </CellTitleWrapper>
+                        <CellTitleWrapper>
+                            <TitleName>Opis</TitleName>
+                        </CellTitleWrapper>
+                        <CellTitleWrapper>
+                            <TitleName>Kategoria</TitleName>
+                        </CellTitleWrapper>
+                        <CellTitleWrapper />
+                    </TableHead>
+                    <WorkshopList />
+                </TableWrapper>
             </ModalContent>
         </>
     );
