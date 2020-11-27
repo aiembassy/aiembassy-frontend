@@ -106,6 +106,7 @@ export const SliderItem = styled.div`
 `;
 
 export const SliderImage = styled.div`
+    background: ${({ theme }) => theme.colors.white};
     border-radius: ${({ theme }) => theme.borderRadius.default}px;
     height: 125px;
     margin: -50px auto 50px;
