@@ -38,9 +38,19 @@ export const TableRow = styled.div`
 export const CellWrapper = styled.div`
     flex: 1;
     margin-right: 30px;
+    width: 160px;
 
     @media (max-width: 767px) {
         margin-right: 15px;
+    }
+
+    &:first-child {
+        flex: unset;
+        width: 165px;
+
+        @media (max-width: 767px) {
+            flex: 1;
+        }
     }
 
     &:nth-child(2) {

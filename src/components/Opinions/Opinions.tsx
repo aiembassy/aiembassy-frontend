@@ -8,6 +8,7 @@ import {
     OpinionItem,
     OpinionText,
     OpinionSource,
+    IconLink,
     IconQuote,
     SeparateDots,
     Dot,
@@ -36,6 +37,7 @@ const Opinions: React.FC = () => {
                                 target="_blank"
                             >
                                 smogathon.com.pl
+                                <IconLink name="IconLink" size={20} />
                             </OpinionSource>
                         </OpinionItem>
                         <SeparateDots>
@@ -57,6 +59,7 @@ const Opinions: React.FC = () => {
                                 target="_blank"
                             >
                                 firma.rp.pl
+                                <IconLink name="IconLink" size={20} />
                             </OpinionSource>
                         </OpinionItem>
                     </ScrollBar>
