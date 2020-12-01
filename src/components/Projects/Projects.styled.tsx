@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Title, Subtitle, DefaultText } from '@shared/styles/typography.styled';
 import { transparentize } from 'polished';
 import IconManager from '@components/_universal/IconManager/IconManager';
-import ButtonLink from '@components/_universal/ButtonLink/ButtonLink';
+import ButtonLinkAnimation from '@components/_universal/ButtonLinkAnimation/ButtonLinkAnimation';
 
 export const ProjectsWrapper = styled.div`
     padding-bottom: 140px;
@@ -55,9 +55,9 @@ export const ProjectWrapper = styled.div`
 
 export const ProjectItem = styled.div`
     background: ${({ theme }) => theme.colors.white};
-    border-bottom-right-radius: ${({ theme }) => theme.borderRadius.default}px;
-    border-top-right-radius: ${({ theme }) => theme.borderRadius.default}px;
+    border-radius: ${({ theme }) => theme.borderRadius.default}px;
     box-shadow: 0 0 28px rgba(9, 90, 90, 0.1);
+    cursor: pointer;
     display: flex;
     min-height: 240px;
     position: relative;
@@ -139,9 +139,10 @@ export const ItemDate = styled(DefaultText)`
 
 export const ItemLinkWrapper = styled.div`
     display: flex;
+    margin-right: 12px;
 `;
 
-export const ItemLink = styled(ButtonLink)`
+export const ItemLink = styled(ButtonLinkAnimation)`
     align-items: center;
     color: ${({ theme }) => theme.colors.green};
     cursor: pointer;

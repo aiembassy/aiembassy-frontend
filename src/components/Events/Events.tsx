@@ -1,10 +1,14 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { Container } from '@shared/styles/global.styled';
 import SwiperCore, { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import ButtonLink from '@components/_universal/ButtonLink/ButtonLink';
 import Link from 'next/link';
 import events from '@shared/data/events';
+import {
+    Event,
+    EventLink,
+} from '@components/Modals/ModalEvents/EventsList/EventsList.styled';
 import {
     SectionTitle,
     DotsBg,
@@ -28,30 +32,42 @@ import {
 
 const Events: React.FC = () => {
     SwiperCore.use([Navigation]);
+    const [activeAnimation, setActiveAnimation] = useState({ hover: null });
+    const onHover = (id) => {
+        setActiveAnimation({ hover: id });
+    };
+    const onOut = () => {
+        setActiveAnimation({ hover: null });
+    };
 
-    const eventList = Object.keys(events).map((eventId) => {
+    const eventList = Object.keys(events).map((eventId, index) => {
         const event = events[eventId];
         const eventLinkLocation = `/events/${eventId}`;
-
         return (
             <SwiperSlide key={eventLinkLocation}>
-                <SliderItem>
-                    <SliderImage>
-                        <Image src={event.imagePath} />
-                    </SliderImage>
-                    <SliderContentWrapper>
-                        <PostData>{event.date}</PostData>
-                        <PostTitle>{event.shortTitle}</PostTitle>
-                        <PostDescription>
-                            {event.shortDescription}
-                        </PostDescription>
-                        <Link
-                            scroll={false}
-                            href="/events/[eventId]"
-                            as={eventLinkLocation}
-                        >
+                <Link
+                    scroll={false}
+                    href="/events/[eventId]"
+                    as={eventLinkLocation}
+                >
+                    <SliderItem
+                        onMouseOver={() => onHover(eventId)}
+                        onMouseOut={onOut}
+                    >
+                        <SliderImage>
+                            <Image src={event.imagePath} />
+                        </SliderImage>
+                        <SliderContentWrapper>
+                            <PostData>{event.date}</PostData>
+                            <PostTitle>{event.shortTitle}</PostTitle>
+                            <PostDescription>
+                                {event.shortDescription}
+                            </PostDescription>
                             <PostLinkWrapper>
                                 <PostLink
+                                    activeAnimation={
+                                        activeAnimation.hover === eventId
+                                    }
                                     buttonType="TRANSPARENT"
                                     iconType="IconArrowRight"
                                     iconSize={20}
@@ -61,9 +77,9 @@ const Events: React.FC = () => {
                                     więcej
                                 </PostLink>
                             </PostLinkWrapper>
-                        </Link>
-                    </SliderContentWrapper>
-                </SliderItem>
+                        </SliderContentWrapper>
+                    </SliderItem>
+                </Link>
             </SwiperSlide>
         );
     });

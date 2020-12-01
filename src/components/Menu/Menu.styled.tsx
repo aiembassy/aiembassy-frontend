@@ -218,7 +218,7 @@ export const MobileMenuContainer = styled.div<{
 `;
 
 export const MobileMenuWrapper = styled(MenuWrapper)`
-    align-items: flex-end;
+    align-items: flex-start;
     flex-direction: column;
     height: 100vh;
     justify-content: center;

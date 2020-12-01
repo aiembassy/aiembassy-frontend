@@ -36,11 +36,13 @@ export const EventsListWrapper = styled.div`
 export const Event = styled.div`
     background: ${({ theme }) => theme.colors.white};
     border-radius: ${({ theme }) => theme.borderRadius.default}px;
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     height: 475px;
     margin: 50px 0 30px;
     position: relative;
+    transition: all ${({ theme }) => theme.transitions.default}s;
     width: calc(50% - 40px);
 
     @media (max-width: 767px) {
@@ -72,20 +74,25 @@ export const Event = styled.div`
             margin-top: 0;
         }
     }
+
+    &:hover {
+        box-shadow: 0 0 28px rgba(9, 90, 90, 0.15);
+    }
 `;
 
 export const EventImage = styled.div`
+    background: ${({ theme }) => theme.colors.white};
     border-radius: ${({ theme }) => theme.borderRadius.default}px;
     height: 125px;
     margin: -50px auto 50px;
     overflow: hidden;
     position: relative;
-    width: 165px;
+    width: 185px;
 `;
 
 export const Image = styled.img`
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     width: 100%;
 `;
 
@@ -122,4 +129,6 @@ export const EventLinkWrapper = styled.div`
     justify-content: flex-end;
 `;
 
-export const EventLink = styled(ItemLink)``;
+export const EventLink = styled(ItemLink)`
+    margin-right: 12px;
+`;

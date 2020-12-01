@@ -3,6 +3,9 @@ import IsoTopeGrid from 'react-isotope';
 import { filtersList } from '@shared/data/projectsFilter';
 import ScrollBar from 'react-perfect-scrollbar';
 import Link from 'next/link';
+import { useState } from 'react';
+import { ItemLink, ProjectItem } from '@components/Projects/Projects.styled';
+import { Event } from '@components/Modals/ModalEvents/EventsList/EventsList.styled';
 import {
     FilterListWrapper,
     Card,
@@ -37,11 +40,19 @@ type CardType = {
 };
 
 const FilterList: React.FC<IProps> = ({ filters }) => {
+    const [activeAnimation, setActiveAnimation] = useState({ hover: null });
+    const onHover = (id) => {
+        setActiveAnimation({ hover: id });
+    };
+    const onOut = () => {
+        setActiveAnimation({ hover: null });
+    };
+
     return (
         <FilterListWrapper>
             <ScrollBar>
                 <IsoTopeGrid
-                    //@ts-ignore
+                    // @ts-ignore
                     gridLayout={filtersList}
                     noOfCols={1}
                     unitWidth={100}
@@ -49,27 +60,39 @@ const FilterList: React.FC<IProps> = ({ filters }) => {
                     filters={filters}
                 >
                     {filtersList.map((card: CardType) => (
-                        <Card key={card.id}>
-                            <CardItem>
-                                <CardInner>
-                                    <CardImage>
-                                        <Image src={card.imageLink} />
-                                    </CardImage>
-                                    <CardContent>
-                                        <CardInfo>
-                                            <CardInfoInner>
-                                                <CardService>
-                                                    {card.category.join(', ')}
-                                                </CardService>
-                                                <CardDate>{card.date}</CardDate>
-                                            </CardInfoInner>
-                                            <Link
-                                                scroll={false}
-                                                href="/projects/[projectId]"
-                                                as={card.link}
-                                            >
+                        <Link
+                            scroll={false}
+                            href="/projects/[projectId]"
+                            as={card.link}
+                            key={card.id}
+                        >
+                            <Card>
+                                <CardItem
+                                    onMouseOver={() => onHover(card.id)}
+                                    onMouseOut={onOut}
+                                >
+                                    <CardInner>
+                                        <CardImage>
+                                            <Image src={card.imageLink} />
+                                        </CardImage>
+                                        <CardContent>
+                                            <CardInfo>
+                                                <CardInfoInner>
+                                                    <CardService>
+                                                        {card.category.join(
+                                                            ', ',
+                                                        )}
+                                                    </CardService>
+                                                    <CardDate>
+                                                        {card.date}
+                                                    </CardDate>
+                                                </CardInfoInner>
                                                 <CardLinkWrapper>
                                                     <CardLink
+                                                        activeAnimation={
+                                                            activeAnimation.hover ===
+                                                            card.id
+                                                        }
                                                         buttonType="TRANSPARENT"
                                                         iconType="IconArrowRight"
                                                         iconSize={20}
@@ -81,14 +104,14 @@ const FilterList: React.FC<IProps> = ({ filters }) => {
                                                         więcej
                                                     </CardLink>
                                                 </CardLinkWrapper>
-                                            </Link>
-                                        </CardInfo>
-                                        <CardTitle>{card.title}</CardTitle>
-                                        <CardText>{card.text}</CardText>
-                                    </CardContent>
-                                </CardInner>
-                            </CardItem>
-                        </Card>
+                                            </CardInfo>
+                                            <CardTitle>{card.title}</CardTitle>
+                                            <CardText>{card.text}</CardText>
+                                        </CardContent>
+                                    </CardInner>
+                                </CardItem>
+                            </Card>
+                        </Link>
                     ))}
                 </IsoTopeGrid>
             </ScrollBar>

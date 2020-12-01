@@ -1,6 +1,19 @@
 import styled from 'styled-components';
 import { Subtitle, DefaultText, Title } from '@shared/styles/typography.styled';
 
+export const TeamWrapper = styled.div`
+    background: ${({ theme }) => theme.colors.bg_gray};
+    padding: 120px 0;
+
+    @media (max-width: 991px) {
+        padding: 60px 0;
+    }
+
+    @media (max-width: 767px) {
+        padding: 45px 0;
+    }
+`;
+
 export const SectionTitle = styled(Title)`
     line-height: 1.65;
     margin-bottom: 50px;
@@ -9,19 +22,6 @@ export const SectionTitle = styled(Title)`
 
     @media (max-width: 767px) {
         font-size: ${({ theme }) => theme.fontSizes.modal_title}px;
-    }
-`;
-
-export const TeamWrapper = styled.div`
-    background: ${({ theme }) => theme.colors.bg_gray};
-    padding: 90px 0;
-
-    @media (max-width: 991px) {
-        padding: 60px 0;
-    }
-
-    @media (max-width: 767px) {
-        padding: 45px 0;
     }
 `;
 
