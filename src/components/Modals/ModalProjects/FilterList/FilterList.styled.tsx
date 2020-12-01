@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Subtitle, DefaultText } from '@shared/styles/typography.styled';
 import { transparentize } from 'polished';
 import IconManager from '@components/_universal/IconManager/IconManager';
-import ButtonLink from '@components/_universal/ButtonLink/ButtonLink';
+import ButtonLinkAnimation from '@components/_universal/ButtonLinkAnimation/ButtonLinkAnimation';
 
 export const FilterListWrapper = styled.div`
     display: flex;
@@ -36,7 +36,6 @@ export const FilterListWrapper = styled.div`
 `;
 
 export const Card = styled('div')`
-    margin-left: -10px;
     margin-bottom: 25px;
     width: calc(100% - 50px) !important;
 `;
@@ -49,11 +48,12 @@ export const CardItem = styled.div`
 
 export const CardInner = styled.div`
     background: ${({ theme }) => theme.colors.white};
-    border-bottom-right-radius: ${({ theme }) => theme.borderRadius.default}px;
-    border-top-right-radius: ${({ theme }) => theme.borderRadius.default}px;
+    border-radius: ${({ theme }) => theme.borderRadius.default}px;
     box-shadow: 0 0 15px rgba(9, 90, 90, 0.05);
+    cursor: pointer;
     display: flex;
     min-height: 240px;
+    overflow: hidden;
     transition: all ${({ theme }) => theme.transitions.default}s;
     width: 100%;
 
@@ -134,7 +134,7 @@ export const CardLinkWrapper = styled.div`
     display: flex;
 `;
 
-export const CardLink = styled(ButtonLink)`
+export const CardLink = styled(ButtonLinkAnimation)`
     align-items: center;
     color: ${({ theme }) => theme.colors.green};
     cursor: pointer;
@@ -142,6 +142,7 @@ export const CardLink = styled(ButtonLink)`
     font-size: ${({ theme }) => theme.fontSizes.button}px;
     font-weight: ${({ theme }) => theme.fontWeight.bold};
     letter-spacing: 0.22em;
+    margin-right: 12px;
     text-decoration: none;
     text-transform: uppercase;
     transition: all ${({ theme }) => theme.transitions.default}s;

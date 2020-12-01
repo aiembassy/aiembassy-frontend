@@ -62,19 +62,11 @@ export const StepInner = styled.div`
     left: 50%;
     position: absolute;
     top: 50%;
-    transform: translate(-60%, -50%);
+    transform: translate(-50%, -50%);
     width: 175px;
-
-    @media (max-width: 1199px) {
-        left: 52%;
-    }
 
     @media (max-width: 991px) {
         height: 140px;
-        width: 145px;
-    }
-
-    @media (max-width: 767px) {
         width: 140px;
     }
 `;
@@ -87,10 +79,7 @@ export const StepWrapper = styled.div`
     position: relative;
 
     @media (max-width: 1199px) {
-        .icon-1 {
-            font-size: 320px;
-        }
-
+        .icon-1,
         .icon-2 {
             font-size: 320px;
         }
@@ -101,10 +90,7 @@ export const StepWrapper = styled.div`
     }
 
     @media (max-width: 991px) {
-        .icon-1 {
-            font-size: 250px;
-        }
-
+        .icon-1,
         .icon-2 {
             font-size: 250px;
         }
@@ -115,15 +101,7 @@ export const StepWrapper = styled.div`
     }
 
     @media (max-width: 767px) {
-        .icon-1 {
-            font-size: 270px;
-            height: 270px;
-
-            svg {
-                height: 260px;
-            }
-        }
-
+        .icon-1,
         .icon-2 {
             font-size: 270px;
             height: 270px;
@@ -135,21 +113,54 @@ export const StepWrapper = styled.div`
 
         .icon-3 {
             height: 270px;
-            font-size: 245px;
+            font-size: 250px;
 
             svg {
-                height: 260px;
-                margin-left: -15px;
+                height: 265px;
+                margin-left: -20px;
+            }
+        }
+    }
+
+    &:first-child {
+        ${StepInner} {
+            margin-left: -10px;
+
+            @media (max-width: 991px) {
+                margin-top: -5px;
+            }
+
+            @media (max-width: 767px) {
+                margin-top: -10px;
+                margin-left: -10px;
+            }
+        }
+    }
+
+    &:nth-child(2) {
+        ${StepInner} {
+            margin-left: -10px;
+
+            @media (max-width: 991px) {
+                margin-top: -5px;
+            }
+
+            @media (max-width: 767px) {
+                margin-top: -10px;
+                margin-left: -10px;
             }
         }
     }
 
     &:last-child {
         ${StepInner} {
-            transform: translate(-50%, -50%);
+            @media (max-width: 991px) {
+                margin-top: -5px;
+            }
 
             @media (max-width: 767px) {
-                margin-left: -15px;
+                margin-top: -10px;
+                margin-left: -10px;
             }
         }
     }

@@ -66,21 +66,32 @@ export const OpinionText = styled(DefaultText)`
 `;
 
 export const OpinionSource = styled.a`
-    transition: all ${({ theme }) => theme.transitions.default}s;
+    align-items: center;
     color: ${({ theme }) => theme.colors.green};
+    display: flex;
     font-size: ${({ theme }) => theme.fontSizes.l}px;
     font-weight: ${({ theme }) => theme.fontWeight.bold};
     line-height: 1.8;
     margin-bottom: 0;
+    margin-right: 10px;
     text-decoration: none;
+    transition: all ${({ theme }) => theme.transitions.default}s;
 
     &:hover {
         color: ${({ theme }) => theme.colors.yellow};
+
+        svg path {
+            fill: ${({ theme }) => theme.colors.yellow};
+        }
     }
 
     @media (max-width: 767px) {
         margin-top: 30px;
     }
+`;
+
+export const IconLink = styled(IconManager)`
+    margin-left: 16px;
 `;
 
 export const SeparateDots = styled.div`

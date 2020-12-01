@@ -95,13 +95,19 @@ export const EventsSliderInner = styled.div`
 export const SliderItem = styled.div`
     background: ${({ theme }) => theme.colors.white};
     border-radius: ${({ theme }) => theme.borderRadius.default}px;
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     height: 475px;
+    transition: all ${({ theme }) => theme.transitions.default}s;
     width: 360px;
 
     @media (max-width: 767px) {
         width: auto;
+    }
+
+    &:hover {
+        box-shadow: 0 0 28px rgba(9, 90, 90, 0.15);
     }
 `;
 
@@ -112,12 +118,12 @@ export const SliderImage = styled.div`
     margin: -50px auto 50px;
     overflow: hidden;
     position: relative;
-    width: 165px;
+    width: 185px;
 `;
 
 export const Image = styled.img`
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     width: 100%;
 `;
 
@@ -147,7 +153,9 @@ export const PostLinkWrapper = styled.div`
     justify-content: flex-end;
 `;
 
-export const PostLink = styled(ItemLink)``;
+export const PostLink = styled(ItemLink)`
+    margin-right: 12px;
+`;
 
 export const ButtonWrapper = styled.div`
     display: flex;

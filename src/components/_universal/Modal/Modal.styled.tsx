@@ -1,5 +1,14 @@
 import styled, { css } from 'styled-components';
 import { DefaultText, Title } from '@shared/styles/typography.styled';
+import {
+    headingStyleCss,
+    sectionStyleCss,
+    galleryStyleCss,
+    paragraphStyleCss,
+    listElementsStyleCss,
+    anchorLinkStyleCss,
+    dateStyleCss,
+} from '@components/_universal/Modal/ContentHTML.styled';
 import ButtonLink from '../ButtonLink/ButtonLink';
 import Button from '../Button/Button';
 
@@ -121,22 +130,6 @@ export const ModalInfo = styled.div`
     }
 `;
 
-export const ModalContent = styled.div<{ isEmptyComponent?: boolean }>`
-    background: ${({ theme }) => theme.colors.bg};
-    flex: 1;
-    padding: 40px 100px 0;
-
-    @media (max-width: 991px) {
-        padding: 30px 30px 0;
-    }
-
-    @media (max-width: 767px) {
-        min-height: 100%;
-        padding-bottom: 30px;
-        ${({ isEmptyComponent }) => isEmptyComponent && `display: none`};
-    }
-`;
-
 export const ModalTitle = styled(Title)`
     font-size: ${({ theme }) => theme.fontSizes.modal_title}px;
     margin-bottom: 10px;
@@ -148,12 +141,55 @@ export const ModalTitle = styled(Title)`
     }
 `;
 
+export const ModalContent = styled.div<{ isArticleContent?: boolean }>`
+    background: ${({ theme }) => theme.colors.bg};
+    flex: 1;
+    padding: 40px 100px 0;
+    position: relative;
+
+    @media (max-width: 991px) {
+        padding: 30px 30px 0;
+    }
+
+    @media (max-width: 767px) {
+        min-height: 100%;
+        padding-bottom: 30px;
+    }
+
+    section {
+        ${({ isArticleContent }) => isArticleContent && sectionStyleCss};
+    }
+
+    h2 {
+        ${({ isArticleContent }) => isArticleContent && headingStyleCss};
+    }
+
+    p {
+        ${({ isArticleContent }) => isArticleContent && paragraphStyleCss};
+    }
+
+    .gallery {
+        ${({ isArticleContent }) => isArticleContent && galleryStyleCss};
+    }
+
+    .list-elements {
+        ${({ isArticleContent }) => isArticleContent && listElementsStyleCss};
+    }
+
+    a {
+        ${({ isArticleContent }) => isArticleContent && anchorLinkStyleCss};
+    }
+`;
+
 export const ModalDescription = styled(DefaultText)<{
     smallModal?: boolean;
+    isArticleContent?: boolean;
 }>`
     line-height: 1.75;
     margin-bottom: 0;
     max-width: ${({ smallModal }) => (smallModal ? 555 : 750)}px;
+
+    ${({ isArticleContent }) => isArticleContent && dateStyleCss};
 
     a {
         ${linkStyleCss}

@@ -19,7 +19,9 @@ export const CellTitleWrapper = styled.div`
     flex: 1;
     margin-right: 30px;
 
-    @media (max-width: 767px) {
+    &:first-child {
+        flex: unset;
+        width: 165px;
     }
 
     &:nth-child(2) {

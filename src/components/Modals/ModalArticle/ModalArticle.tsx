@@ -10,6 +10,7 @@ interface IProps {
     data: {
         title: string;
         text: string;
+        date: string;
     };
 }
 
@@ -18,15 +19,17 @@ const ModalArticle: React.FC<IProps> = ({ data }) => {
         <>
             <ModalInfo>
                 <ModalTitle>{data.title}</ModalTitle>
-                <ModalDescription>
-                    <div
-                        dangerouslySetInnerHTML={{
-                            __html: data.text,
-                        }}
-                    />
+                <ModalDescription isArticleContent>
+                    {data.date}
                 </ModalDescription>
             </ModalInfo>
-            <ModalContent isEmptyComponent />
+            <ModalContent isArticleContent>
+                <div
+                    dangerouslySetInnerHTML={{
+                        __html: data.text,
+                    }}
+                />
+            </ModalContent>
         </>
     );
 };
