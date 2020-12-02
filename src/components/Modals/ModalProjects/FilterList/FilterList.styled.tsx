@@ -150,7 +150,7 @@ export const CardLink = styled(ButtonLinkAnimation)`
     @media (max-width: 767px) {
         bottom: 15px;
         position: absolute;
-        right: 30px;
+        right: 65px;
     }
 
     &:hover {

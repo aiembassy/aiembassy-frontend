@@ -161,6 +161,7 @@ export const ItemLink = styled(ButtonLinkAnimation)`
     @media (max-width: 767px) {
         bottom: 15px;
         right: 15px;
+        margin-right: 12px;
         position: absolute;
     }
 `;
