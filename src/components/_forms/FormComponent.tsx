@@ -36,13 +36,30 @@ const FormComponent = () => {
         resolver: yupResolver(schema),
     });
     const onSubmit = handleSubmit((data: IFormInputs) => {
-        console.log('Form data ::', data);
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': `application/x-www-form-urlencoded` },
+            body: new URLSearchParams({
+                fullName: data.fullName,
+                company: data.company,
+                email: data.email,
+                message: data.message,
+            }).toString(),
+        })
+            .then(() => {
+                alert('Submitted');
+            })
+            .catch((error) => alert(error));
     });
 
-    console.log(watch());
     return (
         <FormWrapper>
-            <Form onSubmit={onSubmit} data-netlify="true">
+            <Form
+                name="contact"
+                method="POST"
+                onSubmit={onSubmit}
+                data-netlify="true"
+            >
                 <InputWrapper marginBottom={16}>
                     <InputLabel>Imię i nazwisko *</InputLabel>
                     <InputField className={errors.fullName ? 'error' : ''}>
