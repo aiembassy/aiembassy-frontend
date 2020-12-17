@@ -8,6 +8,7 @@ import {
     OpinionItem,
     OpinionText,
     OpinionSource,
+    IconLink,
     IconQuote,
     SeparateDots,
     Dot,
@@ -31,7 +32,13 @@ const Opinions: React.FC = () => {
                                 zanieczyszczeniu korzystająca z danych
                                 satelitarnych oraz sztucznej inteligencji.”
                             </OpinionText>
-                            <OpinionSource>smogathon.com.pl</OpinionSource>
+                            <OpinionSource
+                                href="https://smogathon.com/pl/smogaton-2019-hackathon-z-wykorzystaniem-danych/"
+                                target="_blank"
+                            >
+                                smogathon.com.pl
+                                <IconLink name="IconLink" size={20} />
+                            </OpinionSource>
                         </OpinionItem>
                         <SeparateDots>
                             <Dot />
@@ -47,7 +54,13 @@ const Opinions: React.FC = () => {
                                 zanieczyszczeniu korzystającą z danych
                                 satelitarnych oraz sztucznej inteligencji.”
                             </OpinionText>
-                            <OpinionSource>firma.rp.pl</OpinionSource>
+                            <OpinionSource
+                                href="https://firma.rp.pl/biznes/4431-nowe-technologie-dla-srodowiska-znamy-laureatow-smogathonu-2019"
+                                target="_blank"
+                            >
+                                firma.rp.pl
+                                <IconLink name="IconLink" size={20} />
+                            </OpinionSource>
                         </OpinionItem>
                     </ScrollBar>
                 </OpinionsList>

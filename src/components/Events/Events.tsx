@@ -1,10 +1,14 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { Container } from '@shared/styles/global.styled';
 import SwiperCore, { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import ButtonLink from '@components/_universal/ButtonLink/ButtonLink';
 import Link from 'next/link';
 import events from '@shared/data/events';
+import {
+    Event,
+    EventLink,
+} from '@components/Modals/ModalEvents/EventsList/EventsList.styled';
 import {
     SectionTitle,
     DotsBg,
@@ -27,42 +31,56 @@ import {
 } from './Events.styled';
 
 const Events: React.FC = () => {
-    useLayoutEffect(() => {
-        SwiperCore.use([Navigation]);
-    }, []);
+    SwiperCore.use([Navigation]);
+    const [activeAnimation, setActiveAnimation] = useState({ hover: null });
+    const onHover = (id) => {
+        setActiveAnimation({ hover: id });
+    };
+    const onOut = () => {
+        setActiveAnimation({ hover: null });
+    };
 
-    const eventList = Object.keys(events).map((eventId) => {
+    const eventList = Object.keys(events).map((eventId, index) => {
         const event = events[eventId];
         const eventLinkLocation = `/events/${eventId}`;
-
         return (
-            <SliderItem key={eventLinkLocation}>
-                <SliderImage>
-                    <Image src={event.imagePath} />
-                </SliderImage>
-                <SliderContentWrapper>
-                    <PostData>{event.date}</PostData>
-                    <PostTitle>{event.shortTitle}</PostTitle>
-                    <PostDescription>{event.shortDescription}</PostDescription>
-                    <Link
-                        scroll={false}
-                        href="/events/[eventId]"
-                        as={eventLinkLocation}
+            <SwiperSlide key={eventLinkLocation}>
+                <Link
+                    scroll={false}
+                    href="/events/[eventId]"
+                    as={eventLinkLocation}
+                >
+                    <SliderItem
+                        onMouseOver={() => onHover(eventId)}
+                        onMouseOut={onOut}
                     >
-                        <PostLinkWrapper>
-                            <PostLink
-                                buttonType="TRANSPARENT"
-                                iconType="IconArrowRight"
-                                iconSize={20}
-                                iconActiveColor={['green_hover']}
-                                noPadding
-                            >
-                                więcej
-                            </PostLink>
-                        </PostLinkWrapper>
-                    </Link>
-                </SliderContentWrapper>
-            </SliderItem>
+                        <SliderImage>
+                            <Image src={event.imagePath} />
+                        </SliderImage>
+                        <SliderContentWrapper>
+                            <PostData>{event.date}</PostData>
+                            <PostTitle>{event.shortTitle}</PostTitle>
+                            <PostDescription>
+                                {event.shortDescription}
+                            </PostDescription>
+                            <PostLinkWrapper>
+                                <PostLink
+                                    activeAnimation={
+                                        activeAnimation.hover === eventId
+                                    }
+                                    buttonType="TRANSPARENT"
+                                    iconType="IconArrowRight"
+                                    iconSize={20}
+                                    iconActiveColor={['green_hover']}
+                                    noPadding
+                                >
+                                    więcej
+                                </PostLink>
+                            </PostLinkWrapper>
+                        </SliderContentWrapper>
+                    </SliderItem>
+                </Link>
+            </SwiperSlide>
         );
     });
 
@@ -74,7 +92,7 @@ const Events: React.FC = () => {
                     <EventsSliderInner>
                         <SectionTitle>Wydarzenia i konferencje</SectionTitle>
                         <SliderNavigation>
-                            <ButtonPrev className="button-prev">
+                            <ButtonPrev className="button-prev button-prev--events">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="14"
@@ -88,7 +106,7 @@ const Events: React.FC = () => {
                                     />
                                 </svg>
                             </ButtonPrev>
-                            <ButtonNext className="button-next">
+                            <ButtonNext className="button-next button-next--events">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="15"
@@ -106,14 +124,37 @@ const Events: React.FC = () => {
                     </EventsSliderInner>
 
                     <Swiper
-                        spaceBetween={30}
-                        slidesPerView={3}
                         navigation={{
-                            nextEl: '.button-next',
-                            prevEl: '.button-prev',
+                            nextEl: '.button-next--events',
+                            prevEl: '.button-prev--events',
+                        }}
+                        breakpoints={{
+                            // when window width is >= 320px
+                            320: {
+                                spaceBetween: 30,
+                                slidesPerView: 1,
+                            },
+
+                            // when window width is >= 768px
+                            768: {
+                                spaceBetween: 25,
+                                slidesPerView: 2,
+                            },
+
+                            // when window width is >= 992px
+                            992: {
+                                spaceBetween: 30,
+                                slidesPerView: 2.5,
+                            },
+
+                            // when window width is >= 1200px
+                            1200: {
+                                spaceBetween: 30,
+                                slidesPerView: 3,
+                            },
                         }}
                     >
-                        <SwiperSlide>{eventList}</SwiperSlide>
+                        {eventList}
                     </Swiper>
                     <Link scroll={false} href="/events" as="/events">
                         <ButtonWrapper>

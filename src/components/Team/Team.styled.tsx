@@ -1,16 +1,28 @@
 import styled from 'styled-components';
 import { Subtitle, DefaultText, Title } from '@shared/styles/typography.styled';
 
+export const TeamWrapper = styled.div`
+    background: ${({ theme }) => theme.colors.bg_gray};
+    padding: 120px 0;
+
+    @media (max-width: 991px) {
+        padding: 60px 0;
+    }
+
+    @media (max-width: 767px) {
+        padding: 45px 0;
+    }
+`;
+
 export const SectionTitle = styled(Title)`
     line-height: 1.65;
     margin-bottom: 50px;
     margin-top: 0;
     text-align: center;
-`;
 
-export const TeamWrapper = styled.div`
-    background: ${({ theme }) => theme.colors.bg_gray};
-    padding: 90px 0;
+    @media (max-width: 767px) {
+        font-size: ${({ theme }) => theme.fontSizes.modal_title}px;
+    }
 `;
 
 export const TeamSliderWrapper = styled.div`
@@ -44,12 +56,20 @@ export const ButtonPrev = styled.div`
     position: absolute;
     right: 65px;
     top: -25px;
+
+    @media (max-width: 767px) {
+        top: -30px;
+    }
 `;
 export const ButtonNext = styled.div`
     cursor: pointer;
     position: absolute;
     right: 15px;
     top: -25px;
+
+    @media (max-width: 767px) {
+        top: -30px;
+    }
 `;
 
 export const SliderContentWrapper = styled.div``;
@@ -59,6 +79,10 @@ export const MemberItem = styled.div`
     display: flex;
     flex-direction: column;
     width: 360px;
+
+    @media (max-width: 767px) {
+        width: 100%;
+    }
 `;
 
 export const MemberImage = styled.div`

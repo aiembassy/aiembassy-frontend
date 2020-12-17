@@ -15,6 +15,10 @@ export const InputWrapper = styled.div<{ marginBottom?: number }>`
     display: flex;
     flex-direction: row;
     margin-bottom: ${({ marginBottom }) => marginBottom || 0}px;
+
+    @media (max-width: 767px) {
+        flex-direction: column;
+    }
 `;
 
 export const InputField = styled.div`
@@ -37,6 +41,10 @@ export const InputLabel = styled.label`
     font-size: ${({ theme }) => theme.fontSizes.m}px;
     line-height: 3.4;
     width: 200px;
+
+    @media (max-width: 767px) {
+        width: 100%;
+    }
 `;
 
 export const Input = styled.input`
@@ -52,6 +60,10 @@ export const Input = styled.input`
     padding: 0 24px;
     transition: all ${({ theme }) => theme.transitions.default}s;
     width: 450px;
+
+    @media (max-width: 767px) {
+        width: 100%;
+    }
 
     & :focus {
         box-shadow: 0 0 28px rgba(9, 90, 90, 0.1);
@@ -83,6 +95,10 @@ export const TextArea = styled.textarea`
     resize: none;
     width: 450px;
 
+    @media (max-width: 767px) {
+        width: 100%;
+    }
+
     & :focus {
         box-shadow: 0 0 28px rgba(9, 90, 90, 0.1);
     }
@@ -92,10 +108,20 @@ export const ButtonWrapper = styled.div`
     align-items: flex-end;
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 767px) {
+        div {
+            width: 100%;
+        }
+    }
 `;
 
 export const ButtonForm = styled(Button)`
     width: 450px;
+
+    @media (max-width: 767px) {
+        width: 100%;
+    }
 `;
 
 export const PrivatePolicy = styled(DefaultText)`
@@ -104,4 +130,10 @@ export const PrivatePolicy = styled(DefaultText)`
     margin-top: 10px;
     text-align: center;
     width: 450px;
+
+    @media (max-width: 767px) {
+        margin-top: 20px;
+        text-align: left;
+        width: 100%;
+    }
 `;

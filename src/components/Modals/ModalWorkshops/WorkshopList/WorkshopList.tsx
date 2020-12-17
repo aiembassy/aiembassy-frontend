@@ -3,6 +3,7 @@ import { DefaultText } from '@shared/styles/typography.styled';
 import ScrollBar from 'react-perfect-scrollbar';
 import Link from 'next/link';
 import ButtonLink from '@components/_universal/ButtonLink/ButtonLink';
+import { ButtonElement } from '@components/_universal/ButtonLink/ButtonLink.styled';
 import {
     TableContent,
     WorkshopName,
@@ -44,6 +45,7 @@ const WorkshopList = () => {
                                     <ButtonLink
                                         buttonType="PRIMARY"
                                         width={165}
+                                        className="button-link"
                                     >
                                         Więcej
                                     </ButtonLink>

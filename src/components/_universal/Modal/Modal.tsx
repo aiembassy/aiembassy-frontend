@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -95,14 +95,29 @@ const Modal: React.FC<IProps> = ({
     modalType,
 }) => {
     const router = useRouter();
+    const modalRef = useRef(null);
 
-    useEffect(() => {
-        router.prefetch('/');
-    }, []);
+    const handleClickOutside = (e) => {
+        if (!modalRef.current?.contains(e.target)) {
+            handleClose();
+        }
+    };
 
     const handleClose = () => {
         router.push('/');
+        document.body.style.overflowY = 'auto';
     };
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () =>
+            document.removeEventListener('mousedown', handleClickOutside);
+    });
+
+    useEffect(() => {
+        router.prefetch('/');
+        document.body.style.overflowY = 'hidden';
+    }, []);
 
     return (
         <motion.div
@@ -118,7 +133,7 @@ const Modal: React.FC<IProps> = ({
                     animate="animate"
                     exit="exit"
                 >
-                    <ModalComponent smallModal={!!smallModal}>
+                    <ModalComponent smallModal={!!smallModal} ref={modalRef}>
                         {isBackLink && (
                             <Link
                                 scroll={false}
@@ -143,7 +158,7 @@ const Modal: React.FC<IProps> = ({
                             buttonType="TRANSPARENT"
                             iconActiveColor={['green_hover']}
                             iconType="IconClose"
-                            iconSize={21}
+                            iconSize={22}
                             noPadding
                             onPress={() => handleClose()}
                         />

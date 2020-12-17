@@ -5,51 +5,94 @@ import { ItemLink } from '@components/Projects/Projects.styled';
 export const EventsListWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 300px);
+    height: calc(100vh - 350px);
     width: calc(100% + 50px);
+
+    @-moz-document url-prefix() {
+        & {
+            height: 100%;
+        }
+    }
+
+    @media (max-width: 767px) {
+        height: auto;
+        min-height: 100%;
+    }
 
     > div {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
     }
+
+    // remove scroll x in table content
+    .ps {
+        @media (max-width: 767px) {
+            overflow: inherit !important;
+        }
+    }
 `;
 
 export const Event = styled.div`
     background: ${({ theme }) => theme.colors.white};
     border-radius: ${({ theme }) => theme.borderRadius.default}px;
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     height: 475px;
     margin: 50px 0 30px;
+    position: relative;
+    transition: all ${({ theme }) => theme.transitions.default}s;
     width: calc(50% - 40px);
+
+    @media (max-width: 767px) {
+        margin-bottom: 100px;
+        width: calc(100% - 50px);
+    }
 
     &:nth-child(n + 3) {
         margin-top: -100px;
+        @media (max-width: 767px) {
+            margin-top: 0;
+        }
     }
 
     &:nth-child(2n) {
         margin-right: 50px;
         margin-top: 100px;
+
+        @media (max-width: 767px) {
+            margin-right: 0;
+            margin-top: 0;
+        }
     }
 
     &:nth-child(2) {
         margin-top: 250px;
+
+        @media (max-width: 767px) {
+            margin-top: 0;
+        }
+    }
+
+    &:hover {
+        box-shadow: 0 0 28px rgba(9, 90, 90, 0.15);
     }
 `;
 
 export const EventImage = styled.div`
+    background: ${({ theme }) => theme.colors.white};
     border-radius: ${({ theme }) => theme.borderRadius.default}px;
     height: 125px;
     margin: -50px auto 50px;
     overflow: hidden;
     position: relative;
-    width: 165px;
+    width: 185px;
 `;
 
 export const Image = styled.img`
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     width: 100%;
 `;
 
@@ -86,4 +129,6 @@ export const EventLinkWrapper = styled.div`
     justify-content: flex-end;
 `;
 
-export const EventLink = styled(ItemLink)``;
+export const EventLink = styled(ItemLink)`
+    margin-right: 12px;
+`;

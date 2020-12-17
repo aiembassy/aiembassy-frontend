@@ -6,6 +6,7 @@ import {
     ModalContent,
 } from '@components/_universal/Modal/Modal.styled';
 import EventsList from './EventsList/EventsList';
+import { IconDotsTop } from './ModalEvents.styled';
 
 interface IProps {
     smallModal?: boolean;
@@ -22,6 +23,7 @@ const ModalEvents: React.FC<IProps> = ({ smallModal }) => {
                 </ModalDescription>
             </ModalInfo>
             <ModalContent>
+                <IconDotsTop name="IconDotsTop" size={1000} sizeY={530} />
                 <EventsList />
             </ModalContent>
         </>

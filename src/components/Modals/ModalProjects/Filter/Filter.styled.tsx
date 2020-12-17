@@ -17,7 +17,7 @@ export const FilterLabel = styled.label`
     display: flex;
     font-size: ${({ theme }) => theme.fontSizes.m}px;
     font-weight: ${({ theme }) => theme.fontWeight.semi_bold};
-    height: 100%;
+    height: 38px;
     line-height: 1.7;
     padding: 0 28px;
     position: relative;

@@ -5,7 +5,6 @@ import {
     ModalInfo,
     ModalContent,
 } from '@components/_universal/Modal/Modal.styled';
-import IconManager from '@components/_universal/IconManager/IconManager';
 import { BoldText } from '@shared/styles/typography.styled';
 import {
     SupportList,
@@ -14,6 +13,7 @@ import {
     ItemContent,
     IconName,
     ItemIcon,
+    ImageIcon,
 } from './ModalDonation.styled';
 
 interface IProps {
@@ -36,11 +36,7 @@ const ModalDonation: React.FC<IProps> = ({ smallModal }) => {
                 <SupportList>
                     <SupportItem>
                         <ItemIcon>
-                            <IconManager
-                                size={83}
-                                sizeY={83}
-                                name="IconDonation"
-                            />
+                            <ImageIcon src="images/donate.png" />
                             <IconName>Darowizny</IconName>
                         </ItemIcon>
                         <ItemContent>
@@ -69,11 +65,7 @@ const ModalDonation: React.FC<IProps> = ({ smallModal }) => {
                     </SupportItem>
                     <SupportItem>
                         <ItemIcon>
-                            <IconManager
-                                size={83}
-                                sizeY={83}
-                                name="IconCooperation"
-                            />
+                            <ImageIcon src="images/cooperation.png" />
                             <IconName>Współpraca</IconName>
                         </ItemIcon>
                         <ItemContent>
