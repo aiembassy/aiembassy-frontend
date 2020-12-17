@@ -20,6 +20,7 @@ const ModalArticle: React.FC<IProps> = ({ data }) => {
                 <ModalTitle>{data.title}</ModalTitle>
                 <ModalDescription>
                     <div
+                        {/* eslint-disable-next-line react/no-danger */}
                         dangerouslySetInnerHTML={{
                             __html: data.text,
                         }}

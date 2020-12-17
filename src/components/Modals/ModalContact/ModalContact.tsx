@@ -29,7 +29,9 @@ const ModalContact: React.FC<IProps> = ({ smallModal }) => {
                     lub wypełnij formularz kontaktowy.
                 </ModalDescription>
             </ModalInfo>
-            <ModalContent>{/* <FormComponent /> */}</ModalContent>
+            <ModalContent>
+                <FormComponent />
+            </ModalContent>
         </>
     );
 };
