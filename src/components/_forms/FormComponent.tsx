@@ -28,6 +28,7 @@ interface IFormInputs {
 const schema = yup.object().shape({
     fullName: yup.string().required(),
     email: yup.string().email().required(),
+    message: yup.string().required(),
 });
 
 const FormComponent = () => {
@@ -41,7 +42,7 @@ const FormComponent = () => {
     console.log(watch());
     return (
         <FormWrapper>
-            <Form onSubmit={onSubmit}>
+            <Form onSubmit={onSubmit} data-netlify="true">
                 <InputWrapper marginBottom={16}>
                     <InputLabel>Imię i nazwisko *</InputLabel>
                     <InputField className={errors.fullName ? 'error' : ''}>
@@ -77,7 +78,7 @@ const FormComponent = () => {
                     </InputField>
                 </InputWrapper>
                 <InputWrapper marginBottom={24}>
-                    <InputLabel>Wiadomość</InputLabel>
+                    <InputLabel>Wiadomość *</InputLabel>
                     <InputField>
                         <TextArea name="message" ref={register} />
                     </InputField>
