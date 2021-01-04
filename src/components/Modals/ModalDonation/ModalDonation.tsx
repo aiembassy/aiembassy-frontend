@@ -58,7 +58,7 @@ const ModalDonation: React.FC<IProps> = ({ smallModal }) => {
                                 <BoldText>
                                     Fundacja “AI Embassy”
                                     <br />
-                                    Rynek Główny 28, 31-010 Kraków
+                                    ul. Podskale 1A/6, 30-522 Kraków
                                 </BoldText>
                             </Text>
                         </ItemContent>
