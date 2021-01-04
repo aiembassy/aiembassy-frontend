@@ -31,7 +31,7 @@ const Contact: React.FC = () => {
                 <InfoBox>
                     <TitleBox>Fundacja “AI Embassy”</TitleBox>
                     <TextBox>
-                        Rynek Główny 28, 31-010 Kraków <br />
+                        ul. Podskale 1A/6, 30-522 Kraków <br />
                         KRS 0000823425 <br />
                         NIP 6762576428 <br />
                         REGON 385300695 <br />
