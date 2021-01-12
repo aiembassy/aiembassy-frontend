@@ -46,19 +46,19 @@ const Contact: React.FC = () => {
                         />
                         contact@embassy.ai
                     </MailToLink>
-                    {/* <Text>lub wypełnij</Text> */}
-                    {/* <Link scroll={false} href="/contact" as="/contact"> */}
-                    {/*    <LinkWrapper> */}
-                    {/*        <OpenFormButton buttonType="TRANSPARENT"> */}
-                    {/*            <Icon */}
-                    {/*                className="IconContact" */}
-                    {/*                name="IconContact" */}
-                    {/*                size={27} */}
-                    {/*            /> */}
-                    {/*            formularz kontaktowy */}
-                    {/*        </OpenFormButton> */}
-                    {/*    </LinkWrapper> */}
-                    {/* </Link> */}
+                    <Text>lub wypełnij</Text>
+                    <Link scroll={false} href="/contact" as="/contact">
+                        <LinkWrapper>
+                            <OpenFormButton buttonType="TRANSPARENT">
+                                <Icon
+                                    className="IconContact"
+                                    name="IconContact"
+                                    size={27}
+                                />
+                                formularz kontaktowy
+                            </OpenFormButton>
+                        </LinkWrapper>
+                    </Link>
                 </InfoBox>
                 <InfoBox>
                     <TitleBox>Wspomóż nas</TitleBox>

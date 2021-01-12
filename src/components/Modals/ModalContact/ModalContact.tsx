@@ -6,7 +6,7 @@ import {
     ModalContent,
 } from '@components/_universal/Modal/Modal.styled';
 import { LinkText } from '@shared/styles/typography.styled';
-// import FormComponent from '@components/_forms/FormComponent';
+import FormComponent from '@components/_forms/FormComponent';
 
 interface IProps {
     smallModal: boolean;
@@ -29,7 +29,9 @@ const ModalContact: React.FC<IProps> = ({ smallModal }) => {
                     lub wypełnij formularz kontaktowy.
                 </ModalDescription>
             </ModalInfo>
-            <ModalContent>{/* <FormComponent /> */}</ModalContent>
+            <ModalContent>
+                <FormComponent />
+            </ModalContent>
         </>
     );
 };
