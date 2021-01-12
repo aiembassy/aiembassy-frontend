@@ -22,4 +22,8 @@
       <loc>https://www.embassy.ai/workshops</loc>
       <changefreq>weekly</changefreq>
    </url>
+   <url>
+      <loc>https://www.embassy.ai/workshops/wstep-do-ai</loc>
+      <changefreq>weekly</changefreq>
+   </url>
 </urlset>
