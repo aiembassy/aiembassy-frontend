@@ -38,7 +38,7 @@ const FormComponent = () => {
 
     return (
         <FormWrapper>
-            <Form name="contact" method="POST" data-netlify="true">
+            <Form action="/" name="contact" method="POST" data-netlify="true">
                 <InputWrapper marginBottom={16}>
                     <InputLabel>Imię i nazwisko *</InputLabel>
                     <InputField className={errors.fullName ? 'error' : ''}>
