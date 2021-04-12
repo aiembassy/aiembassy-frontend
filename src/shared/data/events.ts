@@ -1,6 +1,34 @@
 export default {
-    'skyhacks-ai-hackathon-2020': {
+    'dba-2021': {
         id: '0',
+        shortTitle: 'Digital Banking Academy',
+        shortDescription:
+            'Digital Banking Academy to cykl szkoleniowy dla sektora bankowego, organizowany przez Związek Banków Polskich.',
+        imagePath: '/images/brands/digital_banking_academy.png',
+        date: '13. kwietnia 2021',
+        title: 'Digital Banking Academy 2021',
+        text:
+            '<section>' +
+            '<p><strong>Cykl szkoleń i warsztatów Digital Banking Academy umożliwi zdobycie kompleksowej wiedzy w zakresie nowoczesnych rozwiązań cyfrowych, mogących znaleźć zastosowanie w bankowości. W warsztatach, jako prowadzący, wezmą udział wybitni eksperci i praktycy, którzy przedstawią zagadnienia z perspektywy prawnej i regulacyjnej, biznesowej oraz technologicznej.</strong></p>' +
+            '<p>Kacper Łukawski wygłosi w ramach wydarzenia prezentację pt. &quot;Trendy w projektowaniu skalowalnego data workflow&quot;</p>' +
+            '</section>',
+    },
+    'lets-solve-it-2021': {
+        id: '1',
+        shortTitle: "Let's solve it",
+        shortDescription:
+            'Let’s Solve IT to międzynarodowy projekt, którego celem jest pomoc w pokonywaniu wyzwań i rozwiązywaniu problemów kobiet skupionych wokół świata IT i nowych technologii.',
+        imagePath: '/images/brands/lets_solve_it.png',
+        date: 'luty/marzec 2021',
+        title: "Let's solve it 2021",
+        text:
+            '<section>' +
+            '<p><strong>Let’s Solve IT to międzynarodowy projekt, którego celem jest pomoc w pokonywaniu wyzwań i rozwiązywaniu problemów kobiet skupionych wokół świata IT i nowych technologii.</strong></p>' +
+            '<p>AI Embassy wspiera akcję przez mentoring dla uczestniczek, w dziedzinach na których znamy się najlepiej!</p>' +
+            '</section>',
+    },
+    'skyhacks-ai-hackathon-2020': {
+        id: '2',
         shortTitle: 'skyhacks 2020',
         shortDescription:
             'Tegoroczny skyhacks to trzydniowe wydarzenie, którego jedną z części będzie hackhaton AI/ML. Uczestnicy ' +
@@ -17,7 +45,7 @@ export default {
             '</section>',
     },
     'ghost-day-2020': {
-        id: '1',
+        id: '3',
         shortTitle: 'Ghost DAY: AMLC',
         shortDescription:
             'GHOST Day: AMLC jest wydarzeniem skupiającym się ' +
@@ -54,7 +82,7 @@ export default {
             '</section>',
     },
     'dss-conf-2020': {
-        id: '2',
+        id: '4',
         shortTitle: 'DSS 2020',
         shortDescription:
             'Data Science Summit to największa w regionie Europy Środkowo-Wschodniej ' +
