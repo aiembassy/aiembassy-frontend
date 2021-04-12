@@ -35,14 +35,11 @@ const FormComponent = () => {
     const { register, handleSubmit, errors, watch } = useForm<IFormInputs>({
         resolver: yupResolver(schema),
     });
-    const onSubmit = handleSubmit((data: IFormInputs) => {
-        console.log('Form data ::', data);
-    });
 
-    console.log(watch());
     return (
         <FormWrapper>
-            <Form onSubmit={onSubmit} data-netlify="true">
+            <Form action="/" name="contact" method="POST" data-netlify="true">
+                <Input type="hidden" name="form-name" value="contact"/>
                 <InputWrapper marginBottom={16}>
                     <InputLabel>Imię i nazwisko *</InputLabel>
                     <InputField className={errors.fullName ? 'error' : ''}>
