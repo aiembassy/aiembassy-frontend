@@ -19,6 +19,7 @@ export const SectionTitle = styled(Title)`
 `;
 
 export const EventsWrapper = styled.div`
+    overflow-x: hidden;
     padding: 130px 0 140px;
     position: relative;
 
