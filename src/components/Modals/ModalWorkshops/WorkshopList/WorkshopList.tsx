@@ -4,6 +4,7 @@ import ScrollBar from 'react-perfect-scrollbar';
 import Link from 'next/link';
 import ButtonLink from '@components/_universal/ButtonLink/ButtonLink';
 import { ButtonElement } from '@components/_universal/ButtonLink/ButtonLink.styled';
+import workshops from '@shared/data/workshops';
 import {
     TableContent,
     WorkshopName,
@@ -13,47 +14,46 @@ import {
 } from './WorkshopList.styled';
 
 const WorkshopList = () => {
-    const itemsList = new Array(1).fill(1);
-
     return (
         <TableContent>
             <ScrollBar>
-                {itemsList.map((item, index) => (
-                    <TableRow key={`index_${index}`}>
-                        <CellWrapper>
-                            <WorkshopName>
-                                Wstęp do sztucznej inteligencji
-                            </WorkshopName>
-                        </CellWrapper>
-                        <CellWrapper>
-                            <DefaultText>
-                                Sztuczna inteligencja zrewolucjonizuje świat,
-                                który znamy. Wierzymy, że każdy z nas powinien
-                                znać jej podstawy i możliwe zagrożenia.
-                            </DefaultText>
-                        </CellWrapper>
-                        <CellWrapper>
-                            <DefaultText>Podstawy AI</DefaultText>
-                        </CellWrapper>
-                        <CellWrapper>
-                            <Link
-                                scroll={false}
-                                href="/workshops/[workshopId]"
-                                as="/workshops/wstep-do-ai"
-                            >
-                                <ButtonWrapper>
-                                    <ButtonLink
-                                        buttonType="PRIMARY"
-                                        width={165}
-                                        className="button-link"
-                                    >
-                                        Więcej
-                                    </ButtonLink>
-                                </ButtonWrapper>
-                            </Link>
-                        </CellWrapper>
-                    </TableRow>
-                ))}
+                {Object.keys(workshops).map((workshopId) => {
+                    const workshop = workshops[workshopId];
+                    const workshopLinkLocation = `/workshops/${workshopId}`;
+
+                    return (
+                        <TableRow key={`index_${workshopId}`}>
+                            <CellWrapper>
+                                <WorkshopName>{workshop.title}</WorkshopName>
+                            </CellWrapper>
+                            <CellWrapper>
+                                <DefaultText>
+                                    {workshop.shortDescription}
+                                </DefaultText>
+                            </CellWrapper>
+                            <CellWrapper>
+                                <DefaultText>{workshop.category}</DefaultText>
+                            </CellWrapper>
+                            <CellWrapper>
+                                <Link
+                                    scroll={false}
+                                    href="/workshops/[workshopId]"
+                                    as={workshopLinkLocation}
+                                >
+                                    <ButtonWrapper>
+                                        <ButtonLink
+                                            buttonType="PRIMARY"
+                                            width={165}
+                                            className="button-link"
+                                        >
+                                            Więcej
+                                        </ButtonLink>
+                                    </ButtonWrapper>
+                                </Link>
+                            </CellWrapper>
+                        </TableRow>
+                    );
+                })}
             </ScrollBar>
         </TableContent>
     );

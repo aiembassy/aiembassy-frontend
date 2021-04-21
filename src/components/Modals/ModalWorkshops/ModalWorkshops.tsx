@@ -13,7 +13,7 @@ import {
 } from './ModalWorkshops.styled';
 import WorkshopList from './WorkshopList/WorkshopList';
 
-const ModalWorskshops = () => {
+const ModalWorkshops = () => {
     return (
         <>
             <ModalInfo>
@@ -45,4 +45,4 @@ const ModalWorskshops = () => {
     );
 };
 
-export default ModalWorskshops;
+export default ModalWorkshops;
