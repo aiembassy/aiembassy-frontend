@@ -1,0 +1,27 @@
+{
+  "locales": [
+    "en",
+    "pl"
+  ],
+  "defaultLocale": "en",
+  "pages": {
+    "/": [
+      "common"
+    ],
+    "/contact": [
+      "contact", "common"
+    ],
+    "/donation": [
+      "donation", "common"
+    ],
+    "/events": [
+      "events", "common"
+    ],
+    "/projects": [
+      "projects", "common"
+    ],
+    "/workshops": [
+      "workshops", "common"
+    ]
+  }
+}

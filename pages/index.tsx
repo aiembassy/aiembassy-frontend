@@ -1,9 +1,11 @@
 import React from 'react';
 import Layout from '@components/_layout/Layout.view';
 import { motion } from 'framer-motion';
-import siteConfig from '@shared/data/siteConfig';
+import useTranslation from 'next-translate/useTranslation';
 
 const Home = () => {
+    const { t, lang } = useTranslation('common');
+
     return (
         <motion.div
             initial={{ opacity: 0 }}
@@ -12,9 +14,9 @@ const Home = () => {
         >
             <Layout
                 meta={{
-                    title: 'AI Embassy - Supporting AI Revolution',
-                    description: siteConfig.metaDescription,
-                    keywords: siteConfig.metaKeywords,
+                    title: t('page_title'),
+                    description: t('page_description'),
+                    keywords: t('page_keywords'),
                 }}
             />
         </motion.div>

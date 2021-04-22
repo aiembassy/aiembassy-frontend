@@ -4,9 +4,11 @@ import Layout from '@components/_layout/Layout.view';
 import Modal from '@components/_universal/Modal/Modal';
 import ModalArticle from '@components/Modals/ModalArticle/ModalArticle';
 import workshops from '@shared/data/workshops';
-import siteConfig from '@shared/data/siteConfig';
+import useTranslation from 'next-translate/useTranslation';
 
 const WorkshopPage = ({ workshopId }) => {
+    const { t, lang } = useTranslation('common');
+
     const router = useRouter();
     const data = workshops[workshopId];
 
@@ -18,8 +20,8 @@ const WorkshopPage = ({ workshopId }) => {
         <Layout
             meta={{
                 title: `AI Embassy - ${data.title}`,
-                description: siteConfig.metaDescription,
-                keywords: siteConfig.metaKeywords,
+                description: t('page_description'),
+                keywords: t('page_keywords'),
             }}
         >
             <Modal isBackLink modalType="workshop">
