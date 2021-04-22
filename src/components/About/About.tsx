@@ -3,6 +3,7 @@ import { Container } from '@shared/styles/global.styled';
 import { LinkText } from '@shared/styles/typography.styled';
 import ButtonLink from '@components/_universal/ButtonLink/ButtonLink';
 import Link from 'next/link';
+import useTranslation from 'next-translate/useTranslation';
 import {
     AboutWrapper,
     SectionDescription,
@@ -22,15 +23,14 @@ import {
 } from './About.styled';
 
 const About: React.FC = () => {
+    const { t, lang } = useTranslation('common');
+
     return (
         <AboutWrapper id="about">
             <Container>
-                <SectionTitle>O fundacji</SectionTitle>
+                <SectionTitle>{t('about_title')}</SectionTitle>
                 <SectionDescription>
-                    Sztuczna inteligencja będzie w najbliższych latach motorem
-                    napędowym trwającej rewolucji naukowej. Fundacja AI Embassy
-                    dąży do tego, aby to Polska stała się centrum tych
-                    innowacji.
+                    {t('about_description')}
                 </SectionDescription>
                 <IconA name="IconLetterA" size={340} />
                 <IconI name="IconLetterI" size={315} />
@@ -38,7 +38,7 @@ const About: React.FC = () => {
                 <BoxList>
                     <BoxListInner>
                         <BoxItemSmall>
-                            <BoxTitle>Bezpłatne szkolenia</BoxTitle>
+                            <BoxTitle>{t('free_workshops_title')}</BoxTitle>
                             <BoxDescription>
                                 Wiedza jest kluczowym elementem, który pozwala
                                 na wprowadzenie innowacji. AI Embassy łączy
@@ -59,7 +59,7 @@ const About: React.FC = () => {
                             </BoxDescription>
                         </BoxItemSmall>
                         <BoxItemSmall>
-                            <BoxTitle>Konferencje i wydarzenia</BoxTitle>
+                            <BoxTitle>{t('conferences_title')}</BoxTitle>
                             <BoxDescription>
                                 Budowanie innowacji wymaga także stworzenia
                                 działającej społeczności ekspertów, firm oraz
@@ -88,7 +88,7 @@ const About: React.FC = () => {
                     </BoxListInner>
                     <BoxListInner>
                         <BoxItemBig>
-                            <BoxTitle>Wsparcie dla przedsiębiorstw</BoxTitle>
+                            <BoxTitle>{t('business_support_title')}</BoxTitle>
                             <BoxDescription>
                                 Rewolucja AI wymaga zaangażowania ze strony
                                 biznesu. Czy masz pomysł na implementację
@@ -127,15 +127,11 @@ const About: React.FC = () => {
             </Container>
             <Container>
                 <SummaryWrapper>
-                    <SummaryText>
-                        Jeżeli tak jak my uważasz, że sztuczna inteligencja może
-                        zrewolucjonizować przyszłość, wspomóż nasze działania i
-                        przekaż dotację na rozwój fundacji.
-                    </SummaryText>
+                    <SummaryText>{t('summary_text')}</SummaryText>
                     <Link scroll={false} href="/donation" as="/help-us">
                         <ButtonWrapper>
                             <ButtonLink buttonType="PRIMARY" width={280}>
-                                Wspomóż nas
+                                {t('summary_support_us')}
                             </ButtonLink>
                         </ButtonWrapper>
                     </Link>

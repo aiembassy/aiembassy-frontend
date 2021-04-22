@@ -4,6 +4,7 @@ import IconManager from '@components/_universal/IconManager/IconManager';
 import Menu from '@components/Menu/Menu';
 import Link from 'next/link';
 import ButtonLink from '@components/_universal/ButtonLink/ButtonLink';
+import useTranslation from 'next-translate/useTranslation';
 import {
     HeroWrapper,
     Header,
@@ -19,6 +20,8 @@ import {
 } from './Hero.styled';
 
 const Hero: React.FC = () => {
+    const { t, lang } = useTranslation('common');
+
     const [headerClassName, setHeaderClassName] = useState('');
     const handleScroll = () =>
         setHeaderClassName(window.scrollY > 0 ? 'scrolling' : '');
@@ -39,17 +42,12 @@ const Hero: React.FC = () => {
                 </Container>
             </Header>
             <Container className="hero-inner">
-                <HeroTitle as="h1">
-                    Fundacja AI Embassy wspiera rewolucję AI w Polsce
-                </HeroTitle>
-                <HeroSubtitle>
-                    Zobacz, jak możemy Ci pomóc zostać częścią nadciągającej
-                    zmiany!
-                </HeroSubtitle>
+                <HeroTitle as="h1">{t('hero_title')}</HeroTitle>
+                <HeroSubtitle>{t('hero_subtitle')}</HeroSubtitle>
                 <Link scroll={false} href="/workshops" as="/workshops">
                     <ButtonWrapper>
                         <ButtonLink buttonType="SECONDARY">
-                            sprawdź naszą ofertę
+                            {t('hero_check_our_offer')}
                         </ButtonLink>
                     </ButtonWrapper>
                 </Link>

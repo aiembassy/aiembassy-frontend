@@ -24,8 +24,11 @@ import {
     ItemLink,
     ButtonWrapper,
 } from './Projects.styled';
+import useTranslation from "next-translate/useTranslation";
 
 const Projects: React.FC = () => {
+    const { t, lang } = useTranslation('common');
+
     const [activeAnimation, setActiveAnimation] = useState({ hover: null });
     const onHover = (id) => {
         setActiveAnimation({ hover: id });
@@ -37,7 +40,7 @@ const Projects: React.FC = () => {
     return (
         <ProjectsWrapper id="projects">
             <Container>
-                <SectionTitle>Nasze projekty</SectionTitle>
+                <SectionTitle>{t('projects_title')}</SectionTitle>
                 <ProjectsList>
                     {Object.keys(projects).map((projectId) => {
                         const project = projects[projectId];
@@ -105,102 +108,6 @@ const Projects: React.FC = () => {
                                         </ProjectItem>
                                     </Link>
                                 </ProjectWrapper>
-                                {/* <ProjectWrapper key={projectId}> */}
-                                {/*    <ProjectItem> */}
-                                {/*        <ItemImage> */}
-                                {/*            <Image src={project.imagePath} /> */}
-                                {/*        </ItemImage> */}
-                                {/*        <ItemContent> */}
-                                {/*            <ItemInfo> */}
-                                {/*                <ItemInfoInner> */}
-                                {/*                    <ItemService> */}
-                                {/*                        { */}
-                                {/*                            categoryName[ */}
-                                {/*                                project.category */}
-                                {/*                            ] */}
-                                {/*                        } */}
-                                {/*                    </ItemService> */}
-                                {/*                    <ItemDate> */}
-                                {/*                        {project.date} */}
-                                {/*                    </ItemDate> */}
-                                {/*                </ItemInfoInner> */}
-                                {/*                <Link */}
-                                {/*                    scroll={false} */}
-                                {/*                    href="/projects/[projectId]" */}
-                                {/*                    as={projectLink} */}
-                                {/*                > */}
-                                {/*                    <ItemLinkWrapper> */}
-                                {/*                        <ItemLink */}
-                                {/*                            buttonType="TRANSPARENT" */}
-                                {/*                            iconType="IconArrowRight" */}
-                                {/*                            iconSize={20} */}
-                                {/*                            iconActiveColor={[ */}
-                                {/*                                'green_hover', */}
-                                {/*                            ]} */}
-                                {/*                            noPadding */}
-                                {/*                        > */}
-                                {/*                            więcej */}
-                                {/*                        </ItemLink> */}
-                                {/*                    </ItemLinkWrapper> */}
-                                {/*                </Link> */}
-                                {/*            </ItemInfo> */}
-                                {/*            <ItemTitle> */}
-                                {/*                {project.shortTitle} */}
-                                {/*            </ItemTitle> */}
-                                {/*            <ItemText> */}
-                                {/*                {project.shortDescription} */}
-                                {/*            </ItemText> */}
-                                {/*        </ItemContent> */}
-                                {/*    </ProjectItem> */}
-                                {/* </ProjectWrapper> */}
-                                {/* <ProjectWrapper key={projectId}> */}
-                                {/*    <ProjectItem> */}
-                                {/*        <ItemImage> */}
-                                {/*            <Image src={project.imagePath} /> */}
-                                {/*        </ItemImage> */}
-                                {/*        <ItemContent> */}
-                                {/*            <ItemInfo> */}
-                                {/*                <ItemInfoInner> */}
-                                {/*                    <ItemService> */}
-                                {/*                        { */}
-                                {/*                            categoryName[ */}
-                                {/*                                project.category */}
-                                {/*                            ] */}
-                                {/*                        } */}
-                                {/*                    </ItemService> */}
-                                {/*                    <ItemDate> */}
-                                {/*                        {project.date} */}
-                                {/*                    </ItemDate> */}
-                                {/*                </ItemInfoInner> */}
-                                {/*                <Link */}
-                                {/*                    scroll={false} */}
-                                {/*                    href="/projects/[projectId]" */}
-                                {/*                    as={projectLink} */}
-                                {/*                > */}
-                                {/*                    <ItemLinkWrapper> */}
-                                {/*                        <ItemLink */}
-                                {/*                            buttonType="TRANSPARENT" */}
-                                {/*                            iconType="IconArrowRight" */}
-                                {/*                            iconSize={20} */}
-                                {/*                            iconActiveColor={[ */}
-                                {/*                                'green_hover', */}
-                                {/*                            ]} */}
-                                {/*                            noPadding */}
-                                {/*                        > */}
-                                {/*                            więcej */}
-                                {/*                        </ItemLink> */}
-                                {/*                    </ItemLinkWrapper> */}
-                                {/*                </Link> */}
-                                {/*            </ItemInfo> */}
-                                {/*            <ItemTitle> */}
-                                {/*                {project.shortTitle} */}
-                                {/*            </ItemTitle> */}
-                                {/*            <ItemText> */}
-                                {/*                {project.shortDescription} */}
-                                {/*            </ItemText> */}
-                                {/*        </ItemContent> */}
-                                {/*    </ProjectItem> */}
-                                {/* </ProjectWrapper> */}
                             </React.Fragment>
                         );
                     })}
@@ -208,7 +115,7 @@ const Projects: React.FC = () => {
                 <Link scroll={false} href="/projects" as="/projects">
                     <ButtonWrapper>
                         <Button buttonType="PRIMARY" width={300}>
-                            Zobacz nasze projekty
+                            {t('projects_link')}
                         </Button>
                     </ButtonWrapper>
                 </Link>

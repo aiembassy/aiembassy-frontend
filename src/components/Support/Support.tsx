@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container } from '@shared/styles/global.styled';
+import useTranslation from 'next-translate/useTranslation';
 import {
     SectionTitle,
     SupportWrapper,
@@ -9,10 +10,12 @@ import {
 } from './Support.styled';
 
 const Support: React.FC = () => {
+    const { t, lang } = useTranslation('common');
+
     return (
         <SupportWrapper>
             <Container>
-                <SectionTitle center>Wspierają nas</SectionTitle>
+                <SectionTitle center>{t('support_title')}</SectionTitle>
                 <SupportList>
                     <SupportItem>
                         <ItemImage src="/images/gmail.png" width={66} />

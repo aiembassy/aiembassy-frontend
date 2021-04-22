@@ -1,27 +1,34 @@
 {
   "locales": [
-    "en",
     "pl"
   ],
-  "defaultLocale": "en",
+  "defaultLocale": "pl",
   "pages": {
+    "*": [
+      "menu"
+    ],
     "/": [
       "common"
     ],
     "/contact": [
-      "contact", "common"
+      "contact",
+      "common"
     ],
     "/donation": [
-      "donation", "common"
+      "donation",
+      "common"
     ],
     "/events": [
-      "events", "common"
+      "events",
+      "common"
     ],
     "/projects": [
-      "projects", "common"
+      "projects",
+      "common"
     ],
     "/workshops": [
-      "workshops", "common"
+      "workshops",
+      "common"
     ]
   }
 }

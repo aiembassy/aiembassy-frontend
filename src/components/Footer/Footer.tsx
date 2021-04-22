@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container } from '@shared/styles/global.styled';
+import useTranslation from 'next-translate/useTranslation';
 import {
     FooterWrapper,
     FooterLinks,
@@ -13,6 +14,8 @@ import {
 } from './Footer.styled';
 
 const Footer: React.FC = () => {
+    const { t, lang } = useTranslation('common');
+
     return (
         <Container>
             <FooterWrapper>
@@ -22,13 +25,13 @@ const Footer: React.FC = () => {
                         href="/docs/polityka_prywatnosci.pdf"
                         target="_blank"
                     >
-                        Polityka prywatności
+                        {t('privacy_policy')}
                     </FooterLink>
                     <FooterLink
                         href="/docs/statut_aiembassy.pdf"
                         target="_blank"
                     >
-                        Statut fundacji
+                        {t('foundation_statute')}
                     </FooterLink>
                 </FooterLinks>
                 <FooterSocials>

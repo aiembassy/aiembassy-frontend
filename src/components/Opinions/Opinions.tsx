@@ -1,6 +1,8 @@
 import React from 'react';
 import ScrollBar from 'react-perfect-scrollbar';
 import { Container } from '@shared/styles/global.styled';
+import useTranslation from 'next-translate/useTranslation';
+import SwiperCore from 'swiper';
 import {
     SectionTitle,
     OpinionsWrapper,
@@ -15,10 +17,12 @@ import {
 } from './Opinions.styled';
 
 const Opinions: React.FC = () => {
+    const { t, lang } = useTranslation('common');
+
     return (
         <OpinionsWrapper id="media">
             <Container>
-                <SectionTitle>Piszą o nas</SectionTitle>
+                <SectionTitle>{t('opinions_title')}</SectionTitle>
                 <OpinionsList>
                     <IconQuote name="IconQuote" size={294} />
                     <ScrollBar>

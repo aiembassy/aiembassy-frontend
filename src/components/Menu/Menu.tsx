@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import useTranslation from 'next-translate/useTranslation';
 import {
     MenuWrapper,
     MenuItem,
@@ -28,6 +29,8 @@ const ScrollspyNav = dynamic<IScrollSpy>(import('react-scrollspy-nav'), {
 });
 
 const Menu: React.FC = () => {
+    const { t, lang } = useTranslation('menu');
+
     const breakpoint = 1200;
     const [width, setWidth] = useState(null);
     const [isOpen, setIsOpen] = useState(false);
@@ -67,28 +70,32 @@ const Menu: React.FC = () => {
                     <MobileMenuWrapper>
                         <MobileMenuItem>
                             <MobileMenuLink href="#about">
-                                O fundacji
+                                {t('about_foundation')}
                             </MobileMenuLink>
                         </MobileMenuItem>
                         <MobileMenuItem>
                             <MobileMenuLink href="#projects">
-                                Projekty
+                                {t('projects')}
                             </MobileMenuLink>
                         </MobileMenuItem>
                         <MobileMenuItem>
-                            <MobileMenuLink href="#team">Zespół</MobileMenuLink>
+                            <MobileMenuLink href="#team">
+                                {t('team')}
+                            </MobileMenuLink>
                         </MobileMenuItem>
                         <MobileMenuItem>
-                            <MobileMenuLink href="#media">Media</MobileMenuLink>
+                            <MobileMenuLink href="#media">
+                                {t('media')}
+                            </MobileMenuLink>
                         </MobileMenuItem>
                         <MobileMenuItem>
                             <MobileMenuLink href="#conferences">
-                                Wydarzenia
+                                {t('events')}
                             </MobileMenuLink>
                         </MobileMenuItem>
                         <MobileMenuItem>
                             <MobileMenuLink href="#contact">
-                                Kontakt
+                                {t('contact')}
                             </MobileMenuLink>
                         </MobileMenuItem>
                     </MobileMenuWrapper>
@@ -114,28 +121,30 @@ const Menu: React.FC = () => {
             >
                 <MenuWrapper>
                     <MenuItem>
-                        <MenuLink href="#about">O fundacji</MenuLink>
+                        <MenuLink href="#about">
+                            {t('about_foundation')}
+                        </MenuLink>
                     </MenuItem>
                     <MenuItem>
-                        <MenuLink href="#projects">Projekty</MenuLink>
+                        <MenuLink href="#projects">{t('projects')}</MenuLink>
                     </MenuItem>
                     <MenuItem>
-                        <MenuLink href="#team">Zespół</MenuLink>
+                        <MenuLink href="#team">{t('team')}</MenuLink>
                     </MenuItem>
                     <MenuItem>
-                        <MenuLink href="#media">Media</MenuLink>
+                        <MenuLink href="#media">{t('media')}</MenuLink>
                     </MenuItem>
                     <MenuItem>
-                        <MenuLink href="#conferences">Wydarzenia</MenuLink>
+                        <MenuLink href="#conferences">{t('events')}</MenuLink>
                     </MenuItem>
                     <MenuItem>
-                        <MenuLink href="#contact">Kontakt</MenuLink>
+                        <MenuLink href="#contact">{t('contact')}</MenuLink>
                     </MenuItem>
                 </MenuWrapper>
             </ScrollspyNav>
             <ModalLink>
                 <Link scroll={false} href="/workshops" as="/workshops">
-                    <MenuLink>Oferta szkoleń</MenuLink>
+                    <MenuLink>{t('workshops')}</MenuLink>
                 </Link>
             </ModalLink>
         </MenuContainer>
