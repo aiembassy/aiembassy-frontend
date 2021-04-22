@@ -7,10 +7,13 @@ import {
     ModalContent,
 } from '@components/_universal/Modal/Modal.styled';
 import { filtersHeader } from '@shared/data/projectsFilter';
+import useTranslation from 'next-translate/useTranslation';
 import Filter from './Filter/Filter';
 import FilterList from './FilterList/FilterList';
 
 const ModalProjects = () => {
+    const { t, lang } = useTranslation('projects');
+
     // Local state for managing filtering logic
     const [filters, updateFilters] = useState(filtersHeader);
 
@@ -36,12 +39,8 @@ const ModalProjects = () => {
     return (
         <>
             <ModalInfo>
-                <ModalTitle>Nasze projekty</ModalTitle>
-                <ModalDescription>
-                    Wierzymy, że sztuczna inteligencja może być wykorzystana do
-                    rozwiązania niektórych problemów społecznych, a także pomóc
-                    nam zautomatyzować pewne powtarzalne procesy.
-                </ModalDescription>
+                <ModalTitle>{t('common:projects_title')}</ModalTitle>
+                <ModalDescription>{t('projects_description')}</ModalDescription>
             </ModalInfo>
             <ModalContent>
                 <Filter filters={filters} onFilter={(e) => onFilter(e)} />

@@ -1,3 +1,13 @@
 {
-  "page_title": "AI Embassy - Wspomóż nas"
+  "page_title": "AI Embassy - Wspomóż nas",
+  "support_us_title": "Wspomóż nas",
+  "support_us_description": "Prowadzenie Fundacji oraz realizowane przez nas działania i projekty wymagają wielu środków finansowych i dużego nakładu pracy. Jeśli podoba Ci się to co robimy – możesz wspomóc naszą działalność.",
+  "donations": "Darowizny",
+  "donations_intro": "Jednorazowe lub systematyczne wpłaty na dowolną kwotę na konto Fundacji.",
+  "donations_make_transfer": "Wykonaj przelew o tytule",
+  "donations_transfer_title": "Darowizna na cele statutowe",
+  "donations_account_bank": "na konto Bank BNP Paribas",
+  "cooperation": "Współpraca",
+  "cooperation_description": "Osoby prawne mogą zostać naszymi sponsorami, przez wsparcie finansowe naszych projektów lub patronat, bądź też przyłączenie się do wspólnego realizowania projektów.",
+  "cooperation_benefits": "Loga partnerów zostaną umieszczone na stronie internetowej naszej Fundacji."
 }

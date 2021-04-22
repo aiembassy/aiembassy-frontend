@@ -5,6 +5,7 @@ import {
     ModalInfo,
     ModalContent,
 } from '@components/_universal/Modal/Modal.styled';
+import useTranslation from 'next-translate/useTranslation';
 import {
     TableWrapper,
     CellTitleWrapper,
@@ -14,27 +15,27 @@ import {
 import WorkshopList from './WorkshopList/WorkshopList';
 
 const ModalWorkshops = () => {
+    const { t, lang } = useTranslation('workshops');
+
     return (
         <>
             <ModalInfo>
-                <ModalTitle>Darmowe warsztaty i&nbsp;szkolenia</ModalTitle>
+                <ModalTitle>{t('workshops_title')}</ModalTitle>
                 <ModalDescription>
-                    Fundacja pomoże Ci rozwijać Twoje kompetencje w dziedzinie
-                    sztucznej inteligencji poprzez prowadzenie darmowych szkoleń
-                    i warsztatów, również w formule on-line.
+                    {t('workshops_description')}
                 </ModalDescription>
             </ModalInfo>
             <ModalContent>
                 <TableWrapper>
                     <TableHead>
                         <CellTitleWrapper>
-                            <TitleName>Nazwa szkolenia</TitleName>
+                            <TitleName>{t('workshop_name')}</TitleName>
                         </CellTitleWrapper>
                         <CellTitleWrapper>
-                            <TitleName>Opis</TitleName>
+                            <TitleName>{t('workshop_description')}</TitleName>
                         </CellTitleWrapper>
                         <CellTitleWrapper>
-                            <TitleName>Kategoria</TitleName>
+                            <TitleName>{t('workshop_category')}</TitleName>
                         </CellTitleWrapper>
                         <CellTitleWrapper />
                     </TableHead>

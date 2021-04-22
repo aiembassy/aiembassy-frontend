@@ -5,6 +5,7 @@ import Link from 'next/link';
 import ButtonLink from '@components/_universal/ButtonLink/ButtonLink';
 import { ButtonElement } from '@components/_universal/ButtonLink/ButtonLink.styled';
 import workshops from '@shared/data/workshops';
+import useTranslation from 'next-translate/useTranslation';
 import {
     TableContent,
     WorkshopName,
@@ -14,6 +15,8 @@ import {
 } from './WorkshopList.styled';
 
 const WorkshopList = () => {
+    const { t, lang } = useTranslation('workshops');
+
     return (
         <TableContent>
             <ScrollBar>
@@ -46,7 +49,7 @@ const WorkshopList = () => {
                                             width={165}
                                             className="button-link"
                                         >
-                                            Więcej
+                                            {t('common:more')}
                                         </ButtonLink>
                                     </ButtonWrapper>
                                 </Link>
