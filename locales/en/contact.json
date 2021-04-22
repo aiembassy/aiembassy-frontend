@@ -3,5 +3,14 @@
   "contact_title": "Porozmawiajmy",
   "contact_description": "Chciałbyś zbudować społeczność AI w Twojej okolicy? Chcesz dowiedzieć sie więcej o darmowych usługach doradczych lub o ofercie komercyjnej AI Embassy? Pasjonują Cię rozwiązania oparte o sztuczną inteligencję?",
   "contact_write_to_us": "Napisz do nas",
-  "contact_fill_up_form": "lub wypełnij formularz kontaktowy."
+  "contact_fill_up_form": "lub wypełnij formularz kontaktowy.",
+  "form_name": "Imię i nazwisko",
+  "form_email": "E-mail",
+  "form_message": "Wiadomość",
+  "form_send": "Wyślij",
+  "form_agreement": "Klikając wyślij zgdzasz się z",
+  "privacy_policy": "Polityką prywatności",
+  "form_owner": "AI Embassy",
+  "error_name": "Twoje dane są wymagane.",
+  "error_email": "Wprowadź poprawny adres email."
 }

@@ -5,30 +5,24 @@
   "defaultLocale": "pl",
   "pages": {
     "*": [
-      "menu"
-    ],
-    "/": [
-      "common"
+      "common",
+      "menu",
+      "about"
     ],
     "/contact": [
-      "contact",
-      "common"
+      "contact"
     ],
     "/donation": [
-      "donation",
-      "common"
+      "donation"
     ],
     "/events": [
-      "events",
-      "common"
+      "events"
     ],
     "/projects": [
-      "projects",
-      "common"
+      "projects"
     ],
     "/workshops": [
-      "workshops",
-      "common"
+      "workshops"
     ]
   }
 }
