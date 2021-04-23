@@ -138,7 +138,7 @@ const About: React.FC = () => {
             <Container>
                 <SummaryWrapper>
                     <SummaryText>{t('common:summary_text')}</SummaryText>
-                    <Link scroll={false} href="/donation" as="/help-us">
+                    <Link scroll={false} href="/donation" as="/donation">
                         <ButtonWrapper>
                             <ButtonLink buttonType="PRIMARY" width={280}>
                                 {t('common:summary_support_us')}

@@ -67,7 +67,7 @@ const Contact: React.FC = () => {
                 <InfoBox>
                     <TitleBox>{t('contact_support_us')}</TitleBox>
                     <TextBox>{t('contact_support_description')}</TextBox>
-                    <Link scroll={false} href="/donation" as="/help-us">
+                    <Link scroll={false} href="/donation" as="/donation">
                         <ButtonWrapper>
                             <ButtonLink buttonType="PRIMARY" width={280}>
                                 {t('contact_support_us')}

@@ -324,7 +324,7 @@ const Team: React.FC = () => {
                             <br />
                             {t('team_summary_invitation')}
                         </SummaryText>
-                        <Link scroll={false} href="/contact" as="/help-us">
+                        <Link scroll={false} href="/contact" as="/donation">
                             <ButtonWrapper>
                                 <ButtonLink buttonType="PRIMARY" width={290}>
                                     {t('team_summary_link')}
