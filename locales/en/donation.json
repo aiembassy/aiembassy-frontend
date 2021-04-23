@@ -1,13 +1,13 @@
 {
-  "page_title": "AI Embassy - Wspomóż nas",
-  "support_us_title": "Wspomóż nas",
-  "support_us_description": "Prowadzenie Fundacji oraz realizowane przez nas działania i projekty wymagają wielu środków finansowych i dużego nakładu pracy. Jeśli podoba Ci się to co robimy – możesz wspomóc naszą działalność.",
-  "donations": "Darowizny",
-  "donations_intro": "Jednorazowe lub systematyczne wpłaty na dowolną kwotę na konto Fundacji.",
-  "donations_make_transfer": "Wykonaj przelew o tytule",
-  "donations_transfer_title": "Darowizna na cele statutowe",
-  "donations_account_bank": "na konto Bank BNP Paribas",
-  "cooperation": "Współpraca",
-  "cooperation_description": "Osoby prawne mogą zostać naszymi sponsorami, przez wsparcie finansowe naszych projektów lub patronat, bądź też przyłączenie się do wspólnego realizowania projektów.",
-  "cooperation_benefits": "Loga partnerów zostaną umieszczone na stronie internetowej naszej Fundacji."
+  "page_title": "AI Embassy - Donate us",
+  "support_us_title": "Support us",
+  "support_us_description": "Running the Foundation and conducting the activities both require financial outlays and the effort of our volunteers. If you appreciate our work, you can donate any amount to support our future efforts.",
+  "donations": "Donations",
+  "donations_intro": "One-time or systematic payments of any amount to the Foundation's account.",
+  "donations_make_transfer": "Make a transfer titled",
+  "donations_transfer_title": "Donation for the statutory purposes",
+  "donations_account_bank": "BNP Paribas Bank Poland",
+  "cooperation": "Cooperation",
+  "cooperation_description": "Companies may support us in various ways. Please consider donating our projects, patronage or any form of cooperation in AI-related projects we can do together.",
+  "cooperation_benefits": "The logotypes of our partners will be put on the website of the AI Embassy Foundation."
 }

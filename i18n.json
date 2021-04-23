@@ -1,8 +1,8 @@
 {
   "locales": [
-    "pl"
+    "pl", "en"
   ],
-  "defaultLocale": "pl",
+  "defaultLocale": "en",
   "pages": {
     "*": [
       "common",
@@ -16,6 +16,9 @@
       "donation"
     ],
     "/events": [
+      "events"
+    ],
+    "/events/[eventId]": [
       "events"
     ],
     "/projects": [

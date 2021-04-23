@@ -1,25 +1,20 @@
 import projects from '@shared/data/projects';
 
-export const categoryName = {
-    research: 'Projekt badawczy',
-};
-
-export const filtersHeader = [
-    { label: 'all', name: 'Wszystkie', isChecked: true },
-].concat(
-    Object.keys(categoryName).map((category) => ({
-        label: category,
-        name: categoryName[category],
-        isChecked: false,
-    })),
-);
+export const filtersHeader = Object.keys(projects).map((projectId) => {
+    const project = projects[projectId];
+    return {
+        label: project.category,
+        name: project.category,
+        isChecked: true,
+    };
+});
 
 export const filtersList = Object.entries(projects).map(
     ([projectId, project]) => {
         return {
             id: projectId,
             filter: [project.category],
-            category: [categoryName[project.category]],
+            category: [project.category],
             imageLink: project.imagePath,
             title: project.title,
             text: project.shortDescription,

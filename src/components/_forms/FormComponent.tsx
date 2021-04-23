@@ -57,7 +57,7 @@ const FormComponent = () => {
                     </InputField>
                 </InputWrapper>
                 <InputWrapper marginBottom={16}>
-                    <InputLabel>Firma</InputLabel>
+                    <InputLabel>{t('form_company')}</InputLabel>
                     <InputField>
                         <Input
                             autoComplete="off"

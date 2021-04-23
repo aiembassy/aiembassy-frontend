@@ -3,7 +3,7 @@ export default {
         shortTitle: 'SmogSpots',
         shortDescription:
             'Zwycięski projekt Smogathonu 2019 w kategorii "Identyfikacja źródeł zanieczyszczeń". Metoda oparta o analizę danych do detekcji źródeł smogu.',
-        category: 'research',
+        category: 'Projekt badawczy',
         imagePath: '/images/ishan-seefromthesky-6U-sSfBV-gM-unsplash.jpg',
         date: 'Styczeń 2020',
         title: 'SmogSpots',

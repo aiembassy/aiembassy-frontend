@@ -3,8 +3,8 @@ import { Container } from '@shared/styles/global.styled';
 import Button from '@components/_universal/Button/Button';
 import Link from 'next/link';
 import projects from '@shared/data/projects';
-import { categoryName } from '@shared/data/projectsFilter';
 import { SliderItem } from '@components/Events/Events.styled';
+import useTranslation from 'next-translate/useTranslation';
 import {
     SectionTitle,
     ProjectsWrapper,
@@ -24,7 +24,6 @@ import {
     ItemLink,
     ButtonWrapper,
 } from './Projects.styled';
-import useTranslation from "next-translate/useTranslation";
 
 const Projects: React.FC = () => {
     const { t, lang } = useTranslation('common');
@@ -69,12 +68,7 @@ const Projects: React.FC = () => {
                                                 <ItemInfo>
                                                     <ItemInfoInner>
                                                         <ItemService>
-                                                            {
-                                                                categoryName[
-                                                                    project
-                                                                        .category
-                                                                ]
-                                                            }
+                                                            {project.category}
                                                         </ItemService>
                                                         <ItemDate>
                                                             {project.date}
@@ -94,7 +88,7 @@ const Projects: React.FC = () => {
                                                             ]}
                                                             noPadding
                                                         >
-                                                            więcej
+                                                            {t('common:more')}
                                                         </ItemLink>
                                                     </ItemLinkWrapper>
                                                 </ItemInfo>
