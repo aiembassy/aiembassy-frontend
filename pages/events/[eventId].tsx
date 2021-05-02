@@ -10,7 +10,7 @@ const EventPage = ({ eventId }) => {
     const { t, lang } = useTranslation('common');
 
     const router = useRouter();
-    const data = events[eventId];
+    const data = events[lang][eventId];
 
     useEffect(() => {
         router.prefetch('/');
@@ -42,7 +42,7 @@ export function getStaticPaths() {
         paths: Object.keys(events)
             .map((lang) =>
                 Object.keys(events[lang]).map((eventId) => ({
-                    params: { workshopId: eventId.toString() },
+                    params: { eventId: eventId.toString() },
                     locale: lang,
                 })),
             )

@@ -10,7 +10,7 @@ const ProjectPage = ({ projectId }) => {
     const { t, lang } = useTranslation('common');
 
     const router = useRouter();
-    const data = projects[projectId];
+    const data = projects[lang][projectId];
 
     useEffect(() => {
         router.prefetch('/');
@@ -33,15 +33,20 @@ const ProjectPage = ({ projectId }) => {
 
 export default ProjectPage;
 
-export function getStaticProps({ params: { projectId } }) {
-    return { props: { projectId } };
+export function getStaticProps({ params: { projectId }, locale }) {
+    return { props: { projectId, locale } };
 }
 
 export function getStaticPaths() {
     return {
-        paths: Object.keys(projects).map((projectId) => ({
-            params: { projectId: projectId.toString() },
-        })),
+        paths: Object.keys(projects)
+            .map((lang) =>
+                Object.keys(projects[lang]).map((projectId) => ({
+                    params: { projectId: projectId.toString() },
+                    locale: lang,
+                })),
+            )
+            .flat(),
         fallback: false,
     };
 }
