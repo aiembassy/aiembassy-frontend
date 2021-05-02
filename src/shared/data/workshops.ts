@@ -1,5 +1,5 @@
 export default {
-    en: {
+    pl: {
         'wstep-do-ai': {
             title: 'Wstęp do sztucznej inteligencji',
             category: 'Podstawy AI',
@@ -9,14 +9,14 @@ export default {
                 'Sztuczna inteligencja zrewolucjonizuje świat, który znamy. Wierzymy, że każdy z nas powinien znać jej podstawy i możliwe zagrożenia. ',
         },
     },
-    pl: {
-        'wstep-do-ai': {
-            title: 'Wstęp do sztucznej inteligencji',
-            category: 'Podstawy AI',
+    en: {
+        'ai-introduction': {
+            title: 'Basics of Artificial Intelligence',
+            category: 'AI basics',
             shortDescription:
-                'Sztuczna inteligencja zrewolucjonizuje świat, który znamy. Wierzymy, że każdy z nas powinien znać jej podstawy i możliwe zagrożenia. ',
+                'Artificial Intelligence will revolutionize the world we know. We believe everybody should know and understand its basics, but also possible threats.',
             text:
-                'Sztuczna inteligencja zrewolucjonizuje świat, który znamy. Wierzymy, że każdy z nas powinien znać jej podstawy i możliwe zagrożenia. ',
+                'Artificial Intelligence will revolutionize the world we know. We believe everybody should know and understand its basics, but also possible threats.',
         },
     },
 };
