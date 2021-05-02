@@ -10,7 +10,7 @@ const WorkshopPage = ({ workshopId }) => {
     const { t, lang } = useTranslation('common');
 
     const router = useRouter();
-    const data = workshops[workshopId];
+    const data = workshops[lang][workshopId];
 
     useEffect(() => {
         router.prefetch('/');
@@ -33,15 +33,20 @@ const WorkshopPage = ({ workshopId }) => {
 
 export default WorkshopPage;
 
-export function getStaticProps({ params: { workshopId } }) {
-    return { props: { workshopId } };
+export function getStaticProps({ params: { workshopId }, locale }) {
+    return { props: { workshopId, locale } };
 }
 
 export function getStaticPaths() {
     return {
-        paths: Object.keys(workshops).map((workshopId) => ({
-            params: { workshopId: workshopId.toString() },
-        })),
+        paths: Object.keys(workshops)
+            .map((lang) =>
+                Object.keys(workshops[lang]).map((workshopId) => ({
+                    params: { workshopId: workshopId.toString() },
+                    locale: lang,
+                })),
+            )
+            .flat(),
         fallback: false,
     };
 }

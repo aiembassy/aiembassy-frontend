@@ -20,8 +20,8 @@ const WorkshopList = () => {
     return (
         <TableContent>
             <ScrollBar>
-                {Object.keys(workshops).map((workshopId) => {
-                    const workshop = workshops[workshopId];
+                {Object.keys(workshops[lang]).map((workshopId) => {
+                    const workshop = workshops[lang][workshopId];
                     const workshopLinkLocation = `/workshops/${workshopId}`;
 
                     return (
@@ -42,6 +42,7 @@ const WorkshopList = () => {
                                     scroll={false}
                                     href="/workshops/[workshopId]"
                                     as={workshopLinkLocation}
+                                    locale={lang}
                                 >
                                     <ButtonWrapper>
                                         <ButtonLink
