@@ -18,9 +18,6 @@
     "/events": [
       "events"
     ],
-    "/events/[eventId]": [
-      "events"
-    ],
     "/projects": [
       "projects"
     ],

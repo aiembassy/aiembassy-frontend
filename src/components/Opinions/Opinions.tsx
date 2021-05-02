@@ -22,7 +22,7 @@ const Opinions: React.FC = () => {
 
     const opinionsList = opinions.map((opinion, index) => {
         return (
-            <>
+            <React.Fragment key={index}>
                 <OpinionItem>
                     <OpinionText
                         dangerouslySetInnerHTML={{
@@ -39,7 +39,7 @@ const Opinions: React.FC = () => {
                     <Dot />
                     <Dot />
                 </SeparateDots>
-            </>
+            </React.Fragment>
         );
     });
 
