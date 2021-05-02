@@ -105,7 +105,7 @@ const FilterList: React.FC<IProps> = ({ filters }) => {
                                                         ]}
                                                         noPadding
                                                     >
-                                                        więcej
+                                                        {t('common:more')}
                                                     </CardLink>
                                                 </CardLinkWrapper>
                                             </CardInfo>

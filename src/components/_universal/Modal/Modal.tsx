@@ -11,6 +11,7 @@ import {
     ButtonWrapper,
     PrevButton,
 } from './Modal.styled';
+import useTranslation from "next-translate/useTranslation";
 
 interface IProps {
     children: React.ReactNode;
@@ -18,30 +19,6 @@ interface IProps {
     smallModal?: boolean;
     modalType?: string;
 }
-
-const modalData: {
-    [key in 'event' | 'project' | 'workshop']: {
-        href: string;
-        as: string;
-        text: string;
-    };
-} = {
-    workshop: {
-        href: '/workshops',
-        as: '/workshops',
-        text: 'Cofnij się do listy szkoleń',
-    },
-    event: {
-        href: '/events',
-        as: '/events',
-        text: 'Cofnij się do listy wydarzeń',
-    },
-    project: {
-        href: '/projects',
-        as: '/projects',
-        text: 'Cofnij się do listy projektów',
-    },
-};
 
 const easing = [0.6, -0.05, 0.01, 0.99];
 
@@ -94,11 +71,38 @@ const Modal: React.FC<IProps> = ({
     smallModal,
     modalType,
 }) => {
+    const { t, lang } = useTranslation('projects');
+
     const router = useRouter();
     const modalRef = useRef(null);
 
+    const modalData: {
+        [key in 'event' | 'project' | 'workshop']: {
+            href: string;
+            as: string;
+            text: string;
+        };
+    } = {
+        workshop: {
+            href: '/workshops',
+            as: '/workshops',
+            text: t('common:come_back_to_workshops'),
+        },
+        event: {
+            href: '/events',
+            as: '/events',
+            text: t('common:come_back_to_events'),
+        },
+        project: {
+            href: '/projects',
+            as: '/projects',
+            text: t('common:come_back_to_projects'),
+        },
+    };
+
     const handleClickOutside = (e) => {
         if (!modalRef.current?.contains(e.target)) {
+            // eslint-disable-next-line no-use-before-define
             handleClose();
         }
     };
