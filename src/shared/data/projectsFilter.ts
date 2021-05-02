@@ -11,7 +11,8 @@ export const filtersHeader = (lang) =>
     });
 
 export const filtersList = (lang) =>
-    Object.entries(projects[lang]).map(([projectId, project]) => {
+    Object.keys(projects[lang]).map((projectId) => {
+        const project = projects[lang][projectId];
         return {
             id: projectId,
             filter: [project.category],
