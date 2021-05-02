@@ -41,8 +41,8 @@ const Projects: React.FC = () => {
             <Container>
                 <SectionTitle>{t('projects_title')}</SectionTitle>
                 <ProjectsList>
-                    {Object.keys(projects).map((projectId) => {
-                        const project = projects[projectId];
+                    {Object.keys(projects[lang]).map((projectId) => {
+                        const project = projects[lang][projectId];
                         const projectLink = `/projects/${projectId}`;
 
                         return (
@@ -52,6 +52,7 @@ const Projects: React.FC = () => {
                                         scroll={false}
                                         href="/projects/[projectId]"
                                         as={projectLink}
+                                        locale={lang}
                                     >
                                         <ProjectItem
                                             onMouseOver={() =>

@@ -1,16 +1,17 @@
 import projects from '@shared/data/projects';
 
-export const filtersHeader = Object.keys(projects).map((projectId) => {
-    const project = projects[projectId];
-    return {
-        label: project.category,
-        name: project.category,
-        isChecked: true,
-    };
-});
+export const filtersHeader = (lang) =>
+    Object.keys(projects[lang]).map((projectId) => {
+        const project = projects[lang][projectId];
+        return {
+            label: project.category,
+            name: project.category,
+            isChecked: true,
+        };
+    });
 
-export const filtersList = Object.entries(projects).map(
-    ([projectId, project]) => {
+export const filtersList = (lang) =>
+    Object.entries(projects[lang]).map(([projectId, project]) => {
         return {
             id: projectId,
             filter: [project.category],
@@ -21,5 +22,4 @@ export const filtersList = Object.entries(projects).map(
             date: project.date,
             link: `/projects/${projectId}`,
         };
-    },
-);
+    });

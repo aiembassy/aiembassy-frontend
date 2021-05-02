@@ -15,7 +15,7 @@ const ModalProjects = () => {
     const { t, lang } = useTranslation('projects');
 
     // Local state for managing filtering logic
-    const [filters, updateFilters] = useState(filtersHeader);
+    const [filters, updateFilters] = useState(filtersHeader(lang));
 
     // Filter change handler
     const onFilter = (event) => {
