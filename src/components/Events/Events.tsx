@@ -43,8 +43,8 @@ const Events: React.FC = () => {
         setActiveAnimation({ hover: null });
     };
 
-    const eventList = Object.keys(events).map((eventId, index) => {
-        const event = events[eventId];
+    const eventList = Object.keys(events[lang]).map((eventId, index) => {
+        const event = events[lang][eventId];
         const eventLinkLocation = `/events/${eventId}`;
         return (
             <SwiperSlide key={eventLinkLocation}>

@@ -20,7 +20,7 @@ import {
 const Opinions: React.FC = () => {
     const { t, lang } = useTranslation('common');
 
-    const opinionsList = opinions.map((opinion, index) => {
+    const opinionsList = opinions[lang].map((opinion, index) => {
         return (
             <React.Fragment key={index}>
                 <OpinionItem>

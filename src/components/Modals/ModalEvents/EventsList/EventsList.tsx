@@ -31,8 +31,8 @@ const EventsList = () => {
     return (
         <EventsListWrapper>
             <ScrollBar>
-                {Object.keys(events).map((eventId) => {
-                    const event = events[eventId];
+                {Object.keys(events[lang]).map((eventId) => {
+                    const event = events[lang][eventId];
                     const eventLinkLocation = `/events/${eventId}`;
 
                     return (
@@ -41,6 +41,7 @@ const EventsList = () => {
                             href="/events/[eventId]"
                             as={eventLinkLocation}
                             key={eventLinkLocation}
+                            locale={lang}
                         >
                             <Event
                                 onMouseOver={() => onHover(eventId)}

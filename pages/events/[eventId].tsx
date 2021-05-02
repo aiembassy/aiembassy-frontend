@@ -33,15 +33,20 @@ const EventPage = ({ eventId }) => {
 
 export default EventPage;
 
-export function getStaticProps({ params: { eventId } }) {
-    return { props: { eventId } };
+export function getStaticProps({ params: { eventId }, locale }) {
+    return { props: { eventId, locale } };
 }
 
 export function getStaticPaths() {
     return {
-        paths: Object.keys(events).map((eventId) => ({
-            params: { eventId: eventId.toString() },
-        })),
+        paths: Object.keys(events)
+            .map((lang) =>
+                Object.keys(events[lang]).map((eventId) => ({
+                    params: { workshopId: eventId.toString() },
+                    locale: lang,
+                })),
+            )
+            .flat(),
         fallback: false,
     };
 }
