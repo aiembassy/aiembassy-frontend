@@ -185,9 +185,8 @@ export const ItemText = styled(DefaultText)`
 `;
 
 export const ButtonWrapper = styled.div`
-    display: flex;
-    justify-content: center;
-    margin-top: 60px;
+    margin: 60px auto 0;
+    text-align: center;
 
     @media (max-width: 767px) {
         margin-top: 45px;

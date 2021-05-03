@@ -1,33 +1,29 @@
 import styled from 'styled-components';
 import { DefaultText } from '@shared/styles/typography.styled';
 
-export const TableWrapper = styled.div`
+export const WorkshopTableWrapper = styled.div`
     @media (max-width: 767px) {
         overflow-x: auto;
     }
 `;
 
-export const TableHead = styled.div`
-    display: flex;
+export const TableHead = styled.div<{ landing?: boolean }>`
+    display: grid;
+    gap: ${({ landing }) => (landing ? 60 : 30)}px;
+    grid-template-columns: 165px 1fr 135px 200px;
+
+    @media (max-width: 991px) {
+        gap: 30px;
+        grid-template-columns: 165px 1fr 135px 135px;
+    }
 
     @media (max-width: 767px) {
-        display: inline-flex;
+        grid-template-columns: 1fr 135px;
     }
 `;
 
 export const CellTitleWrapper = styled.div`
-    flex: 1;
-    margin-right: 30px;
-
-    &:first-child {
-        flex: unset;
-        width: 165px;
-    }
-
     &:nth-child(2) {
-        flex: unset;
-        width: 265px;
-
         @media (max-width: 767px) {
             display: none;
         }
@@ -40,8 +36,6 @@ export const CellTitleWrapper = styled.div`
     }
 
     &:last-child {
-        margin-right: 0;
-
         @media (max-width: 767px) {
             display: none;
         }
