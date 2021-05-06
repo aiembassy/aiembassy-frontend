@@ -1,4 +1,5 @@
 import * as React from 'react';
+import WorkshopTable from '@components/WorkshopTable/WorkshopTable';
 import {
     ModalTitle,
     ModalDescription,
@@ -6,13 +7,6 @@ import {
     ModalContent,
 } from '@components/_universal/Modal/Modal.styled';
 import useTranslation from 'next-translate/useTranslation';
-import {
-    TableWrapper,
-    CellTitleWrapper,
-    TitleName,
-    TableHead,
-} from './ModalWorkshops.styled';
-import WorkshopList from './WorkshopList/WorkshopList';
 
 const ModalWorkshops = () => {
     const { t, lang } = useTranslation('workshops');
@@ -26,21 +20,7 @@ const ModalWorkshops = () => {
                 </ModalDescription>
             </ModalInfo>
             <ModalContent>
-                <TableWrapper>
-                    <TableHead>
-                        <CellTitleWrapper>
-                            <TitleName>{t('workshop_name')}</TitleName>
-                        </CellTitleWrapper>
-                        <CellTitleWrapper>
-                            <TitleName>{t('workshop_description')}</TitleName>
-                        </CellTitleWrapper>
-                        <CellTitleWrapper>
-                            <TitleName>{t('workshop_category')}</TitleName>
-                        </CellTitleWrapper>
-                        <CellTitleWrapper />
-                    </TableHead>
-                    <WorkshopList />
-                </TableWrapper>
+                <WorkshopTable />
             </ModalContent>
         </>
     );

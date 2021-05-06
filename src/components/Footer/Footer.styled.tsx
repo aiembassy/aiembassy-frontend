@@ -2,7 +2,12 @@ import styled from 'styled-components';
 import { DefaultText } from '@shared/styles/typography.styled';
 import IconManager from '@components/_universal/IconManager/IconManager';
 
-export const FooterWrapper = styled.div`
+export const FooterWrapper = styled.div<{ landing?: boolean }>`
+    background: ${({ theme, landing }) =>
+        landing ? theme.colors.bg : theme.colors.white};
+`;
+
+export const FooterInner = styled.div`
     align-items: center;
     display: flex;
     justify-content: space-between;
