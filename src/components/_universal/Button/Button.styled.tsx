@@ -59,6 +59,20 @@ export const secondaryButton = css`
     }
 `;
 
+export const tertiaryButtonLink = css`
+    ${repeatableStyles};
+    background: ${({ theme }) => theme.colors.transparent};
+    border: 2px solid ${({ theme }) => theme.colors.yellow};
+    border-radius: ${({ theme }) => theme.borderRadius.button}px;
+    color: ${({ theme }) => theme.colors.green};
+    font-size: ${({ theme }) => theme.fontSizes.button}px;
+    transition: all ${({ theme }) => theme.transitions.default}s;
+
+    &:hover {
+        background: ${({ theme }) => transparentize(0.9, theme.colors.yellow)};
+    }
+`;
+
 export const errorButton = css`
     ${repeatableStyles};
     background: ${({ theme }) => theme.colors.red};
@@ -73,6 +87,7 @@ export const transparentButton = css`
 export const buttonVariant = {
     PRIMARY: primaryButton,
     SECONDARY: secondaryButton,
+    TETRIARY: tertiaryButtonLink,
     ERROR: errorButton,
     TRANSPARENT: transparentButton,
 };

@@ -1,17 +1,11 @@
 import * as React from 'react';
+import WorkshopTable from '@components/WorkshopTable/WorkshopTable';
 import {
     ModalTitle,
     ModalDescription,
     ModalInfo,
     ModalContent,
 } from '@components/_universal/Modal/Modal.styled';
-import {
-    TableWrapper,
-    CellTitleWrapper,
-    TitleName,
-    TableHead,
-} from './ModalWorkshops.styled';
-import WorkshopList from './WorkshopList/WorkshopList';
 
 const ModalWorskshops = () => {
     return (
@@ -25,21 +19,7 @@ const ModalWorskshops = () => {
                 </ModalDescription>
             </ModalInfo>
             <ModalContent>
-                <TableWrapper>
-                    <TableHead>
-                        <CellTitleWrapper>
-                            <TitleName>Nazwa szkolenia</TitleName>
-                        </CellTitleWrapper>
-                        <CellTitleWrapper>
-                            <TitleName>Opis</TitleName>
-                        </CellTitleWrapper>
-                        <CellTitleWrapper>
-                            <TitleName>Kategoria</TitleName>
-                        </CellTitleWrapper>
-                        <CellTitleWrapper />
-                    </TableHead>
-                    <WorkshopList />
-                </TableWrapper>
+                <WorkshopTable />
             </ModalContent>
         </>
     );

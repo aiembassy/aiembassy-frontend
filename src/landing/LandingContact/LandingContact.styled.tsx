@@ -5,18 +5,19 @@ import { DefaultText } from '@shared/styles/typography.styled';
 import Button from '@components/_universal/Button/Button';
 import { ButtonText } from '@components/_universal/Button/Button.styled';
 
-export const ContactWrapper = styled.div`
+export const LandingContactWrapper = styled.div`
+    background: ${({ theme }) => theme.colors.bg};
     display: flex;
     height: 650px;
     position: relative;
     width: 100%;
 
     @media (max-width: 767px) {
-        height: 950px;
+        height: 880px;
     }
 `;
 
-export const ContainerWrapper = styled(Container)`
+export const LandingIconWrapper = styled(Container)`
     background: ${({ theme }) => theme.colors.bg_gray};
     height: 100%;
     left: 50%;
@@ -124,6 +125,7 @@ export const TextBox = styled(DefaultText)`
     color: ${({ theme }) => theme.colors.white};
     line-height: 1.75;
     margin-bottom: 30px;
+    max-width: 430px;
 `;
 
 export const Text = styled(DefaultText)`
@@ -182,7 +184,7 @@ export const Icon = styled(IconManager)``;
 export const MailToLink = styled.a`
     align-items: center;
     color: ${({ theme }) => theme.colors.yellow};
-    display: flex;
+    display: inline-flex;
     font-weight: ${({ theme }) => theme.fontWeight.semi_bold};
     line-height: 1.75;
     margin: 10px 0;
@@ -234,5 +236,6 @@ export const OpenFormButton = styled(Button)`
 `;
 
 export const ButtonWrapper = styled.div`
-    margin: 10px auto 0;
+    display: flex;
+    margin-top: 10px;
 `;

@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
-export const GlobalStyled = createGlobalStyle`
+export const GlobalStyled = createGlobalStyle<{ layout?: boolean }>`
     * {
         box-sizing: border-box;
     }
@@ -12,7 +12,7 @@ export const GlobalStyled = createGlobalStyle`
     }
     
     body {
-        background: #F6F6F6;
+        background: ${({ layout }) => (layout ? '#FFFFFF' : '#F6F6F6')};
         font-family: 'Open Sans', sans-serif;
         height: 100%;
         margin: 0;
