@@ -15,7 +15,7 @@
       <changefreq>weekly</changefreq>
    </url>
    <url>
-      <loc>https://www.embassy.ai/pl/events</loc>
+      <loc>https://www.embassy.ai/en/events</loc>
       <changefreq>weekly</changefreq>
    </url>
    <url>
@@ -23,7 +23,7 @@
       <changefreq>weekly</changefreq>
    </url>
    <url>
-      <loc>https://www.embassy.ai/pl/projects</loc>
+      <loc>https://www.embassy.ai/en/projects</loc>
       <changefreq>weekly</changefreq>
    </url>
    <url>
@@ -31,7 +31,7 @@
       <changefreq>weekly</changefreq>
    </url>
    <url>
-      <loc>https://www.embassy.ai/pl/projects/smogspots</loc>
+      <loc>https://www.embassy.ai/en/projects/smogspots</loc>
       <changefreq>weekly</changefreq>
    </url>
    <url>
@@ -39,7 +39,7 @@
       <changefreq>weekly</changefreq>
    </url>
    <url>
-      <loc>https://www.embassy.ai/pl/workshops</loc>
+      <loc>https://www.embassy.ai/en/workshops</loc>
       <changefreq>weekly</changefreq>
    </url>
    <url>
@@ -47,7 +47,7 @@
       <changefreq>weekly</changefreq>
    </url>
    <url>
-      <loc>https://www.embassy.ai/pl/workshops/wstep-do-ai</loc>
+      <loc>https://www.embassy.ai/en/workshops/wstep-do-ai</loc>
       <changefreq>weekly</changefreq>
    </url>
    <url>
@@ -55,7 +55,7 @@
       <changefreq>weekly</changefreq>
    </url>
    <url>
-      <loc>https://www.embassy.ai/pl/events/dss-conf-2020</loc>
+      <loc>https://www.embassy.ai/en/events/dss-conf-2020</loc>
       <changefreq>weekly</changefreq>
    </url>
    <url>
@@ -63,7 +63,7 @@
       <changefreq>weekly</changefreq>
    </url>
    <url>
-      <loc>https://www.embassy.ai/pl/events/ghost-day-2020</loc>
+      <loc>https://www.embassy.ai/en/events/ghost-day-2020</loc>
       <changefreq>weekly</changefreq>
    </url>
    <url>
@@ -71,7 +71,7 @@
       <changefreq>weekly</changefreq>
    </url>
    <url>
-      <loc>https://www.embassy.ai/pl/events/skyhacks-ai-hackathon-2020</loc>
+      <loc>https://www.embassy.ai/en/events/skyhacks-ai-hackathon-2020</loc>
       <changefreq>weekly</changefreq>
    </url>
    <url>
@@ -79,7 +79,7 @@
       <changefreq>weekly</changefreq>
    </url>
    <url>
-      <loc>https://www.embassy.ai/pl/events/lets-solve-it-2021</loc>
+      <loc>https://www.embassy.ai/en/events/lets-solve-it-2021</loc>
       <changefreq>weekly</changefreq>
    </url>
    <url>
@@ -87,7 +87,7 @@
       <changefreq>weekly</changefreq>
    </url>
    <url>
-      <loc>https://www.embassy.ai/pl/events/dba-2021</loc>
+      <loc>https://www.embassy.ai/en/events/dba-2021</loc>
       <changefreq>weekly</changefreq>
    </url>
 </urlset>

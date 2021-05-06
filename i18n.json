@@ -2,7 +2,7 @@
   "locales": [
     "pl", "en"
   ],
-  "defaultLocale": "en",
+  "defaultLocale": "pl",
   "localeDetection": true,
   "pages": {
     "*": [
@@ -24,6 +24,12 @@
     ],
     "/workshops": [
       "workshops"
+    ],
+    "/landing": [
+      "landing"
+    ],
+    "/landing/list": [
+      "landing", "workshops"
     ]
   }
 }

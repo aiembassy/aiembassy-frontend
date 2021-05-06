@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import Layout from '@components/_layout/Layout.view';
-import siteConfig from '@shared/data/siteConfig';
 import { trainings } from '@shared/data/trainings';
 import { useRouter } from 'next/router';
+import useTranslation from 'next-translate/useTranslation';
 
 const LandingPage = ({ landingId }) => {
+    const { t, lang } = useTranslation('landing');
+
     const router = useRouter();
     const data = trainings[landingId];
 
@@ -16,8 +18,8 @@ const LandingPage = ({ landingId }) => {
         <Layout
             meta={{
                 title: `AI Embassy - ${data?.title}`,
-                description: siteConfig.metaDescription,
-                keywords: siteConfig.metaKeywords,
+                description: t('page_description'),
+                keywords: t('page_keywords'),
             }}
         />
     );

@@ -5,6 +5,7 @@ import {
     TitleName,
     WorkshopTableWrapper,
 } from '@components/WorkshopTable/WorkshopTable.styled';
+import useTranslation from 'next-translate/useTranslation';
 import WorkshopList from './WorkshopList/WorkshopList';
 
 interface IProps {
@@ -18,17 +19,19 @@ const WorkshopTable: React.FC<IProps> = ({
     maxItemsShow,
     withoutScroll,
 }) => {
+    const { t, lang } = useTranslation('workshops');
+
     return (
         <WorkshopTableWrapper>
             <TableHead landing={landing}>
                 <CellTitleWrapper>
-                    <TitleName>Nazwa szkolenia</TitleName>
+                    <TitleName>{t('workshop_name')}</TitleName>
                 </CellTitleWrapper>
                 <CellTitleWrapper>
-                    <TitleName>Opis</TitleName>
+                    <TitleName>{t('workshop_description')}</TitleName>
                 </CellTitleWrapper>
                 <CellTitleWrapper>
-                    <TitleName>Kategoria</TitleName>
+                    <TitleName>{t('workshop_category')}</TitleName>
                 </CellTitleWrapper>
                 <CellTitleWrapper />
             </TableHead>

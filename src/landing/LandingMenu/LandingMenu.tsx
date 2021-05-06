@@ -41,7 +41,7 @@ const LandingMenu: React.FC = () => {
                 <div>
                     <MobileMenuWrapper>
                         <MobileMenuItem>
-                            <MobileMenuLink href="https://www.embassy.ai/">
+                            <MobileMenuLink href="/">
                                 Strona fundacji
                             </MobileMenuLink>
                         </MobileMenuItem>
@@ -52,7 +52,7 @@ const LandingMenu: React.FC = () => {
                                         ? 'is-active'
                                         : ''
                                 }
-                                href="/landing/workshop-list"
+                                href="/landing/list"
                             >
                                 Lista szkoleń
                             </MobileMenuLink>
@@ -67,7 +67,7 @@ const LandingMenu: React.FC = () => {
             <div>
                 <MenuWrapper>
                     <MenuItem>
-                        <MenuLink href="https://www.embassy.ai/">
+                        <MenuLink href="/">
                             Strona fundacji
                         </MenuLink>
                     </MenuItem>
@@ -78,7 +78,7 @@ const LandingMenu: React.FC = () => {
                                     ? 'is-active'
                                     : ''
                             }
-                            href="/landing/workshop-list"
+                            href="/landing/list"
                         >
                             Lista szkoleń
                         </MenuLink>
