@@ -1,6 +1,28 @@
 export default {
-    'dba-2021': {
+    'cuvalley-hack': {
         id: '0',
+        shortTitle: 'CuValley Hack',
+        shortDescription:
+            'CuValley Hack, pierwszy hackathon organizowany przez KGHM w ramach programu DolinaMiedziowa startuje 11 czerwca!',
+        imagePath: '/images/brands/cuvalley-hack.jpg',
+        date: '11-13. czerwca 2021',
+        title: 'CuValley Hack 2021',
+        text:
+            '<section>' +
+            '<p>Zapraszamy Was na @CuValley Hack! To pierwszy hackathon organizowany przez #KGHM w ramach programu #DolinaMiedziowa 👷‍♂️ Startujemy 11 czerwca!</p>' +
+            '<p>Hackathon zrzesza otwarte umysły i pomysłowych specjalistów, którzy chcą tworzyć innowacyjne projekty dla polskiej miedzi 📈 Uczestnicy skupią się na analizie danych oraz wykorzystaniu #AI, #MachineLearning czy #BigData w układach automatyki przemysłowej 👩‍💻</p>' +
+            '<p>Co Was czeka?</p>' +
+            '<p>🔸 3 zadania, w których do wygrania wysokie nagrody pieniężne</p>' +
+            '<p>🔸 40 godzin kodowania i networking na kanale Discord</p>' +
+            '<p>🔸 tysiące dostępnych danych 📊</p>' +
+            '<p>🔸 webinary, Keynote Speakerzy, porządna dawka wiedzy i inspiracji!</p>' +
+            '<p>Chcemy stworzyć rozwiązania, które usprawnią funkcjonowanie procesów i maszyn w polskiej Dolinie Miedziowej 🚜 Pomożesz nam?</p>' +
+            '<p>Łączna pula nagród podczas #CuValleyHack wynosi 100 000 PLN! 💵 Rejestracja trwa do końca maja! Zarejestruj się za darmo już dziś! 👉 <a href="https://tiny.pl/rvqsj">https://tiny.pl/rvqsj</a></p>' +
+            '<p>Szczegóły na stronie internetowej 👉 <a href="https://tiny.pl/rvqvk">https://tiny.pl/rvqvk</a></p>' +
+            '</section>',
+    },
+    'dba-2021': {
+        id: '1',
         shortTitle: 'Digital Banking Academy',
         shortDescription:
             'Digital Banking Academy to cykl szkoleniowy dla sektora bankowego, organizowany przez Związek Banków Polskich.',
@@ -14,7 +36,7 @@ export default {
             '</section>',
     },
     'lets-solve-it-2021': {
-        id: '1',
+        id: '2',
         shortTitle: "Let's solve it",
         shortDescription:
             'Let’s Solve IT to międzynarodowy projekt, którego celem jest pomoc w pokonywaniu wyzwań i rozwiązywaniu problemów kobiet skupionych wokół świata IT i nowych technologii.',
@@ -28,7 +50,7 @@ export default {
             '</section>',
     },
     'skyhacks-ai-hackathon-2020': {
-        id: '2',
+        id: '3',
         shortTitle: 'skyhacks 2020',
         shortDescription:
             'Tegoroczny skyhacks to trzydniowe wydarzenie, którego jedną z części będzie hackhaton AI/ML. Uczestnicy ' +
@@ -45,7 +67,7 @@ export default {
             '</section>',
     },
     'ghost-day-2020': {
-        id: '3',
+        id: '4',
         shortTitle: 'Ghost DAY: AMLC',
         shortDescription:
             'GHOST Day: AMLC jest wydarzeniem skupiającym się ' +
@@ -82,7 +104,7 @@ export default {
             '</section>',
     },
     'dss-conf-2020': {
-        id: '4',
+        id: '5',
         shortTitle: 'DSS 2020',
         shortDescription:
             'Data Science Summit to największa w regionie Europy Środkowo-Wschodniej ' +
