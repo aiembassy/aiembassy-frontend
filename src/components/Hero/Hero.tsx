@@ -4,18 +4,21 @@ import IconManager from '@components/_universal/IconManager/IconManager';
 import Menu from '@components/Menu/Menu';
 import Link from 'next/link';
 import ButtonLink from '@components/_universal/ButtonLink/ButtonLink';
+import LanguageSwitch from '@components/LanguageSwitch/LanguageSwitch';
+import { MenuContainer } from '@components/Menu/Menu.styled';
 import {
-    HeroWrapper,
-    Header,
-    LinkWrapper,
-    HeroTitle,
-    HeroSubtitle,
-    HeroSmallImage,
-    HeroMiddleImage,
-    HeroBigImage,
-    CircleWhite,
-    CircleGreen,
     ButtonWrapper,
+    CircleGreen,
+    CircleWhite,
+    Header,
+    HeaderWrapper,
+    HeroBigImage,
+    HeroMiddleImage,
+    HeroSmallImage,
+    HeroSubtitle,
+    HeroTitle,
+    HeroWrapper,
+    LinkWrapper,
 } from './Hero.styled';
 
 const Hero: React.FC = () => {
@@ -35,7 +38,10 @@ const Hero: React.FC = () => {
                     <LinkWrapper href="/">
                         <IconManager name="IconBrandWhite" size={100} />
                     </LinkWrapper>
-                    <Menu />
+                    <HeaderWrapper>
+                        <Menu />
+                        <LanguageSwitch />
+                    </HeaderWrapper>
                 </Container>
             </Header>
             <Container className="hero-inner">

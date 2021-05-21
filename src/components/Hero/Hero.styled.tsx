@@ -45,6 +45,11 @@ export const Header = styled.div`
     }
 `;
 
+export const HeaderWrapper = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
 export const LinkWrapper = styled.a``;
 
 export const HeroTitle = styled(Title)`
