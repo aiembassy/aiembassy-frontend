@@ -1,4 +1,5 @@
 import React from 'react';
+import useTranslation from 'next-translate/useTranslation';
 import { LanguageSwitchWrapper, Pipe, LangLink } from './LanguageSwitch.styled';
 
 interface IProps {
@@ -6,13 +7,15 @@ interface IProps {
 }
 
 const LanguageSwitch: React.FC<IProps> = ({ landing }) => {
+    const { t, lang } = useTranslation('common');
+
     return (
         <LanguageSwitchWrapper landing={landing}>
-            <LangLink landing={landing} active href="">
+            <LangLink landing={landing} active={lang === 'pl'} href="/pl">
                 PL
             </LangLink>{' '}
             <Pipe>|</Pipe>
-            <LangLink landing={landing} href="">
+            <LangLink landing={landing} active={lang === 'en'} href="/en">
                 EN
             </LangLink>
         </LanguageSwitchWrapper>
