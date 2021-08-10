@@ -5,6 +5,7 @@ import ScrollBar from 'react-perfect-scrollbar';
 import { DefaultText } from '@shared/styles/typography.styled';
 import { trainings } from '@shared/data/trainings';
 import { useState } from 'react';
+import useTranslation from 'next-translate/useTranslation';
 import {
     ArrowLink,
     ButtonWrapper,
@@ -27,6 +28,8 @@ const WorkshopList: React.FC<IProps> = ({
     maxItemsShow,
     withoutScroll,
 }) => {
+    const { t, lang } = useTranslation('workshops');
+
     const [activeAnimation, setActiveAnimation] = useState({ hover: null });
     const onHover = (id) => {
         setActiveAnimation({ hover: id });
