@@ -109,7 +109,7 @@ export const MenuIcon = styled.div<{
     margin: auto;
     position: absolute;
     right: 20px;
-    top: 35px;
+    top: 40px;
     width: 30px;
     z-index: 999;
 

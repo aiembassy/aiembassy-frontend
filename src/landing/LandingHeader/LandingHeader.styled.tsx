@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Container } from '@shared/styles/global.styled';
 
-export const LandingHeaderWrapper = styled.header`
+export const LandingHeaderContainerWrapper = styled.header`
     background: ${({ theme }) => theme.colors.transparent};
     padding: 0;
     position: fixed;
@@ -13,6 +13,11 @@ export const LandingHeaderWrapper = styled.header`
     &.scrolling {
         background: ${({ theme }) => theme.colors.bg};
     }
+`;
+
+export const LandingHeaderWrapper = styled.div`
+    align-items: center;
+    display: flex;
 `;
 
 export const LandingHeaderInner = styled(Container)`

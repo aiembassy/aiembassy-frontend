@@ -41,6 +41,10 @@ export const TrainingTitle = styled(BigTitle)`
 export const TrainingImageWrapper = styled.div`
     margin: 44px auto 100px;
     text-align: center;
+
+    @media (max-width: 767px) {
+        margin: 44px auto;
+    }
 `;
 
 export const TrainingImage = styled.img`

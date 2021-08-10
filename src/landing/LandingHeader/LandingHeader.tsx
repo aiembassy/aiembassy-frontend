@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import IconManager from '@components/_universal/IconManager/IconManager';
 import LandingMenu from '@landing/LandingMenu/LandingMenu';
+import LanguageSwitch from '@components/LanguageSwitch/LanguageSwitch';
 import {
+    LandingHeaderContainerWrapper,
     LandingHeaderInner,
     LandingHeaderWrapper,
     LinkWrapper,
@@ -18,14 +20,17 @@ const LandingHeader: React.FC = () => {
     }, []);
 
     return (
-        <LandingHeaderWrapper className={headerClassName}>
+        <LandingHeaderContainerWrapper className={headerClassName}>
             <LandingHeaderInner>
                 <LinkWrapper href="/">
                     <IconManager name="IconBrand" size={109} />
                 </LinkWrapper>
-                <LandingMenu />
+                <LandingHeaderWrapper>
+                    <LandingMenu />
+                    <LanguageSwitch landing />
+                </LandingHeaderWrapper>
             </LandingHeaderInner>
-        </LandingHeaderWrapper>
+        </LandingHeaderContainerWrapper>
     );
 };
 
