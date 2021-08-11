@@ -8,7 +8,7 @@ const LandingPage = ({ landingId }) => {
     const { t, lang } = useTranslation('landing');
 
     const router = useRouter();
-    const data = trainings[landingId];
+    const data = trainings[lang][landingId];
 
     useEffect(() => {
         router.prefetch('/');
@@ -27,7 +27,7 @@ const LandingPage = ({ landingId }) => {
 
 export default LandingPage;
 
-export function getStaticProps({ params }) {
+export function getStaticProps({ params, locale }) {
     return {
         props: { layout: 'landing', landingId: params.landingId ?? null },
     };
@@ -35,9 +35,14 @@ export function getStaticProps({ params }) {
 
 export function getStaticPaths() {
     return {
-        paths: Object.keys(trainings).map((landingId) => ({
-            params: { landingId: landingId.toString() },
-        })),
+        paths: Object.keys(trainings)
+            .map((lang) =>
+                Object.keys(trainings[lang]).map((landingId) => ({
+                    params: { landingId: landingId.toString() },
+                    locale: lang,
+                })),
+            )
+            .flat(),
         fallback: false,
     };
 }
