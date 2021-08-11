@@ -38,69 +38,75 @@ const WorkshopList: React.FC<IProps> = ({
         setActiveAnimation({ hover: null });
     };
 
-    const itemList = maxItemsShow
-        ? Object.keys(trainings).filter((item, index) => index < maxItemsShow)
-        : Object.keys(trainings);
+    const filteredTrainingIds = maxItemsShow
+        ? Object.keys(trainings[lang]).splice(maxItemsShow - 1)
+        : Object.keys(trainings[lang]);
+
+    console.log('Filtered trainings:', filteredTrainingIds);
 
     return (
         <WorkshopListWrapper withoutScroll={withoutScroll}>
             <ScrollWrapper as={withoutScroll ? 'div' : ScrollBar}>
-                {itemList.map((item, index) => (
-                    <TableRow key={`index_${index}`} landing={landing}>
-                        <CellWrapper>
-                            <WorkshopName>
-                                Wstęp do sztucznej inteligencji
-                            </WorkshopName>
-                        </CellWrapper>
-                        <CellWrapper>
-                            <DefaultText>
-                                Sztuczna inteligencja zrewolucjonizuje świat,
-                                który znamy. Wierzymy, że każdy z nas powinien
-                                znać jej podstawy i możliwe zagrożenia.
-                            </DefaultText>
-                        </CellWrapper>
-                        <CellWrapper>
-                            <DefaultText>Podstawy AI</DefaultText>
-                        </CellWrapper>
-                        <CellWrapper>
-                            <Link
-                                scroll={false}
-                                href="/workshops/[workshopId]"
-                                as="/workshops/wstep-do-ai"
-                            >
-                                <ButtonWrapper
-                                    onMouseOver={() => onHover(index)}
-                                    onMouseOut={onOut}
+                {filteredTrainingIds.map((trainingId, index) => {
+                    const training = trainings[lang][trainingId];
+                    const link = `/workshops/${trainingId}`;
+
+                    return (
+                        <TableRow key={`index_${index}`} landing={landing}>
+                            <CellWrapper>
+                                <WorkshopName>{training.title}</WorkshopName>
+                            </CellWrapper>
+                            <CellWrapper>
+                                <DefaultText>
+                                    {training.description}
+                                </DefaultText>
+                            </CellWrapper>
+                            <CellWrapper>
+                                <DefaultText>{training.category}</DefaultText>
+                            </CellWrapper>
+                            <CellWrapper>
+                                <Link
+                                    scroll={false}
+                                    href="/workshops/[workshopId]"
+                                    as={link}
                                 >
-                                    {landing ? (
-                                        <ArrowLink
-                                            activeAnimation={
-                                                activeAnimation.hover === index
-                                            }
-                                            buttonType="TRANSPARENT"
-                                            iconType="IconArrowRight"
-                                            iconSize={20}
-                                            iconActiveColor={['green_hover']}
-                                            noPadding
-                                        >
-                                            więcej
-                                        </ArrowLink>
-                                    ) : (
-                                        <ButtonWrapper>
-                                            <ButtonLink
-                                                buttonType="PRIMARY"
-                                                width={165}
-                                                className="button-link"
+                                    <ButtonWrapper
+                                        onMouseOver={() => onHover(index)}
+                                        onMouseOut={onOut}
+                                    >
+                                        {landing ? (
+                                            <ArrowLink
+                                                activeAnimation={
+                                                    activeAnimation.hover ===
+                                                    index
+                                                }
+                                                buttonType="TRANSPARENT"
+                                                iconType="IconArrowRight"
+                                                iconSize={20}
+                                                iconActiveColor={[
+                                                    'green_hover',
+                                                ]}
+                                                noPadding
                                             >
-                                                Więcej
-                                            </ButtonLink>
-                                        </ButtonWrapper>
-                                    )}
-                                </ButtonWrapper>
-                            </Link>
-                        </CellWrapper>
-                    </TableRow>
-                ))}
+                                                {t('common:more')}
+                                            </ArrowLink>
+                                        ) : (
+                                            <ButtonWrapper>
+                                                <ButtonLink
+                                                    buttonType="PRIMARY"
+                                                    width={165}
+                                                    className="button-link"
+                                                >
+                                                    {t('common:more')}
+                                                </ButtonLink>
+                                            </ButtonWrapper>
+                                        )}
+                                    </ButtonWrapper>
+                                </Link>
+                            </CellWrapper>
+                        </TableRow>
+                    );
+                })}
             </ScrollWrapper>
             {maxItemsShow && (
                 <Link href="/landing/list" as="/landing/lista-szkolen">
@@ -110,7 +116,7 @@ const WorkshopList: React.FC<IProps> = ({
                             width={280}
                             className="button-link"
                         >
-                            Zobacz wszystkie
+                            {t('common:come_back_to_workshops')}
                         </ButtonLink>
                     </LandingButtonWrapper>
                 </Link>
