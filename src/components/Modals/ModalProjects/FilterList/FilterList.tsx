@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { ItemLink, ProjectItem } from '@components/Projects/Projects.styled';
 import { Event } from '@components/Modals/ModalEvents/EventsList/EventsList.styled';
+import useTranslation from 'next-translate/useTranslation';
 import {
     FilterListWrapper,
     Card,
@@ -40,6 +41,8 @@ type CardType = {
 };
 
 const FilterList: React.FC<IProps> = ({ filters }) => {
+    const { t, lang } = useTranslation('projects');
+
     const [activeAnimation, setActiveAnimation] = useState({ hover: null });
     const onHover = (id) => {
         setActiveAnimation({ hover: id });
@@ -47,19 +50,20 @@ const FilterList: React.FC<IProps> = ({ filters }) => {
     const onOut = () => {
         setActiveAnimation({ hover: null });
     };
+    const entries = filtersList(lang);
 
     return (
         <FilterListWrapper>
             <ScrollBar>
                 <IsoTopeGrid
                     // @ts-ignore
-                    gridLayout={filtersList}
+                    gridLayout={entries}
                     noOfCols={1}
                     unitWidth={100}
                     unitHeight={250}
                     filters={filters}
                 >
-                    {filtersList.map((card: CardType) => (
+                    {entries.map((card: CardType) => (
                         <Link
                             scroll={false}
                             href="/projects/[projectId]"
@@ -101,7 +105,7 @@ const FilterList: React.FC<IProps> = ({ filters }) => {
                                                         ]}
                                                         noPadding
                                                     >
-                                                        więcej
+                                                        {t('common:more')}
                                                     </CardLink>
                                                 </CardLinkWrapper>
                                             </CardInfo>

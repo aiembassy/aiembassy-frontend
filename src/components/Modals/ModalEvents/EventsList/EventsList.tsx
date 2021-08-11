@@ -4,6 +4,7 @@ import Link from 'next/link';
 import events from '@shared/data/events';
 import { ItemLink, ProjectItem } from '@components/Projects/Projects.styled';
 import { useState } from 'react';
+import useTranslation from 'next-translate/useTranslation';
 import {
     EventsListWrapper,
     Event,
@@ -18,6 +19,8 @@ import {
 } from './EventsList.styled';
 
 const EventsList = () => {
+    const { t, lang } = useTranslation('events');
+
     const [activeAnimation, setActiveAnimation] = useState({ hover: null });
     const onHover = (id) => {
         setActiveAnimation({ hover: id });
@@ -28,8 +31,8 @@ const EventsList = () => {
     return (
         <EventsListWrapper>
             <ScrollBar>
-                {Object.keys(events).map((eventId) => {
-                    const event = events[eventId];
+                {Object.keys(events[lang]).map((eventId) => {
+                    const event = events[lang][eventId];
                     const eventLinkLocation = `/events/${eventId}`;
 
                     return (
@@ -38,6 +41,7 @@ const EventsList = () => {
                             href="/events/[eventId]"
                             as={eventLinkLocation}
                             key={eventLinkLocation}
+                            locale={lang}
                         >
                             <Event
                                 onMouseOver={() => onHover(eventId)}
@@ -64,7 +68,7 @@ const EventsList = () => {
                                             iconActiveColor={['green_hover']}
                                             noPadding
                                         >
-                                            więcej
+                                            {t('common:more')}
                                         </EventLink>
                                     </EventLinkWrapper>
                                 </EventContentWrapper>

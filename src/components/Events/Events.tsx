@@ -9,6 +9,7 @@ import {
     Event,
     EventLink,
 } from '@components/Modals/ModalEvents/EventsList/EventsList.styled';
+import useTranslation from 'next-translate/useTranslation';
 import {
     SectionTitle,
     DotsBg,
@@ -31,6 +32,8 @@ import {
 } from './Events.styled';
 
 const Events: React.FC = () => {
+    const { t, lang } = useTranslation('common');
+
     SwiperCore.use([Navigation]);
     const [activeAnimation, setActiveAnimation] = useState({ hover: null });
     const onHover = (id) => {
@@ -40,8 +43,8 @@ const Events: React.FC = () => {
         setActiveAnimation({ hover: null });
     };
 
-    const eventList = Object.keys(events).map((eventId, index) => {
-        const event = events[eventId];
+    const eventList = Object.keys(events[lang]).map((eventId, index) => {
+        const event = events[lang][eventId];
         const eventLinkLocation = `/events/${eventId}`;
         return (
             <SwiperSlide key={eventLinkLocation}>
@@ -74,7 +77,7 @@ const Events: React.FC = () => {
                                     iconActiveColor={['green_hover']}
                                     noPadding
                                 >
-                                    więcej
+                                    {t('more')}
                                 </PostLink>
                             </PostLinkWrapper>
                         </SliderContentWrapper>
@@ -90,7 +93,7 @@ const Events: React.FC = () => {
             <Container>
                 <EventsSliderWrapper>
                     <EventsSliderInner>
-                        <SectionTitle>Wydarzenia i konferencje</SectionTitle>
+                        <SectionTitle>{t('events_title')}</SectionTitle>
                         <SliderNavigation>
                             <ButtonPrev className="button-prev button-prev--events">
                                 <svg
@@ -159,7 +162,7 @@ const Events: React.FC = () => {
                     <Link scroll={false} href="/events" as="/events">
                         <ButtonWrapper>
                             <ButtonLink buttonType="PRIMARY" width={280}>
-                                Zobacz wydarzenia
+                                {t('events_link')}
                             </ButtonLink>
                         </ButtonWrapper>
                     </Link>

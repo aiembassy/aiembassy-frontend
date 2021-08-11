@@ -25,16 +25,6 @@ export const HeroWrapper = styled.div`
     }
 `;
 
-export const HeroInner = styled.div`
-    @media (max-width: 767px) {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        height: 100%;
-        margin-top: -50px;
-    }
-`;
-
 export const Header = styled.div`
     background: ${({ theme }) => theme.colors.transparent};
     padding: 0;
@@ -53,6 +43,11 @@ export const Header = styled.div`
         display: flex;
         justify-content: space-between;
     }
+`;
+
+export const HeaderWrapper = styled.div`
+    display: flex;
+    align-items: center;
 `;
 
 export const LinkWrapper = styled.a``;

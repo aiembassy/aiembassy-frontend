@@ -1,0 +1,17 @@
+{
+  "page_title": "AI Embassy - Contact",
+  "contact_title": "Let's talk",
+  "contact_description": "Would you like to build an AI community in your area? Would you like to know more about our free consulting services or about the commercial offer of the AI Embassy Foundation? Are you passionate about AI-based solutions?",
+  "contact_write_to_us": "Write to us at",
+  "contact_fill_up_form": "or fill up the contact form.",
+  "form_name": "Name",
+  "form_company": "Company",
+  "form_email": "E-mail",
+  "form_message": "Message",
+  "form_send": "Send",
+  "form_agreement": "By sending you confirm you agree with the",
+  "privacy_policy": "privacy policy",
+  "form_owner": "of AI Embassy",
+  "error_name": "Your name is required.",
+  "error_email": "Please put a correct email address."
+}

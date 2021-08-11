@@ -234,6 +234,5 @@ export const OpenFormButton = styled(Button)`
 `;
 
 export const ButtonWrapper = styled.div`
-    display: flex;
-    margin-top: 10px;
+    margin: 10px auto 0;
 `;

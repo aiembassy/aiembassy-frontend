@@ -6,6 +6,7 @@ import {
     ModalContent,
 } from '@components/_universal/Modal/Modal.styled';
 import { BoldText } from '@shared/styles/typography.styled';
+import useTranslation from 'next-translate/useTranslation';
 import {
     SupportList,
     SupportItem,
@@ -21,42 +22,38 @@ interface IProps {
 }
 
 const ModalDonation: React.FC<IProps> = ({ smallModal }) => {
+    const { t, lang } = useTranslation('donation');
+
     return (
         <>
             <ModalInfo>
-                <ModalTitle>Wspomóż nas</ModalTitle>
+                <ModalTitle>{t('support_us_title')}</ModalTitle>
                 <ModalDescription smallModal={smallModal}>
-                    Prowadzenie Fundacji oraz realizowane przez nas działania i
-                    projekty wymagają wielu środków finansowych i dużego nakładu
-                    pracy. Jeśli podoba Ci się to co robimy – możesz wspomóc
-                    naszą działalność.
+                    {t('support_us_description')}
                 </ModalDescription>
             </ModalInfo>
             <ModalContent>
                 <SupportList>
                     <SupportItem>
                         <ItemIcon>
-                            <ImageIcon src="images/donate.png" />
-                            <IconName>Darowizny</IconName>
+                            <ImageIcon src="/images/donate.png" />
+                            <IconName>{t('donations')}</IconName>
                         </ItemIcon>
                         <ItemContent>
+                            <Text>{t('donations_intro')}</Text>
                             <Text>
-                                Jednorazowe lub systematyczne wpłaty na dowolną
-                                kwotę na konto Fundacji.{' '}
-                            </Text>
-                            <Text>
-                                Wykonaj przelew o tytule:{' '}
+                                {t('donations_make_transfer')}:{' '}
                                 <BoldText>
-                                    „Darowizna na cele statutowe”
+                                    „{t('donations_transfer_title')}”
                                 </BoldText>{' '}
-                                na konto Bank BNP Paribas{' '}
+                                {t('donations_account_bank')}{' '}
                                 <BoldText>
                                     32 1600 1462 1885 3945 8000 0001
                                 </BoldText>
                             </Text>
                             <Text>
                                 <BoldText>
-                                    Fundacja “AI Embassy”
+                                    {t('common:foundation_name')}
                                     <br />
                                     ul. Podskale 1A/6, 30-522 Kraków
                                 </BoldText>
@@ -65,20 +62,12 @@ const ModalDonation: React.FC<IProps> = ({ smallModal }) => {
                     </SupportItem>
                     <SupportItem>
                         <ItemIcon>
-                            <ImageIcon src="images/cooperation.png" />
-                            <IconName>Współpraca</IconName>
+                            <ImageIcon src="/images/cooperation.png" />
+                            <IconName>{t('cooperation')}</IconName>
                         </ItemIcon>
                         <ItemContent>
-                            <Text>
-                                Osoby prawne mogą zostać naszymi sponsorami,
-                                przez wsparcie finansowe naszych projektów lub
-                                patronat, bądź też przyłączenie się do wspólnego
-                                realizowania projektów.
-                            </Text>
-                            <Text>
-                                Loga partnerów zostaną umieszczone na stronie
-                                internetowej naszej Fundacji.
-                            </Text>
+                            <Text>{t('cooperation_description')}</Text>
+                            <Text>{t('cooperation_benefits')}</Text>
                         </ItemContent>
                     </SupportItem>
                 </SupportList>

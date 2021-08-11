@@ -7,26 +7,27 @@ import {
 } from '@components/_universal/Modal/Modal.styled';
 import { LinkText } from '@shared/styles/typography.styled';
 import FormComponent from '@components/_forms/FormComponent';
+import useTranslation from 'next-translate/useTranslation';
 
 interface IProps {
     smallModal: boolean;
 }
 
 const ModalContact: React.FC<IProps> = ({ smallModal }) => {
+    const { t, lang } = useTranslation('contact');
+
     return (
         <>
             <ModalInfo>
-                <ModalTitle>Porozmawiajmy</ModalTitle>
+                <ModalTitle>{t('contact_title')}</ModalTitle>
                 <ModalDescription smallModal={smallModal}>
-                    Chciałbyś zbudować społeczność AI w Twojej okolicy? Chcesz
-                    dowiedzieć sie więcej o darmowych usługach doradczych lub o
-                    ofercie komercyjnej AI Embassy? Pasjonują Cię rozwiązania
-                    oparte o sztuczną inteligencję? <br />
-                    Napisz do nas{' '}
+                    {t('contact_description')}
+                    <br />
+                    {t('contact_write_to_us')}{' '}
                     <LinkText href="mailto:contact@embassy.ai">
                         contact@embassy.ai
                     </LinkText>{' '}
-                    lub wypełnij formularz kontaktowy.
+                    {t('contact_fill_up_form')}
                 </ModalDescription>
             </ModalInfo>
             <ModalContent>

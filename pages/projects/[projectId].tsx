@@ -4,11 +4,13 @@ import Layout from '@components/_layout/Layout.view';
 import Modal from '@components/_universal/Modal/Modal';
 import ModalArticle from '@components/Modals/ModalArticle/ModalArticle';
 import projects from '@shared/data/projects';
-import siteConfig from '@shared/data/siteConfig';
+import useTranslation from 'next-translate/useTranslation';
 
 const ProjectPage = ({ projectId }) => {
+    const { t, lang } = useTranslation('common');
+
     const router = useRouter();
-    const data = projects[projectId];
+    const data = projects[lang][projectId];
 
     useEffect(() => {
         router.prefetch('/');
@@ -18,8 +20,8 @@ const ProjectPage = ({ projectId }) => {
         <Layout
             meta={{
                 title: `AI Embassy - ${data.title}`,
-                description: siteConfig.metaDescription,
-                keywords: siteConfig.metaKeywords,
+                description: t('page_description'),
+                keywords: t('page_keywords'),
             }}
         >
             <Modal isBackLink modalType="project">
@@ -31,15 +33,20 @@ const ProjectPage = ({ projectId }) => {
 
 export default ProjectPage;
 
-export function getStaticProps({ params: { projectId } }) {
-    return { props: { projectId } };
+export function getStaticProps({ params: { projectId }, locale }) {
+    return { props: { projectId, locale } };
 }
 
 export function getStaticPaths() {
     return {
-        paths: Object.keys(projects).map((projectId) => ({
-            params: { projectId: projectId.toString() },
-        })),
+        paths: Object.keys(projects)
+            .map((lang) =>
+                Object.keys(projects[lang]).map((projectId) => ({
+                    params: { projectId: projectId.toString() },
+                    locale: lang,
+                })),
+            )
+            .flat(),
         fallback: false,
     };
 }

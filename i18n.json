@@ -1,0 +1,35 @@
+{
+  "locales": [
+    "pl", "en"
+  ],
+  "defaultLocale": "pl",
+  "localeDetection": true,
+  "pages": {
+    "*": [
+      "common",
+      "menu",
+      "about"
+    ],
+    "/contact": [
+      "contact"
+    ],
+    "/donation": [
+      "donation"
+    ],
+    "/events": [
+      "events"
+    ],
+    "/projects": [
+      "projects"
+    ],
+    "/workshops": [
+      "workshops"
+    ],
+    "/landing": [
+      "landing"
+    ],
+    "/landing/list": [
+      "landing", "workshops"
+    ]
+  }
+}

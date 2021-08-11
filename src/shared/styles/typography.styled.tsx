@@ -49,6 +49,13 @@ export const BoldText = styled.span`
     font-weight: ${({ theme }) => theme.fontWeight.semi_bold};
 `;
 
+export const BigTitle = styled.h1<ITextProps>`
+    ${repeatableStyles};
+    font-family: ${({ theme }) => theme.fontFamily.merriweather};
+    font-size: ${({ theme, fontSize }) =>
+    fontSize ? theme.fontSizes[fontSize] : theme.fontSizes.hero}px;
+`;
+
 export const Title = styled.h2<ITextProps>`
     ${repeatableStyles};
     font-family: ${({ theme }) => theme.fontFamily.merriweather};

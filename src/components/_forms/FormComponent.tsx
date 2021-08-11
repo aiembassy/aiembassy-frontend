@@ -4,6 +4,7 @@ import { yupResolver } from '@hookform/resolvers';
 import * as yup from 'yup';
 import { LinkText } from '@shared/styles/typography.styled';
 import { FooterLink } from '@components/Footer/Footer.styled';
+import useTranslation from 'next-translate/useTranslation';
 import {
     FormWrapper,
     Form,
@@ -32,6 +33,8 @@ const schema = yup.object().shape({
 });
 
 const FormComponent = () => {
+    const { t, lang } = useTranslation('contact');
+
     const { register, handleSubmit, errors, watch } = useForm<IFormInputs>({
         resolver: yupResolver(schema),
     });
@@ -39,9 +42,9 @@ const FormComponent = () => {
     return (
         <FormWrapper>
             <Form action="/" name="contact" method="POST" data-netlify="true">
-                <Input type="hidden" name="form-name" value="contact"/>
+                <Input type="hidden" name="form-name" value="contact" />
                 <InputWrapper marginBottom={16}>
-                    <InputLabel>Imię i nazwisko *</InputLabel>
+                    <InputLabel>{t('form_name')} *</InputLabel>
                     <InputField className={errors.fullName ? 'error' : ''}>
                         <Input
                             autoComplete="off"
@@ -49,13 +52,12 @@ const FormComponent = () => {
                             ref={register}
                         />
                         <InputError>
-                            {errors.fullName?.message &&
-                                'Twoje dane są wymagane.'}
+                            {errors.fullName?.message && t('error_name')}
                         </InputError>
                     </InputField>
                 </InputWrapper>
                 <InputWrapper marginBottom={16}>
-                    <InputLabel>Firma</InputLabel>
+                    <InputLabel>{t('form_company')}</InputLabel>
                     <InputField>
                         <Input
                             autoComplete="off"
@@ -65,32 +67,33 @@ const FormComponent = () => {
                     </InputField>
                 </InputWrapper>
                 <InputWrapper marginBottom={16}>
-                    <InputLabel>E-mail *</InputLabel>
+                    <InputLabel>{t('form_email')} *</InputLabel>
                     <InputField className={errors.email ? 'error' : ''}>
                         <Input name="email" ref={register} autoComplete="off" />
                         <InputError>
-                            {errors.email?.message &&
-                                'Wprowadź poprawny adres email.'}
+                            {errors.email?.message && t('error_email')}
                         </InputError>
                     </InputField>
                 </InputWrapper>
                 <InputWrapper marginBottom={24}>
-                    <InputLabel>Wiadomość *</InputLabel>
+                    <InputLabel>{t('form_message')} *</InputLabel>
                     <InputField>
                         <TextArea name="message" ref={register} />
                     </InputField>
                 </InputWrapper>
                 <ButtonWrapper>
-                    <ButtonForm buttonType="PRIMARY">Wyślij</ButtonForm>
+                    <ButtonForm buttonType="PRIMARY">
+                        {t('form_send')}
+                    </ButtonForm>
                     <PrivatePolicy>
-                        Klikając wyślij zgdzasz się z{' '}
+                        {t('form_agreement')}{' '}
                         <LinkText
                             href="/docs/polityka_prywatnosci.pdf"
                             fontSize="s"
                         >
-                            Polityką Prywatności
+                            {t('privacy_policy')}
                         </LinkText>{' '}
-                        AI Embassy.
+                        {t('form_owner')}.
                     </PrivatePolicy>
                 </ButtonWrapper>
             </Form>

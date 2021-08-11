@@ -3,6 +3,7 @@ import { Container } from '@shared/styles/global.styled';
 import { LinkText } from '@shared/styles/typography.styled';
 import ButtonLink from '@components/_universal/ButtonLink/ButtonLink';
 import Link from 'next/link';
+import useTranslation from 'next-translate/useTranslation';
 import {
     AboutWrapper,
     SectionDescription,
@@ -22,15 +23,14 @@ import {
 } from './About.styled';
 
 const About: React.FC = () => {
+    const { t, lang } = useTranslation('about');
+
     return (
         <AboutWrapper id="about">
             <Container>
-                <SectionTitle>O fundacji</SectionTitle>
+                <SectionTitle>{t('common:about_title')}</SectionTitle>
                 <SectionDescription>
-                    Sztuczna inteligencja będzie w najbliższych latach motorem
-                    napędowym trwającej rewolucji naukowej. Fundacja AI Embassy
-                    dąży do tego, aby to Polska stała się centrum tych
-                    innowacji.
+                    {t('common:about_description')}
                 </SectionDescription>
                 <IconA name="IconLetterA" size={340} />
                 <IconI name="IconLetterI" size={315} />
@@ -38,88 +38,98 @@ const About: React.FC = () => {
                 <BoxList>
                     <BoxListInner>
                         <BoxItemSmall>
-                            <BoxTitle>Bezpłatne szkolenia</BoxTitle>
+                            <BoxTitle>
+                                {t('common:free_workshops_title')}
+                            </BoxTitle>
                             <BoxDescription>
-                                Wiedza jest kluczowym elementem, który pozwala
-                                na wprowadzenie innowacji. AI Embassy łączy
-                                ekspertów od sztucznej inteligencji z osobami,
-                                które chciałyby rozwijać swoje kompetencje w tej
-                                dziedzinie poprzez organizowanie{' '}
+                                {t('free_workshops_intro')}{' '}
                                 <Link
                                     scroll={false}
                                     href="/workshops"
                                     as="/workshops"
                                 >
-                                    <LinkText>
-                                        <strong>darmowych </strong>
-                                        szkoleń i warsztatów
-                                    </LinkText>
+                                    <LinkText
+                                        dangerouslySetInnerHTML={{
+                                            __html: t('workshops_link'),
+                                        }}
+                                    />
                                 </Link>
-                                , również w formule online.
+                                {t('free_workshops_outro')}
                             </BoxDescription>
                         </BoxItemSmall>
                         <BoxItemSmall>
-                            <BoxTitle>Konferencje i wydarzenia</BoxTitle>
+                            <BoxTitle>{t('common:conferences_title')}</BoxTitle>
                             <BoxDescription>
-                                Budowanie innowacji wymaga także stworzenia
-                                działającej społeczności ekspertów, firm oraz
-                                inwestorów. W tym celu fundacja uczestniczy w{' '}
+                                {t('conferences_intro')}{' '}
                                 <Link
                                     scroll={false}
                                     href="/events"
                                     as="/events"
                                 >
-                                    <LinkText>
-                                        konferencjach i meetupach
-                                    </LinkText>
+                                    <LinkText
+                                        dangerouslySetInnerHTML={{
+                                            __html: t('conferences_link'),
+                                        }}
+                                    />
                                 </Link>
-                                , a także organizuje własne wydarzenia.{' '}
+                                {t('conferences_middle')}{' '}
                                 <Link
                                     scroll={false}
                                     href="/contact"
                                     as="/contact"
                                 >
-                                    <LinkText>Skontaktuj się z nami</LinkText>
+                                    <LinkText
+                                        dangerouslySetInnerHTML={{
+                                            __html: t('contact_link'),
+                                        }}
+                                    />
                                 </Link>
-                                , jeśli chciałbyś zbudować społeczność AI w
-                                Twojej okolicy.
+                                {t('conferences_outro')}
                             </BoxDescription>
                         </BoxItemSmall>
                     </BoxListInner>
                     <BoxListInner>
                         <BoxItemBig>
-                            <BoxTitle>Wsparcie dla przedsiębiorstw</BoxTitle>
+                            <BoxTitle>
+                                {t('common:business_support_title')}
+                            </BoxTitle>
                             <BoxDescription>
-                                Rewolucja AI wymaga zaangażowania ze strony
-                                biznesu. Czy masz pomysł na implementację
-                                rozwiązań opartych o sztuczną inteligencję, ale
-                                jeszcze nie zacząłeś jej wdrażać? A może
-                                potrzebujesz inspiracji w jaki sposób usprawnić
-                                Twój biznes? Sprawdź naszą ofertę{' '}
+                                {t('business_intro')}{' '}
                                 <Link
                                     scroll={false}
                                     href="/workshops"
                                     as="/workshops"
                                 >
-                                    <LinkText>bezpłatnych szkoleń</LinkText>
+                                    <LinkText
+                                        dangerouslySetInnerHTML={{
+                                            __html: t('free_trainings_link'),
+                                        }}
+                                    />
                                 </Link>{' '}
-                                lub skontaktuj się z nami, aby porozmawiać o{' '}
-                                <strong>darmowych usługach doradczych</strong>.
+                                <span
+                                    dangerouslySetInnerHTML={{
+                                        __html: t('business_outro'),
+                                    }}
+                                />
                             </BoxDescription>
                             <BoxDescription>
-                                Jesteś firmą z sektora IT albo prowadzisz już
-                                projekty AI i potrzebujesz wsparcia we wdrożeniu
-                                sztucznej inteligencji?{' '}
+                                {t('commercial_intro')}{' '}
                                 <Link
                                     scroll={false}
                                     href="/contact"
                                     as="/contact"
                                 >
-                                    <LinkText>Skontaktuj się z nami</LinkText>
+                                    <LinkText
+                                        dangerouslySetInnerHTML={{
+                                            __html: t('contact_link'),
+                                        }}
+                                    />
                                 </Link>{' '}
-                                na temat oferty{' '}
-                                <strong>komercyjnej fundacji</strong> AI
-                                Embassy.
+                                <span
+                                    dangerouslySetInnerHTML={{
+                                        __html: t('commercial_outro'),
+                                    }}
+                                />
                             </BoxDescription>
                         </BoxItemBig>
                     </BoxListInner>
@@ -127,15 +137,11 @@ const About: React.FC = () => {
             </Container>
             <Container>
                 <SummaryWrapper>
-                    <SummaryText>
-                        Jeżeli tak jak my uważasz, że sztuczna inteligencja może
-                        zrewolucjonizować przyszłość, wspomóż nasze działania i
-                        przekaż dotację na rozwój fundacji.
-                    </SummaryText>
-                    <Link scroll={false} href="/donation" as="/help-us">
+                    <SummaryText>{t('common:summary_text')}</SummaryText>
+                    <Link scroll={false} href="/donation" as="/donation">
                         <ButtonWrapper>
                             <ButtonLink buttonType="PRIMARY" width={280}>
-                                Wspomóż nas
+                                {t('common:summary_support_us')}
                             </ButtonLink>
                         </ButtonWrapper>
                     </Link>

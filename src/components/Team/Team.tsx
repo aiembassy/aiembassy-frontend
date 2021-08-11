@@ -5,6 +5,7 @@ import SwiperCore, { Navigation } from 'swiper';
 import Link from 'next/link';
 import IconManager from '@components/_universal/IconManager/IconManager';
 import ButtonLink from '@components/_universal/ButtonLink/ButtonLink';
+import useTranslation from 'next-translate/useTranslation';
 import {
     SectionTitle,
     TeamWrapper,
@@ -28,6 +29,8 @@ import {
 } from './Team.styled';
 
 const Team: React.FC = () => {
+    const { t, lang } = useTranslation('common');
+
     SwiperCore.use([Navigation]);
 
     return (
@@ -35,7 +38,7 @@ const Team: React.FC = () => {
             <Container>
                 <TeamSliderWrapper>
                     <TeamSliderInner>
-                        <SectionTitle center>Zespół</SectionTitle>
+                        <SectionTitle center>{t('team_title')}</SectionTitle>
                         {/* <SliderNavigation> */}
                         {/*    <ButtonPrev className="button-prev button-prev--team"> */}
                         {/*        <svg */}
@@ -317,14 +320,14 @@ const Team: React.FC = () => {
                     {/* </Swiper> */}
                     <SummaryWrapper>
                         <SummaryText>
-                            Pasjonują Cię rozwiązania oparte o sztuczną
-                            inteligencję? <br />
-                            Porozmawiajmy, co możemy zrobić razem!
+                            {t('team_summary_question')}
+                            <br />
+                            {t('team_summary_invitation')}
                         </SummaryText>
-                        <Link scroll={false} href="/contact" as="/help-us">
+                        <Link scroll={false} href="/contact" as="/donation">
                             <ButtonWrapper>
                                 <ButtonLink buttonType="PRIMARY" width={290}>
-                                    Zostań jednym z nas
+                                    {t('team_summary_link')}
                                 </ButtonLink>
                             </ButtonWrapper>
                         </Link>

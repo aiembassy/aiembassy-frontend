@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from '@shared/styles/global.styled';
 import IconManager from '@components/_universal/IconManager/IconManager';
+import useTranslation from 'next-translate/useTranslation';
 import {
     SectionTitle,
     BenefitsWrapper,
@@ -13,11 +14,13 @@ import {
 } from './Benefits.styled';
 
 const Benefits: React.FC = () => {
+    const { t, lang } = useTranslation('common');
+
     return (
         <BenefitsWrapper>
             <DotsBg name="IconDotsRight" size={666} sizeY={1253} />
             <Container>
-                <SectionTitle center>Korzyści z zastosowania AI</SectionTitle>
+                <SectionTitle center>{t('benefits_title')}</SectionTitle>
                 <StepsWrapper>
                     <StepWrapper>
                         <IconManager
@@ -31,7 +34,7 @@ const Benefits: React.FC = () => {
                                 <IconManager name="IconAutomation" size={52} />
                             </StepIcon>
                             <StepText>
-                                Automatyzacja powtarzalnych procesów
+                                {t('benefits_automation_title')}
                             </StepText>
                         </StepInner>
                     </StepWrapper>
@@ -51,7 +54,7 @@ const Benefits: React.FC = () => {
                                 />
                             </StepIcon>
                             <StepText>
-                                Optymalizacja kosztów prowadzenia biznesu
+                                {t('benefits_optimization_title')}
                             </StepText>
                         </StepInner>
                     </StepWrapper>
@@ -71,8 +74,7 @@ const Benefits: React.FC = () => {
                                 />
                             </StepIcon>
                             <StepText>
-                                Podejmowanie decyzji&nbsp;opartych
-                                na&nbsp;danych
+                                {t('benefits_data_driven_title')}
                             </StepText>
                         </StepInner>
                     </StepWrapper>

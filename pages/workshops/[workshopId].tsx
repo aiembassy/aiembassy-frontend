@@ -4,11 +4,13 @@ import Layout from '@components/_layout/Layout.view';
 import Modal from '@components/_universal/Modal/Modal';
 import ModalArticle from '@components/Modals/ModalArticle/ModalArticle';
 import workshops from '@shared/data/workshops';
-import siteConfig from '@shared/data/siteConfig';
+import useTranslation from 'next-translate/useTranslation';
 
 const WorkshopPage = ({ workshopId }) => {
+    const { t, lang } = useTranslation('common');
+
     const router = useRouter();
-    const data = workshops[workshopId];
+    const data = workshops[lang][workshopId];
 
     useEffect(() => {
         router.prefetch('/');
@@ -18,8 +20,8 @@ const WorkshopPage = ({ workshopId }) => {
         <Layout
             meta={{
                 title: `AI Embassy - ${data.title}`,
-                description: siteConfig.metaDescription,
-                keywords: siteConfig.metaKeywords,
+                description: t('page_description'),
+                keywords: t('page_keywords'),
             }}
         >
             <Modal isBackLink modalType="workshop">
@@ -31,15 +33,20 @@ const WorkshopPage = ({ workshopId }) => {
 
 export default WorkshopPage;
 
-export function getStaticProps({ params: { workshopId } }) {
-    return { props: { workshopId } };
+export function getStaticProps({ params: { workshopId }, locale }) {
+    return { props: { workshopId, locale } };
 }
 
 export function getStaticPaths() {
     return {
-        paths: Object.keys(workshops).map((workshopId) => ({
-            params: { workshopId: workshopId.toString() },
-        })),
+        paths: Object.keys(workshops)
+            .map((lang) =>
+                Object.keys(workshops[lang]).map((workshopId) => ({
+                    params: { workshopId: workshopId.toString() },
+                    locale: lang,
+                })),
+            )
+            .flat(),
         fallback: false,
     };
 }

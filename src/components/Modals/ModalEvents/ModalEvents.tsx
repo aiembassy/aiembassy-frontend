@@ -5,6 +5,7 @@ import {
     ModalInfo,
     ModalContent,
 } from '@components/_universal/Modal/Modal.styled';
+import useTranslation from 'next-translate/useTranslation';
 import EventsList from './EventsList/EventsList';
 import { IconDotsTop } from './ModalEvents.styled';
 
@@ -13,14 +14,13 @@ interface IProps {
 }
 
 const ModalEvents: React.FC<IProps> = ({ smallModal }) => {
+    const { t, lang } = useTranslation('events');
+
     return (
         <>
             <ModalInfo>
-                <ModalTitle>Wydarzenia i konferencje</ModalTitle>
-                <ModalDescription>
-                    Na tych wydarzeniach można było bądź będzie można spotkać
-                    kogoś z nas.
-                </ModalDescription>
+                <ModalTitle>{t('common:events_title')}</ModalTitle>
+                <ModalDescription>{t('events_description')}</ModalDescription>
             </ModalInfo>
             <ModalContent>
                 <IconDotsTop name="IconDotsTop" size={1000} sizeY={530} />

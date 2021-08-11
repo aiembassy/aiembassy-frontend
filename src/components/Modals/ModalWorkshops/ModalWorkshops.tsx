@@ -1,48 +1,29 @@
 import * as React from 'react';
+import WorkshopTable from '@components/WorkshopTable/WorkshopTable';
 import {
     ModalTitle,
     ModalDescription,
     ModalInfo,
     ModalContent,
 } from '@components/_universal/Modal/Modal.styled';
-import {
-    TableWrapper,
-    CellTitleWrapper,
-    TitleName,
-    TableHead,
-} from './ModalWorkshops.styled';
-import WorkshopList from './WorkshopList/WorkshopList';
+import useTranslation from 'next-translate/useTranslation';
 
-const ModalWorskshops = () => {
+const ModalWorkshops = () => {
+    const { t, lang } = useTranslation('workshops');
+
     return (
         <>
             <ModalInfo>
-                <ModalTitle>Darmowe warsztaty i&nbsp;szkolenia</ModalTitle>
+                <ModalTitle>{t('workshops_title')}</ModalTitle>
                 <ModalDescription>
-                    Fundacja pomoże Ci rozwijać Twoje kompetencje w dziedzinie
-                    sztucznej inteligencji poprzez prowadzenie darmowych szkoleń
-                    i warsztatów, również w formule on-line.
+                    {t('workshops_description')}
                 </ModalDescription>
             </ModalInfo>
             <ModalContent>
-                <TableWrapper>
-                    <TableHead>
-                        <CellTitleWrapper>
-                            <TitleName>Nazwa szkolenia</TitleName>
-                        </CellTitleWrapper>
-                        <CellTitleWrapper>
-                            <TitleName>Opis</TitleName>
-                        </CellTitleWrapper>
-                        <CellTitleWrapper>
-                            <TitleName>Kategoria</TitleName>
-                        </CellTitleWrapper>
-                        <CellTitleWrapper />
-                    </TableHead>
-                    <WorkshopList />
-                </TableWrapper>
+                <WorkshopTable />
             </ModalContent>
         </>
     );
 };
 
-export default ModalWorskshops;
+export default ModalWorkshops;
