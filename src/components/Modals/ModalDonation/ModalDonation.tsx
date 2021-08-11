@@ -36,7 +36,7 @@ const ModalDonation: React.FC<IProps> = ({ smallModal }) => {
                 <SupportList>
                     <SupportItem>
                         <ItemIcon>
-                            <ImageIcon src="images/donate.png" />
+                            <ImageIcon src="/images/donate.png" />
                             <IconName>{t('donations')}</IconName>
                         </ItemIcon>
                         <ItemContent>
@@ -62,7 +62,7 @@ const ModalDonation: React.FC<IProps> = ({ smallModal }) => {
                     </SupportItem>
                     <SupportItem>
                         <ItemIcon>
-                            <ImageIcon src="images/cooperation.png" />
+                            <ImageIcon src="/images/cooperation.png" />
                             <IconName>{t('cooperation')}</IconName>
                         </ItemIcon>
                         <ItemContent>
