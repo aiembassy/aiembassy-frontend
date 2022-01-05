@@ -1,5 +1,36 @@
 export default {
     pl: {
+        'tech-leaders-2022': {
+            shortTitle: 'Tech Leaders',
+            shortDescription:
+                'Wsparcie mentoringowe dla kobiet w branży IT - rusza VII edycja Tech Leaders!',
+            imagePath: '/images/brands/logo-wit.png',
+            date: '7. lutego - 7. czerwca 2022',
+            title:
+                'Wsparcie mentoringowe dla kobiet w branży IT - rusza VII edycja Tech Leaders!',
+            text:
+                '<section>' +
+                '<p><strong>Tech Leaders to czteromiesięczny bezpłatny program mentoringowy zainicjowany ' +
+                'przez Stowarzyszenie Women in Technology Poland. Skierowany jest do kobiet, które chcą rozwijać ' +
+                'swoje kompetencje oraz umiejętności z zakresu programowania, user experience, sztucznej ' +
+                'inteligencji, zarządzania projektami czy prowadzenia biznesu. Aktualnie trwają prace nad VII edycją ' +
+                'programu. Zachęcamy do śledzenia strony techleaders.eu, bo już  w styczniu ruszy nabór dla uczestniczek.' +
+                '</strong></p>' +
+                '<p>Do udziału w Tech Leaders może aplikować każda kobieta! Liczy się zapał, chęć do nauki i ' +
+                'rozwoju. Uczestniczki otrzymują możliwość indywidualnej współpracy z wybranym przez ' +
+                'siebie mentorem, wskazanym na etapie rekrutacji. Następnie mentorzy z nadesłanych ' +
+                'zgłoszeń wybierają mentee, której będą udzielać konsultacji.</p>' +
+                '<p>Popularność i szybki rozwój programu Tech Leaders dobrze obrazują moc środowiska IT, ' +
+                'jego skuteczność i gotowość do dzielenia się wiedzą. Ogromna liczba napływających ' +
+                'aplikacji pokazuje, że wiele kobiet docenia i doskonale rozumie unikalną możliwość rozwoju, ' +
+                'jaką daje model eksperckich konsultacji jeden na jeden. Choć wydaje się to mniej oczywiste, ' +
+                'program cieszy się również dużym zainteresowaniem wśród mentorów, którzy chętnie dzielą ' +
+                'się doświadczeniem i wiedzą wspierając progres uczestniczek.</p>' +
+                '<p>Aplikować do Tech Leaders można między 10 a 23 stycznia 2022 wypełniając formularz ' +
+                'zamieszczony na stronie www.techleaders.eu. VII edycja programu rozpocznie się 7 lutego i ' +
+                'potrwa do 7 czerwca 2022.</p>' +
+                '</section>',
+        },
         'dba-2021': {
             shortTitle: 'Digital Banking Academy',
             shortDescription:
@@ -110,12 +141,48 @@ export default {
         },
     },
     en: {
+        'tech-leaders-2022': {
+            shortTitle: 'Tech Leaders',
+            shortDescription:
+                'Mentoring support for women in the IT industry - the 7th edition of Tech Leaders is launching!',
+            imagePath: '/images/brands/logo-wit.png',
+            date: '7. February - 7. June 2022',
+            title:
+                'Mentoring support for women in the IT industry - the 7th edition of Tech Leaders is launching!',
+            text:
+                '<section>' +
+                '<p><strong>Did you hear about Tech Leaders? It is a four-month free mentoring program initiated ' +
+                'by the Women in Technology Poland Association. It is aimed at women who want to ' +
+                'develop their competences and skills i.e. in programming, user experience, artificial ' +
+                'intelligence, project management or running a business. For more details, please ' +
+                'check the website: techleaders.eu and stay tuned - registration will start in January.' +
+                '</strong></p>' +
+                '<p>Any woman can apply to participate in Tech Leaders! What matters is enthusiasm, ' +
+                'willingness to learn and develop. Participants are given the opportunity to cooperate ' +
+                'individually with a mentor of their choice, indicated at the recruitment stage. Then the ' +
+                'mentors from the submitted applications select a mentee with whom they will work.</p>' +
+                '<p>The popularity and rapid development of the Tech Leaders program well illustrate the power ' +
+                'of the IT environment, its effectiveness and readiness to share knowledge. The huge ' +
+                'number of incoming applications shows that many women appreciate and understand ' +
+                'perfectly the unique development opportunities offered by the model of one-to-one expert ' +
+                'consultations. Although it seems less obvious, the program is also very popular among ' +
+                'mentors who are willing to share their experience and knowledge supporting the progress of ' +
+                'the participants.</p>' +
+                '<p>You can apply to Tech Leaders between 15 and 23 January, 2022 by completing the form on ' +
+                'the website http://techleaders.eu. The 7th edition of the program will launch on February the ' +
+                '7th and will last until June the 7th, 2022.</p>' +
+                '<p>The organizer of the Tech Leaders program is the Women in Technology Poland ' +
+                'Association, which brings together women around IT and new technologies. The aim of the ' +
+                'organization is to increase the professional competences of women, strengthen them in ' +
+                'leadership roles and promote the idea of diversity.</p>' +
+                '</section>',
+        },
         'dba-2021': {
             shortTitle: 'Digital Banking Academy',
             shortDescription:
                 'Digital Banking Academy is a series of trainings targetted specifically to banking sector. It is organized by the Polish Bank Association.',
             imagePath: '/images/brands/digital_banking_academy.png',
-            date: '13. kwietnia 2021',
+            date: '13. April 2021',
             title: 'Digital Banking Academy 2021',
             text:
                 '<section>' +
@@ -128,7 +195,7 @@ export default {
             shortDescription:
                 'Let’s Solve IT is an international project, which aims to help in overcoming the challenges and solving issues of the woman in the areas of IT and new technologies.',
             imagePath: '/images/brands/lets_solve_it.png',
-            date: 'luty/marzec 2021',
+            date: 'February/March 2021',
             title: "Let's solve it 2021",
             text:
                 '<section>' +
@@ -141,7 +208,7 @@ export default {
             shortDescription:
                 'Skyhacks is a 3 day-long event, including an AI/ML hackathon. Its participants will try to solve real problems, using the provided data.',
             imagePath: '/images/brands/skyhacks.png',
-            date: '15-16. listopada 2020',
+            date: '15-16. November 2020',
             title: 'skyhacks AI/ML Hackathon 2020',
             text:
                 '<section>' +
@@ -154,7 +221,7 @@ export default {
             shortDescription:
                 'GHOST Day: AMLC is an event focused on practical usage of Machine Learning, Artificial Intelligence research and using statistics in a non-standard way.',
             imagePath: '/images/brands/ghost_day.png',
-            date: '23-24. października 2020',
+            date: '23-24. October 2020',
             title: 'GHOST Day: Applied Machine Learning Conference 2020',
             text:
                 '<section>' +
@@ -166,7 +233,7 @@ export default {
             shortDescription:
                 'Data Science Summit is the biggest independent Data Science conference in the whole CEE region.',
             imagePath: '/images/brands/data_science_summit.png',
-            date: '16. października 2020',
+            date: '16. October 2020',
             title: 'Data Science Summit 2020',
             text:
                 '<section>' +
