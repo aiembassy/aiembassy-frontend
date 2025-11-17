@@ -168,10 +168,12 @@ Phase 10: ░░░░░░░░░░░░░░░░░░░░   0%
 
 **Upcoming Tasks:**
 - [ ] Convert translation JSON files to TOML (i18n/)
-- [ ] Create sample project content (3-5 projects in PL/EN)
-- [ ] Create sample event content (2-3 events in PL/EN)
-- [ ] Create workshop content structure
-- [ ] Convert opinions/testimonials to data file
+- [ ] Convert real data from TypeScript to Hugo formats:
+  - [ ] `src/shared/data/projects.ts` → Hugo content files (content/pl/projects/*.md, content/en/projects/*.md)
+  - [ ] `src/shared/data/events.ts` → Hugo content files (content/pl/events/*.md, content/en/events/*.md)
+  - [ ] `src/shared/data/workshops.ts` → Hugo content files (content/pl/workshops/*.md, content/en/workshops/*.md)
+  - [ ] `src/shared/data/trainings.ts` → Hugo data or content files
+  - [ ] `src/shared/data/opinions.ts` → Hugo data file (data/opinions.yaml)
 - [ ] Create content archetypes for easy content creation
 
 ---
@@ -552,39 +554,58 @@ hugo new site . --force
 ### Phase 4: Content & Data (Week 4)
 
 **4.1 Convert Translation Files**
-- Convert all JSON translation files to TOML
-- Organize by namespace
-- Test all translation keys
+- Convert all JSON translation files from `locales/{pl,en}/*.json` to TOML format in `i18n/{pl,en}.toml`
+- Organize by namespace (merge all JSON files into language-specific TOML)
+- Test all translation keys work with Hugo's i18n system
 
-**4.2 Create Content Structure**
+**4.2 Convert Real Data from TypeScript to Hugo**
+
+**Projects** (`src/shared/data/projects.ts`)
+- Extract project data (SmogSpots, etc.) from TypeScript object
+- Create individual Markdown files for each project in both languages:
+  - `content/pl/projects/smogspots.md`
+  - `content/en/projects/smogspots.md`
+- Preserve: title, shortDescription, category, imagePath, date, HTML content
+- Convert HTML text content to Markdown where possible
+
+**Events** (`src/shared/data/events.ts`)
+- Extract all event data (Tech Leaders 2022, etc.)
+- Create content files: `content/{pl,en}/events/*.md`
+- Preserve: title, shortDescription, date, imagePath, HTML content
+
+**Workshops** (`src/shared/data/workshops.ts`)
+- Convert workshop data to content files
+- Create: `content/{pl,en}/workshops/*.md`
+
+**Trainings** (`src/shared/data/trainings.ts`)
+- Analyze structure and determine best Hugo representation
+- Either content files or data file depending on usage
+
+**Opinions/Testimonials** (`src/shared/data/opinions.ts`)
+- Convert to `data/opinions.yaml` (already structured as array)
+- Preserve: text, source, sourceName
+- Keep PL/EN separation
+
+**4.3 Content Structure Result**
 ```
 content/
-├── _index.md (homepage)
-├── contact/_index.md
-├── donation/_index.md
-├── events/
+├── pl/
 │   ├── _index.md
-│   ├── event-1.md
-│   ├── event-2.md
-├── projects/
-│   ├── _index.md
-│   ├── smogspots.md
-│   ├── [other-projects].md
-├── workshops/
-│   ├── _index.md
-│   ├── workshop-1.md
-│   └── ...
-└── landing/
-    └── ...
+│   ├── projects/
+│   │   ├── _index.md
+│   │   ├── smogspots.md
+│   │   └── [all-real-projects].md
+│   ├── events/
+│   │   ├── _index.md
+│   │   └── [all-real-events].md
+│   └── workshops/
+│       ├── _index.md
+│       └── [all-real-workshops].md
+└── en/
+    └── [same structure]
 ```
 
-**4.3 Migrate Static Data**
-- Convert project data from `src/shared/data/` to content files
-- Convert team data to `data/team.yaml`
-- Convert opinions to `data/opinions.yaml`
-- Convert events data
-
-**4.4 Set Up Content Types (Archetypes)**
+**4.4 Set Up Content Archetypes**
 ```markdown
 ---
 # archetypes/projects.md
@@ -594,14 +615,18 @@ draft: false
 category: ""
 image: ""
 shortDescription: ""
+tags: []
 ---
 ```
 
 **Deliverables:**
-- [ ] All translations converted
-- [ ] All content migrated to Markdown
-- [ ] Data files created
-- [ ] Content archetypes defined
+- [ ] All translations converted from JSON to TOML
+- [ ] Real projects data migrated from projects.ts to Hugo content
+- [ ] Real events data migrated from events.ts to Hugo content
+- [ ] Real workshops data migrated from workshops.ts to Hugo content
+- [ ] Trainings data converted appropriately
+- [ ] Opinions data converted to data/opinions.yaml
+- [ ] Content archetypes defined for all content types
 
 ### Phase 5: Page Templates (Week 5)
 
