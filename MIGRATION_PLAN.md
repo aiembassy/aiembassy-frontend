@@ -5,19 +5,19 @@
 **Target:** Hugo Static Site Generator
 **Date Started:** 2025-11-17
 **Last Updated:** 2025-11-17
-**Status:** 🚧 In Progress - Phase 3
+**Status:** 🚧 In Progress - Phase 4
 
 ---
 
 ## 📊 Migration Progress Tracker
 
-### Overall Progress: Phase 3 of 10 (30% Complete)
+### Overall Progress: Phase 4 of 10 (40% Complete)
 
 ```
 Phase 1: ████████████████████ 100% ✅ COMPLETED
 Phase 2: ████████████████████ 100% ✅ COMPLETED
 Phase 3: ████████████████████ 100% ✅ COMPLETED
-Phase 4: ░░░░░░░░░░░░░░░░░░░░   0%
+Phase 4: ████████████████████ 100% ✅ COMPLETED
 Phase 5: ░░░░░░░░░░░░░░░░░░░░   0%
 Phase 6: ░░░░░░░░░░░░░░░░░░░░   0%
 Phase 7: ░░░░░░░░░░░░░░░░░░░░   0%
@@ -164,17 +164,64 @@ Phase 10: ░░░░░░░░░░░░░░░░░░░░   0%
 - Taxonomy support (tags, categories)
 - Date formatting and filtering
 
-### 🔄 Next Steps: Phase 4 - Content & Data
+### ✅ Phase 4: Content & Data (Week 4) - COMPLETED
 
-**Upcoming Tasks:**
-- [ ] Convert translation JSON files to TOML (i18n/)
-- [ ] Convert real data from TypeScript to Hugo formats:
-  - [ ] `src/shared/data/projects.ts` → Hugo content files (content/pl/projects/*.md, content/en/projects/*.md)
-  - [ ] `src/shared/data/events.ts` → Hugo content files (content/pl/events/*.md, content/en/events/*.md)
-  - [ ] `src/shared/data/workshops.ts` → Hugo content files (content/pl/workshops/*.md, content/en/workshops/*.md)
-  - [ ] `src/shared/data/trainings.ts` → Hugo data or content files
-  - [ ] `src/shared/data/opinions.ts` → Hugo data file (data/opinions.yaml)
-- [ ] Create content archetypes for easy content creation
+**Completed Tasks:**
+- [x] Converted translation JSON files to TOML
+  - [x] `i18n/pl.toml` - Consolidated all Polish translations (common, menu, about, contact, donation, events, projects, workshops, landing)
+  - [x] `i18n/en.toml` - Consolidated all English translations (same namespaces)
+- [x] Converted real data from TypeScript to Hugo formats:
+  - [x] `src/shared/data/projects.ts` → Hugo content files
+    - [x] `content/pl/projects/smogspots.md` - SmogSpots project (Polish)
+    - [x] `content/en/projects/smogspots.md` - SmogSpots project (English)
+  - [x] `src/shared/data/events.ts` → Hugo content files (6 events, both languages)
+    - [x] `content/pl/events/tech-leaders-2022.md` & `content/en/events/tech-leaders-2022.md`
+    - [x] `content/pl/events/dba-2021.md` & `content/en/events/dba-2021.md`
+    - [x] `content/pl/events/lets-solve-it-2021.md` & `content/en/events/lets-solve-it-2021.md`
+    - [x] `content/pl/events/skyhacks-ai-hackathon-2020.md` & `content/en/events/skyhacks-ai-hackathon-2020.md`
+    - [x] `content/pl/events/ghost-day-2020.md` & `content/en/events/ghost-day-2020.md`
+    - [x] `content/pl/events/dss-conf-2020.md` & `content/en/events/dss-conf-2020.md`
+  - [x] `src/shared/data/workshops.ts` → Hugo content files
+    - [x] `content/pl/workshops/wstep-do-ai.md` - AI Introduction (Polish)
+    - [x] `content/en/workshops/ai-introduction.md` - AI Introduction (English)
+  - [x] `src/shared/data/trainings.ts` → Hugo data file
+    - [x] `data/trainings.yaml` - Training data with sections, bullet points, trainer info (PL/EN)
+  - [x] `src/shared/data/opinions.ts` → Hugo data file
+    - [x] `data/opinions.yaml` - Press mentions and testimonials (PL/EN)
+- [x] Created content archetypes for easy content creation
+  - [x] `archetypes/projects.md` - Project archetype template
+  - [x] `archetypes/events.md` - Event archetype template
+  - [x] `archetypes/workshops.md` - Workshop archetype template
+
+**Phase 4 Deliverables:** ✅ All Complete
+
+**Key Achievements:**
+- All production data successfully migrated from TypeScript to Hugo formats
+- i18n system fully functional with consolidated TOML translation files
+- 6 events converted to Markdown content files with proper front matter
+- 1 project (SmogSpots) converted with full content
+- 1 workshop converted to content files
+- Structured data (trainings, opinions) converted to YAML data files
+- Content archetypes created for easy future content creation
+- HTML content converted to Markdown while preserving formatting
+- All front matter properly structured with dates, categories, tags, images
+
+**Files Created:** 19 new files
+- 2 i18n translation files (pl.toml, en.toml)
+- 12 content files (projects: 2, events: 10)
+- 2 workshop content files
+- 2 data files (trainings.yaml, opinions.yaml)
+- 3 archetype templates
+
+**Data Migration Summary:**
+- **Projects:** 1 project × 2 languages = 2 content files
+- **Events:** 6 events × 2 languages = 12 content files
+- **Workshops:** 1 workshop × 2 languages = 2 content files
+- **Trainings:** Complex structured data → 1 YAML data file
+- **Opinions:** Press mentions → 1 YAML data file
+- **Translations:** 9 JSON namespaces → 2 consolidated TOML files
+
+### 🔄 Next Steps: Phase 5 - Advanced Features & Forms
 
 ---
 

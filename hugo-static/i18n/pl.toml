@@ -1,0 +1,320 @@
+# Polish Translations (i18n/pl.toml)
+# Consolidated from locales/pl/*.json
+
+# Common translations
+[page_title]
+other = "AI Embassy - Wspieramy rewolucję sztucznej inteligencji"
+
+[page_description]
+other = "AI Embassy"
+
+[page_keywords]
+other = ""
+
+[hero_title]
+other = "Fundacja AI Embassy wspiera rewolucję AI w Polsce"
+
+[hero_subtitle]
+other = "Zobacz, jak możemy Ci pomóc zostać częścią nadciągającej zmiany!"
+
+[hero_check_our_offer]
+other = "sprawdź naszą ofertę"
+
+[about_title]
+other = "O fundacji"
+
+[about_description]
+other = "Sztuczna inteligencja będzie w najbliższych latach motorem napędowym trwającej rewolucji naukowej. Fundacja AI Embassy dąży do tego, aby to Polska stała się centrum tych innowacji."
+
+[free_workshops_title]
+other = "Bezpłatne szkolenia"
+
+[conferences_title]
+other = "Konferencje i wydarzenia"
+
+[business_support_title]
+other = "Wsparcie dla przedsiębiorstw"
+
+[summary_text]
+other = "Jeżeli tak jak my uważasz, że sztuczna inteligencja może zrewolucjonizować przyszłość, wspomóż nasze działania i przekaż dotację na rozwój fundacji."
+
+[summary_support_us]
+other = "Wspomóż nas"
+
+[benefits_title]
+other = "Korzyści z zastosowania AI"
+
+[benefits_automation_title]
+other = "Automatyzacja powtarzalnych procesów"
+
+[benefits_optimization_title]
+other = "Optymalizacja kosztów prowadzenia biznesu"
+
+[benefits_data_driven_title]
+other = "Podejmowanie decyzji opartych na danych"
+
+[projects_title]
+other = "Nasze projekty"
+
+[projects_link]
+other = "Zobacz nasze projekty"
+
+[team_title]
+other = "Zespół"
+
+[team_summary_question]
+other = "Pasjonują Cię rozwiązania oparte o sztuczną inteligencję?"
+
+[team_summary_invitation]
+other = "Porozmawiajmy, co możemy zrobić razem!"
+
+[team_summary_link]
+other = "Zostań jednym z nas"
+
+[opinions_title]
+other = "Piszą o nas"
+
+[support_title]
+other = "Wspierają nas"
+
+[events_title]
+other = "Wydarzenia i konferencje"
+
+[events_link]
+other = "Zobacz wydarzenia"
+
+[foundation_name]
+other = "Fundacja \"AI Embassy\""
+
+[account_number]
+other = "Nr konta"
+
+[contact_or_fill]
+other = "lub wypełnij"
+
+[contact_form]
+other = "Formularz kontaktowy"
+
+[contact_support_us]
+other = "Wspomóż nas"
+
+[contact_support_description]
+other = "Działania prowadzone przez fundację wymagają nakładów finansowych. Jeśli również uważasz, że AI może być nową rewolucją i chcesz wesprzeć jej rozwój w Polsce, to wspomóż nasze wysiłki przez przekazanie darowizny."
+
+[privacy_policy]
+other = "Polityka prywatności"
+
+[foundation_statute]
+other = "Statut fundacji"
+
+[more]
+other = "więcej"
+
+[come_back_to_workshops]
+other = "Wróc do listy wszystkich szkoleń"
+
+[come_back_to_events]
+other = "Wróc do wszystkich wydarzeń"
+
+[come_back_to_projects]
+other = "Wróc do wszystkich projektów"
+
+# Menu translations
+[about_foundation]
+other = "O fundacji"
+
+[projects]
+other = "Projekty"
+
+[team]
+other = "Zespół"
+
+[media]
+other = "Media"
+
+[events]
+other = "Wydarzenia"
+
+[contact]
+other = "Kontakt"
+
+[workshops]
+other = "Oferta szkoleń"
+
+# About section
+[free_workshops_intro]
+other = "Wiedza jest kluczowym elementem, który pozwala na wprowadzenie innowacji. AI Embassy łączy ekspertów od sztucznej inteligencji z osobami, które chciałyby rozwijać swoje kompetencje w tej dziedzinie poprzez organizowanie"
+
+[free_workshops_outro]
+other = ", również w formule online."
+
+[workshops_link]
+other = "<strong>darmowych</strong> szkoleń i warsztatów"
+
+[conferences_intro]
+other = "Budowanie innowacji wymaga także stworzenia działającej społeczności ekspertów, firm oraz inwestorów. W tym celu fundacja uczestniczy w"
+
+[conferences_middle]
+other = ", a także organizuje własne wydarzenia."
+
+[conferences_outro]
+other = ", jeśli chciałbyś zbudować społeczność AI w Twojej okolicy."
+
+[conferences_link]
+other = "konferencjach i meetupach"
+
+[contact_link]
+other = "Skontaktuj się z nami"
+
+[business_intro]
+other = "Rewolucja AI wymaga zaangażowania ze strony biznesu. Czy masz pomysł na implementację rozwiązań opartych o sztuczną inteligencję, ale jeszcze nie zacząłeś jej wdrażać? A może potrzebujesz inspiracji w jaki sposób usprawnić Twój biznes? Sprawdź naszą ofertę"
+
+[business_outro]
+other = "lub skontaktuj się z nami, aby porozmawiać o <strong>darmowych usługach doradczych</strong>."
+
+[free_trainings_link]
+other = "bezpłatnych szkoleń"
+
+[commercial_intro]
+other = "Jesteś firmą z sektora IT albo prowadzisz już projekty AI i potrzebujesz wsparcia we wdrożeniu sztucznej inteligencji?"
+
+[commercial_outro]
+other = "na temat oferty <strong>komercyjnej fundacji</strong> AI Embassy."
+
+# Contact page
+[contact_title]
+other = "Porozmawiajmy"
+
+[contact_description]
+other = "Chciałbyś zbudować społeczność AI w Twojej okolicy? Chcesz dowiedzieć sie więcej o darmowych usługach doradczych lub o ofercie komercyjnej AI Embassy? Pasjonują Cię rozwiązania oparte o sztuczną inteligencję?"
+
+[contact_write_to_us]
+other = "Napisz do nas"
+
+[contact_fill_up_form]
+other = "lub wypełnij formularz kontaktowy."
+
+[form_name]
+other = "Imię i nazwisko"
+
+[form_company]
+other = "Firma"
+
+[form_email]
+other = "E-mail"
+
+[form_message]
+other = "Wiadomość"
+
+[form_send]
+other = "Wyślij"
+
+[form_agreement]
+other = "Klikając wyślij zgdzasz się z"
+
+[form_owner]
+other = "AI Embassy"
+
+[error_name]
+other = "Twoje dane są wymagane."
+
+[error_email]
+other = "Wprowadź poprawny adres email."
+
+# Donation page
+[support_us_title]
+other = "Wspomóż nas"
+
+[support_us_description]
+other = "Prowadzenie Fundacji oraz realizowane przez nas działania i projekty wymagają wielu środków finansowych i dużego nakładu pracy. Jeśli podoba Ci się to co robimy – możesz wspomóc naszą działalność."
+
+[donations]
+other = "Darowizny"
+
+[donations_intro]
+other = "Jednorazowe lub systematyczne wpłaty na dowolną kwotę na konto Fundacji."
+
+[donations_make_transfer]
+other = "Wykonaj przelew o tytule"
+
+[donations_transfer_title]
+other = "Darowizna na cele statutowe"
+
+[donations_account_bank]
+other = "na konto Bank BNP Paribas"
+
+[cooperation]
+other = "Współpraca"
+
+[cooperation_description]
+other = "Osoby prawne mogą zostać naszymi sponsorami, przez wsparcie finansowe naszych projektów lub patronat, bądź też przyłączenie się do wspólnego realizowania projektów."
+
+[cooperation_benefits]
+other = "Loga partnerów zostaną umieszczone na stronie internetowej naszej Fundacji."
+
+# Events page
+[events_description]
+other = "Na tych wydarzeniach można było bądź będzie można spotkać kogoś z nas."
+
+# Projects page
+[projects_description]
+other = "Wierzymy, że sztuczna inteligencja może być wykorzystana do rozwiązania niektórych problemów społecznych, a także pomóc nam zautomatyzować pewne powtarzalne procesy."
+
+# Workshops page
+[workshops_title]
+other = "Darmowe warsztaty i szkolenia"
+
+[workshops_description]
+other = "Fundacja pomoże Ci rozwijać Twoje kompetencje w dziedzinie sztucznej inteligencji poprzez prowadzenie darmowych szkoleń i warsztatów, również w formule on-line."
+
+[workshop_name]
+other = "Nazwa szkolenia"
+
+[workshop_description]
+other = "Opis"
+
+[workshop_category]
+other = "Kategoria"
+
+# Additional common translations
+[read_more]
+other = "czytaj więcej"
+
+[learn_more]
+other = "dowiedz się więcej"
+
+[next]
+other = "następny"
+
+[previous]
+other = "poprzedni"
+
+[newer]
+other = "nowsze"
+
+[older]
+other = "starsze"
+
+[page]
+other = "Strona"
+
+[of]
+other = "z"
+
+[no_items]
+other = "Brak elementów."
+
+[tags]
+other = "Tagi"
+
+[footer_quick_links]
+other = "Szybkie linki"
+
+[footer_legal]
+other = "Informacje prawne"
+
+[footer_contact]
+other = "Kontakt"
+
+[footer_rights_reserved]
+other = "Wszystkie prawa zastrzeżone."
