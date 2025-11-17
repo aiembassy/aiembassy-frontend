@@ -323,6 +323,166 @@
         }
     };
 
+    // Simple Carousel
+    const initCarousel = () => {
+        const carousels = document.querySelectorAll('.carousel');
+
+        carousels.forEach(carousel => {
+            const track = carousel.querySelector('.carousel__track');
+            const slides = Array.from(carousel.querySelectorAll('.carousel__slide'));
+            const prevButton = carousel.querySelector('.carousel__button--prev');
+            const nextButton = carousel.querySelector('.carousel__button--next');
+            const indicators = carousel.querySelector('.carousel__indicators');
+
+            if (!track || slides.length === 0) return;
+
+            let currentIndex = 0;
+            const slidesCount = slides.length;
+
+            // Get slides to show based on viewport
+            const getSlidesToShow = () => {
+                if (window.innerWidth >= 1024) return 3;
+                if (window.innerWidth >= 768) return 2;
+                return 1;
+            };
+
+            let slidesToShow = getSlidesToShow();
+            const maxIndex = Math.max(0, slidesCount - slidesToShow);
+
+            // Update carousel position
+            const updateCarousel = () => {
+                const slideWidth = slides[0].offsetWidth;
+                track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+                // Update buttons
+                if (prevButton) prevButton.disabled = currentIndex === 0;
+                if (nextButton) nextButton.disabled = currentIndex >= maxIndex;
+
+                // Update indicators
+                if (indicators) {
+                    const dots = indicators.querySelectorAll('.carousel__indicator');
+                    dots.forEach((dot, index) => {
+                        dot.classList.toggle('carousel__indicator--active', index === currentIndex);
+                    });
+                }
+            };
+
+            // Navigation
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        updateCarousel();
+                    }
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentIndex < maxIndex) {
+                        currentIndex++;
+                        updateCarousel();
+                    }
+                });
+            }
+
+            // Indicators
+            if (indicators) {
+                const dotsCount = maxIndex + 1;
+                for (let i = 0; i < dotsCount; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = 'carousel__indicator';
+                    dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                    dot.addEventListener('click', () => {
+                        currentIndex = i;
+                        updateCarousel();
+                    });
+                    indicators.appendChild(dot);
+                }
+            }
+
+            // Keyboard navigation
+            carousel.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                    currentIndex--;
+                    updateCarousel();
+                } else if (e.key === 'ArrowRight' && currentIndex < maxIndex) {
+                    currentIndex++;
+                    updateCarousel();
+                }
+            });
+
+            // Touch/swipe support
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            track.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+
+            track.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+
+            const handleSwipe = () => {
+                const swipeThreshold = 50;
+                if (touchEndX < touchStartX - swipeThreshold && currentIndex < maxIndex) {
+                    currentIndex++;
+                    updateCarousel();
+                } else if (touchEndX > touchStartX + swipeThreshold && currentIndex > 0) {
+                    currentIndex--;
+                    updateCarousel();
+                }
+            };
+
+            // Responsive update
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    const newSlidesToShow = getSlidesToShow();
+                    if (newSlidesToShow !== slidesToShow) {
+                        slidesToShow = newSlidesToShow;
+                        currentIndex = Math.min(currentIndex, Math.max(0, slidesCount - slidesToShow));
+                        updateCarousel();
+                    }
+                }, 250);
+            });
+
+            // Initial update
+            updateCarousel();
+        });
+    };
+
+    // Scroll-triggered animations
+    const initScrollAnimations = () => {
+        if ('IntersectionObserver' in window) {
+            const animationObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        // Optionally unobserve after animation
+                        // animationObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1, // Trigger when 10% of element is visible
+                rootMargin: '0px 0px -50px 0px' // Trigger slightly before element enters viewport
+            });
+
+            // Observe all elements with scroll animation classes
+            document.querySelectorAll('.scroll-animate, .scroll-animate-fade-up, .scroll-animate-fade-down, .scroll-animate-fade-left, .scroll-animate-fade-right, .scroll-animate-scale').forEach(element => {
+                animationObserver.observe(element);
+            });
+        } else {
+            // Fallback: immediately show all elements
+            document.querySelectorAll('.scroll-animate, .scroll-animate-fade-up, .scroll-animate-fade-down, .scroll-animate-fade-left, .scroll-animate-fade-right, .scroll-animate-scale').forEach(element => {
+                element.classList.add('is-visible');
+            });
+        }
+    };
+
     // Initialize all functions when DOM is ready
     const init = () => {
         initMobileMenu();
@@ -331,6 +491,8 @@
         initModals();
         initFormValidation();
         initLazyLoad();
+        initScrollAnimations();
+        initCarousel();
     };
 
     // Run on DOM ready

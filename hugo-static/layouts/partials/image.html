@@ -1,0 +1,67 @@
+{{- /*
+  Image Partial with Hugo Image Processing
+
+  Usage:
+  {{ partial "image.html" (dict
+    "src" "/images/example.jpg"
+    "alt" "Description"
+    "width" 800
+    "height" 600
+    "class" "my-class"
+    "lazy" true
+  ) }}
+
+  Parameters:
+  - src (required): Image path
+  - alt (required): Alt text
+  - width: Target width (optional)
+  - height: Target height (optional)
+  - class: CSS classes (optional)
+  - lazy: Enable lazy loading (default: true)
+  - quality: Image quality 1-100 (default: 85)
+*/ -}}
+
+{{- $src := .src -}}
+{{- $alt := .alt | default "" -}}
+{{- $width := .width | default 0 -}}
+{{- $height := .height | default 0 -}}
+{{- $class := .class | default "" -}}
+{{- $lazy := .lazy | default true -}}
+{{- $quality := .quality | default 85 -}}
+
+{{- $image := "" -}}
+{{- $processedImage := "" -}}
+
+{{- /* Try to get the image resource */ -}}
+{{- with resources.Get $src -}}
+    {{- $image = . -}}
+
+    {{- /* Process image if dimensions are specified */ -}}
+    {{- if and (gt $width 0) (gt $height 0) -}}
+        {{- $processedImage = $image.Fill (printf "%dx%d q%d" $width $height $quality) -}}
+    {{- else if gt $width 0 -}}
+        {{- $processedImage = $image.Resize (printf "%dx q%d" $width $quality) -}}
+    {{- else -}}
+        {{- $processedImage = $image -}}
+    {{- end -}}
+
+    {{- /* Output optimized image */ -}}
+    <img
+        src="{{ $processedImage.RelPermalink }}"
+        alt="{{ $alt }}"
+        {{- if gt $width 0 }} width="{{ $width }}"{{ end }}
+        {{- if gt $height 0 }} height="{{ $height }}"{{ end }}
+        {{- if $class }} class="{{ $class }}"{{ end }}
+        {{- if $lazy }} loading="lazy"{{ end }}
+    >
+{{- else -}}
+    {{- /* Fallback for static images not in resources */ -}}
+    <img
+        src="{{ $src | relURL }}"
+        alt="{{ $alt }}"
+        {{- if gt $width 0 }} width="{{ $width }}"{{ end }}
+        {{- if gt $height 0 }} height="{{ $height }}"{{ end }}
+        {{- if $class }} class="{{ $class }}"{{ end }}
+        {{- if $lazy }} loading="lazy"{{ end }}
+    >
+{{- end -}}

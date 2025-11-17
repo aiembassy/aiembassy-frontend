@@ -1,0 +1,269 @@
+/**
+ * Carousel/Slider Component
+ * Lightweight vanilla JS carousel for opinions and other sliding content
+ */
+
+// =============================================================================
+// Carousel Container
+// =============================================================================
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+
+    &__wrapper {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    &__track {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        will-change: transform;
+    }
+
+    &__slide {
+        flex: 0 0 100%;
+        width: 100%;
+        padding: 0 15px;
+
+        @media (min-width: $breakpoint-tablet) {
+            flex: 0 0 50%;
+        }
+
+        @media (min-width: $breakpoint-desktop) {
+            flex: 0 0 33.333%;
+        }
+    }
+
+    // Navigation buttons
+    &__button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        background: $color-white;
+        border: 2px solid $color-gray;
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all $transition-default ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+        &:hover {
+            background: $color-green;
+            border-color: $color-green;
+            color: $color-white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        &:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        &:focus {
+            outline: 2px solid $color-green;
+            outline-offset: 2px;
+        }
+
+        &--prev {
+            left: -24px;
+
+            @media (min-width: $breakpoint-tablet) {
+                left: 10px;
+            }
+        }
+
+        &--next {
+            right: -24px;
+
+            @media (min-width: $breakpoint-tablet) {
+                right: 10px;
+            }
+        }
+
+        &:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+
+            &:hover {
+                background: $color-white;
+                border-color: $color-gray;
+                color: inherit;
+            }
+        }
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    // Indicators/dots
+    &__indicators {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 24px;
+    }
+
+    &__indicator {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: $color-gray;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: all $transition-default ease;
+
+        &:hover {
+            background: $color-dark-gray;
+            transform: scale(1.2);
+        }
+
+        &:focus {
+            outline: 2px solid $color-green;
+            outline-offset: 2px;
+        }
+
+        &--active {
+            background: $color-green;
+            width: 32px;
+            border-radius: 6px;
+        }
+    }
+}
+
+// =============================================================================
+// Carousel with Auto-height
+// =============================================================================
+
+.carousel--auto-height {
+    .carousel__track {
+        align-items: flex-start;
+    }
+
+    .carousel__slide {
+        height: auto;
+    }
+}
+
+// =============================================================================
+// Carousel with Fade Effect
+// =============================================================================
+
+.carousel--fade {
+    .carousel__slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+
+        &--active {
+            position: relative;
+            opacity: 1;
+        }
+    }
+}
+
+// =============================================================================
+// Responsive Behavior
+// =============================================================================
+
+@media (max-width: $breakpoint-mobile) {
+    .carousel {
+        &__button {
+            width: 40px;
+            height: 40px;
+
+            svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
+
+        &__indicator {
+            width: 10px;
+            height: 10px;
+
+            &--active {
+                width: 24px;
+            }
+        }
+    }
+}
+
+// =============================================================================
+// Accessibility
+// =============================================================================
+
+.carousel {
+    // Skip link for keyboard users
+    &__skip-link {
+        position: absolute;
+        left: -9999px;
+        z-index: 999;
+
+        &:focus {
+            left: 0;
+            top: 0;
+            padding: 8px 16px;
+            background: $color-green;
+            color: $color-white;
+            text-decoration: none;
+            border-radius: $border-radius-default;
+        }
+    }
+
+    // Screen reader only
+    &__sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+    }
+}
+
+// =============================================================================
+// Animation States
+// =============================================================================
+
+.carousel__slide {
+    &--prev {
+        transform: translateX(-100%);
+    }
+
+    &--next {
+        transform: translateX(100%);
+    }
+
+    &--active {
+        transform: translateX(0);
+    }
+}
+
+// Smooth transitions
+@media (prefers-reduced-motion: reduce) {
+    .carousel {
+        &__track {
+            transition: none;
+        }
+
+        &__slide {
+            transition: none;
+        }
+    }
+}

@@ -12,6 +12,7 @@
 @import "base/reset";
 @import "base/typography";
 @import "base/utilities";
+@import "base/animations";
 
 // Layout
 @import "layout/grid";
@@ -26,3 +27,4 @@
 @import "components/sections";
 @import "components/modals";
 @import "components/pages";
+@import "components/carousel";

@@ -59,9 +59,19 @@
 <meta name="google-site-verification" content="{{ . }}">
 {{ end }}
 
-{{- /* Preconnect to external resources */ -}}
+{{- /* Resource Hints - Preconnect to external resources */ -}}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+{{- /* DNS Prefetch for external domains */ -}}
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+{{- /* Preconnect to API if configured */ -}}
+{{ with .Site.Params.api.baseUrl }}
+<link rel="preconnect" href="{{ . }}">
+<link rel="dns-prefetch" href="{{ . }}">
+{{ end }}
 
 {{- /* Remove no-js class with inline script */ -}}
 <script>
