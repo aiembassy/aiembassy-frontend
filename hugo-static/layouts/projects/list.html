@@ -1,0 +1,98 @@
+{{ define "title" }}{{ i18n "projects" }} - {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+
+<section class="projects-list">
+    {{- /* Page Header */ -}}
+    <header class="projects-list__header">
+        <div class="container">
+            <h1 class="projects-list__title">{{ i18n "projects" }}</h1>
+
+            {{- if .Content -}}
+            <div class="projects-list__intro">
+                {{ .Content }}
+            </div>
+            {{- end -}}
+        </div>
+    </header>
+
+    {{- /* Projects Grid */ -}}
+    <div class="projects-list__content">
+        <div class="container">
+            {{- if .Pages -}}
+            <div class="projects-grid">
+                {{- range .Pages -}}
+                <article class="project-card">
+                    {{- if .Params.image -}}
+                    <a href="{{ .RelPermalink }}" class="project-card__image-link">
+                        <img
+                            src="{{ .Params.image | relURL }}"
+                            alt="{{ .Title }}"
+                            class="project-card__image"
+                            loading="lazy"
+                        >
+                    </a>
+                    {{- end -}}
+
+                    <div class="project-card__content">
+                        {{- if .Params.category -}}
+                        <span class="project-card__category">{{ .Params.category }}</span>
+                        {{- end -}}
+
+                        <h2 class="project-card__title">
+                            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                        </h2>
+
+                        {{- if .Params.shortDescription -}}
+                        <p class="project-card__description">{{ .Params.shortDescription }}</p>
+                        {{- else if .Summary -}}
+                        <p class="project-card__description">{{ .Summary }}</p>
+                        {{- end -}}
+
+                        {{- if .Params.date -}}
+                        <time class="project-card__date" datetime="{{ .Date.Format "2006-01-02" }}">
+                            {{ .Date.Format (.Site.Params.dateFormat | default "January 2006") }}
+                        </time>
+                        {{- end -}}
+
+                        <a href="{{ .RelPermalink }}" class="btn btn--outline project-card__link">
+                            {{ i18n "read_more" }}
+                        </a>
+                    </div>
+                </article>
+                {{- end -}}
+            </div>
+
+            {{- /* Pagination */ -}}
+            {{- if gt .Paginator.TotalPages 1 -}}
+            <nav class="pagination" role="navigation" aria-label="{{ i18n "pagination" }}">
+                <div class="pagination__inner">
+                    {{- if .Paginator.HasPrev -}}
+                    <a href="{{ .Paginator.Prev.URL }}" class="pagination__link pagination__link--prev">
+                        <span aria-hidden="true">←</span> {{ i18n "previous" }}
+                    </a>
+                    {{- end -}}
+
+                    <span class="pagination__info">
+                        {{ i18n "page" }} {{ .Paginator.PageNumber }} {{ i18n "of" }} {{ .Paginator.TotalPages }}
+                    </span>
+
+                    {{- if .Paginator.HasNext -}}
+                    <a href="{{ .Paginator.Next.URL }}" class="pagination__link pagination__link--next">
+                        {{ i18n "next" }} <span aria-hidden="true">→</span>
+                    </a>
+                    {{- end -}}
+                </div>
+            </nav>
+            {{- end -}}
+
+            {{- else -}}
+            <div class="projects-list__empty">
+                <p>{{ i18n "no_projects_found" }}</p>
+            </div>
+            {{- end -}}
+        </div>
+    </div>
+</section>
+
+{{ end }}

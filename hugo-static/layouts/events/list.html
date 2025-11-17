@@ -1,0 +1,170 @@
+{{ define "title" }}{{ i18n "events" }} - {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+
+<section class="events-list">
+    {{- /* Page Header */ -}}
+    <header class="events-list__header">
+        <div class="container">
+            <h1 class="events-list__title">{{ i18n "events" }}</h1>
+
+            {{- if .Content -}}
+            <div class="events-list__intro">
+                {{ .Content }}
+            </div>
+            {{- end -}}
+        </div>
+    </header>
+
+    {{- /* Events Content */ -}}
+    <div class="events-list__content">
+        <div class="container">
+            {{- if .Pages -}}
+
+            {{- /* Separate upcoming and past events */ -}}
+            {{- $upcomingEvents := slice -}}
+            {{- $pastEvents := slice -}}
+
+            {{- range .Pages -}}
+                {{- if .Date.After now -}}
+                    {{- $upcomingEvents = $upcomingEvents | append . -}}
+                {{- else -}}
+                    {{- $pastEvents = $pastEvents | append . -}}
+                {{- end -}}
+            {{- end -}}
+
+            {{- /* Upcoming Events Section */ -}}
+            {{- if $upcomingEvents -}}
+            <section class="events-section">
+                <h2 class="events-section__title">{{ i18n "upcoming_events" }}</h2>
+                <div class="events-grid">
+                    {{- range $upcomingEvents -}}
+                    <article class="event-card event-card--upcoming">
+                        {{- if .Params.image -}}
+                        <a href="{{ .RelPermalink }}" class="event-card__image-link">
+                            <img
+                                src="{{ .Params.image | relURL }}"
+                                alt="{{ .Title }}"
+                                class="event-card__image"
+                                loading="lazy"
+                            >
+                        </a>
+                        {{- end -}}
+
+                        <div class="event-card__content">
+                            {{- if .Params.date -}}
+                            <time class="event-card__date" datetime="{{ .Date.Format "2006-01-02" }}">
+                                {{ .Date.Format (.Site.Params.dateFormat | default "2 January 2006") }}
+                            </time>
+                            {{- end -}}
+
+                            <h3 class="event-card__title">
+                                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                            </h3>
+
+                            {{- if .Params.shortDescription -}}
+                            <p class="event-card__description">{{ .Params.shortDescription }}</p>
+                            {{- else if .Summary -}}
+                            <p class="event-card__description">{{ .Summary }}</p>
+                            {{- end -}}
+
+                            {{- if .Params.location -}}
+                            <p class="event-card__location">
+                                <span class="icon">📍</span> {{ .Params.location }}
+                            </p>
+                            {{- end -}}
+
+                            <a href="{{ .RelPermalink }}" class="btn btn--primary event-card__link">
+                                {{ i18n "learn_more" }}
+                            </a>
+                        </div>
+                    </article>
+                    {{- end -}}
+                </div>
+            </section>
+            {{- end -}}
+
+            {{- /* Past Events Section */ -}}
+            {{- if $pastEvents -}}
+            <section class="events-section">
+                <h2 class="events-section__title">{{ i18n "past_events" }}</h2>
+                <div class="events-grid">
+                    {{- range $pastEvents -}}
+                    <article class="event-card event-card--past">
+                        {{- if .Params.image -}}
+                        <a href="{{ .RelPermalink }}" class="event-card__image-link">
+                            <img
+                                src="{{ .Params.image | relURL }}"
+                                alt="{{ .Title }}"
+                                class="event-card__image"
+                                loading="lazy"
+                            >
+                        </a>
+                        {{- end -}}
+
+                        <div class="event-card__content">
+                            {{- if .Params.date -}}
+                            <time class="event-card__date" datetime="{{ .Date.Format "2006-01-02" }}">
+                                {{ .Date.Format (.Site.Params.dateFormat | default "2 January 2006") }}
+                            </time>
+                            {{- end -}}
+
+                            <h3 class="event-card__title">
+                                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                            </h3>
+
+                            {{- if .Params.shortDescription -}}
+                            <p class="event-card__description">{{ .Params.shortDescription }}</p>
+                            {{- else if .Summary -}}
+                            <p class="event-card__description">{{ .Summary }}</p>
+                            {{- end -}}
+
+                            {{- if .Params.location -}}
+                            <p class="event-card__location">
+                                <span class="icon">📍</span> {{ .Params.location }}
+                            </p>
+                            {{- end -}}
+
+                            <a href="{{ .RelPermalink }}" class="btn btn--outline event-card__link">
+                                {{ i18n "read_more" }}
+                            </a>
+                        </div>
+                    </article>
+                    {{- end -}}
+                </div>
+            </section>
+            {{- end -}}
+
+            {{- /* Pagination */ -}}
+            {{- if gt .Paginator.TotalPages 1 -}}
+            <nav class="pagination" role="navigation" aria-label="{{ i18n "pagination" }}">
+                <div class="pagination__inner">
+                    {{- if .Paginator.HasPrev -}}
+                    <a href="{{ .Paginator.Prev.URL }}" class="pagination__link pagination__link--prev">
+                        <span aria-hidden="true">←</span> {{ i18n "previous" }}
+                    </a>
+                    {{- end -}}
+
+                    <span class="pagination__info">
+                        {{ i18n "page" }} {{ .Paginator.PageNumber }} {{ i18n "of" }} {{ .Paginator.TotalPages }}
+                    </span>
+
+                    {{- if .Paginator.HasNext -}}
+                    <a href="{{ .Paginator.Next.URL }}" class="pagination__link pagination__link--next">
+                        {{ i18n "next" }} <span aria-hidden="true">→</span>
+                    </a>
+                    {{- end -}}
+                </div>
+            </nav>
+            {{- end -}}
+
+            {{- else -}}
+            <div class="events-list__empty">
+                <p>{{ i18n "no_events_found" }}</p>
+            </div>
+            {{- end -}}
+        </div>
+    </div>
+</section>
+
+{{ end }}

@@ -1,0 +1,85 @@
+{{ define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+
+<article class="single-project">
+    {{- /* Project Header */ -}}
+    <header class="single-project__header">
+        <div class="container">
+            {{- if .Params.category -}}
+            <div class="single-project__category">{{ .Params.category }}</div>
+            {{- end -}}
+
+            <h1 class="single-project__title">{{ .Title }}</h1>
+
+            {{- if .Params.shortDescription -}}
+            <p class="single-project__subtitle">{{ .Params.shortDescription }}</p>
+            {{- end -}}
+
+            {{- if .Params.date -}}
+            <time class="single-project__date" datetime="{{ .Date.Format "2006-01-02" }}">
+                {{ .Date.Format (.Site.Params.dateFormat | default "January 2006") }}
+            </time>
+            {{- end -}}
+        </div>
+    </header>
+
+    {{- /* Featured Image */ -}}
+    {{- if .Params.image -}}
+    <div class="single-project__image-wrapper">
+        <div class="container">
+            <img
+                src="{{ .Params.image | relURL }}"
+                alt="{{ .Title }}"
+                class="single-project__image"
+            >
+        </div>
+    </div>
+    {{- end -}}
+
+    {{- /* Project Content */ -}}
+    <div class="single-project__content">
+        <div class="container">
+            <div class="single-project__body">
+                {{ .Content }}
+            </div>
+
+            {{- /* Tags */ -}}
+            {{- if .Params.tags -}}
+            <div class="single-project__tags">
+                <h3 class="single-project__tags-title">{{ i18n "tags" }}</h3>
+                <ul class="tag-list">
+                    {{- range .Params.tags -}}
+                    <li class="tag-list__item">
+                        <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tag-list__link">
+                            {{ . }}
+                        </a>
+                    </li>
+                    {{- end -}}
+                </ul>
+            </div>
+            {{- end -}}
+
+            {{- /* Navigation */ -}}
+            <nav class="single-project__nav">
+                {{- with .PrevInSection -}}
+                <a href="{{ .RelPermalink }}" class="btn btn--outline single-project__nav-prev">
+                    <span aria-hidden="true">←</span> {{ i18n "previous_project" }}
+                </a>
+                {{- end -}}
+
+                <a href="{{ "/projects" | relLangURL }}" class="btn btn--secondary single-project__nav-all">
+                    {{ i18n "all_projects" }}
+                </a>
+
+                {{- with .NextInSection -}}
+                <a href="{{ .RelPermalink }}" class="btn btn--outline single-project__nav-next">
+                    {{ i18n "next_project" }} <span aria-hidden="true">→</span>
+                </a>
+                {{- end -}}
+            </nav>
+        </div>
+    </div>
+</article>
+
+{{ end }}

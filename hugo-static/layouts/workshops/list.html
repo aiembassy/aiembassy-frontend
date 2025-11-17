@@ -1,0 +1,144 @@
+{{ define "title" }}{{ i18n "workshops" }} - {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+
+<section class="workshops-list">
+    {{- /* Page Header */ -}}
+    <header class="workshops-list__header">
+        <div class="container">
+            <h1 class="workshops-list__title">{{ i18n "workshops" }}</h1>
+
+            {{- if .Content -}}
+            <div class="workshops-list__intro">
+                {{ .Content }}
+            </div>
+            {{- end -}}
+        </div>
+    </header>
+
+    {{- /* Workshops Grid */ -}}
+    <div class="workshops-list__content">
+        <div class="container">
+            {{- if .Pages -}}
+            <div class="workshops-grid">
+                {{- range .Pages -}}
+                <article class="workshop-card">
+                    {{- if .Params.image -}}
+                    <a href="{{ .RelPermalink }}" class="workshop-card__image-link">
+                        <img
+                            src="{{ .Params.image | relURL }}"
+                            alt="{{ .Title }}"
+                            class="workshop-card__image"
+                            loading="lazy"
+                        >
+                    </a>
+                    {{- end -}}
+
+                    <div class="workshop-card__content">
+                        {{- if .Params.category -}}
+                        <span class="workshop-card__category">{{ .Params.category }}</span>
+                        {{- end -}}
+
+                        <h2 class="workshop-card__title">
+                            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                        </h2>
+
+                        {{- if .Params.shortDescription -}}
+                        <p class="workshop-card__description">{{ .Params.shortDescription }}</p>
+                        {{- else if .Summary -}}
+                        <p class="workshop-card__description">{{ .Summary }}</p>
+                        {{- end -}}
+
+                        {{- /* Workshop Meta Information */ -}}
+                        <div class="workshop-card__meta">
+                            {{- if .Params.duration -}}
+                            <span class="workshop-card__meta-item">
+                                <span class="icon">⏱️</span> {{ .Params.duration }}
+                            </span>
+                            {{- end -}}
+
+                            {{- if .Params.level -}}
+                            <span class="workshop-card__meta-item">
+                                <span class="icon">📊</span> {{ .Params.level }}
+                            </span>
+                            {{- end -}}
+
+                            {{- if .Params.language -}}
+                            <span class="workshop-card__meta-item">
+                                <span class="icon">🌐</span> {{ .Params.language }}
+                            </span>
+                            {{- end -}}
+                        </div>
+
+                        {{- if .Params.price -}}
+                        <div class="workshop-card__price">
+                            {{ .Params.price }}
+                        </div>
+                        {{- end -}}
+
+                        <a href="{{ .RelPermalink }}" class="btn btn--primary workshop-card__link">
+                            {{ i18n "learn_more" }}
+                        </a>
+                    </div>
+                </article>
+                {{- end -}}
+            </div>
+
+            {{- /* Filter by Category (optional) */ -}}
+            {{- $categories := slice -}}
+            {{- range .Pages -}}
+                {{- if .Params.category -}}
+                    {{- $categories = $categories | append .Params.category -}}
+                {{- end -}}
+            {{- end -}}
+            {{- $categories = $categories | uniq -}}
+
+            {{- if gt (len $categories) 1 -}}
+            <aside class="workshops-list__filters">
+                <h3>{{ i18n "filter_by_category" }}</h3>
+                <div class="filter-buttons">
+                    <button class="filter-button filter-button--active" data-filter="all">
+                        {{ i18n "all_workshops" }}
+                    </button>
+                    {{- range $categories -}}
+                    <button class="filter-button" data-filter="{{ . | urlize }}">
+                        {{ . }}
+                    </button>
+                    {{- end -}}
+                </div>
+            </aside>
+            {{- end -}}
+
+            {{- /* Pagination */ -}}
+            {{- if gt .Paginator.TotalPages 1 -}}
+            <nav class="pagination" role="navigation" aria-label="{{ i18n "pagination" }}">
+                <div class="pagination__inner">
+                    {{- if .Paginator.HasPrev -}}
+                    <a href="{{ .Paginator.Prev.URL }}" class="pagination__link pagination__link--prev">
+                        <span aria-hidden="true">←</span> {{ i18n "previous" }}
+                    </a>
+                    {{- end -}}
+
+                    <span class="pagination__info">
+                        {{ i18n "page" }} {{ .Paginator.PageNumber }} {{ i18n "of" }} {{ .Paginator.TotalPages }}
+                    </span>
+
+                    {{- if .Paginator.HasNext -}}
+                    <a href="{{ .Paginator.Next.URL }}" class="pagination__link pagination__link--next">
+                        {{ i18n "next" }} <span aria-hidden="true">→</span>
+                    </a>
+                    {{- end -}}
+                </div>
+            </nav>
+            {{- end -}}
+
+            {{- else -}}
+            <div class="workshops-list__empty">
+                <p>{{ i18n "no_workshops_found" }}</p>
+            </div>
+            {{- end -}}
+        </div>
+    </div>
+</section>
+
+{{ end }}

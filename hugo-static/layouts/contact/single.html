@@ -1,0 +1,153 @@
+{{ define "title" }}{{ i18n "contact" }} - {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+
+<section class="contact-page">
+    {{- /* Page Header */ -}}
+    <header class="contact-page__header">
+        <div class="container">
+            <h1 class="contact-page__title">{{ .Title | default (i18n "contact") }}</h1>
+
+            {{- if .Params.subtitle -}}
+            <p class="contact-page__subtitle">{{ .Params.subtitle }}</p>
+            {{- end -}}
+        </div>
+    </header>
+
+    <div class="contact-page__content">
+        <div class="container">
+            <div class="contact-page__layout">
+                {{- /* Contact Information Sidebar */ -}}
+                <aside class="contact-info">
+                    {{- if .Content -}}
+                    <div class="contact-info__intro">
+                        {{ .Content }}
+                    </div>
+                    {{- end -}}
+
+                    {{- if .Site.Params.contact -}}
+                    <div class="contact-info__details">
+                        {{- if .Site.Params.contact.email -}}
+                        <div class="contact-detail">
+                            <h3 class="contact-detail__title">{{ i18n "email" }}</h3>
+                            <a href="mailto:{{ .Site.Params.contact.email }}" class="contact-detail__value">
+                                {{ .Site.Params.contact.email }}
+                            </a>
+                        </div>
+                        {{- end -}}
+
+                        {{- if .Site.Params.contact.phone -}}
+                        <div class="contact-detail">
+                            <h3 class="contact-detail__title">{{ i18n "phone" }}</h3>
+                            <a href="tel:{{ .Site.Params.contact.phone }}" class="contact-detail__value">
+                                {{ .Site.Params.contact.phone }}
+                            </a>
+                        </div>
+                        {{- end -}}
+
+                        {{- if .Site.Params.contact.address -}}
+                        <div class="contact-detail">
+                            <h3 class="contact-detail__title">{{ i18n "address" }}</h3>
+                            <p class="contact-detail__value">{{ .Site.Params.contact.address | safeHTML }}</p>
+                        </div>
+                        {{- end -}}
+                    </div>
+                    {{- end -}}
+
+                    {{- /* Social Links */ -}}
+                    {{- if .Site.Params.social -}}
+                    <div class="contact-info__social">
+                        <h3>{{ i18n "follow_us" }}</h3>
+                        {{ partial "social-links.html" . }}
+                    </div>
+                    {{- end -}}
+                </aside>
+
+                {{- /* Contact Form */ -}}
+                <div class="contact-page__form">
+                    <h2>{{ i18n "send_message" }}</h2>
+
+                    {{- /* Using Formspree - Update with your form endpoint */ -}}
+                    <form
+                        action="{{ .Params.formAction | default "https://formspree.io/f/YOUR_FORM_ID" }}"
+                        method="POST"
+                        class="contact-form"
+                        id="contact-form"
+                    >
+                        <div class="form-group">
+                            <label for="name" class="form-label">
+                                {{ i18n "contact_name" }} <span class="required">*</span>
+                            </label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                required
+                                class="form-control"
+                                placeholder="{{ i18n "contact_name_placeholder" }}"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">
+                                {{ i18n "contact_email" }} <span class="required">*</span>
+                            </label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                required
+                                class="form-control"
+                                placeholder="{{ i18n "contact_email_placeholder" }}"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject" class="form-label">
+                                {{ i18n "contact_subject" }}
+                            </label>
+                            <input
+                                type="text"
+                                id="subject"
+                                name="subject"
+                                class="form-control"
+                                placeholder="{{ i18n "contact_subject_placeholder" }}"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">
+                                {{ i18n "contact_message" }} <span class="required">*</span>
+                            </label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="6"
+                                required
+                                class="form-control"
+                                placeholder="{{ i18n "contact_message_placeholder" }}"
+                            ></textarea>
+                        </div>
+
+                        {{- /* Honeypot field for spam protection */ -}}
+                        <input type="text" name="_gotcha" style="display:none">
+
+                        <button type="submit" class="btn btn--primary btn--large">
+                            {{ i18n "contact_submit" }}
+                        </button>
+                    </form>
+
+                    <div class="contact-form__success" id="form-success" style="display: none;">
+                        <p>{{ i18n "contact_success_message" }}</p>
+                    </div>
+
+                    <div class="contact-form__error" id="form-error" style="display: none;">
+                        <p>{{ i18n "contact_error_message" }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{ end }}

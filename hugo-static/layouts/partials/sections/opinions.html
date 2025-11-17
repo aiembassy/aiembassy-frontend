@@ -1,0 +1,30 @@
+{{- /* Opinions/Press Mentions Section */ -}}
+<section class="opinions" id="opinions">
+    <div class="container">
+        <h2 class="section-title">{{ i18n "opinions_title" }}</h2>
+
+        {{- if .Site.Data.opinions -}}
+            {{- $lang := .Site.Language.Lang -}}
+            {{- $opinions := index .Site.Data.opinions $lang -}}
+
+            {{- if $opinions -}}
+            <div class="opinions__grid">
+                {{- range $opinions -}}
+                <div class="opinion-card">
+                    <blockquote class="opinion-card__text">
+                        {{ .text | safeHTML }}
+                    </blockquote>
+                    {{- if .source -}}
+                    <cite class="opinion-card__source">
+                        <a href="{{ .source }}" target="_blank" rel="noopener noreferrer">
+                            {{ .sourceName }}
+                        </a>
+                    </cite>
+                    {{- end -}}
+                </div>
+                {{- end -}}
+            </div>
+            {{- end -}}
+        {{- end -}}
+    </div>
+</section>

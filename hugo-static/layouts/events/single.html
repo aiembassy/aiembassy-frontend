@@ -1,0 +1,125 @@
+{{ define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+
+<article class="single-event">
+    {{- /* Event Header */ -}}
+    <header class="single-event__header">
+        <div class="container">
+            {{- if .Params.date -}}
+            <time class="single-event__date" datetime="{{ .Date.Format "2006-01-02" }}">
+                {{ .Date.Format (.Site.Params.dateFormat | default "2 January 2006") }}
+            </time>
+            {{- end -}}
+
+            <h1 class="single-event__title">{{ .Title }}</h1>
+
+            {{- if .Params.shortDescription -}}
+            <p class="single-event__subtitle">{{ .Params.shortDescription }}</p>
+            {{- end -}}
+
+            {{- /* Event Status */ -}}
+            {{- if .Date -}}
+            <div class="single-event__status">
+                {{- if .Date.After now -}}
+                    <span class="badge badge--upcoming">{{ i18n "upcoming_event" }}</span>
+                {{- else -}}
+                    <span class="badge badge--past">{{ i18n "past_event" }}</span>
+                {{- end -}}
+            </div>
+            {{- end -}}
+        </div>
+    </header>
+
+    {{- /* Featured Image */ -}}
+    {{- if .Params.image -}}
+    <div class="single-event__image-wrapper">
+        <div class="container">
+            <img
+                src="{{ .Params.image | relURL }}"
+                alt="{{ .Title }}"
+                class="single-event__image"
+            >
+        </div>
+    </div>
+    {{- end -}}
+
+    {{- /* Event Content */ -}}
+    <div class="single-event__content">
+        <div class="container">
+            {{- /* Event Details Sidebar */ -}}
+            <aside class="single-event__details">
+                {{- if .Params.location -}}
+                <div class="event-detail">
+                    <h3 class="event-detail__title">{{ i18n "location" }}</h3>
+                    <p class="event-detail__value">{{ .Params.location }}</p>
+                </div>
+                {{- end -}}
+
+                {{- if .Params.eventDate -}}
+                <div class="event-detail">
+                    <h3 class="event-detail__title">{{ i18n "date" }}</h3>
+                    <p class="event-detail__value">{{ .Params.eventDate }}</p>
+                </div>
+                {{- end -}}
+
+                {{- if .Params.participants -}}
+                <div class="event-detail">
+                    <h3 class="event-detail__title">{{ i18n "participants" }}</h3>
+                    <p class="event-detail__value">{{ .Params.participants }}</p>
+                </div>
+                {{- end -}}
+
+                {{- if .Params.link -}}
+                <div class="event-detail">
+                    <a href="{{ .Params.link }}" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--block">
+                        {{ i18n "event_link" }}
+                    </a>
+                </div>
+                {{- end -}}
+            </aside>
+
+            {{- /* Main Content */ -}}
+            <div class="single-event__body">
+                {{ .Content }}
+            </div>
+
+            {{- /* Tags */ -}}
+            {{- if .Params.tags -}}
+            <div class="single-event__tags">
+                <h3 class="single-event__tags-title">{{ i18n "tags" }}</h3>
+                <ul class="tag-list">
+                    {{- range .Params.tags -}}
+                    <li class="tag-list__item">
+                        <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tag-list__link">
+                            {{ . }}
+                        </a>
+                    </li>
+                    {{- end -}}
+                </ul>
+            </div>
+            {{- end -}}
+
+            {{- /* Navigation */ -}}
+            <nav class="single-event__nav">
+                {{- with .PrevInSection -}}
+                <a href="{{ .RelPermalink }}" class="btn btn--outline single-event__nav-prev">
+                    <span aria-hidden="true">←</span> {{ i18n "previous_event" }}
+                </a>
+                {{- end -}}
+
+                <a href="{{ "/events" | relLangURL }}" class="btn btn--secondary single-event__nav-all">
+                    {{ i18n "all_events" }}
+                </a>
+
+                {{- with .NextInSection -}}
+                <a href="{{ .RelPermalink }}" class="btn btn--outline single-event__nav-next">
+                    {{ i18n "next_event" }} <span aria-hidden="true">→</span>
+                </a>
+                {{- end -}}
+            </nav>
+        </div>
+    </div>
+</article>
+
+{{ end }}

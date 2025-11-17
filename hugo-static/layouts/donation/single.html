@@ -1,0 +1,170 @@
+{{ define "title" }}{{ i18n "donation" }} - {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+
+<section class="donation-page">
+    {{- /* Page Header */ -}}
+    <header class="donation-page__header">
+        <div class="container">
+            <h1 class="donation-page__title">{{ .Title | default (i18n "donation") }}</h1>
+
+            {{- if .Params.subtitle -}}
+            <p class="donation-page__subtitle">{{ .Params.subtitle }}</p>
+            {{- end -}}
+        </div>
+    </header>
+
+    <div class="donation-page__content">
+        <div class="container">
+            {{- /* Introduction Content */ -}}
+            {{- if .Content -}}
+            <div class="donation-page__intro">
+                {{ .Content }}
+            </div>
+            {{- end -}}
+
+            {{- /* Donation Options */ -}}
+            <div class="donation-options">
+                <h2 class="donation-options__title">{{ i18n "donation_methods" }}</h2>
+
+                <div class="donation-options__grid">
+                    {{- /* One-time Donation */ -}}
+                    <div class="donation-card">
+                        <div class="donation-card__icon">💳</div>
+                        <h3 class="donation-card__title">{{ i18n "one_time_donation" }}</h3>
+                        <p class="donation-card__description">{{ i18n "one_time_donation_description" }}</p>
+
+                        {{- if .Params.oneTimeDonationLink -}}
+                        <a href="{{ .Params.oneTimeDonationLink }}" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+                            {{ i18n "donate_now" }}
+                        </a>
+                        {{- end -}}
+                    </div>
+
+                    {{- /* Monthly Donation */ -}}
+                    <div class="donation-card donation-card--featured">
+                        <div class="donation-card__badge">{{ i18n "recommended" }}</div>
+                        <div class="donation-card__icon">🔄</div>
+                        <h3 class="donation-card__title">{{ i18n "monthly_donation" }}</h3>
+                        <p class="donation-card__description">{{ i18n "monthly_donation_description" }}</p>
+
+                        {{- if .Params.monthlyDonationLink -}}
+                        <a href="{{ .Params.monthlyDonationLink }}" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+                            {{ i18n "become_supporter" }}
+                        </a>
+                        {{- end -}}
+                    </div>
+
+                    {{- /* Bank Transfer */ -}}
+                    <div class="donation-card">
+                        <div class="donation-card__icon">🏦</div>
+                        <h3 class="donation-card__title">{{ i18n "bank_transfer" }}</h3>
+                        <p class="donation-card__description">{{ i18n "bank_transfer_description" }}</p>
+
+                        {{- if .Params.bankDetails -}}
+                        <button class="btn btn--outline" onclick="toggleBankDetails()">
+                            {{ i18n "show_bank_details" }}
+                        </button>
+                        {{- end -}}
+                    </div>
+                </div>
+
+                {{- /* Bank Details (Hidden by default) */ -}}
+                {{- if .Params.bankDetails -}}
+                <div class="bank-details" id="bank-details" style="display: none;">
+                    <h3 class="bank-details__title">{{ i18n "bank_transfer_details" }}</h3>
+                    <div class="bank-details__content">
+                        {{- if .Params.bankDetails.accountName -}}
+                        <div class="bank-detail">
+                            <strong>{{ i18n "account_name" }}:</strong>
+                            <span>{{ .Params.bankDetails.accountName }}</span>
+                        </div>
+                        {{- end -}}
+
+                        {{- if .Params.bankDetails.accountNumber -}}
+                        <div class="bank-detail">
+                            <strong>{{ i18n "account_number" }}:</strong>
+                            <span>{{ .Params.bankDetails.accountNumber }}</span>
+                        </div>
+                        {{- end -}}
+
+                        {{- if .Params.bankDetails.iban -}}
+                        <div class="bank-detail">
+                            <strong>IBAN:</strong>
+                            <span>{{ .Params.bankDetails.iban }}</span>
+                        </div>
+                        {{- end -}}
+
+                        {{- if .Params.bankDetails.swift -}}
+                        <div class="bank-detail">
+                            <strong>SWIFT/BIC:</strong>
+                            <span>{{ .Params.bankDetails.swift }}</span>
+                        </div>
+                        {{- end -}}
+
+                        {{- if .Params.bankDetails.bankName -}}
+                        <div class="bank-detail">
+                            <strong>{{ i18n "bank_name" }}:</strong>
+                            <span>{{ .Params.bankDetails.bankName }}</span>
+                        </div>
+                        {{- end -}}
+                    </div>
+                </div>
+                {{- end -}}
+            </div>
+
+            {{- /* Impact Section */ -}}
+            {{- if .Params.impact -}}
+            <div class="donation-impact">
+                <h2 class="donation-impact__title">{{ i18n "your_impact" }}</h2>
+                <div class="donation-impact__grid">
+                    {{- range .Params.impact -}}
+                    <div class="impact-card">
+                        {{- if .amount -}}
+                        <div class="impact-card__amount">{{ .amount }}</div>
+                        {{- end -}}
+                        {{- if .description -}}
+                        <p class="impact-card__description">{{ .description }}</p>
+                        {{- end -}}
+                    </div>
+                    {{- end -}}
+                </div>
+            </div>
+            {{- end -}}
+
+            {{- /* FAQ Section */ -}}
+            {{- if .Params.faq -}}
+            <div class="donation-faq">
+                <h2 class="donation-faq__title">{{ i18n "frequently_asked_questions" }}</h2>
+                <div class="faq-list">
+                    {{- range .Params.faq -}}
+                    <div class="faq-item">
+                        <h3 class="faq-item__question">{{ .question }}</h3>
+                        <p class="faq-item__answer">{{ .answer | markdownify }}</p>
+                    </div>
+                    {{- end -}}
+                </div>
+            </div>
+            {{- end -}}
+
+            {{- /* Thank You Message */ -}}
+            <div class="donation-thank-you">
+                <h2>{{ i18n "thank_you_for_support" }}</h2>
+                <p>{{ i18n "donation_thank_you_message" }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function toggleBankDetails() {
+    const bankDetails = document.getElementById('bank-details');
+    if (bankDetails.style.display === 'none') {
+        bankDetails.style.display = 'block';
+    } else {
+        bankDetails.style.display = 'none';
+    }
+}
+</script>
+
+{{ end }}

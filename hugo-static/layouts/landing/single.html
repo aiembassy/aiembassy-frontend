@@ -1,0 +1,193 @@
+{{ define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+
+<div class="landing-page">
+    {{- /* Landing Header */ -}}
+    <header class="landing-header" id="landing-header">
+        <div class="container">
+            <div class="landing-header__content">
+                {{- if .Params.headerImage -}}
+                <div class="landing-header__image">
+                    <img src="{{ .Params.headerImage | relURL }}" alt="{{ .Title }}">
+                </div>
+                {{- end -}}
+
+                <div class="landing-header__text">
+                    <h1 class="landing-header__title">{{ .Title }}</h1>
+
+                    {{- if .Params.subtitle -}}
+                    <p class="landing-header__subtitle">{{ .Params.subtitle }}</p>
+                    {{- end -}}
+
+                    {{- if .Params.ctaText -}}
+                    <a href="{{ .Params.ctaLink | default "#training" }}" class="btn btn--primary btn--large landing-header__cta">
+                        {{ .Params.ctaText }}
+                    </a>
+                    {{- end -}}
+                </div>
+            </div>
+        </div>
+    </header>
+
+    {{- /* Training/Information Section */ -}}
+    {{- if .Params.showTraining -}}
+    <section class="landing-training" id="training">
+        <div class="container">
+            {{- if .Params.trainingTitle -}}
+            <h2 class="section-title">{{ .Params.trainingTitle }}</h2>
+            {{- end -}}
+
+            {{- /* Access training data from data file */ -}}
+            {{- if .Site.Data.trainings -}}
+                {{- $lang := .Site.Language.Lang -}}
+                {{- $trainings := index .Site.Data.trainings $lang -}}
+
+                {{- if $trainings -}}
+                <div class="training-grid">
+                    {{- range $trainings -}}
+                    <div class="training-card">
+                        {{- if .icon -}}
+                        <div class="training-card__icon">{{ .icon | safeHTML }}</div>
+                        {{- end -}}
+
+                        {{- if .title -}}
+                        <h3 class="training-card__title">{{ .title }}</h3>
+                        {{- end -}}
+
+                        {{- if .description -}}
+                        <p class="training-card__description">{{ .description }}</p>
+                        {{- end -}}
+
+                        {{- if .points -}}
+                        <ul class="training-card__points">
+                            {{- range .points -}}
+                            <li>{{ . }}</li>
+                            {{- end -}}
+                        </ul>
+                        {{- end -}}
+                    </div>
+                    {{- end -}}
+                </div>
+                {{- end -}}
+            {{- end -}}
+        </div>
+    </section>
+    {{- end -}}
+
+    {{- /* Information/Content Section */ -}}
+    {{- if .Content -}}
+    <section class="landing-information" id="information">
+        <div class="container">
+            <div class="landing-information__content">
+                {{ .Content }}
+            </div>
+        </div>
+    </section>
+    {{- end -}}
+
+    {{- /* Workshops Section */ -}}
+    {{- if .Params.showWorkshops -}}
+    <section class="landing-workshops" id="workshops">
+        <div class="container">
+            {{- if .Params.workshopsTitle -}}
+            <h2 class="section-title">{{ .Params.workshopsTitle }}</h2>
+            {{- end -}}
+
+            {{- /* Get workshops from content */ -}}
+            {{- $workshops := where .Site.RegularPages "Section" "workshops" -}}
+            {{- if $workshops -}}
+            <div class="workshops-grid">
+                {{- range first 3 $workshops -}}
+                <article class="workshop-card">
+                    {{- if .Params.image -}}
+                    <a href="{{ .RelPermalink }}" class="workshop-card__image-link">
+                        <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" class="workshop-card__image" loading="lazy">
+                    </a>
+                    {{- end -}}
+
+                    <div class="workshop-card__content">
+                        <h3 class="workshop-card__title">
+                            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                        </h3>
+
+                        {{- if .Params.shortDescription -}}
+                        <p class="workshop-card__description">{{ .Params.shortDescription }}</p>
+                        {{- end -}}
+
+                        <a href="{{ .RelPermalink }}" class="btn btn--primary">
+                            {{ i18n "learn_more" }}
+                        </a>
+                    </div>
+                </article>
+                {{- end -}}
+            </div>
+
+            <div class="landing-workshops__cta">
+                <a href="{{ "/workshops" | relLangURL }}" class="btn btn--outline btn--large">
+                    {{ i18n "all_workshops" }}
+                </a>
+            </div>
+            {{- end -}}
+        </div>
+    </section>
+    {{- end -}}
+
+    {{- /* Contact Section */ -}}
+    <section class="landing-contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">{{ .Params.contactTitle | default (i18n "contact") }}</h2>
+
+            {{- if .Params.contactDescription -}}
+            <p class="landing-contact__description">{{ .Params.contactDescription }}</p>
+            {{- end -}}
+
+            {{- /* Contact Form */ -}}
+            <form
+                action="{{ .Params.formAction | default "https://formspree.io/f/YOUR_FORM_ID" }}"
+                method="POST"
+                class="contact-form contact-form--centered"
+            >
+                <div class="form-row">
+                    <div class="form-group">
+                        <input
+                            type="text"
+                            name="name"
+                            required
+                            class="form-control"
+                            placeholder="{{ i18n "contact_name_placeholder" }}"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <input
+                            type="email"
+                            name="email"
+                            required
+                            class="form-control"
+                            placeholder="{{ i18n "contact_email_placeholder" }}"
+                        >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <textarea
+                        name="message"
+                        rows="5"
+                        required
+                        class="form-control"
+                        placeholder="{{ i18n "contact_message_placeholder" }}"
+                    ></textarea>
+                </div>
+
+                <input type="text" name="_gotcha" style="display:none">
+
+                <button type="submit" class="btn btn--primary btn--large">
+                    {{ i18n "contact_submit" }}
+                </button>
+            </form>
+        </div>
+    </section>
+</div>
+
+{{ end }}
