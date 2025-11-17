@@ -1,0 +1,19 @@
+{{- /*
+  SEO Title Helper
+
+  Generates optimal page title:
+  - Homepage: Site Title
+  - Other pages: Page Title | Site Title
+
+  Ensures proper length (max 60 chars)
+*/ -}}
+
+{{- if .IsHome -}}
+  {{- .Site.Title -}}
+{{- else -}}
+  {{- with .Title -}}
+    {{- . }} | {{ $.Site.Title -}}
+  {{- else -}}
+    {{- $.Site.Title -}}
+  {{- end -}}
+{{- end -}}

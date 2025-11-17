@@ -23,12 +23,19 @@
 {{- /* Canonical URL */ -}}
 <link rel="canonical" href="{{ .Permalink }}">
 
-{{- /* Language alternates */ -}}
+{{- /* Language alternates (hreflang) for multilingual SEO */ -}}
+{{- /* Include self */ -}}
+<link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+
+{{- /* Include translations */ -}}
 {{ if .IsTranslated }}
 {{ range .Translations }}
 <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
 {{ end }}
 {{ end }}
+
+{{- /* x-default for international targeting (use default language) */ -}}
+<link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
 
 {{- /* Favicon */ -}}
 <link rel="icon" type="image/x-icon" href="{{ .Site.Params.favicon }}">
@@ -41,6 +48,9 @@
 
 {{- /* Twitter Card */ -}}
 {{ partial "head/twitter.html" . }}
+
+{{- /* Structured Data (JSON-LD) */ -}}
+{{ partial "head/structured-data.html" . }}
 
 {{- /* RSS */ -}}
 {{ with .OutputFormats.Get "RSS" }}

@@ -1,0 +1,174 @@
+{{- /*
+  Structured Data (JSON-LD) Partial
+  Generates schema.org structured data for SEO
+
+  Supports:
+  - Organization schema
+  - Website schema
+  - Article schema
+  - BreadcrumbList schema
+  - Event schema
+*/ -}}
+
+{{- $schema := dict -}}
+
+{{- if .IsHome -}}
+  {{- /* Organization + Website schema for homepage */ -}}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "{{ .Site.BaseURL }}#organization",
+        "name": "{{ .Site.Title }}",
+        "url": "{{ .Site.BaseURL }}",
+        {{- with .Site.Params.logo }}
+        "logo": {
+          "@type": "ImageObject",
+          "url": "{{ . | absURL }}"
+        },
+        {{- end }}
+        {{- with .Site.Params.description }}
+        "description": "{{ . }}",
+        {{- end }}
+        {{- with .Site.Params.contact.email }}
+        "email": "{{ . }}",
+        {{- end }}
+        {{- if .Site.Params.social }}
+        "sameAs": [
+          {{- $social := slice -}}
+          {{- with .Site.Params.social.facebook }}{{ $social = $social | append . }}{{ end -}}
+          {{- with .Site.Params.social.twitter }}{{ $social = $social | append . }}{{ end -}}
+          {{- with .Site.Params.social.linkedin }}{{ $social = $social | append . }}{{ end -}}
+          {{- with .Site.Params.social.github }}{{ $social = $social | append . }}{{ end -}}
+          {{- with .Site.Params.social.youtube }}{{ $social = $social | append . }}{{ end -}}
+          {{- range $index, $url := $social -}}
+            {{- if $index }},{{ end }}
+            "{{ $url }}"
+          {{- end -}}
+        ]
+        {{- end }}
+      },
+      {
+        "@type": "WebSite",
+        "@id": "{{ .Site.BaseURL }}#website",
+        "url": "{{ .Site.BaseURL }}",
+        "name": "{{ .Site.Title }}",
+        {{- with .Site.Params.description }}
+        "description": "{{ . }}",
+        {{- end }}
+        "publisher": {
+          "@id": "{{ .Site.BaseURL }}#organization"
+        },
+        {{- if .Site.Params.features.enableSearch }}
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "{{ .Site.BaseURL }}search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        },
+        {{- end }}
+        "inLanguage": [
+          {{- range $index, $lang := .Site.Languages -}}
+            {{- if $index }},{{ end }}
+            "{{ $lang.LanguageCode }}"
+          {{- end -}}
+        ]
+      }
+    ]
+  }
+  </script>
+
+{{- else if .IsPage -}}
+  {{- /* Article/WebPage schema */ -}}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": {{ if in .Section "projects" }}"Article"{{ else if in .Section "events" }}"Event"{{ else if in .Section "workshops" }}"Course"{{ else }}"WebPage"{{ end }},
+    "@id": "{{ .Permalink }}#webpage",
+    "url": "{{ .Permalink }}",
+    "name": "{{ .Title }}",
+    "headline": "{{ .Title }}",
+    {{- with .Description }}
+    "description": "{{ . }}",
+    {{- else }}
+    "description": "{{ .Summary }}",
+    {{- end }}
+    {{- with .Params.image }}
+    "image": {
+      "@type": "ImageObject",
+      "url": "{{ . | absURL }}"
+    },
+    {{- end }}
+    "datePublished": "{{ .PublishDate.Format "2006-01-02T15:04:05Z07:00" }}",
+    "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
+    "author": {
+      "@type": "Organization",
+      "@id": "{{ .Site.BaseURL }}#organization"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "@id": "{{ .Site.BaseURL }}#organization"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ .Permalink }}"
+    },
+    "inLanguage": "{{ .Language.Lang }}"
+    {{- if in .Section "events" -}}
+    {{- with .Params.eventDate -}},
+    "startDate": "{{ . }}"
+    {{- end -}}
+    {{- with .Params.location -}},
+    "location": {
+      "@type": "Place",
+      "name": "{{ . }}"
+    }
+    {{- end -}}
+    {{- with .Params.participants -}},
+    "attendees": "{{ . }}"
+    {{- end -}}
+    {{- end -}}
+    {{- if in .Section "workshops" -}}
+    {{- with .Params.duration -}},
+    "timeRequired": "{{ . }}"
+    {{- end -}}
+    {{- with .Params.level -}},
+    "educationalLevel": "{{ . }}"
+    {{- end -}}
+    {{- end -}}
+  }
+  </script>
+
+  {{- /* Breadcrumb schema */ -}}
+  {{- if not .IsHome -}}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "{{ .Site.Title }}",
+        "item": "{{ .Site.BaseURL }}"
+      }
+      {{- if .Section -}},
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{ .Section | humanize | title }}",
+        "item": "{{ .Site.BaseURL }}{{ .Section }}/"
+      }
+      {{- end -}},
+      {
+        "@type": "ListItem",
+        "position": {{ if .Section }}3{{ else }}2{{ end }},
+        "name": "{{ .Title }}",
+        "item": "{{ .Permalink }}"
+      }
+    ]
+  }
+  </script>
+  {{- end -}}
+{{- end -}}

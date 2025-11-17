@@ -1,0 +1,23 @@
+{{- /*
+  SEO Meta Description Helper
+
+  Generates optimal meta description with fallbacks:
+  1. Page .Description
+  2. Page .Summary (first 160 chars)
+  3. Site description
+
+  Returns a properly truncated and cleaned description
+*/ -}}
+
+{{- $description := "" -}}
+
+{{- if .Description -}}
+  {{- $description = .Description -}}
+{{- else if .Summary -}}
+  {{- $description = .Summary | plainify | truncate 160 "..." -}}
+{{- else -}}
+  {{- $description = .Site.Params.description -}}
+{{- end -}}
+
+{{- /* Clean up and return */ -}}
+{{- $description | plainify | htmlUnescape | chomp -}}

@@ -1,0 +1,25 @@
+User-agent: *
+{{- if or (eq (getenv "HUGO_ENV") "production") (eq .Site.Params.env "production") }}
+# Production: Allow all
+Allow: /
+
+# Disallow admin/private pages if any
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemap
+Sitemap: {{ .Site.BaseURL }}sitemap.xml
+{{- else }}
+# Non-production: Disallow all
+Disallow: /
+{{- end }}
+
+# Crawl delay (optional - uncomment if needed)
+# Crawl-delay: 10
+
+# Specific bot rules (optional)
+# User-agent: Googlebot
+# Allow: /
+
+# User-agent: Bingbot
+# Allow: /

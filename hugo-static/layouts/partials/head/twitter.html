@@ -1,17 +1,24 @@
 {{- /* Twitter Card meta tags */ -}}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ with .Title }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}">
-<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
 
 {{- /* Twitter Image */ -}}
 {{ if .Params.image }}
 <meta name="twitter:image" content="{{ .Params.image | absURL }}">
+<meta name="twitter:image:alt" content="{{ .Title }}">
 {{ else if .Site.Params.seo.ogImage }}
 <meta name="twitter:image" content="{{ .Site.Params.seo.ogImage | absURL }}">
+<meta name="twitter:image:alt" content="{{ .Site.Title }}">
 {{ end }}
 
-{{- /* Twitter Site */ -}}
+{{- /* Twitter Site and Creator */ -}}
 {{ with .Site.Params.social.twitter }}
-<meta name="twitter:site" content="@{{ . }}">
-<meta name="twitter:creator" content="@{{ . }}">
+{{- $handle := . -}}
+{{- /* Ensure @ prefix */ -}}
+{{- if not (hasPrefix $handle "@") -}}
+  {{- $handle = printf "@%s" $handle -}}
+{{- end -}}
+<meta name="twitter:site" content="{{ $handle }}">
+<meta name="twitter:creator" content="{{ $handle }}">
 {{ end }}
