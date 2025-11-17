@@ -1,0 +1,363 @@
+// ============================================
+// SECTIONS
+// ============================================
+
+.section {
+    padding: $spacing-xxxl 0;
+
+    @include mobile {
+        padding: $spacing-xxl 0;
+    }
+
+    // Section with background
+    &--bg {
+        background-color: $color-bg;
+    }
+
+    &--bg-gray {
+        background-color: $color-bg-gray;
+    }
+
+    &--bg-dark {
+        background-color: $color-text;
+        color: $color-white;
+
+        .section__title,
+        .section__subtitle {
+            color: $color-white;
+        }
+    }
+
+    &--bg-green {
+        background-color: $color-green;
+        color: $color-white;
+
+        .section__title,
+        .section__subtitle {
+            color: $color-white;
+        }
+    }
+
+    // Section spacing variants
+    &--small {
+        padding: $spacing-xxl 0;
+
+        @include mobile {
+            padding: $spacing-xl 0;
+        }
+    }
+
+    &--large {
+        padding: 120px 0;
+
+        @include mobile {
+            padding: $spacing-xxxl 0;
+        }
+    }
+
+    // Section header
+    &__header {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto $spacing-xxxl;
+
+        @include mobile {
+            margin-bottom: $spacing-xxl;
+        }
+
+        &--left {
+            text-align: left;
+            margin-left: 0;
+        }
+
+        &--right {
+            text-align: right;
+            margin-right: 0;
+        }
+    }
+
+    // Section title
+    &__title {
+        font-family: $font-family-headings;
+        font-size: $font-size-section-title;
+        font-weight: $font-weight-bold;
+        color: $color-text;
+        line-height: 1.2;
+        margin-bottom: $spacing-m;
+
+        @include mobile {
+            font-size: 32px;
+        }
+
+        &--accent {
+            color: $color-green;
+        }
+    }
+
+    // Section subtitle
+    &__subtitle {
+        font-family: $font-family-primary;
+        font-size: $font-size-xl;
+        font-weight: $font-weight-regular;
+        color: $color-dark-gray;
+        line-height: 1.6;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    // Section description
+    &__description {
+        font-size: $font-size-l;
+        color: $color-text;
+        line-height: 1.6;
+        margin-top: $spacing-l;
+    }
+
+    // Section content
+    &__content {
+        // Content styles
+    }
+
+    // Section footer
+    &__footer {
+        text-align: center;
+        margin-top: $spacing-xxxl;
+
+        @include mobile {
+            margin-top: $spacing-xxl;
+        }
+    }
+
+    // Section with decorative elements
+    &--decorated {
+        position: relative;
+        overflow: hidden;
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba($color-green, 0.05);
+            z-index: 0;
+        }
+
+        &::before {
+            top: -100px;
+            left: -100px;
+        }
+
+        &::after {
+            bottom: -100px;
+            right: -100px;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+    }
+}
+
+// About section specific styles
+.about {
+    &__content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $spacing-xxxl;
+        align-items: center;
+
+        @include mobile {
+            grid-template-columns: 1fr;
+            gap: $spacing-xl;
+        }
+    }
+
+    &__image {
+        img {
+            width: 100%;
+            border-radius: $border-radius-default;
+            @include shadow(lg);
+        }
+    }
+
+    &__text {
+        h3 {
+            margin-bottom: $spacing-l;
+        }
+
+        p {
+            margin-bottom: $spacing-m;
+        }
+
+        ul {
+            list-style: none;
+            margin: $spacing-l 0;
+
+            li {
+                position: relative;
+                padding-left: $spacing-l;
+                margin-bottom: $spacing-m;
+
+                &::before {
+                    content: "✓";
+                    position: absolute;
+                    left: 0;
+                    color: $color-green;
+                    font-weight: $font-weight-bold;
+                }
+            }
+        }
+    }
+}
+
+// Benefits section
+.benefits {
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: $spacing-xl;
+
+        @include mobile {
+            grid-template-columns: 1fr;
+        }
+
+        @include tablet {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    &__item {
+        text-align: center;
+        padding: $spacing-xl;
+        background-color: $color-white;
+        border-radius: $border-radius-default;
+        @include shadow(sm);
+        @include transition(transform, box-shadow);
+
+        &:hover {
+            @include shadow(md);
+            transform: translateY(-4px);
+        }
+    }
+
+    &__icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto $spacing-l;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba($color-green, 0.1);
+        border-radius: $border-radius-circle;
+
+        svg {
+            width: 40px;
+            height: 40px;
+            fill: $color-green;
+        }
+    }
+
+    &__title {
+        font-size: $font-size-xl;
+        font-weight: $font-weight-bold;
+        color: $color-text;
+        margin-bottom: $spacing-m;
+    }
+
+    &__description {
+        font-size: $font-size-l;
+        color: $color-dark-gray;
+        line-height: 1.6;
+    }
+}
+
+// Team section
+.team {
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: $spacing-xl;
+
+        @include mobile {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__member {
+        text-align: center;
+        background-color: $color-white;
+        border-radius: $border-radius-default;
+        padding: $spacing-l;
+        @include shadow(sm);
+        @include transition(transform, box-shadow);
+
+        &:hover {
+            @include shadow(md);
+            transform: translateY(-4px);
+        }
+    }
+
+    &__photo {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto $spacing-l;
+        border-radius: $border-radius-circle;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__name {
+        font-size: $font-size-xl;
+        font-weight: $font-weight-bold;
+        color: $color-text;
+        margin-bottom: $spacing-s;
+    }
+
+    &__role {
+        font-size: $font-size-m;
+        color: $color-green;
+        font-weight: $font-weight-semi-bold;
+        margin-bottom: $spacing-m;
+    }
+
+    &__bio {
+        font-size: $font-size-m;
+        color: $color-dark-gray;
+        line-height: 1.6;
+    }
+
+    &__social {
+        display: flex;
+        justify-content: center;
+        gap: $spacing-m;
+        margin-top: $spacing-m;
+
+        a {
+            @include flex-center;
+            width: 36px;
+            height: 36px;
+            border-radius: $border-radius-circle;
+            background-color: $color-bg;
+            color: $color-text;
+            @include transition(background-color, color);
+
+            &:hover {
+                background-color: $color-green;
+                color: $color-white;
+            }
+
+            svg {
+                width: 18px;
+                height: 18px;
+            }
+        }
+    }
+}

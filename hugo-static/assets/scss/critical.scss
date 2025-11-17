@@ -1,0 +1,45 @@
+// ============================================
+// CRITICAL CSS
+// Above-the-fold critical styles for initial page render
+// ============================================
+
+// This file contains minimal critical CSS that will be inlined
+// in the <head> for faster initial page render
+
+// Reset essentials
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    color: #3B4949;
+    background-color: #FFFFFF;
+    line-height: 1.6;
+}
+
+// Header - above the fold
+.header {
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+// Hide content while loading
+.no-js {
+    .js-only {
+        display: none;
+    }
+}

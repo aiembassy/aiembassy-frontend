@@ -18,9 +18,10 @@
 @import "layout/header";
 @import "layout/footer";
 
-// Components will be added as we convert them
-// @import "components/buttons";
-// @import "components/forms";
-// @import "components/hero";
-// @import "components/about";
-// etc...
+// Components
+@import "components/buttons";
+@import "components/forms";
+@import "components/hero";
+@import "components/cards";
+@import "components/sections";
+@import "components/modals";

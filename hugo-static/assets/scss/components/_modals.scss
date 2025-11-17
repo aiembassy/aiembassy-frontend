@@ -1,0 +1,149 @@
+// ============================================
+// MODALS
+// ============================================
+
+// Modal overlay
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba($color-black, 0.7);
+    z-index: $z-index-modal-backdrop;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-l;
+    opacity: 0;
+    visibility: hidden;
+    @include transition(opacity, visibility);
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    // Prevent body scroll when modal is open
+    body.modal-open & {
+        overflow: hidden;
+    }
+}
+
+// Modal container
+.modal {
+    background-color: $color-white;
+    border-radius: $border-radius-default;
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: $z-index-modal;
+    transform: scale(0.9);
+    @include transition(transform);
+    @include shadow(xl);
+
+    .modal-overlay.active & {
+        transform: scale(1);
+    }
+
+    // Large modal
+    &--large {
+        max-width: 900px;
+    }
+
+    // Small modal
+    &--small {
+        max-width: 400px;
+    }
+
+    // Full screen modal (mobile)
+    @include mobile {
+        max-width: 100%;
+        max-height: 100vh;
+        border-radius: 0;
+    }
+}
+
+// Modal header
+.modal__header {
+    padding: $spacing-l $spacing-xl;
+    border-bottom: 1px solid $color-bg;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-m;
+}
+
+// Modal title
+.modal__title {
+    font-family: $font-family-headings;
+    font-size: $font-size-modal-title;
+    font-weight: $font-weight-bold;
+    color: $color-text;
+    margin: 0;
+
+    @include mobile {
+        font-size: $font-size-hero-subtitle;
+    }
+}
+
+// Modal close button
+.modal__close {
+    @include button-reset;
+    @include flex-center;
+    width: 40px;
+    height: 40px;
+    border-radius: $border-radius-circle;
+    color: $color-dark-gray;
+    @include transition(background-color, color);
+
+    &:hover {
+        background-color: $color-bg;
+        color: $color-text;
+    }
+
+    svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+// Modal body
+.modal__body {
+    padding: $spacing-xl;
+    overflow-y: auto;
+    flex: 1;
+
+    @include mobile {
+        padding: $spacing-l;
+    }
+
+    p {
+        margin-bottom: $spacing-m;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+// Modal footer
+.modal__footer {
+    padding: $spacing-l $spacing-xl;
+    border-top: 1px solid $color-bg;
+    display: flex;
+    justify-content: flex-end;
+    gap: $spacing-m;
+
+    @include mobile {
+        flex-direction: column-reverse;
+
+        .btn {
+            width: 100%;
+        }
+    }
+}
