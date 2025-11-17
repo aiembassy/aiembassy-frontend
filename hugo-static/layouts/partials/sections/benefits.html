@@ -1,0 +1,51 @@
+{{- /* Benefits Section */ -}}
+<section class="section section--bg benefits" id="benefits">
+    <div class="container">
+        <div class="section__header">
+            <h2 class="section__title">
+                {{ i18n "benefits_title" }}
+            </h2>
+        </div>
+
+        <div class="benefits__grid">
+            {{- /* Benefit 1: Automation */ -}}
+            <div class="benefits__item">
+                <div class="benefits__icon">
+                    <img src="/images/icons/automation.svg" alt="{{ i18n "benefits_automation_title" }}" onerror="this.style.display='none'">
+                </div>
+                <h3 class="benefits__title">
+                    {{ i18n "benefits_automation_title" }}
+                </h3>
+                <p class="benefits__description">
+                    {{ i18n "benefits_automation_description" | default "Automate repetitive tasks and focus on innovation." }}
+                </p>
+            </div>
+
+            {{- /* Benefit 2: Optimization */ -}}
+            <div class="benefits__item">
+                <div class="benefits__icon">
+                    <img src="/images/icons/optimization.svg" alt="{{ i18n "benefits_optimization_title" }}" onerror="this.style.display='none'">
+                </div>
+                <h3 class="benefits__title">
+                    {{ i18n "benefits_optimization_title" }}
+                </h3>
+                <p class="benefits__description">
+                    {{ i18n "benefits_optimization_description" | default "Optimize business processes and reduce costs." }}
+                </p>
+            </div>
+
+            {{- /* Benefit 3: Data-Driven */ -}}
+            <div class="benefits__item">
+                <div class="benefits__icon">
+                    <img src="/images/icons/data-driven.svg" alt="{{ i18n "benefits_data_driven_title" }}" onerror="this.style.display='none'">
+                </div>
+                <h3 class="benefits__title">
+                    {{ i18n "benefits_data_driven_title" }}
+                </h3>
+                <p class="benefits__description">
+                    {{ i18n "benefits_data_driven_description" | default "Make informed decisions based on data analysis." }}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

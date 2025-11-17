@@ -1,0 +1,70 @@
+{{- /* Events Section */ -}}
+<section class="section events" id="events">
+    <div class="container">
+        <div class="section__header">
+            <h2 class="section__title">
+                {{ i18n "events_title" }}
+            </h2>
+            <p class="section__subtitle">
+                {{ i18n "events_subtitle" | default "Join our upcoming AI events and conferences" }}
+            </p>
+        </div>
+
+        <div class="card-grid card-grid--2-col">
+            {{- /* Get events from content */ -}}
+            {{- $events := where .Site.RegularPages "Section" "events" -}}
+            {{- $upcomingEvents := where $events ".Params.date" "ge" now -}}
+            {{- $displayEvents := $upcomingEvents | first 2 -}}
+
+            {{- if eq (len $displayEvents) 0 -}}
+                {{- /* If no upcoming events, show recent past events */ -}}
+                {{- $displayEvents = $events | first 2 -}}
+            {{- end -}}
+
+            {{- range $displayEvents -}}
+            <article class="card card--shadow card--horizontal">
+                {{- if .Params.image -}}
+                <div class="card__image">
+                    <img src="{{ .Params.image }}" alt="{{ .Title }}" loading="lazy">
+                </div>
+                {{- end -}}
+
+                <div class="card__body">
+                    <div class="card__meta">
+                        {{- if .Params.date -}}
+                        <span class="card__meta-item">
+                            <time datetime="{{ .Params.date }}">
+                                {{ .Params.date | dateFormat "2 January 2006" }}
+                            </time>
+                        </span>
+                        {{- end -}}
+                        {{- if .Params.location -}}
+                        <span class="card__meta-item">{{ .Params.location }}</span>
+                        {{- end -}}
+                    </div>
+
+                    <h3 class="card__title">
+                        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    </h3>
+
+                    {{- if .Summary -}}
+                    <p class="card__text">{{ .Summary }}</p>
+                    {{- end -}}
+
+                    <div class="card__actions">
+                        <a href="{{ .RelPermalink }}" class="btn btn--primary btn--small">
+                            {{ i18n "learn_more" | default "Learn more" }}
+                        </a>
+                    </div>
+                </div>
+            </article>
+            {{- end -}}
+        </div>
+
+        <div class="section__footer">
+            <a href="/events/" class="btn btn--outline">
+                {{ i18n "events_link" }}
+            </a>
+        </div>
+    </div>
+</section>

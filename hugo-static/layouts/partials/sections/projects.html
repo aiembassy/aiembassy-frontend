@@ -1,0 +1,72 @@
+{{- /* Projects Section */ -}}
+<section class="section projects" id="projects">
+    <div class="container">
+        <div class="section__header">
+            <h2 class="section__title">
+                {{ i18n "projects_title" }}
+            </h2>
+            <p class="section__subtitle">
+                {{ i18n "projects_subtitle" | default "Discover our innovative AI projects" }}
+            </p>
+        </div>
+
+        <div class="card-grid card-grid--3-col">
+            {{- /* Get projects from content */ -}}
+            {{- $projects := where .Site.RegularPages "Section" "projects" -}}
+            {{- range first 3 $projects -}}
+            <article class="card card--shadow">
+                {{- if .Params.image -}}
+                <div class="card__image card__image--fixed-height">
+                    <img src="{{ .Params.image }}" alt="{{ .Title }}" loading="lazy">
+                </div>
+                {{- end -}}
+
+                <div class="card__body">
+                    {{- if .Params.category -}}
+                    <div class="card__meta">
+                        <span class="card__meta-item">{{ .Params.category }}</span>
+                        {{- if .Date -}}
+                        <span class="card__meta-item">
+                            <time datetime="{{ .Date.Format "2006-01-02" }}">
+                                {{ .Date.Format "January 2006" }}
+                            </time>
+                        </span>
+                        {{- end -}}
+                    </div>
+                    {{- end -}}
+
+                    <h3 class="card__title">
+                        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    </h3>
+
+                    {{- if .Params.shortDescription -}}
+                    <p class="card__text">{{ .Params.shortDescription }}</p>
+                    {{- else if .Summary -}}
+                    <p class="card__text">{{ .Summary }}</p>
+                    {{- end -}}
+
+                    {{- if .Params.tags -}}
+                    <div class="card__tags">
+                        {{- range .Params.tags -}}
+                        <span class="card__tag">{{ . }}</span>
+                        {{- end -}}
+                    </div>
+                    {{- end -}}
+                </div>
+
+                <div class="card__footer">
+                    <a href="{{ .RelPermalink }}" class="btn btn--outline btn--small">
+                        {{ i18n "read_more" | default "Read more" }}
+                    </a>
+                </div>
+            </article>
+            {{- end -}}
+        </div>
+
+        <div class="section__footer">
+            <a href="/projects/" class="btn btn--primary">
+                {{ i18n "projects_link" }}
+            </a>
+        </div>
+    </div>
+</section>
