@@ -1,0 +1,28 @@
+// ============================================
+// MAIN STYLESHEET
+// AI Embassy Hugo Static Site
+// ============================================
+
+// Configuration
+@import "variables";
+@import "functions";
+@import "mixins";
+
+// Base styles
+@import "base/reset";
+@import "base/typography";
+@import "base/utilities";
+
+// Layout
+@import "layout/grid";
+@import "layout/header";
+@import "layout/footer";
+
+// Components
+@import "components/buttons";
+@import "components/forms";
+@import "components/hero";
+@import "components/cards";
+@import "components/sections";
+@import "components/modals";
+@import "components/pages";

@@ -1,0 +1,52 @@
+# Team Members Data
+# Structure: language -> members array
+
+pl:
+  - name: "Kacper Łukawski"
+    role: "Założyciel & Lead Developer"
+    photo: "/images/kacper_lukawski.png"
+    bio: "Pasjonat sztucznej inteligencji i machine learning. Prowadzi warsztaty i projekty badawcze."
+    linkedin: "https://linkedin.com/in/kacper-lukawski"
+    twitter: ""
+    github: "https://github.com/kacperlukawski"
+
+  - name: "Jan Kowalski"
+    role: "AI Researcher"
+    photo: ""
+    bio: "Specjalista ds. deep learning i przetwarzania obrazów."
+    linkedin: ""
+    twitter: ""
+    github: ""
+
+  - name: "Anna Nowak"
+    role: "Project Manager"
+    photo: ""
+    bio: "Zarządza projektami badawczymi i koordynuje warsztaty."
+    linkedin: ""
+    twitter: ""
+    github: ""
+
+en:
+  - name: "Kacper Łukawski"
+    role: "Founder & Lead Developer"
+    photo: "/images/kacper_lukawski.png"
+    bio: "AI and machine learning enthusiast. Leads workshops and research projects."
+    linkedin: "https://linkedin.com/in/kacper-lukawski"
+    twitter: ""
+    github: "https://github.com/kacperlukawski"
+
+  - name: "Jan Kowalski"
+    role: "AI Researcher"
+    photo: ""
+    bio: "Specialist in deep learning and image processing."
+    linkedin: ""
+    twitter: ""
+    github: ""
+
+  - name: "Anna Nowak"
+    role: "Project Manager"
+    photo: ""
+    bio: "Manages research projects and coordinates workshops."
+    linkedin: ""
+    twitter: ""
+    github: ""

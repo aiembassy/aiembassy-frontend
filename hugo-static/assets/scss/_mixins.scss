@@ -1,0 +1,196 @@
+// ============================================
+// MIXINS
+// ============================================
+
+// Responsive breakpoints
+@mixin mobile {
+    @media (max-width: $breakpoint-mobile - 1) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet - 1) {
+        @content;
+    }
+}
+
+@mixin tablet-up {
+    @media (min-width: $breakpoint-tablet) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: $breakpoint-desktop) {
+        @content;
+    }
+}
+
+@mixin wide {
+    @media (min-width: $breakpoint-wide) {
+        @content;
+    }
+}
+
+// Container
+@mixin container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 $container-padding;
+}
+
+// Clearfix
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+// Flexbox helpers
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+// Typography
+@mixin heading($size, $weight: $font-weight-bold) {
+    font-family: $font-family-headings;
+    font-size: $size;
+    font-weight: $weight;
+    line-height: 1.2;
+    color: $color-text;
+}
+
+@mixin body-text($size: $font-size-l) {
+    font-family: $font-family-primary;
+    font-size: $size;
+    font-weight: $font-weight-regular;
+    line-height: 1.6;
+    color: $color-text;
+}
+
+// Transitions
+@mixin transition($properties: all, $duration: $transition-default, $timing: $transition-timing) {
+    transition: $properties $duration $timing;
+}
+
+// Button reset
+@mixin button-reset {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    outline: none;
+
+    &:focus {
+        outline: 2px solid $color-green;
+        outline-offset: 2px;
+    }
+}
+
+// Link reset
+@mixin link-reset {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        color: inherit;
+        text-decoration: none;
+    }
+}
+
+// Visually hidden (accessible)
+@mixin visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+// Aspect ratio
+@mixin aspect-ratio($width, $height) {
+    position: relative;
+
+    &::before {
+        content: "";
+        display: block;
+        padding-bottom: ($height / $width) * 100%;
+    }
+
+    > * {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+// Truncate text
+@mixin truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// Line clamp
+@mixin line-clamp($lines) {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+// Focus visible (keyboard navigation)
+@mixin focus-visible {
+    &:focus-visible {
+        outline: 2px solid $color-green;
+        outline-offset: 2px;
+    }
+}
+
+// Hover effect
+@mixin hover-lift {
+    @include transition(transform);
+
+    &:hover {
+        transform: translateY(-4px);
+    }
+}
+
+// Box shadow
+@mixin shadow($level: "md") {
+    @if $level == "sm" {
+        box-shadow: $shadow-sm;
+    } @else if $level == "md" {
+        box-shadow: $shadow-md;
+    } @else if $level == "lg" {
+        box-shadow: $shadow-lg;
+    } @else if $level == "xl" {
+        box-shadow: $shadow-xl;
+    }
+}

@@ -1,0 +1,62 @@
+{{ define "title" }}{{ .Title }} | {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+
+<article class="single-page">
+    <div class="container">
+        {{- /* Page Header */ -}}
+        <header class="single-page__header">
+            <h1 class="single-page__title">{{ .Title }}</h1>
+
+            {{- if .Params.date -}}
+            <div class="single-page__meta">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">
+                    {{ .Date.Format "January 2, 2006" }}
+                </time>
+                {{- if .Params.category -}}
+                <span> · </span>
+                <span>{{ .Params.category }}</span>
+                {{- end -}}
+            </div>
+            {{- end -}}
+
+            {{- if .Params.image -}}
+            <div class="single-page__featured-image">
+                <img src="{{ .Params.image }}" alt="{{ .Title }}">
+            </div>
+            {{- end -}}
+        </header>
+
+        {{- /* Page Content */ -}}
+        <div class="single-page__content">
+            {{ .Content }}
+        </div>
+
+        {{- /* Tags */ -}}
+        {{- if .Params.tags -}}
+        <div class="single-page__tags">
+            <strong>{{ i18n "tags" | default "Tags" }}:</strong>
+            {{- range .Params.tags -}}
+            <span class="card__tag">{{ . }}</span>
+            {{- end -}}
+        </div>
+        {{- end -}}
+
+        {{- /* Navigation */ -}}
+        <nav class="single-page__navigation">
+            {{- with .PrevInSection -}}
+            <a href="{{ .RelPermalink }}" class="btn btn--outline">
+                ← {{ i18n "previous" | default "Previous" }}
+            </a>
+            {{- end -}}
+
+            {{- with .NextInSection -}}
+            <a href="{{ .RelPermalink }}" class="btn btn--outline">
+                {{ i18n "next" | default "Next" }} →
+            </a>
+            {{- end -}}
+        </nav>
+    </div>
+</article>
+
+{{ end }}

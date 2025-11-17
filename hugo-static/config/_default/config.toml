@@ -1,0 +1,75 @@
+baseURL = "https://aiembassy.org/"
+title = "AI Embassy Foundation"
+languageCode = "pl"
+defaultContentLanguage = "pl"
+defaultContentLanguageInSubdir = false
+
+# Theme (none - custom)
+theme = ""
+
+# Build settings
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+canonifyURLs = false
+enableRobotsTXT = true
+enableGitInfo = true
+enableEmoji = false
+
+# Pagination
+paginate = 10
+paginatePath = "page"
+
+# Output formats
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+  page = ["HTML"]
+
+# Permalinks
+[permalinks]
+  projects = "/projects/:slug/"
+  events = "/events/:slug/"
+  workshops = "/workshops/:slug/"
+
+# Taxonomies
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+# Image processing
+[imaging]
+  quality = 85
+  resampleFilter = "Lanczos"
+  anchor = "Smart"
+
+# Privacy
+[privacy]
+  [privacy.googleAnalytics]
+    anonymizeIP = true
+    respectDoNotTrack = true
+  [privacy.youtube]
+    privacyEnhanced = true
+
+# Minify
+[minify]
+  minifyOutput = true
+  [minify.tdewolff]
+    [minify.tdewolff.html]
+      keepWhitespace = false
+    [minify.tdewolff.css]
+      precision = 0
+    [minify.tdewolff.js]
+      precision = 0
+
+# Markup
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true  # Allow HTML in markdown
+  [markup.highlight]
+    style = "monokai"
+    lineNos = false
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4

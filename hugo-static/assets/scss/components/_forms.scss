@@ -1,0 +1,274 @@
+// ============================================
+// FORMS
+// ============================================
+
+// Form wrapper
+.form {
+    width: 100%;
+
+    &--inline {
+        display: flex;
+        gap: $spacing-m;
+        align-items: flex-start;
+    }
+}
+
+// Form group
+.form-group {
+    margin-bottom: $spacing-l;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// Form label
+.form-label {
+    display: block;
+    font-family: $font-family-primary;
+    font-size: $font-size-m;
+    font-weight: $font-weight-semi-bold;
+    color: $color-text;
+    margin-bottom: $spacing-s;
+
+    &--required::after {
+        content: " *";
+        color: $color-red;
+    }
+}
+
+// Form control (input, textarea, select)
+.form-control {
+    width: 100%;
+    padding: $spacing-m;
+    font-family: $font-family-primary;
+    font-size: $font-size-l;
+    color: $color-text;
+    background-color: $color-white;
+    border: 2px solid $color-gray;
+    border-radius: $border-radius-default;
+    @include transition(border-color, box-shadow);
+
+    &::placeholder {
+        color: $color-dark-gray;
+        opacity: 0.7;
+    }
+
+    &:hover:not(:disabled) {
+        border-color: $color-dark-gray;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: $color-green;
+        box-shadow: 0 0 0 3px rgba($color-green, 0.1);
+    }
+
+    &:disabled {
+        background-color: $color-bg-gray;
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+
+    // States
+    &--error {
+        border-color: $color-red;
+
+        &:focus {
+            border-color: $color-red;
+            box-shadow: 0 0 0 3px rgba($color-red, 0.1);
+        }
+    }
+
+    &--success {
+        border-color: $color-green;
+    }
+}
+
+// Textarea
+textarea.form-control {
+    min-height: 120px;
+    resize: vertical;
+}
+
+// Select
+select.form-control {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%233B4949' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right $spacing-m center;
+    padding-right: $spacing-xl;
+}
+
+// Checkbox and Radio
+.form-check {
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-m;
+    margin-bottom: $spacing-m;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.form-check-input {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    cursor: pointer;
+    accent-color: $color-green;
+
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+}
+
+.form-check-label {
+    font-size: $font-size-l;
+    color: $color-text;
+    cursor: pointer;
+    user-select: none;
+
+    .form-check-input:disabled + & {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+}
+
+// Form text (help text)
+.form-text {
+    display: block;
+    font-size: $font-size-s;
+    color: $color-dark-gray;
+    margin-top: $spacing-s;
+}
+
+// Form error message
+.form-error {
+    display: block;
+    font-size: $font-size-s;
+    color: $color-red;
+    margin-top: $spacing-s;
+}
+
+// Form success message
+.form-success {
+    display: block;
+    font-size: $font-size-s;
+    color: $color-green;
+    margin-top: $spacing-s;
+}
+
+// Input group (input with icon or button)
+.input-group {
+    display: flex;
+    position: relative;
+
+    .form-control {
+        flex: 1;
+    }
+
+    &__prepend,
+    &__append {
+        display: flex;
+        align-items: center;
+        padding: 0 $spacing-m;
+        background-color: $color-bg;
+        border: 2px solid $color-gray;
+        color: $color-dark-gray;
+    }
+
+    &__prepend {
+        border-right: none;
+        border-radius: $border-radius-default 0 0 $border-radius-default;
+    }
+
+    &__append {
+        border-left: none;
+        border-radius: 0 $border-radius-default $border-radius-default 0;
+    }
+
+    .form-control {
+        &:first-child:not(:last-child) {
+            border-radius: $border-radius-default 0 0 $border-radius-default;
+        }
+
+        &:last-child:not(:first-child) {
+            border-radius: 0 $border-radius-default $border-radius-default 0;
+        }
+
+        &:not(:first-child):not(:last-child) {
+            border-radius: 0;
+        }
+    }
+}
+
+// Search input
+.search-input {
+    position: relative;
+
+    .form-control {
+        padding-left: $spacing-xxl;
+    }
+
+    &__icon {
+        position: absolute;
+        left: $spacing-m;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $color-dark-gray;
+        pointer-events: none;
+    }
+
+    &__clear {
+        position: absolute;
+        right: $spacing-m;
+        top: 50%;
+        transform: translateY(-50%);
+        @include button-reset;
+        color: $color-dark-gray;
+        padding: $spacing-s;
+
+        &:hover {
+            color: $color-text;
+        }
+    }
+}
+
+// Form row (horizontal layout)
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $spacing-l;
+
+    @include mobile {
+        grid-template-columns: 1fr;
+    }
+}
+
+// Form actions (button container)
+.form-actions {
+    display: flex;
+    gap: $spacing-m;
+    margin-top: $spacing-xl;
+    padding-top: $spacing-l;
+    border-top: 1px solid $color-gray;
+
+    &--center {
+        justify-content: center;
+    }
+
+    &--right {
+        justify-content: flex-end;
+    }
+
+    @include mobile {
+        flex-direction: column;
+
+        .btn {
+            width: 100%;
+        }
+    }
+}

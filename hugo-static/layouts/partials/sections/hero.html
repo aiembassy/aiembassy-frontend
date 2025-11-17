@@ -1,0 +1,23 @@
+{{- /* Hero Section */ -}}
+<section class="hero" id="hero">
+    <div class="container">
+        <div class="hero__content">
+            <h1 class="hero__title">
+                {{ i18n "hero_title" }}
+            </h1>
+            <p class="hero__subtitle">
+                {{ i18n "hero_subtitle" }}
+            </p>
+            <div class="hero__cta">
+                <a href="#about" class="btn btn--primary btn--large">
+                    {{ i18n "hero_check_our_offer" }}
+                </a>
+            </div>
+        </div>
+
+        {{- /* Hero Images */ -}}
+        <div class="hero__image">
+            <img src="/images/hero.png" alt="{{ .Site.Title }}" loading="eager">
+        </div>
+    </div>
+</section>

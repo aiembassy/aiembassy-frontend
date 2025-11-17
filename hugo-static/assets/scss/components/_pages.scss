@@ -1,0 +1,202 @@
+// ============================================
+// PAGES (Single & List)
+// ============================================
+
+// Single Page
+.single-page {
+    padding: $spacing-xxxl 0;
+
+    @include mobile {
+        padding: $spacing-xxl 0;
+    }
+
+    &__header {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto $spacing-xxxl;
+
+        @include mobile {
+            margin-bottom: $spacing-xxl;
+        }
+    }
+
+    &__title {
+        font-family: $font-family-headings;
+        font-size: $font-size-section-title;
+        font-weight: $font-weight-bold;
+        color: $color-text;
+        margin-bottom: $spacing-l;
+
+        @include mobile {
+            font-size: 32px;
+        }
+    }
+
+    &__meta {
+        font-size: $font-size-m;
+        color: $color-dark-gray;
+        margin-bottom: $spacing-xl;
+
+        time {
+            font-weight: $font-weight-semi-bold;
+        }
+    }
+
+    &__featured-image {
+        margin-bottom: $spacing-xl;
+        border-radius: $border-radius-default;
+        overflow: hidden;
+        @include shadow(md);
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &__content {
+        max-width: 800px;
+        margin: 0 auto;
+        font-size: $font-size-l;
+        line-height: 1.8;
+
+        h2 {
+            margin-top: $spacing-xxl;
+            margin-bottom: $spacing-l;
+        }
+
+        h3 {
+            margin-top: $spacing-xl;
+            margin-bottom: $spacing-m;
+        }
+
+        p {
+            margin-bottom: $spacing-l;
+        }
+
+        img {
+            margin: $spacing-xl 0;
+            border-radius: $border-radius-default;
+            @include shadow(sm);
+        }
+
+        ul, ol {
+            margin: $spacing-l 0;
+            padding-left: $spacing-xl;
+            list-style: disc;
+
+            li {
+                margin-bottom: $spacing-m;
+            }
+        }
+
+        ol {
+            list-style: decimal;
+        }
+
+        blockquote {
+            margin: $spacing-xl 0;
+        }
+    }
+
+    &__tags {
+        max-width: 800px;
+        margin: $spacing-xl auto;
+        padding-top: $spacing-xl;
+        border-top: 1px solid $color-gray;
+        display: flex;
+        flex-wrap: wrap;
+        gap: $spacing-m;
+        align-items: center;
+    }
+
+    &__navigation {
+        max-width: 800px;
+        margin: $spacing-xxxl auto 0;
+        display: flex;
+        justify-content: space-between;
+        gap: $spacing-m;
+
+        @include mobile {
+            flex-direction: column;
+
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+}
+
+// List Page
+.list-page {
+    padding: $spacing-xxxl 0;
+
+    @include mobile {
+        padding: $spacing-xxl 0;
+    }
+
+    &__header {
+        margin-bottom: $spacing-xxxl;
+
+        @include mobile {
+            margin-bottom: $spacing-xxl;
+        }
+    }
+
+    &__intro {
+        max-width: 800px;
+        margin: 0 auto $spacing-xxxl;
+        font-size: $font-size-l;
+        text-align: center;
+    }
+
+    &__content {
+        // List page content
+    }
+}
+
+// Pagination
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: $spacing-l;
+    margin-top: $spacing-xxxl;
+
+    @include mobile {
+        flex-direction: column;
+        gap: $spacing-m;
+
+        .btn {
+            width: 100%;
+        }
+    }
+
+    &__info {
+        font-size: $font-size-m;
+        color: $color-dark-gray;
+        font-weight: $font-weight-semi-bold;
+    }
+}
+
+// Contact info (for contact page)
+.contact-info {
+    p {
+        margin-bottom: $spacing-l;
+    }
+
+    strong {
+        display: block;
+        margin-bottom: $spacing-s;
+        font-weight: $font-weight-bold;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}

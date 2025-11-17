@@ -1,0 +1,29 @@
+{{- /* About Section */ -}}
+<section class="section about" id="about">
+    <div class="container">
+        <div class="section__header">
+            <h2 class="section__title">
+                {{ i18n "about_title" }}
+            </h2>
+        </div>
+
+        <div class="about__content">
+            <div class="about__text">
+                <p>{{ i18n "about_description" }}</p>
+
+                <div class="btn-group mt-xl">
+                    <a href="/projects/" class="btn btn--primary">
+                        {{ i18n "projects_link" }}
+                    </a>
+                    <a href="/workshops/" class="btn btn--outline">
+                        {{ i18n "workshops_link" | default "See Workshops" }}
+                    </a>
+                </div>
+            </div>
+
+            <div class="about__image">
+                <img src="/images/hero_image_1.png" alt="{{ i18n "about_title" }}">
+            </div>
+        </div>
+    </div>
+</section>

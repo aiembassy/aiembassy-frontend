@@ -1,0 +1,27 @@
+<div class="language-switcher">
+    {{ if .IsTranslated }}
+    <div class="language-switcher__wrapper">
+        <button class="language-switcher__current" aria-label="Switch language" aria-haspopup="true" aria-expanded="false">
+            <span class="language-switcher__flag">{{ .Site.Language.Params.languageFlag }}</span>
+            <span class="language-switcher__code">{{ .Site.Language.LanguageCode | upper }}</span>
+        </button>
+        <ul class="language-switcher__menu">
+            {{ range .Translations }}
+            <li class="language-switcher__item">
+                <a href="{{ .Permalink }}" class="language-switcher__link" lang="{{ .Language.Lang }}" hreflang="{{ .Language.Lang }}">
+                    <span class="language-switcher__flag">{{ .Language.Params.languageFlag }}</span>
+                    <span class="language-switcher__name">{{ .Language.LanguageName }}</span>
+                </a>
+            </li>
+            {{ end }}
+        </ul>
+    </div>
+    {{ else }}
+    <div class="language-switcher__wrapper">
+        <span class="language-switcher__current">
+            <span class="language-switcher__flag">{{ .Site.Language.Params.languageFlag }}</span>
+            <span class="language-switcher__code">{{ .Site.Language.LanguageCode | upper }}</span>
+        </span>
+    </div>
+    {{ end }}
+</div>

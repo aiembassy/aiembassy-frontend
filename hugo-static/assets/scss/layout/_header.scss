@@ -1,0 +1,208 @@
+// ============================================
+// HEADER & NAVIGATION
+// ============================================
+
+.header {
+    background-color: $color-white;
+    padding: $spacing-l 0;
+    position: sticky;
+    top: 0;
+    z-index: $z-index-sticky;
+    box-shadow: $shadow-sm;
+
+    &__inner {
+        @include flex-between;
+    }
+
+    &__logo {
+        // Logo styles
+    }
+}
+
+.logo {
+    @include link-reset;
+    @include flex-center;
+
+    &__image {
+        height: 40px;
+        width: auto;
+    }
+
+    &__text {
+        font-family: $font-family-headings;
+        font-size: $font-size-xxl;
+        font-weight: $font-weight-bold;
+        color: $color-green;
+    }
+}
+
+// Navigation
+.nav {
+    @include flex-center;
+    gap: $spacing-l;
+
+    &__menu {
+        display: flex;
+        gap: $spacing-l;
+        list-style: none;
+
+        &--desktop {
+            @include mobile {
+                display: none;
+            }
+        }
+
+        &--mobile {
+            flex-direction: column;
+            gap: $spacing-m;
+        }
+    }
+
+    &__item {
+        // Nav item styles
+    }
+
+    &__link {
+        @include link-reset;
+        font-family: $font-family-primary;
+        font-size: $font-size-menu;
+        font-weight: $font-weight-semi-bold;
+        color: $color-text;
+        @include transition(color);
+        padding: $spacing-s $spacing-m;
+        border-radius: $border-radius-default;
+
+        &:hover,
+        &:focus {
+            color: $color-green;
+            background-color: rgba($color-green, 0.1);
+        }
+
+        &.active {
+            color: $color-green;
+        }
+    }
+
+    &__toggle {
+        @include button-reset;
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        padding: $spacing-s;
+
+        @include mobile {
+            display: flex;
+        }
+
+        &-icon {
+            width: 24px;
+            height: 2px;
+            background-color: $color-text;
+            @include transition(transform, background-color);
+        }
+
+        &[aria-expanded="true"] {
+            .nav__toggle-icon {
+                &:nth-child(1) {
+                    transform: translateY(6px) rotate(45deg);
+                }
+
+                &:nth-child(2) {
+                    opacity: 0;
+                }
+
+                &:nth-child(3) {
+                    transform: translateY(-6px) rotate(-45deg);
+                }
+            }
+        }
+    }
+
+    &__mobile {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: $color-white;
+        box-shadow: $shadow-md;
+        padding: $spacing-l;
+
+        @include mobile {
+            &.active {
+                display: block;
+            }
+        }
+    }
+}
+
+// Language switcher
+.language-switcher {
+    position: relative;
+
+    &__wrapper {
+        position: relative;
+    }
+
+    &__current {
+        @include button-reset;
+        @include flex-center;
+        gap: $spacing-s;
+        padding: $spacing-s $spacing-m;
+        border-radius: $border-radius-default;
+        @include transition(background-color);
+
+        &:hover {
+            background-color: $color-bg;
+        }
+    }
+
+    &__flag {
+        font-size: $font-size-xl;
+    }
+
+    &__code {
+        font-size: $font-size-m;
+        font-weight: $font-weight-semi-bold;
+        color: $color-text;
+    }
+
+    &__menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: $color-white;
+        box-shadow: $shadow-md;
+        border-radius: $border-radius-default;
+        padding: $spacing-s;
+        min-width: 150px;
+        z-index: $z-index-dropdown;
+
+        .language-switcher__wrapper:hover & {
+            display: block;
+        }
+    }
+
+    &__item {
+        // Language item
+    }
+
+    &__link {
+        @include link-reset;
+        @include flex-center;
+        gap: $spacing-s;
+        padding: $spacing-s $spacing-m;
+        border-radius: $border-radius-default;
+        @include transition(background-color);
+
+        &:hover {
+            background-color: $color-bg;
+        }
+    }
+
+    &__name {
+        font-size: $font-size-m;
+        color: $color-text;
+    }
+}

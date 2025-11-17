@@ -1,0 +1,109 @@
+{{- /* Contact Section */ -}}
+<section class="section section--bg-dark contact" id="contact" style="background-image: url('/images/contact_bg.png'); background-size: cover; background-position: center;">
+    <div class="container">
+        <div class="section__header">
+            <h2 class="section__title">
+                {{ i18n "contact_title" | default "Contact Us" }}
+            </h2>
+            <p class="section__subtitle">
+                {{ i18n "contact_subtitle" | default "Get in touch with us" }}
+            </p>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-6">
+                {{- /* Contact Form */ -}}
+                <form action="{{ .Site.Params.forms.formspreeEndpoint }}" method="POST" class="form" data-validate>
+                    <div class="form-group">
+                        <label for="contact-name" class="form-label form-label--required">
+                            {{ i18n "contact_name" | default "Name" }}
+                        </label>
+                        <input
+                            type="text"
+                            id="contact-name"
+                            name="name"
+                            class="form-control"
+                            required
+                            placeholder="{{ i18n "contact_name_placeholder" | default "Your name" }}"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-email" class="form-label form-label--required">
+                            {{ i18n "contact_email" | default "Email" }}
+                        </label>
+                        <input
+                            type="email"
+                            id="contact-email"
+                            name="email"
+                            class="form-control"
+                            required
+                            placeholder="{{ i18n "contact_email_placeholder" | default "your.email@example.com" }}"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-subject" class="form-label">
+                            {{ i18n "contact_subject" | default "Subject" }}
+                        </label>
+                        <input
+                            type="text"
+                            id="contact-subject"
+                            name="subject"
+                            class="form-control"
+                            placeholder="{{ i18n "contact_subject_placeholder" | default "Message subject" }}"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-message" class="form-label form-label--required">
+                            {{ i18n "contact_message" | default "Message" }}
+                        </label>
+                        <textarea
+                            id="contact-message"
+                            name="message"
+                            class="form-control"
+                            rows="5"
+                            required
+                            placeholder="{{ i18n "contact_message_placeholder" | default "Your message" }}"
+                        ></textarea>
+                    </div>
+
+                    <div class="form-actions form-actions--right">
+                        <button type="submit" class="btn btn--primary">
+                            {{ i18n "contact_submit" | default "Send Message" }}
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-12 col-md-6">
+                {{- /* Contact Information */ -}}
+                <div class="contact-info" style="color: white; margin-top: 2rem;">
+                    <h3 style="margin-bottom: 1.5rem;">{{ i18n "contact_info_title" | default "Contact Information" }}</h3>
+
+                    {{- if .Site.Params.contact.email -}}
+                    <p>
+                        <strong>{{ i18n "contact_email" | default "Email" }}:</strong><br>
+                        <a href="mailto:{{ .Site.Params.contact.email }}" style="color: white;">
+                            {{ .Site.Params.contact.email }}
+                        </a>
+                    </p>
+                    {{- end -}}
+
+                    {{- if .Site.Params.contact.address -}}
+                    <p>
+                        <strong>{{ i18n "contact_address" | default "Address" }}:</strong><br>
+                        {{ .Site.Params.contact.address }}
+                    </p>
+                    {{- end -}}
+
+                    <div style="margin-top: 2rem;">
+                        <h4 style="margin-bottom: 1rem;">{{ i18n "contact_follow_us" | default "Follow Us" }}</h4>
+                        {{ partial "social-links.html" . }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

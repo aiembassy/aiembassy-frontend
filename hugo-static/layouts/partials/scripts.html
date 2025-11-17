@@ -1,0 +1,25 @@
+{{- /* Main JavaScript */ -}}
+{{ $main := resources.Get "js/main.js" }}
+{{ if $main }}
+    {{ if hugo.IsProduction }}
+        {{ $main = $main | minify | fingerprint }}
+    {{ end }}
+    <script src="{{ $main.RelPermalink }}" {{ if hugo.IsProduction }}integrity="{{ $main.Data.Integrity }}"{{ end }} defer></script>
+{{ else }}
+    {{- /* Fallback to static JS */ -}}
+    <script src="/js/main.js" defer></script>
+{{ end }}
+
+{{- /* Google Analytics */ -}}
+{{ if and hugo.IsProduction .Site.Params.seo.googleAnalytics }}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.seo.googleAnalytics }}"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ .Site.Params.seo.googleAnalytics }}', {
+        'anonymize_ip': {{ .Site.Privacy.googleAnalytics.anonymizeIP }},
+        'respect_dnt': {{ .Site.Privacy.googleAnalytics.respectDoNotTrack }}
+    });
+</script>
+{{ end }}

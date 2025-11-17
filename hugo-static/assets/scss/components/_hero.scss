@@ -1,0 +1,205 @@
+// ============================================
+// HERO SECTION
+// ============================================
+
+.hero {
+    position: relative;
+    background-color: $color-bg;
+    padding: $spacing-xxxl 0;
+    overflow: hidden;
+
+    @include mobile {
+        padding: $spacing-xxl 0;
+    }
+
+    // Hero with background image
+    &--image {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba($color-black, 0.4),
+                rgba($color-black, 0.6)
+            );
+            z-index: 1;
+        }
+
+        .hero__content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero__title,
+        .hero__subtitle {
+            color: $color-white;
+        }
+    }
+
+    // Hero content wrapper
+    &__content {
+        text-align: center;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    // Hero title
+    &__title {
+        font-family: $font-family-headings;
+        font-size: $font-size-hero;
+        font-weight: $font-weight-bold;
+        color: $color-text;
+        line-height: 1.2;
+        margin-bottom: $spacing-l;
+
+        @include mobile {
+            font-size: 36px;
+        }
+
+        // Highlight/accent in title
+        &-accent {
+            color: $color-green;
+        }
+    }
+
+    // Hero subtitle
+    &__subtitle {
+        font-family: $font-family-primary;
+        font-size: $font-size-hero-subtitle;
+        font-weight: $font-weight-regular;
+        color: $color-dark-gray;
+        line-height: 1.5;
+        margin-bottom: $spacing-xl;
+
+        @include mobile {
+            font-size: $font-size-xl;
+        }
+    }
+
+    // Hero description/text
+    &__description {
+        font-family: $font-family-primary;
+        font-size: $font-size-l;
+        color: $color-text;
+        line-height: 1.6;
+        margin-bottom: $spacing-xl;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    // Hero CTA (call to action)
+    &__cta {
+        display: inline-flex;
+        gap: $spacing-m;
+
+        @include mobile {
+            flex-direction: column;
+            width: 100%;
+
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+
+    // Hero image/illustration
+    &__image {
+        margin-top: $spacing-xxxl;
+        text-align: center;
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: $border-radius-default;
+            @include shadow(lg);
+        }
+    }
+
+    // Hero with split layout (text left, image right)
+    &--split {
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: $spacing-xxxl;
+            align-items: center;
+
+            @include mobile {
+                grid-template-columns: 1fr;
+                gap: $spacing-xl;
+            }
+        }
+
+        .hero__content {
+            text-align: left;
+            max-width: none;
+        }
+
+        .hero__image {
+            margin-top: 0;
+        }
+    }
+
+    // Hero decorative elements
+    &__decoration {
+        position: absolute;
+        z-index: 0;
+        opacity: 0.1;
+        pointer-events: none;
+
+        &--top-left {
+            top: -50px;
+            left: -50px;
+        }
+
+        &--top-right {
+            top: -50px;
+            right: -50px;
+        }
+
+        &--bottom-left {
+            bottom: -50px;
+            left: -50px;
+        }
+
+        &--bottom-right {
+            bottom: -50px;
+            right: -50px;
+        }
+    }
+
+    // Hero badges/features
+    &__badges {
+        display: flex;
+        justify-content: center;
+        gap: $spacing-l;
+        margin-top: $spacing-xl;
+        flex-wrap: wrap;
+    }
+
+    &__badge {
+        display: flex;
+        align-items: center;
+        gap: $spacing-s;
+        padding: $spacing-m $spacing-l;
+        background-color: $color-white;
+        border-radius: $border-radius-button;
+        @include shadow(sm);
+        font-size: $font-size-m;
+        color: $color-text;
+
+        svg {
+            width: 20px;
+            height: 20px;
+            fill: $color-green;
+        }
+    }
+}

@@ -1,0 +1,107 @@
+{{ define "title" }}{{ .Title }} | {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+
+<div class="list-page">
+    <div class="container">
+        {{- /* Page Header */ -}}
+        <header class="list-page__header section__header">
+            <h1 class="section__title">{{ .Title }}</h1>
+            {{- if .Description -}}
+            <p class="section__subtitle">{{ .Description }}</p>
+            {{- end -}}
+        </header>
+
+        {{- /* List Content */ -}}
+        <div class="list-page__content">
+            {{- if .Content -}}
+            <div class="list-page__intro">
+                {{ .Content }}
+            </div>
+            {{- end -}}
+
+            {{- /* Items Grid */ -}}
+            {{- $paginator := .Paginate .Pages -}}
+            {{- if gt (len $paginator.Pages) 0 -}}
+            <div class="card-grid card-grid--3-col">
+                {{- range $paginator.Pages -}}
+                <article class="card card--shadow">
+                    {{- if .Params.image -}}
+                    <div class="card__image card__image--fixed-height">
+                        <img src="{{ .Params.image }}" alt="{{ .Title }}" loading="lazy">
+                    </div>
+                    {{- end -}}
+
+                    <div class="card__body">
+                        {{- if or .Params.category .Date -}}
+                        <div class="card__meta">
+                            {{- if .Params.category -}}
+                            <span class="card__meta-item">{{ .Params.category }}</span>
+                            {{- end -}}
+                            {{- if .Date -}}
+                            <span class="card__meta-item">
+                                <time datetime="{{ .Date.Format "2006-01-02" }}">
+                                    {{ .Date.Format "January 2006" }}
+                                </time>
+                            </span>
+                            {{- end -}}
+                        </div>
+                        {{- end -}}
+
+                        <h2 class="card__title">
+                            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                        </h2>
+
+                        {{- if .Params.shortDescription -}}
+                        <p class="card__text">{{ .Params.shortDescription }}</p>
+                        {{- else if .Summary -}}
+                        <p class="card__text">{{ .Summary }}</p>
+                        {{- end -}}
+
+                        {{- if .Params.tags -}}
+                        <div class="card__tags">
+                            {{- range .Params.tags -}}
+                            <span class="card__tag">{{ . }}</span>
+                            {{- end -}}
+                        </div>
+                        {{- end -}}
+                    </div>
+
+                    <div class="card__footer">
+                        <a href="{{ .RelPermalink }}" class="btn btn--outline btn--small">
+                            {{ i18n "read_more" | default "Read more" }}
+                        </a>
+                    </div>
+                </article>
+                {{- end -}}
+            </div>
+
+            {{- /* Pagination */ -}}
+            {{ if gt $paginator.TotalPages 1 }}
+            <nav class="pagination">
+                {{ if $paginator.HasPrev }}
+                <a href="{{ $paginator.Prev.URL }}" class="btn btn--outline">
+                    ← {{ i18n "newer" | default "Newer" }}
+                </a>
+                {{ end }}
+
+                <span class="pagination__info">
+                    {{ i18n "page" | default "Page" }} {{ $paginator.PageNumber }} {{ i18n "of" | default "of" }} {{ $paginator.TotalPages }}
+                </span>
+
+                {{ if $paginator.HasNext }}
+                <a href="{{ $paginator.Next.URL }}" class="btn btn--outline">
+                    {{ i18n "older" | default "Older" }} →
+                </a>
+                {{ end }}
+            </nav>
+            {{ end }}
+
+            {{- else -}}
+            <p class="text-center text-muted">{{ i18n "no_items" | default "No items found." }}</p>
+            {{- end -}}
+        </div>
+    </div>
+</div>
+
+{{ end }}

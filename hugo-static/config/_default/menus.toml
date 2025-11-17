@@ -1,0 +1,99 @@
+# Main navigation menu - Polish
+[[pl.main]]
+  identifier = "about"
+  name = "O nas"
+  url = "/#about"
+  weight = 1
+
+[[pl.main]]
+  identifier = "projects"
+  name = "Projekty"
+  url = "/projects/"
+  weight = 2
+
+[[pl.main]]
+  identifier = "workshops"
+  name = "Warsztaty"
+  url = "/workshops/"
+  weight = 3
+
+[[pl.main]]
+  identifier = "events"
+  name = "Wydarzenia"
+  url = "/events/"
+  weight = 4
+
+[[pl.main]]
+  identifier = "contact"
+  name = "Kontakt"
+  url = "/contact/"
+  weight = 5
+
+# Main navigation menu - English
+[[en.main]]
+  identifier = "about"
+  name = "About"
+  url = "/#about"
+  weight = 1
+
+[[en.main]]
+  identifier = "projects"
+  name = "Projects"
+  url = "/projects/"
+  weight = 2
+
+[[en.main]]
+  identifier = "workshops"
+  name = "Workshops"
+  url = "/workshops/"
+  weight = 3
+
+[[en.main]]
+  identifier = "events"
+  name = "Events"
+  url = "/events/"
+  weight = 4
+
+[[en.main]]
+  identifier = "contact"
+  name = "Contact"
+  url = "/contact/"
+  weight = 5
+
+# Footer menu - Polish
+[[pl.footer]]
+  identifier = "privacy"
+  name = "Polityka prywatności"
+  url = "/privacy/"
+  weight = 1
+
+[[pl.footer]]
+  identifier = "terms"
+  name = "Regulamin"
+  url = "/terms/"
+  weight = 2
+
+[[pl.footer]]
+  identifier = "donation"
+  name = "Wsparcie"
+  url = "/donation/"
+  weight = 3
+
+# Footer menu - English
+[[en.footer]]
+  identifier = "privacy"
+  name = "Privacy Policy"
+  url = "/privacy/"
+  weight = 1
+
+[[en.footer]]
+  identifier = "terms"
+  name = "Terms of Service"
+  url = "/terms/"
+  weight = 2
+
+[[en.footer]]
+  identifier = "donation"
+  name = "Support Us"
+  url = "/donation/"
+  weight = 3

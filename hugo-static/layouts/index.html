@@ -1,0 +1,28 @@
+{{ define "title" }}{{ .Site.Title }} - {{ i18n "page_description" }}{{ end }}
+
+{{ define "main" }}
+
+{{- /* Homepage Sections */ -}}
+
+{{- /* Hero Section */ -}}
+{{ partial "sections/hero.html" . }}
+
+{{- /* About Section */ -}}
+{{ partial "sections/about.html" . }}
+
+{{- /* Benefits Section */ -}}
+{{ partial "sections/benefits.html" . }}
+
+{{- /* Projects Section */ -}}
+{{ partial "sections/projects.html" . }}
+
+{{- /* Team Section */ -}}
+{{ partial "sections/team.html" . }}
+
+{{- /* Events Section */ -}}
+{{ partial "sections/events.html" . }}
+
+{{- /* Contact Section */ -}}
+{{ partial "sections/contact.html" . }}
+
+{{ end }}

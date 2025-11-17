@@ -1,0 +1,28 @@
+{{- /* Google Fonts */ -}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto:wght@300;400;600;700;900&family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+{{- /* Main stylesheet */ -}}
+{{ $styles := resources.Get "scss/main.scss" }}
+{{ if $styles }}
+    {{ $options := (dict "targetPath" "css/main.css" "outputStyle" "compressed" "enableSourceMap" true) }}
+    {{ $styles = $styles | resources.ToCSS $options }}
+    {{ if hugo.IsProduction }}
+        {{ $styles = $styles | minify | fingerprint }}
+    {{ end }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" {{ if hugo.IsProduction }}integrity="{{ $styles.Data.Integrity }}"{{ end }}>
+{{ else }}
+    {{- /* Fallback to static CSS if SCSS processing is not available */ -}}
+    <link rel="stylesheet" href="/css/main.css">
+{{ end }}
+
+{{- /* Critical CSS (inline for performance) */ -}}
+{{ $critical := resources.Get "scss/critical.scss" }}
+{{ if $critical }}
+    {{ $critical = $critical | resources.ToCSS }}
+    {{ if hugo.IsProduction }}
+        {{ $critical = $critical | minify }}
+    {{ end }}
+    <style>{{ $critical.Content | safeCSS }}</style>
+{{ end }}

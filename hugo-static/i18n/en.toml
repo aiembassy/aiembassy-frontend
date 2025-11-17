@@ -1,0 +1,320 @@
+# English Translations (i18n/en.toml)
+# Consolidated from locales/en/*.json
+
+# Common translations
+[page_title]
+other = "AI Embassy - Supporting AI Revolution"
+
+[page_description]
+other = "AI Embassy"
+
+[page_keywords]
+other = ""
+
+[hero_title]
+other = "AI Embassy Foundation supports the AI revolution"
+
+[hero_subtitle]
+other = "Let's see, how we can help you in becoming part of that change!"
+
+[hero_check_our_offer]
+other = "check our offer"
+
+[about_title]
+other = "About the Foundation"
+
+[about_description]
+other = "Artificial intelligence will be the engine of the ongoing scientific revolution in the next few years. AI Embassy Foundation aims to make Poland the centre of the innovation."
+
+[free_workshops_title]
+other = "Free trainings"
+
+[conferences_title]
+other = "Conferences and events"
+
+[business_support_title]
+other = "Support for the business"
+
+[summary_text]
+other = "We strongly believe Artificial Intelligence may revolutionize the future. If so do you, please support our efforts and donate any amount to make it happen."
+
+[summary_support_us]
+other = "Support us"
+
+[benefits_title]
+other = "The benefits of using AI"
+
+[benefits_automation_title]
+other = "Automation of repetitive processes"
+
+[benefits_optimization_title]
+other = "Business costs optimization"
+
+[benefits_data_driven_title]
+other = "Making data-driven decisions"
+
+[projects_title]
+other = "Our projects"
+
+[projects_link]
+other = "Let's see our projects"
+
+[team_title]
+other = "Team"
+
+[team_summary_question]
+other = "Are you passionate about AI-based solutions?"
+
+[team_summary_invitation]
+other = "Let's talk about the things we can make together!"
+
+[team_summary_link]
+other = "Become one of us"
+
+[opinions_title]
+other = "Writing about us"
+
+[support_title]
+other = "Supporting us"
+
+[events_title]
+other = "Events and conferences"
+
+[events_link]
+other = "See the events"
+
+[foundation_name]
+other = "\"AI Embassy\" Foundation"
+
+[account_number]
+other = "Account number"
+
+[contact_or_fill]
+other = "or fill up the"
+
+[contact_form]
+other = "Contact form"
+
+[contact_support_us]
+other = "Support us"
+
+[contact_support_description]
+other = "Our initiatives require financial outlays. If you also think AI may be a new revolution and would like to support its development, please support our efforts by donating to the AI Embassy Foundation."
+
+[privacy_policy]
+other = "Privacy policy"
+
+[foundation_statute]
+other = "Statute of the Foundation"
+
+[more]
+other = "more"
+
+[come_back_to_workshops]
+other = "Come back to all workshops"
+
+[come_back_to_events]
+other = "Come back to all events"
+
+[come_back_to_projects]
+other = "Come back to all projects"
+
+# Menu translations
+[about_foundation]
+other = "Foundation"
+
+[projects]
+other = "Projects"
+
+[team]
+other = "Team"
+
+[media]
+other = "Media"
+
+[events]
+other = "Events"
+
+[contact]
+other = "Contact"
+
+[workshops]
+other = "Trainings offer"
+
+# About section
+[free_workshops_intro]
+other = "Knowledge is a key element that allows to introduce innovation. AI Embassy connects Artificial Intelligence experts with those people, who would like to develop their skills in that area, by organizing"
+
+[free_workshops_outro]
+other = ", both online and offsite."
+
+[workshops_link]
+other = "<strong>free</strong> workshops and trainings"
+
+[conferences_intro]
+other = "Building the innovation also requires to create a working community of experts, companies and investors. To achieve that, our Foundation takes part in"
+
+[conferences_middle]
+other = ", but we also organize our own events."
+
+[conferences_outro]
+other = ", if you'd like to create an AI community in our area."
+
+[conferences_link]
+other = "conferences and meetups"
+
+[contact_link]
+other = "Please contact us"
+
+[business_intro]
+other = "The AI revolution needs the business involvement. Do you already have an idea to implement Artificial Intelligence in your company, but haven't started working on it yet? Or maybe you need a spark of inspiration of how it could make your business even better? Please check our offer of"
+
+[business_outro]
+other = "or reach us directly to talk about <strong>free consultancy services</strong>."
+
+[free_trainings_link]
+other = "free trainings"
+
+[commercial_intro]
+other = "Are you an IT company or have already implemented AI-based projects, but still need some support in developing them?"
+
+[commercial_outro]
+other = "to discuss the <strong>commercial offer</strong> of the AI Embassy Foundation."
+
+# Contact page
+[contact_title]
+other = "Let's talk"
+
+[contact_description]
+other = "Would you like to build an AI community in your area? Would you like to know more about our free consulting services or about the commercial offer of the AI Embassy Foundation? Are you passionate about AI-based solutions?"
+
+[contact_write_to_us]
+other = "Write to us at"
+
+[contact_fill_up_form]
+other = "or fill up the contact form."
+
+[form_name]
+other = "Name"
+
+[form_company]
+other = "Company"
+
+[form_email]
+other = "E-mail"
+
+[form_message]
+other = "Message"
+
+[form_send]
+other = "Send"
+
+[form_agreement]
+other = "By sending you confirm you agree with the"
+
+[form_owner]
+other = "of AI Embassy"
+
+[error_name]
+other = "Your name is required."
+
+[error_email]
+other = "Please put a correct email address."
+
+# Donation page
+[support_us_title]
+other = "Support us"
+
+[support_us_description]
+other = "Running the Foundation and conducting the activities both require financial outlays and the effort of our volunteers. If you appreciate our work, you can donate any amount to support our future efforts."
+
+[donations]
+other = "Donations"
+
+[donations_intro]
+other = "One-time or systematic payments of any amount to the Foundation's account."
+
+[donations_make_transfer]
+other = "Make a transfer titled"
+
+[donations_transfer_title]
+other = "Donation for the statutory purposes"
+
+[donations_account_bank]
+other = "BNP Paribas Bank Poland"
+
+[cooperation]
+other = "Cooperation"
+
+[cooperation_description]
+other = "Companies may support us in various ways. Please consider donating our projects, patronage or any form of cooperation in AI-related projects we can do together."
+
+[cooperation_benefits]
+other = "The logotypes of our partners will be put on the website of the AI Embassy Foundation."
+
+# Events page
+[events_description]
+other = "We are proud to appear at the following events. Let's meet and talk about Artificial Intelligence!"
+
+# Projects page
+[projects_description]
+other = "We believe that Artificial Intelligence might be used to solve some of the social issues, but also can automate some repetitive processes."
+
+# Workshops page
+[workshops_title]
+other = "Free workshops and trainings"
+
+[workshops_description]
+other = "Our Foundation may help you grow your AI competencies, by providing free training and workshops, online or onsite."
+
+[workshop_name]
+other = "Training name"
+
+[workshop_description]
+other = "Description"
+
+[workshop_category]
+other = "Category"
+
+# Additional common translations
+[read_more]
+other = "read more"
+
+[learn_more]
+other = "learn more"
+
+[next]
+other = "next"
+
+[previous]
+other = "previous"
+
+[newer]
+other = "newer"
+
+[older]
+other = "older"
+
+[page]
+other = "Page"
+
+[of]
+other = "of"
+
+[no_items]
+other = "No items found."
+
+[tags]
+other = "Tags"
+
+[footer_quick_links]
+other = "Quick links"
+
+[footer_legal]
+other = "Legal"
+
+[footer_contact]
+other = "Contact"
+
+[footer_rights_reserved]
+other = "All rights reserved."

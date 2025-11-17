@@ -1,0 +1,71 @@
+// ============================================
+// GRID SYSTEM
+// ============================================
+
+// Container
+.container {
+    @include container;
+}
+
+.container-fluid {
+    width: 100%;
+    padding: 0 $container-padding;
+}
+
+// Row
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 (-$grid-gutter / 2);
+}
+
+.row--no-gutters {
+    margin: 0;
+
+    > [class*="col-"] {
+        padding: 0;
+    }
+}
+
+// Columns
+[class*="col-"] {
+    width: 100%;
+    padding: 0 ($grid-gutter / 2);
+}
+
+// Generate column classes
+@for $i from 1 through $grid-columns {
+    .col-#{$i} {
+        flex: 0 0 percentage($i / $grid-columns);
+        max-width: percentage($i / $grid-columns);
+    }
+}
+
+// Responsive columns
+@include tablet-up {
+    @for $i from 1 through $grid-columns {
+        .col-md-#{$i} {
+            flex: 0 0 percentage($i / $grid-columns);
+            max-width: percentage($i / $grid-columns);
+        }
+    }
+}
+
+@include desktop {
+    @for $i from 1 through $grid-columns {
+        .col-lg-#{$i} {
+            flex: 0 0 percentage($i / $grid-columns);
+            max-width: percentage($i / $grid-columns);
+        }
+    }
+}
+
+// Auto width column
+.col {
+    flex: 1 0 0%;
+}
+
+.col-auto {
+    flex: 0 0 auto;
+    width: auto;
+}

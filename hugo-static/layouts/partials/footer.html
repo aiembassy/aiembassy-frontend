@@ -1,0 +1,73 @@
+<footer class="footer" id="footer">
+    <div class="container">
+        <div class="footer__inner">
+            {{- /* Footer Columns */ -}}
+            <div class="footer__columns">
+                {{- /* Column 1: About */ -}}
+                <div class="footer__column">
+                    <h3 class="footer__title">{{ .Site.Title }}</h3>
+                    <p class="footer__description">
+                        {{ .Site.Params.description }}
+                    </p>
+                </div>
+
+                {{- /* Column 2: Quick Links */ -}}
+                <div class="footer__column">
+                    <h3 class="footer__title">{{ i18n "footer_quick_links" }}</h3>
+                    <ul class="footer__menu">
+                        {{ range .Site.Menus.main }}
+                        <li class="footer__menu-item">
+                            <a href="{{ .URL | relLangURL }}" class="footer__link">{{ .Name }}</a>
+                        </li>
+                        {{ end }}
+                    </ul>
+                </div>
+
+                {{- /* Column 3: Legal */ -}}
+                <div class="footer__column">
+                    <h3 class="footer__title">{{ i18n "footer_legal" }}</h3>
+                    <ul class="footer__menu">
+                        {{ range .Site.Menus.footer }}
+                        <li class="footer__menu-item">
+                            <a href="{{ .URL | relLangURL }}" class="footer__link">{{ .Name }}</a>
+                        </li>
+                        {{ end }}
+                    </ul>
+                </div>
+
+                {{- /* Column 4: Contact & Social */ -}}
+                <div class="footer__column">
+                    <h3 class="footer__title">{{ i18n "footer_contact" }}</h3>
+                    {{ if .Site.Params.contact.email }}
+                    <p class="footer__contact">
+                        <a href="mailto:{{ .Site.Params.contact.email }}" class="footer__link">
+                            {{ .Site.Params.contact.email }}
+                        </a>
+                    </p>
+                    {{ end }}
+
+                    {{- /* Social Links */ -}}
+                    {{ if .Site.Params.footer.showSocialLinks }}
+                    <div class="footer__social">
+                        {{ partial "social-links.html" . }}
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+
+            {{- /* Footer Bottom */ -}}
+            <div class="footer__bottom">
+                <div class="footer__copyright">
+                    <p>&copy; {{ now.Year }} {{ .Site.Params.footer.copyright }}. {{ i18n "footer_rights_reserved" }}</p>
+                </div>
+
+                {{- /* Language Switcher in Footer (optional) */ -}}
+                {{ if .Site.Params.footer.showLanguageSwitch }}
+                <div class="footer__language">
+                    {{ partial "language-switcher.html" . }}
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</footer>
