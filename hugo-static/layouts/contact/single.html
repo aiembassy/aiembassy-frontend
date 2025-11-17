@@ -67,10 +67,12 @@
                 <div class="contact-page__form">
                     <h2>{{ i18n "send_message" }}</h2>
 
-                    {{- /* Using Formspree - Update with your form endpoint */ -}}
+                    {{- /* Contact Form - Configure API endpoint in config/_default/params.toml */ -}}
+                    {{- $apiBaseUrl := .Site.Params.api.baseUrl | default "https://api.aiembassy.org" -}}
+                    {{- $contactEndpoint := .Site.Params.api.contactEndpoint | default "/api/contact" -}}
                     <form
-                        action="{{ .Params.formAction | default "https://formspree.io/f/YOUR_FORM_ID" }}"
-                        method="POST"
+                        data-validate
+                        data-api-endpoint="{{ $apiBaseUrl }}{{ $contactEndpoint }}"
                         class="contact-form"
                         id="contact-form"
                     >
@@ -132,16 +134,21 @@
                         {{- /* Honeypot field for spam protection */ -}}
                         <input type="text" name="_gotcha" style="display:none">
 
-                        <button type="submit" class="btn btn--primary btn--large">
+                        <button
+                            type="submit"
+                            class="btn btn--primary btn--large"
+                            data-loading-text="{{ i18n "sending" | default "Sending..." }}"
+                            data-original-text="{{ i18n "contact_submit" }}"
+                        >
                             {{ i18n "contact_submit" }}
                         </button>
                     </form>
 
-                    <div class="contact-form__success" id="form-success" style="display: none;">
+                    <div class="form-success" style="display: none;">
                         <p>{{ i18n "contact_success_message" }}</p>
                     </div>
 
-                    <div class="contact-form__error" id="form-error" style="display: none;">
+                    <div class="form-error-general" style="display: none;">
                         <p>{{ i18n "contact_error_message" }}</p>
                     </div>
                 </div>

@@ -134,48 +134,168 @@
     };
 
     // Form validation helper
+    const validateEmail = (email) => {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    };
+
+    const validateField = (field) => {
+        const value = field.value.trim();
+        const type = field.type;
+        let isValid = true;
+        let errorMessage = '';
+
+        // Required field check
+        if (field.hasAttribute('required') && !value) {
+            isValid = false;
+            errorMessage = field.getAttribute('data-error-required') || 'This field is required';
+        }
+        // Email validation
+        else if (type === 'email' && value && !validateEmail(value)) {
+            isValid = false;
+            errorMessage = field.getAttribute('data-error-email') || 'Please enter a valid email address';
+        }
+        // Min length validation
+        else if (field.hasAttribute('minlength')) {
+            const minLength = parseInt(field.getAttribute('minlength'));
+            if (value.length < minLength) {
+                isValid = false;
+                errorMessage = field.getAttribute('data-error-minlength') || `Minimum ${minLength} characters required`;
+            }
+        }
+
+        return { isValid, errorMessage };
+    };
+
+    const showFieldError = (field, message) => {
+        field.classList.add('form-control--error');
+        let error = field.parentElement.querySelector('.form-error');
+        if (!error) {
+            error = document.createElement('span');
+            error.className = 'form-error';
+            field.parentElement.appendChild(error);
+        }
+        error.textContent = message;
+    };
+
+    const clearFieldError = (field) => {
+        field.classList.remove('form-control--error');
+        const error = field.parentElement.querySelector('.form-error');
+        if (error) error.remove();
+    };
+
     const initFormValidation = () => {
         const forms = document.querySelectorAll('form[data-validate]');
 
         forms.forEach(form => {
             form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
                 let isValid = true;
-                const requiredFields = form.querySelectorAll('[required]');
+                const fields = form.querySelectorAll('input, textarea, select');
 
-                requiredFields.forEach(field => {
-                    if (!field.value.trim()) {
+                // Validate all fields
+                fields.forEach(field => {
+                    const validation = validateField(field);
+                    if (!validation.isValid) {
                         isValid = false;
-                        field.classList.add('form-control--error');
-
-                        // Show error message
-                        let error = field.parentElement.querySelector('.form-error');
-                        if (!error) {
-                            error = document.createElement('span');
-                            error.className = 'form-error';
-                            error.textContent = 'This field is required';
-                            field.parentElement.appendChild(error);
-                        }
+                        showFieldError(field, validation.errorMessage);
                     } else {
-                        field.classList.remove('form-control--error');
-                        const error = field.parentElement.querySelector('.form-error');
-                        if (error) error.remove();
+                        clearFieldError(field);
                     }
                 });
 
-                if (!isValid) {
-                    e.preventDefault();
+                // If form is valid, submit it
+                if (isValid) {
+                    handleFormSubmit(form);
                 }
             });
 
             // Clear errors on input
-            form.querySelectorAll('[required]').forEach(field => {
+            form.querySelectorAll('input, textarea, select').forEach(field => {
                 field.addEventListener('input', () => {
-                    field.classList.remove('form-control--error');
-                    const error = field.parentElement.querySelector('.form-error');
-                    if (error) error.remove();
+                    clearFieldError(field);
+                });
+
+                field.addEventListener('blur', () => {
+                    const validation = validateField(field);
+                    if (!validation.isValid && field.value.trim()) {
+                        showFieldError(field, validation.errorMessage);
+                    }
                 });
             });
         });
+    };
+
+    // Handle form submission to API
+    const handleFormSubmit = async (form) => {
+        const apiEndpoint = form.getAttribute('data-api-endpoint');
+        const successMessage = form.querySelector('.form-success');
+        const errorMessage = form.querySelector('.form-error-general');
+        const submitButton = form.querySelector('button[type="submit"]');
+
+        if (!apiEndpoint) {
+            console.error('No API endpoint specified for form');
+            return;
+        }
+
+        // Disable submit button
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.textContent = submitButton.getAttribute('data-loading-text') || 'Sending...';
+        }
+
+        // Collect form data
+        const formData = new FormData(form);
+        const data = {};
+        formData.forEach((value, key) => {
+            // Skip honeypot field
+            if (key !== '_gotcha') {
+                data[key] = value;
+            }
+        });
+
+        try {
+            // TODO: Replace with actual API call
+            // This is a placeholder - configure your API endpoint in config/_default/params.toml
+            const response = await fetch(apiEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                // Success
+                form.reset();
+                if (successMessage) {
+                    successMessage.style.display = 'block';
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 5000);
+                }
+
+                // Hide error message if visible
+                if (errorMessage) {
+                    errorMessage.style.display = 'none';
+                }
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            // Error
+            console.error('Form submission error:', error);
+            if (errorMessage) {
+                errorMessage.style.display = 'block';
+            }
+        } finally {
+            // Re-enable submit button
+            if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.textContent = submitButton.getAttribute('data-original-text') || 'Submit';
+            }
+        }
     };
 
     // Lazy load images

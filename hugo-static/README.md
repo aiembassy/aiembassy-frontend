@@ -184,10 +184,34 @@ Use in templates:
 - Base templates created
 - Design system converted to SCSS
 
-**Phase 2: Static Assets & Styles** 🔄 Next
-- Copy static files
-- Convert component styles
-- Optimize assets
+**Phase 2: Static Assets & Styles** ✅ COMPLETED
+- All static files migrated (images, docs, favicons)
+- Component SCSS library created
+- Asset optimization pipeline set up
+- Critical CSS strategy implemented
+
+**Phase 3: Core Components & Partials** ✅ COMPLETED
+- Homepage section partials created (7 sections)
+- Page templates (index, single, list)
+- Content structure established
+- Team data file created
+
+**Phase 4: Content & Data** ✅ COMPLETED
+- Translation files converted (JSON → TOML)
+- Real data migrated (projects, events, workshops)
+- Data files created (trainings, opinions)
+- Content archetypes defined
+
+**Phase 5: Page Templates** ✅ COMPLETED
+- Homepage template with all sections
+- Single page templates (projects, events, workshops)
+- List page templates with pagination
+- Special pages (contact, donation, landing)
+
+**Phase 6: Forms & Interactivity** 🔄 In Progress
+- Form validation and handling
+- Interactive elements (mobile menu, modals)
+- Smooth scroll navigation
 
 See [MIGRATION_PLAN.md](../MIGRATION_PLAN.md) for full migration details.
 
@@ -279,6 +303,6 @@ When adding new features:
 
 ---
 
-**Version:** 0.1.0 (Phase 1 Complete)
+**Version:** 0.5.0 (Phase 5 Complete)
 **Last Updated:** 2025-11-17
-**Status:** In Development
+**Status:** In Development - 50% Complete

@@ -114,9 +114,11 @@
         <div class="container">
             <h2 class="section-title">{{ i18n "contact_us_for_more_info" }}</h2>
 
+            {{- $apiBaseUrl := .Site.Params.api.baseUrl | default "https://api.aiembassy.org" -}}
+            {{- $contactEndpoint := .Site.Params.api.contactEndpoint | default "/api/contact" -}}
             <form
-                action="{{ .Params.formAction | default "https://formspree.io/f/YOUR_FORM_ID" }}"
-                method="POST"
+                data-validate
+                data-api-endpoint="{{ $apiBaseUrl }}{{ $contactEndpoint }}"
                 class="contact-form contact-form--centered"
             >
                 <div class="form-row">
@@ -153,10 +155,23 @@
 
                 <input type="text" name="_gotcha" style="display:none">
 
-                <button type="submit" class="btn btn--primary btn--large">
+                <button
+                    type="submit"
+                    class="btn btn--primary btn--large"
+                    data-loading-text="{{ i18n "sending" | default "Sending..." }}"
+                    data-original-text="{{ i18n "contact_submit" }}"
+                >
                     {{ i18n "contact_submit" }}
                 </button>
             </form>
+
+            <div class="form-success" style="display: none; margin-top: 1.5rem; padding: 1rem; background: #d4edda; color: #155724; border-radius: 4px;">
+                <p>{{ i18n "contact_success_message" | default "Thank you! Your message has been sent successfully." }}</p>
+            </div>
+
+            <div class="form-error-general" style="display: none; margin-top: 1.5rem; padding: 1rem; background: #f8d7da; color: #721c24; border-radius: 4px;">
+                <p>{{ i18n "contact_error_message" | default "Sorry, there was an error sending your message. Please try again." }}</p>
+            </div>
         </div>
     </section>
 </div>

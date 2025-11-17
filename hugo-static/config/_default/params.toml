@@ -47,12 +47,16 @@ favicon = "/favicon/favicon.ico"
   # Open Graph image
   ogImage = "/images/og-image.jpg"
 
-# Forms
-[forms]
-  # Formspree endpoint (to be configured)
-  formspreeEndpoint = ""
-  # Netlify forms (set to true if using Netlify)
-  netlifyForms = false
+# API Endpoints
+[api]
+  # Base API URL (configure this for your backend)
+  baseUrl = "https://api.aiembassy.org"
+  # Contact form endpoint
+  contactEndpoint = "/api/contact"
+  # Newsletter subscription endpoint
+  newsletterEndpoint = "/api/newsletter"
+  # Donation endpoint
+  donationEndpoint = "/api/donation"
 
 # Features
 [features]
