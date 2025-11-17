@@ -1,0 +1,182 @@
+// ============================================
+// TYPOGRAPHY
+// ============================================
+
+// Headings
+h1 {
+    @include heading($font-size-hero);
+
+    @include mobile {
+        font-size: 36px;
+    }
+}
+
+h2 {
+    @include heading($font-size-section-title);
+
+    @include mobile {
+        font-size: 32px;
+    }
+}
+
+h3 {
+    @include heading($font-size-modal-title);
+
+    @include mobile {
+        font-size: 24px;
+    }
+}
+
+h4 {
+    @include heading($font-size-hero-subtitle);
+
+    @include mobile {
+        font-size: 20px;
+    }
+}
+
+h5 {
+    @include heading($font-size-xxl);
+}
+
+h6 {
+    @include heading($font-size-xl);
+}
+
+// Paragraphs
+p {
+    @include body-text;
+    margin-bottom: $spacing-m;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// Strong & Bold
+strong,
+b {
+    font-weight: $font-weight-bold;
+}
+
+// Emphasis
+em,
+i {
+    font-style: italic;
+}
+
+// Small text
+small {
+    font-size: $font-size-s;
+}
+
+// Blockquote
+blockquote {
+    padding: $spacing-l;
+    border-left: 4px solid $color-green;
+    background-color: $color-bg;
+    font-style: italic;
+    margin: $spacing-l 0;
+
+    p {
+        margin-bottom: $spacing-s;
+    }
+
+    cite {
+        display: block;
+        font-style: normal;
+        font-size: $font-size-m;
+        color: $color-dark-gray;
+        margin-top: $spacing-m;
+
+        &::before {
+            content: "— ";
+        }
+    }
+}
+
+// Code
+code {
+    font-family: "Monaco", "Courier New", monospace;
+    font-size: $font-size-m;
+    background-color: $color-bg-gray;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+pre {
+    background-color: $color-bg-gray;
+    padding: $spacing-m;
+    border-radius: $border-radius-default;
+    overflow-x: auto;
+    margin: $spacing-l 0;
+
+    code {
+        background: none;
+        padding: 0;
+    }
+}
+
+// Horizontal rule
+hr {
+    border: none;
+    border-top: 1px solid $color-gray;
+    margin: $spacing-xl 0;
+}
+
+// Utility classes
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.text-lowercase {
+    text-transform: lowercase;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+.text-muted {
+    color: $color-dark-gray;
+}
+
+.text-primary {
+    color: $color-green;
+}
+
+.text-secondary {
+    color: $color-red;
+}
+
+.font-weight-light {
+    font-weight: $font-weight-light;
+}
+
+.font-weight-regular {
+    font-weight: $font-weight-regular;
+}
+
+.font-weight-semi-bold {
+    font-weight: $font-weight-semi-bold;
+}
+
+.font-weight-bold {
+    font-weight: $font-weight-bold;
+}
+
+.font-weight-black {
+    font-weight: $font-weight-black;
+}

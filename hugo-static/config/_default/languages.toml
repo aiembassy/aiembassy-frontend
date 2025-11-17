@@ -1,0 +1,17 @@
+# Polish (Default)
+[pl]
+  languageName = "Polski"
+  languageCode = "pl"
+  contentDir = "content/pl"
+  weight = 1
+  [pl.params]
+    languageFlag = "🇵🇱"
+
+# English
+[en]
+  languageName = "English"
+  languageCode = "en"
+  contentDir = "content/en"
+  weight = 2
+  [en.params]
+    languageFlag = "🇬🇧"

@@ -1,0 +1,69 @@
+# Site parameters
+description = "AI Embassy Foundation supports the AI revolution"
+author = "AI Embassy"
+logo = "/images/logo.png"
+favicon = "/favicon/favicon.ico"
+
+# Theme colors (matching current Next.js design)
+[colors]
+  primary = "#008C8C"
+  primaryHover = "#006666"
+  secondary = "#FF2936"
+  background = "#F6F6F6"
+  backgroundGray = "#EDEDED"
+  text = "#3B4949"
+  gray = "#C9C9C9"
+  darkGray = "#8A9292"
+  yellow = "#D7C4A3"
+  white = "#FFFFFF"
+  black = "#000000"
+
+# Typography
+[typography]
+  fontFamilyPrimary = "Open Sans, sans-serif"
+  fontFamilySecondary = "Roboto, sans-serif"
+  fontFamilyHeadings = "Merriweather, sans-serif"
+
+# Social media
+[social]
+  facebook = "https://facebook.com/aiembassy"
+  twitter = "https://twitter.com/aiembassy"
+  linkedin = "https://linkedin.com/company/aiembassy"
+  github = ""
+  youtube = ""
+
+# Contact information
+[contact]
+  email = "contact@aiembassy.org"
+  phone = ""
+  address = ""
+
+# SEO
+[seo]
+  # Google Analytics (add your ID)
+  googleAnalytics = ""
+  # Google Site Verification
+  googleSiteVerification = ""
+  # Open Graph image
+  ogImage = "/images/og-image.jpg"
+
+# Forms
+[forms]
+  # Formspree endpoint (to be configured)
+  formspreeEndpoint = ""
+  # Netlify forms (set to true if using Netlify)
+  netlifyForms = false
+
+# Features
+[features]
+  # Enable/disable features
+  enableSearch = false
+  enableComments = false
+  enableNewsletter = false
+  enableDonations = true
+
+# Footer
+[footer]
+  copyright = "AI Embassy Foundation"
+  showSocialLinks = true
+  showLanguageSwitch = true

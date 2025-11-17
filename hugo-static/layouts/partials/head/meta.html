@@ -1,0 +1,70 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{{- /* Title */ -}}
+<title>{{ block "title" . }}{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
+
+{{- /* Meta Description */ -}}
+{{ with .Description }}
+<meta name="description" content="{{ . }}">
+{{ else }}
+<meta name="description" content="{{ .Site.Params.description }}">
+{{ end }}
+
+{{- /* Keywords */ -}}
+{{ with .Params.keywords }}
+<meta name="keywords" content="{{ delimit . ", " }}">
+{{ end }}
+
+{{- /* Author */ -}}
+<meta name="author" content="{{ .Site.Params.author }}">
+
+{{- /* Canonical URL */ -}}
+<link rel="canonical" href="{{ .Permalink }}">
+
+{{- /* Language alternates */ -}}
+{{ if .IsTranslated }}
+{{ range .Translations }}
+<link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+{{ end }}
+{{ end }}
+
+{{- /* Favicon */ -}}
+<link rel="icon" type="image/x-icon" href="{{ .Site.Params.favicon }}">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+
+{{- /* Open Graph */ -}}
+{{ partial "head/opengraph.html" . }}
+
+{{- /* Twitter Card */ -}}
+{{ partial "head/twitter.html" . }}
+
+{{- /* RSS */ -}}
+{{ with .OutputFormats.Get "RSS" }}
+<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ $.Site.Title }}">
+{{ end }}
+
+{{- /* Robots */ -}}
+{{ if or (eq (getenv "HUGO_ENV") "production") (eq .Site.Params.env "production") }}
+<meta name="robots" content="index, follow">
+{{ else }}
+<meta name="robots" content="noindex, nofollow">
+{{ end }}
+
+{{- /* Google Site Verification */ -}}
+{{ with .Site.Params.seo.googleSiteVerification }}
+<meta name="google-site-verification" content="{{ . }}">
+{{ end }}
+
+{{- /* Preconnect to external resources */ -}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+{{- /* Remove no-js class with inline script */ -}}
+<script>
+    document.documentElement.classList.remove('no-js');
+    document.documentElement.classList.add('js');
+</script>

@@ -1,0 +1,116 @@
+// ============================================
+// DESIGN SYSTEM VARIABLES
+// Converted from Next.js theme (src/shared/styles/default.theme.ts)
+// ============================================
+
+// Colors
+// ============================================
+$color-black: #000000;
+$color-white: #FFFFFF;
+$color-gray: #C9C9C9;
+$color-dark-gray: #8A9292;
+$color-text: #3B4949;
+$color-red: #FF2936;
+$color-green: #008C8C;
+$color-green-hover: #006666;
+$color-yellow: #D7C4A3;
+$color-bg: #F6F6F6;
+$color-bg-gray: #EDEDED;
+$color-transparent: transparent;
+
+// Social media colors
+$color-facebook: #1877F2;
+$color-twitter: #1DA1F2;
+$color-linkedin: #007BB5;
+
+// Typography
+// ============================================
+
+// Font Families
+$font-open-sans: "Open Sans", sans-serif;
+$font-roboto: "Roboto", sans-serif;
+$font-merriweather: "Merriweather", sans-serif;
+
+// Primary font family
+$font-family-primary: $font-open-sans;
+$font-family-secondary: $font-roboto;
+$font-family-headings: $font-merriweather;
+
+// Font Sizes
+$font-size-xs: 10px;
+$font-size-s: 12px;
+$font-size-m: 14px;
+$font-size-l: 16px;
+$font-size-xl: 18px;
+$font-size-xxl: 20px;
+
+// Specific component font sizes
+$font-size-button: 13px;
+$font-size-menu: 15px;
+$font-size-hero-subtitle: 24px;
+$font-size-modal-title: 32px;
+$font-size-section-title: 42px;
+$font-size-hero: 50px;
+
+// Font Weights
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+// Spacing
+// ============================================
+$spacing-xs: 4px;
+$spacing-s: 8px;
+$spacing-m: 16px;
+$spacing-l: 24px;
+$spacing-xl: 32px;
+$spacing-xxl: 48px;
+$spacing-xxxl: 64px;
+
+// Border Radius
+// ============================================
+$border-radius-default: 8px;
+$border-radius-button: 10px;
+$border-radius-circle: 50px;
+
+// Transitions
+// ============================================
+$transition-default: 0.3s;
+$transition-modal: 0.6s;
+$transition-timing: ease-in-out;
+
+// Breakpoints
+// ============================================
+$breakpoint-mobile: 576px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-wide: 1440px;
+
+// Container
+// ============================================
+$container-max-width: 1200px;
+$container-padding: 20px;
+
+// Z-index layers
+// ============================================
+$z-index-dropdown: 100;
+$z-index-sticky: 200;
+$z-index-fixed: 300;
+$z-index-modal-backdrop: 400;
+$z-index-modal: 500;
+$z-index-popover: 600;
+$z-index-tooltip: 700;
+
+// Shadows
+// ============================================
+$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+$shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+$shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.18);
+
+// Grid
+// ============================================
+$grid-columns: 12;
+$grid-gutter: 30px;

@@ -1,0 +1,31 @@
+// ============================================
+// FUNCTIONS
+// ============================================
+
+// Convert pixels to rem
+@function rem($px, $base: 16px) {
+    @return ($px / $base) * 1rem;
+}
+
+// Convert pixels to em
+@function em($px, $base: 16px) {
+    @return ($px / $base) * 1em;
+}
+
+// Get color with opacity
+@function rgba-color($color, $opacity) {
+    @return rgba($color, $opacity);
+}
+
+// Strip units
+@function strip-unit($value) {
+    @return $value / ($value * 0 + 1);
+}
+
+// Map deep get (for nested maps)
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
