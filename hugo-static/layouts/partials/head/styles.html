@@ -7,7 +7,7 @@
 {{ $styles := resources.Get "scss/main.scss" }}
 {{ if $styles }}
     {{ $options := (dict "targetPath" "css/main.css" "outputStyle" "compressed" "enableSourceMap" true) }}
-    {{ $styles = $styles | resources.ToCSS $options }}
+    {{ $styles = $styles | css.Sass $options }}
     {{ if hugo.IsProduction }}
         {{ $styles = $styles | minify | fingerprint }}
     {{ end }}
@@ -20,7 +20,7 @@
 {{- /* Critical CSS (inline for performance) */ -}}
 {{ $critical := resources.Get "scss/critical.scss" }}
 {{ if $critical }}
-    {{ $critical = $critical | resources.ToCSS }}
+    {{ $critical = $critical | css.Sass }}
     {{ if hugo.IsProduction }}
         {{ $critical = $critical | minify }}
     {{ end }}

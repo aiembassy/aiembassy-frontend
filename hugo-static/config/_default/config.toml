@@ -13,13 +13,14 @@ enableRobotsTXT = true
 enableGitInfo = true
 enableEmoji = false
 
-# Pagination
-paginate = 10
-paginatePath = "page"
+# Pagination (updated for Hugo v0.128.0+)
+[pagination]
+  pagerSize = 10
+  path = "page"
 
 # Output formats
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS"]
   section = ["HTML", "RSS"]
   page = ["HTML"]
 
