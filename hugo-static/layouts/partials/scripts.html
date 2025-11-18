@@ -1,3 +1,12 @@
+{{- /* Modal System JavaScript */ -}}
+{{ $modal := resources.Get "js/modal.js" }}
+{{ if $modal }}
+    {{ if hugo.IsProduction }}
+        {{ $modal = $modal | minify | fingerprint }}
+    {{ end }}
+    <script src="{{ $modal.RelPermalink }}" {{ if hugo.IsProduction }}integrity="{{ $modal.Data.Integrity }}"{{ end }} defer></script>
+{{ end }}
+
 {{- /* Main JavaScript */ -}}
 {{ $main := resources.Get "js/main.js" }}
 {{ if $main }}

@@ -2,7 +2,7 @@
 
 {{ define "main" }}
 
-<article class="single-event">
+<article class="single-event" data-category="{{ .Params.eventType }}" data-description="{{ .Params.shortDescription }}">
     {{- /* Event Header */ -}}
     <header class="single-event__header">
         <div class="container">

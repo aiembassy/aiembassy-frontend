@@ -2,7 +2,7 @@
 
 {{ define "main" }}
 
-<article class="single-project">
+<article class="single-project" data-category="{{ .Params.category }}" data-description="{{ .Params.shortDescription }}">
     {{- /* Project Header */ -}}
     <header class="single-project__header">
         <div class="container">

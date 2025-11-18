@@ -2,7 +2,7 @@
 
 {{ define "main" }}
 
-<article class="single-workshop">
+<article class="single-workshop" data-category="{{ .Params.category }}" data-description="{{ .Params.shortDescription }}">
     {{- /* Workshop Header */ -}}
     <header class="single-workshop__header">
         <div class="container">
