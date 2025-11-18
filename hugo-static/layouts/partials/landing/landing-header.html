@@ -1,0 +1,25 @@
+{{- /* Landing Header - matches LandingHeader.tsx */ -}}
+<header class="landing-header-container" id="landing-header">
+    <div class="landing-header-inner">
+        <div class="landing-header__logo">
+            <a href="{{ "/" | relLangURL }}">
+                {{- /* IconBrand - Using logo image or SVG */ -}}
+                {{ if .Site.Params.logo }}
+                <img src="{{ .Site.Params.logo }}" alt="{{ .Site.Title }}" width="109" height="auto">
+                {{ else }}
+                <span class="logo__text">{{ .Site.Title }}</span>
+                {{ end }}
+            </a>
+        </div>
+
+        <div class="landing-header-wrapper">
+            {{- /* Landing Menu */ -}}
+            {{ partial "landing/landing-menu.html" . }}
+
+            {{- /* Language Switch */ -}}
+            <div class="landing-language-switch">
+                {{ partial "language-switcher.html" (dict "context" . "landing" true) }}
+            </div>
+        </div>
+    </div>
+</header>

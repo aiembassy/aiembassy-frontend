@@ -1,0 +1,17 @@
+{{- /* List Component - matches List.tsx */ -}}
+{{- /* Usage: {{ partial "landing/list.html" (dict "title" .title "list" .bulletPoints) }} */ -}}
+<div class="list-wrapper">
+    <h3 class="list-title">{{ .title }}</h3>
+    {{- range .list -}}
+    <div class="list-item">
+        {{- /* IconListItem - Using a simple icon or bullet */ -}}
+        <div class="list-item-icon">
+            {{- /* Icon placeholder - can be replaced with SVG */ -}}
+            <svg width="34" height="34" viewBox="0 0 34 34" fill="currentColor">
+                <circle cx="17" cy="17" r="4" />
+            </svg>
+        </div>
+        <div class="list-item-text">{{ . }}</div>
+    </div>
+    {{- end -}}
+</div>

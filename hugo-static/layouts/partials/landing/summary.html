@@ -1,0 +1,11 @@
+{{- /* Summary Component - matches Summary.tsx */ -}}
+{{- /* Usage: {{ partial "landing/summary.html" (dict "text" .summary) }} */ -}}
+<div class="summary-wrapper">
+    <div class="summary-text">{{ .text }}</div>
+    {{- /* TODO: add link below - currently empty href as in Next.js */ -}}
+    <div class="button-wrapper">
+        <a href="" class="btn btn--primary" style="width: 280px; display: inline-block; text-align: center;">
+            {{ i18n "landing_signup_button" | default "Zapisz się" }}
+        </a>
+    </div>
+</div>

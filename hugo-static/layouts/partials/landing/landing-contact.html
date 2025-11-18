@@ -1,0 +1,50 @@
+{{- /* Landing Contact - matches LandingContact.tsx */ -}}
+<section class="landing-contact-wrapper" id="contact">
+    {{- /* Icon Brand */ -}}
+    <div class="landing-icon-wrapper">
+        {{- /* IconBrand placeholder - Using logo or SVG */ -}}
+        {{ if .Site.Params.logo }}
+        <img src="{{ .Site.Params.logo }}" alt="{{ .Site.Title }}" width="127" height="77">
+        {{ else }}
+        <span class="icon-brand">{{ .Site.Title }}</span>
+        {{ end }}
+    </div>
+
+    {{- /* Background Image and overlay */ -}}
+    <div class="contact-bg-image"></div>
+    <div class="contact-bg"></div>
+
+    <div class="container-inner">
+        {{- /* Info Box 1: Foundation Info */ -}}
+        <div class="info-box">
+            <div class="title-box">{{ i18n "landing_foundation_name" | default "Fundacja \"AI Embassy\"" }}</div>
+            <div class="text-box">
+                {{ i18n "landing_foundation_address" | default "ul. Podskale 1A/6, 30-522 Kraków" }}<br />
+                {{ i18n "landing_foundation_krs" | default "KRS 0000823425" }}<br />
+                {{ i18n "landing_foundation_nip" | default "NIP 6762576428" }}<br />
+                {{ i18n "landing_foundation_regon" | default "REGON 385300695" }}<br />
+                {{ i18n "landing_foundation_account" | default "Nr konta" }} <strong>32 1600 1462 1885 3945 8000 0001</strong>
+            </div>
+            <a href="mailto:{{ .Site.Params.contact.email | default "contact@embassy.ai" }}" class="mail-to-link">
+                {{- /* IconMail */ -}}
+                <svg class="icon icon-mail" width="25" height="25" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                {{ .Site.Params.contact.email | default "contact@embassy.ai" }}
+            </a>
+        </div>
+
+        {{- /* Info Box 2: Contact CTA */ -}}
+        <div class="info-box">
+            <div class="title-box">{{ i18n "landing_contact_cta_title" | default "Nie nalazłeś szkolenia dla siebie?" }}</div>
+            <div class="text-box">
+                {{ i18n "landing_contact_cta_text" | default "Napisz do nas, porozmawiamy i spróbujemy przygotować ofertę dostosowaną do potrzeb Twojej firmy i Twoich pracowników." }}
+            </div>
+            <div class="button-wrapper">
+                <a href="{{ "/contact" | relLangURL }}" class="btn btn--primary" style="width: 280px; display: inline-block; text-align: center;">
+                    {{ i18n "landing_contact_button" | default "Napisz do nas" }}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

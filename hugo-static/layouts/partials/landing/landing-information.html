@@ -1,0 +1,26 @@
+{{- /* Landing Information - matches LandingInformation.tsx */ -}}
+{{- /* Get training data from data file based on the page's training_id param */ -}}
+{{- $lang := .Site.Language.Lang -}}
+{{- $trainingId := .Params.training_id -}}
+{{- $training := index (index .Site.Data.trainings $lang) $trainingId -}}
+
+{{- if $training -}}
+<section class="landing-information-wrapper">
+    <div class="landing-information-inner">
+        <div class="landing-information-content">
+            {{- /* Lists Wrapper - render all sections */ -}}
+            <div class="lists-wrapper">
+                {{- range $training.sections -}}
+                {{ partial "landing/list.html" (dict "title" .title "list" .bulletPoints) }}
+                {{- end -}}
+            </div>
+
+            {{- /* Trainer Card */ -}}
+            {{ partial "landing/trainer-card.html" $training.trainer }}
+        </div>
+
+        {{- /* Summary */ -}}
+        {{ partial "landing/summary.html" (dict "text" $training.summary) }}
+    </div>
+</section>
+{{- end -}}

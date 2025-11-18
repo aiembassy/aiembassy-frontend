@@ -318,3 +318,52 @@ other = "Contact"
 
 [footer_rights_reserved]
 other = "All rights reserved."
+
+# Landing page translations
+[landing_menu_foundation]
+other = "Foundation page"
+
+[landing_menu_trainings_list]
+other = "Training list"
+
+[landing_trainer_label]
+other = "Trainer"
+
+[landing_signup_button]
+other = "Sign up"
+
+[landing_workshops_title]
+other = "List of recent trainings"
+
+[landing_workshops_description]
+other = "Artificial Intelligence will be the driving force of the ongoing scientific revolution in the coming years. The AI Embassy Foundation strives to make Poland the center of these innovations. Explore our trainings."
+
+[landing_workshops_all_title]
+other = "List of all trainings"
+
+[landing_foundation_name]
+other = "\"AI Embassy\" Foundation"
+
+[landing_foundation_address]
+other = "ul. Podskale 1A/6, 30-522 Kraków"
+
+[landing_foundation_krs]
+other = "KRS 0000823425"
+
+[landing_foundation_nip]
+other = "NIP 6762576428"
+
+[landing_foundation_regon]
+other = "REGON 385300695"
+
+[landing_foundation_account]
+other = "Account number"
+
+[landing_contact_cta_title]
+other = "Didn't find a training for yourself?"
+
+[landing_contact_cta_text]
+other = "Write to us, let's talk and we'll try to prepare an offer tailored to the needs of your company and your employees."
+
+[landing_contact_button]
+other = "Write to us"

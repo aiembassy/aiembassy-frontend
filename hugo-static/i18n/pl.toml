@@ -318,3 +318,52 @@ other = "Kontakt"
 
 [footer_rights_reserved]
 other = "Wszystkie prawa zastrzeżone."
+
+# Landing page translations
+[landing_menu_foundation]
+other = "Strona fundacji"
+
+[landing_menu_trainings_list]
+other = "Lista szkoleń"
+
+[landing_trainer_label]
+other = "Prowadzący"
+
+[landing_signup_button]
+other = "Zapisz się"
+
+[landing_workshops_title]
+other = "Lista ostatnich szkoleń"
+
+[landing_workshops_description]
+other = "Sztuczna inteligencja będzie w najbliższych latach motorem napędowym trwającej rewolucji naukowej. Fundacja AI Embassy dąży do tego, aby to Polska stała się centrum tych innowacji. Poznaj nasze szkolenia."
+
+[landing_workshops_all_title]
+other = "Lista wszystkich szkoleń"
+
+[landing_foundation_name]
+other = "Fundacja \"AI Embassy\""
+
+[landing_foundation_address]
+other = "ul. Podskale 1A/6, 30-522 Kraków"
+
+[landing_foundation_krs]
+other = "KRS 0000823425"
+
+[landing_foundation_nip]
+other = "NIP 6762576428"
+
+[landing_foundation_regon]
+other = "REGON 385300695"
+
+[landing_foundation_account]
+other = "Nr konta"
+
+[landing_contact_cta_title]
+other = "Nie nalazłeś szkolenia dla siebie?"
+
+[landing_contact_cta_text]
+other = "Napisz do nas, porozmawiamy i spróbujemy przygotować ofertę dostosowaną do potrzeb Twojej firmy i Twoich pracowników."
+
+[landing_contact_button]
+other = "Napisz do nas"

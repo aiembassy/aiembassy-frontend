@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}" class="no-js landing-layout">
+<head>
+    {{ partial "head/meta.html" . }}
+    {{ partial "head/styles.html" . }}
+</head>
+<body class="landing">
+    {{- /* Landing pages use their own header, not the standard header */ -}}
+
+    <main id="main-content" role="main">
+        {{ block "main" . }}
+        {{ end }}
+    </main>
+
+    {{- /* Landing pages use their own footer */ -}}
+
+    {{ partial "scripts.html" . }}
+</body>
+</html>

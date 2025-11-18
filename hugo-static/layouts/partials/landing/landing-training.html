@@ -1,0 +1,18 @@
+{{- /* Landing Training - matches LandingTraining.tsx */ -}}
+{{- /* Get training data from data file based on the page's training_id param */ -}}
+{{- $lang := .Site.Language.Lang -}}
+{{- $trainingId := .Params.training_id -}}
+{{- $training := index (index .Site.Data.trainings $lang) $trainingId -}}
+
+{{- if $training -}}
+<section class="landing-training-wrapper">
+    <div class="landing-training-inner">
+        <div class="training-category">{{ $training.category }}</div>
+        <h1 class="training-title">{{ $training.title }}</h1>
+        <div class="training-image-wrapper">
+            <img src="{{ $training.image | relURL }}" alt="training image" class="training-image">
+        </div>
+        <div class="training-text">{{ $training.description }}</div>
+    </div>
+</section>
+{{- end -}}

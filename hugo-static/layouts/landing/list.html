@@ -2,178 +2,19 @@
 
 {{ define "main" }}
 
+{{- /* Landing list page layout - matches Next.js _app.tsx list layout */ -}}
 <div class="landing-list-page">
     {{- /* Landing Header */ -}}
-    <header class="landing-header" id="landing-header">
-        <div class="container">
-            <h1 class="landing-header__title">{{ .Title }}</h1>
+    {{ partial "landing/landing-header.html" . }}
 
-            {{- if .Params.subtitle -}}
-            <p class="landing-header__subtitle">{{ .Params.subtitle }}</p>
-            {{- end -}}
+    {{- /* Landing Workshops Container - with landing=true */ -}}
+    {{ partial "landing/landing-workshops-container.html" (dict "context" . "landing" true) }}
 
-            {{- if .Content -}}
-            <div class="landing-header__description">
-                {{ .Content }}
-            </div>
-            {{- end -}}
-        </div>
-    </header>
+    {{- /* Landing Contact */ -}}
+    {{ partial "landing/landing-contact.html" . }}
 
-    {{- /* Workshops Container */ -}}
-    <section class="landing-workshops-container" id="workshops">
-        <div class="container">
-            {{- /* Get all workshops */ -}}
-            {{- $workshops := where .Site.RegularPages "Section" "workshops" -}}
-
-            {{- if $workshops -}}
-            <div class="workshops-grid workshops-grid--full">
-                {{- range $workshops -}}
-                <article class="workshop-card workshop-card--detailed">
-                    {{- if .Params.image -}}
-                    <a href="{{ .RelPermalink }}" class="workshop-card__image-link">
-                        <img
-                            src="{{ .Params.image | relURL }}"
-                            alt="{{ .Title }}"
-                            class="workshop-card__image"
-                            loading="lazy"
-                        >
-                    </a>
-                    {{- end -}}
-
-                    <div class="workshop-card__content">
-                        {{- if .Params.category -}}
-                        <span class="workshop-card__category">{{ .Params.category }}</span>
-                        {{- end -}}
-
-                        <h2 class="workshop-card__title">
-                            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                        </h2>
-
-                        {{- if .Params.shortDescription -}}
-                        <p class="workshop-card__description">{{ .Params.shortDescription }}</p>
-                        {{- else if .Summary -}}
-                        <p class="workshop-card__description">{{ .Summary }}</p>
-                        {{- end -}}
-
-                        {{- /* Workshop Meta */ -}}
-                        <div class="workshop-card__meta">
-                            {{- if .Params.duration -}}
-                            <span class="workshop-card__meta-item">
-                                <span class="icon">⏱️</span> {{ .Params.duration }}
-                            </span>
-                            {{- end -}}
-
-                            {{- if .Params.level -}}
-                            <span class="workshop-card__meta-item">
-                                <span class="icon">📊</span> {{ .Params.level }}
-                            </span>
-                            {{- end -}}
-
-                            {{- if .Params.language -}}
-                            <span class="workshop-card__meta-item">
-                                <span class="icon">🌐</span> {{ .Params.language }}
-                            </span>
-                            {{- end -}}
-                        </div>
-
-                        {{- if .Params.topics -}}
-                        <div class="workshop-card__topics">
-                            <strong>{{ i18n "topics_covered" }}:</strong>
-                            <ul>
-                                {{- range first 3 .Params.topics -}}
-                                <li>{{ . }}</li>
-                                {{- end -}}
-                            </ul>
-                        </div>
-                        {{- end -}}
-
-                        {{- if .Params.price -}}
-                        <div class="workshop-card__price">
-                            <strong>{{ i18n "price" }}:</strong> {{ .Params.price }}
-                        </div>
-                        {{- end -}}
-
-                        <a href="{{ .RelPermalink }}" class="btn btn--primary workshop-card__link">
-                            {{ i18n "learn_more" }}
-                        </a>
-                    </div>
-                </article>
-                {{- end -}}
-            </div>
-            {{- else -}}
-            <div class="landing-workshops-container__empty">
-                <p>{{ i18n "no_workshops_found" }}</p>
-            </div>
-            {{- end -}}
-        </div>
-    </section>
-
-    {{- /* Contact Section */ -}}
-    <section class="landing-contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">{{ i18n "contact_us_for_more_info" }}</h2>
-
-            {{- $apiBaseUrl := .Site.Params.api.baseUrl | default "https://api.aiembassy.org" -}}
-            {{- $contactEndpoint := .Site.Params.api.contactEndpoint | default "/api/contact" -}}
-            <form
-                data-validate
-                data-api-endpoint="{{ $apiBaseUrl }}{{ $contactEndpoint }}"
-                class="contact-form contact-form--centered"
-            >
-                <div class="form-row">
-                    <div class="form-group">
-                        <input
-                            type="text"
-                            name="name"
-                            required
-                            class="form-control"
-                            placeholder="{{ i18n "contact_name_placeholder" }}"
-                        >
-                    </div>
-
-                    <div class="form-group">
-                        <input
-                            type="email"
-                            name="email"
-                            required
-                            class="form-control"
-                            placeholder="{{ i18n "contact_email_placeholder" }}"
-                        >
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <textarea
-                        name="message"
-                        rows="5"
-                        required
-                        class="form-control"
-                        placeholder="{{ i18n "contact_message_placeholder" }}"
-                    ></textarea>
-                </div>
-
-                <input type="text" name="_gotcha" style="display:none">
-
-                <button
-                    type="submit"
-                    class="btn btn--primary btn--large"
-                    data-loading-text="{{ i18n "sending" | default "Sending..." }}"
-                    data-original-text="{{ i18n "contact_submit" }}"
-                >
-                    {{ i18n "contact_submit" }}
-                </button>
-            </form>
-
-            <div class="form-success" style="display: none; margin-top: 1.5rem; padding: 1rem; background: #d4edda; color: #155724; border-radius: 4px;">
-                <p>{{ i18n "contact_success_message" | default "Thank you! Your message has been sent successfully." }}</p>
-            </div>
-
-            <div class="form-error-general" style="display: none; margin-top: 1.5rem; padding: 1rem; background: #f8d7da; color: #721c24; border-radius: 4px;">
-                <p>{{ i18n "contact_error_message" | default "Sorry, there was an error sending your message. Please try again." }}</p>
-            </div>
-        </div>
-    </section>
+    {{- /* Footer with landing=true */ -}}
+    {{ partial "footer.html" (dict "context" . "landing" true) }}
 </div>
 
 {{ end }}

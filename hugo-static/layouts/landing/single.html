@@ -1,208 +1,26 @@
-{{ define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end }}
+{{ define "title" }}{{ .Site.Title }} - {{ .Params.title | default .Title }}{{ end }}
 
 {{ define "main" }}
 
+{{- /* Landing page layout - matches Next.js _app.tsx landing layout */ -}}
 <div class="landing-page">
     {{- /* Landing Header */ -}}
-    <header class="landing-header" id="landing-header">
-        <div class="container">
-            <div class="landing-header__content">
-                {{- if .Params.headerImage -}}
-                <div class="landing-header__image">
-                    <img src="{{ .Params.headerImage | relURL }}" alt="{{ .Title }}">
-                </div>
-                {{- end -}}
+    {{ partial "landing/landing-header.html" . }}
 
-                <div class="landing-header__text">
-                    <h1 class="landing-header__title">{{ .Title }}</h1>
+    {{- /* Landing Training */ -}}
+    {{ partial "landing/landing-training.html" . }}
 
-                    {{- if .Params.subtitle -}}
-                    <p class="landing-header__subtitle">{{ .Params.subtitle }}</p>
-                    {{- end -}}
+    {{- /* Landing Information */ -}}
+    {{ partial "landing/landing-information.html" . }}
 
-                    {{- if .Params.ctaText -}}
-                    <a href="{{ .Params.ctaLink | default "#training" }}" class="btn btn--primary btn--large landing-header__cta">
-                        {{ .Params.ctaText }}
-                    </a>
-                    {{- end -}}
-                </div>
-            </div>
-        </div>
-    </header>
+    {{- /* Landing Workshops - with landing=true and maxItemsShow=12 */ -}}
+    {{ partial "landing/landing-workshops.html" (dict "context" . "landing" true "maxItemsShow" 12) }}
 
-    {{- /* Training/Information Section */ -}}
-    {{- if .Params.showTraining -}}
-    <section class="landing-training" id="training">
-        <div class="container">
-            {{- if .Params.trainingTitle -}}
-            <h2 class="section-title">{{ .Params.trainingTitle }}</h2>
-            {{- end -}}
+    {{- /* Landing Contact */ -}}
+    {{ partial "landing/landing-contact.html" . }}
 
-            {{- /* Access training data from data file */ -}}
-            {{- if .Site.Data.trainings -}}
-                {{- $lang := .Site.Language.Lang -}}
-                {{- $trainings := index .Site.Data.trainings $lang -}}
-
-                {{- if $trainings -}}
-                <div class="training-grid">
-                    {{- range $trainings -}}
-                    <div class="training-card">
-                        {{- if .icon -}}
-                        <div class="training-card__icon">{{ .icon | safeHTML }}</div>
-                        {{- end -}}
-
-                        {{- if .title -}}
-                        <h3 class="training-card__title">{{ .title }}</h3>
-                        {{- end -}}
-
-                        {{- if .description -}}
-                        <p class="training-card__description">{{ .description }}</p>
-                        {{- end -}}
-
-                        {{- if .points -}}
-                        <ul class="training-card__points">
-                            {{- range .points -}}
-                            <li>{{ . }}</li>
-                            {{- end -}}
-                        </ul>
-                        {{- end -}}
-                    </div>
-                    {{- end -}}
-                </div>
-                {{- end -}}
-            {{- end -}}
-        </div>
-    </section>
-    {{- end -}}
-
-    {{- /* Information/Content Section */ -}}
-    {{- if .Content -}}
-    <section class="landing-information" id="information">
-        <div class="container">
-            <div class="landing-information__content">
-                {{ .Content }}
-            </div>
-        </div>
-    </section>
-    {{- end -}}
-
-    {{- /* Workshops Section */ -}}
-    {{- if .Params.showWorkshops -}}
-    <section class="landing-workshops" id="workshops">
-        <div class="container">
-            {{- if .Params.workshopsTitle -}}
-            <h2 class="section-title">{{ .Params.workshopsTitle }}</h2>
-            {{- end -}}
-
-            {{- /* Get workshops from content */ -}}
-            {{- $workshops := where .Site.RegularPages "Section" "workshops" -}}
-            {{- if $workshops -}}
-            <div class="workshops-grid">
-                {{- range first 3 $workshops -}}
-                <article class="workshop-card">
-                    {{- if .Params.image -}}
-                    <a href="{{ .RelPermalink }}" class="workshop-card__image-link">
-                        <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" class="workshop-card__image" loading="lazy">
-                    </a>
-                    {{- end -}}
-
-                    <div class="workshop-card__content">
-                        <h3 class="workshop-card__title">
-                            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                        </h3>
-
-                        {{- if .Params.shortDescription -}}
-                        <p class="workshop-card__description">{{ .Params.shortDescription }}</p>
-                        {{- end -}}
-
-                        <a href="{{ .RelPermalink }}" class="btn btn--primary">
-                            {{ i18n "learn_more" }}
-                        </a>
-                    </div>
-                </article>
-                {{- end -}}
-            </div>
-
-            <div class="landing-workshops__cta">
-                <a href="{{ "/workshops" | relLangURL }}" class="btn btn--outline btn--large">
-                    {{ i18n "all_workshops" }}
-                </a>
-            </div>
-            {{- end -}}
-        </div>
-    </section>
-    {{- end -}}
-
-    {{- /* Contact Section */ -}}
-    <section class="landing-contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">{{ .Params.contactTitle | default (i18n "contact") }}</h2>
-
-            {{- if .Params.contactDescription -}}
-            <p class="landing-contact__description">{{ .Params.contactDescription }}</p>
-            {{- end -}}
-
-            {{- /* Contact Form - Configure API endpoint in config/_default/params.toml */ -}}
-            {{- $apiBaseUrl := .Site.Params.api.baseUrl | default "https://api.aiembassy.org" -}}
-            {{- $contactEndpoint := .Site.Params.api.contactEndpoint | default "/api/contact" -}}
-            <form
-                data-validate
-                data-api-endpoint="{{ $apiBaseUrl }}{{ $contactEndpoint }}"
-                class="contact-form contact-form--centered"
-            >
-                <div class="form-row">
-                    <div class="form-group">
-                        <input
-                            type="text"
-                            name="name"
-                            required
-                            class="form-control"
-                            placeholder="{{ i18n "contact_name_placeholder" }}"
-                        >
-                    </div>
-
-                    <div class="form-group">
-                        <input
-                            type="email"
-                            name="email"
-                            required
-                            class="form-control"
-                            placeholder="{{ i18n "contact_email_placeholder" }}"
-                        >
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <textarea
-                        name="message"
-                        rows="5"
-                        required
-                        class="form-control"
-                        placeholder="{{ i18n "contact_message_placeholder" }}"
-                    ></textarea>
-                </div>
-
-                <input type="text" name="_gotcha" style="display:none">
-
-                <button
-                    type="submit"
-                    class="btn btn--primary btn--large"
-                    data-loading-text="{{ i18n "sending" | default "Sending..." }}"
-                    data-original-text="{{ i18n "contact_submit" }}"
-                >
-                    {{ i18n "contact_submit" }}
-                </button>
-            </form>
-
-            <div class="form-success" style="display: none; margin-top: 1.5rem; padding: 1rem; background: #d4edda; color: #155724; border-radius: 4px;">
-                <p>{{ i18n "contact_success_message" | default "Thank you! Your message has been sent successfully." }}</p>
-            </div>
-
-            <div class="form-error-general" style="display: none; margin-top: 1.5rem; padding: 1rem; background: #f8d7da; color: #721c24; border-radius: 4px;">
-                <p>{{ i18n "contact_error_message" | default "Sorry, there was an error sending your message. Please try again." }}</p>
-            </div>
-        </div>
-    </section>
+    {{- /* Footer with landing=true */ -}}
+    {{ partial "footer.html" (dict "context" . "landing" true) }}
 </div>
 
 {{ end }}
