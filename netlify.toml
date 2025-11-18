@@ -1,6 +1,126 @@
-[build]
-  command = "npm run build"
-  publish = "out"
+# Netlify Configuration for AI Embassy Hugo Site
+# Documentation: https://docs.netlify.com/configure-builds/file-based-configuration/
 
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
+[build]
+  # Build command
+  command = "cd hugo-static && hugo --gc --minify"
+
+  # Output directory (relative to repository root)
+  publish = "hugo-static/public"
+
+  # Base directory for build
+  base = "/"
+
+[build.environment]
+  # Hugo version - use Extended version for SCSS support
+  HUGO_VERSION = "0.139.3"
+  HUGO_ENV = "production"
+  HUGO_ENABLEGITINFO = "true"
+  NODE_VERSION = "18"
+
+# Production context (default branch)
+[context.production]
+  command = "cd hugo-static && hugo --gc --minify --environment production"
+
+  [context.production.environment]
+    HUGO_ENV = "production"
+
+# Deploy Preview context (pull requests)
+[context.deploy-preview]
+  command = "cd hugo-static && hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
+
+  [context.deploy-preview.environment]
+    HUGO_ENV = "staging"
+
+# Branch deploy context (non-production branches)
+[context.branch-deploy]
+  command = "cd hugo-static && hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
+
+  [context.branch-deploy.environment]
+    HUGO_ENV = "staging"
+
+# Redirects and rewrites
+[[redirects]]
+  # Redirect old Next.js routes to Hugo routes (if needed)
+  # from = "/old-path"
+  # to = "/new-path"
+  # status = 301
+
+[[redirects]]
+  # SPA-style redirect for 404
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# Headers for security and performance
+[[headers]]
+  for = "/*"
+
+  [headers.values]
+    # Security headers
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+    # Content Security Policy (adjust as needed)
+    Content-Security-Policy = """
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' https://www.googletagmanager.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      img-src 'self' data: https:;
+      font-src 'self' https://fonts.gstatic.com;
+      connect-src 'self' https://api.aiembassy.org;
+      frame-ancestors 'none';
+      base-uri 'self';
+      form-action 'self';
+    """
+
+# Cache control for static assets
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache control for HTML (shorter cache)
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+# Cache control for RSS and sitemap
+[[headers]]
+  for = "/*.xml"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+# Plugin configuration (optional)
+# [[plugins]]
+#   package = "@netlify/plugin-lighthouse"
+#
+# [[plugins]]
+#   package = "netlify-plugin-submit-sitemap"
+#
+#   [plugins.inputs]
+#     baseUrl = "https://aiembassy.org"
+#     sitemapPath = "/sitemap.xml"
+#     providers = [
+#       "google",
+#       "bing"
+#     ]

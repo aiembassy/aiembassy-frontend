@@ -1,0 +1,60 @@
+# Production-specific configuration
+# This file overrides/extends config/_default/config.toml for production builds
+
+# Environment
+environment = "production"
+
+# Base URL - update this to your production domain
+baseURL = "https://aiembassy.org/"
+
+# Build settings for production
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+# Enable Git info for last modified dates
+enableGitInfo = true
+
+# Enable robots.txt for production
+enableRobotsTXT = true
+
+# Image optimization for production
+[imaging]
+  quality = 85
+  resampleFilter = "Lanczos"
+  anchor = "Smart"
+
+# Minification settings (aggressive for production)
+[minify]
+  minifyOutput = true
+  [minify.tdewolff]
+    [minify.tdewolff.html]
+      keepWhitespace = false
+      keepEndTags = true
+      keepDefaultAttrVals = true
+      keepDocumentTags = true
+      keepQuotes = false
+    [minify.tdewolff.css]
+      precision = 0
+      keepCSS2 = false
+    [minify.tdewolff.js]
+      precision = 0
+      keepVarNames = false
+    [minify.tdewolff.json]
+      precision = 0
+    [minify.tdewolff.svg]
+      precision = 0
+    [minify.tdewolff.xml]
+      keepWhitespace = false
+
+# Caching headers (if supported by hosting platform)
+[caching]
+  [caching.assets]
+    # Cache static assets for 1 year
+    maxage = "31536000"
+  [caching.html]
+    # Cache HTML for 1 hour
+    maxage = "3600"
+
+# Security headers (configure in hosting platform)
+# Content-Security-Policy, X-Frame-Options, X-XSS-Protection, etc.

@@ -1,0 +1,156 @@
+# GitHub Actions Workflow for Hugo Static Site
+# Builds and deploys the Hugo site to GitHub Pages
+
+name: Deploy Hugo Site
+
+on:
+  # Trigger on push to main branch
+  push:
+    branches:
+      - main
+      - master
+
+  # Trigger on pull request
+  pull_request:
+    branches:
+      - main
+      - master
+
+  # Allow manual workflow dispatch
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+# Default to bash
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.139.3
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0  # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Install Hugo CLI
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+
+      - name: Install Node.js dependencies
+        run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v4
+
+      - name: Install Node.js dependencies (if any)
+        working-directory: ./hugo-static
+        run: |
+          if [ -f "package.json" ]; then
+            npm install
+          fi
+
+      - name: Build with Hugo
+        working-directory: ./hugo-static
+        env:
+          HUGO_ENVIRONMENT: production
+          HUGO_ENV: production
+        run: |
+          hugo \
+            --gc \
+            --minify \
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./hugo-static/public
+
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v3
+
+  # Test job (runs on PRs)
+  test:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    env:
+      HUGO_VERSION: 0.139.3
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Install Hugo CLI
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+
+      - name: Build test site
+        working-directory: ./hugo-static
+        env:
+          HUGO_ENVIRONMENT: staging
+          HUGO_ENV: staging
+        run: |
+          hugo \
+            --gc \
+            --minify \
+            --buildFuture \
+            --baseURL "https://preview.aiembassy.org/"
+
+      - name: Run tests
+        working-directory: ./hugo-static
+        run: |
+          # Make scripts executable
+          chmod +x scripts/*.sh
+
+          # Run build test
+          if [ -f "scripts/test-build.sh" ]; then
+            ./scripts/test-build.sh
+          fi
+
+          # Run bundle size check
+          if [ -f "scripts/check-bundle-size.sh" ]; then
+            ./scripts/check-bundle-size.sh
+          fi
+
+      - name: Comment PR with build results
+        uses: actions/github-script@v6
+        if: github.event_name == 'pull_request'
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '✅ Hugo build successful! Preview will be available once deployed.'
+            })
