@@ -4,9 +4,6 @@ languageCode = "pl"
 defaultContentLanguage = "pl"
 defaultContentLanguageInSubdir = false
 
-# Theme (none - custom)
-theme = ""
-
 # Build settings
 buildDrafts = false
 buildFuture = false
