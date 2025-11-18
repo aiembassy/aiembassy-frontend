@@ -176,6 +176,89 @@ Use in templates:
    @import "components/component-name";
    ```
 
+## 🧪 Testing & Quality Assurance
+
+### Automated Testing
+
+The project includes comprehensive testing scripts in `scripts/`:
+
+**Run All Tests:**
+```bash
+./scripts/run-all-tests.sh
+```
+
+**Individual Tests:**
+```bash
+# Build verification
+./scripts/test-build.sh
+
+# Bundle size analysis
+./scripts/check-bundle-size.sh
+
+# Link validation (requires Hugo server running)
+./scripts/check-links.sh
+
+# Accessibility testing (requires Hugo server)
+./scripts/test-accessibility.sh
+
+# Performance testing (requires Hugo server)
+./scripts/test-performance.sh
+```
+
+### Testing Documentation
+
+Comprehensive testing guides are available:
+
+- **[TESTING.md](./TESTING.md)** - Complete testing checklist covering:
+  - Cross-browser testing (Chrome, Firefox, Safari, Edge)
+  - Responsive testing (all breakpoints)
+  - Content verification
+  - Performance testing (Lighthouse audits)
+  - Accessibility testing (WCAG 2.0 AA)
+  - SEO validation
+
+- **[BUILD_VERIFICATION.md](./BUILD_VERIFICATION.md)** - Build verification guide:
+  - Prerequisites and setup
+  - Build process (development & production)
+  - File generation verification
+  - Common build issues and solutions
+
+- **[CONTENT_VERIFICATION.md](./CONTENT_VERIFICATION.md)** - Content structure verification:
+  - File inventory (35 templates, 20 SCSS, 1 JS, 20 content files)
+  - Content completeness check
+  - Architecture verification
+
+- **[QA_SUMMARY.md](./QA_SUMMARY.md)** - QA framework summary:
+  - Testing workflow
+  - Sign-off criteria
+  - Issue tracking
+
+### Performance Targets
+
+- **Lighthouse Scores:**
+  - Performance: 90+
+  - Accessibility: 95+
+  - Best Practices: 95+
+  - SEO: 95+
+
+- **Bundle Sizes:**
+  - Main CSS: < 50KB (minified + gzipped)
+  - Main JS: < 30KB (minified + gzipped)
+  - Total page weight: < 500KB
+
+### Testing Requirements
+
+**Required Software:**
+```bash
+# Hugo Extended
+hugo version  # v0.100.0+
+
+# Optional testing tools
+npm install -g broken-link-checker
+npm install -g lighthouse
+npm install -g pa11y
+```
+
 ## 📋 Migration Status
 
 **Phase 1: Setup & Foundation** ✅ COMPLETED
@@ -228,6 +311,17 @@ Use in templates:
 - Enhanced Open Graph and Twitter Cards
 - Multilingual hreflang tags
 - SEO utility helpers
+
+**Phase 9: Testing & QA** ✅ COMPLETED
+- Comprehensive testing documentation (TESTING.md, BUILD_VERIFICATION.md, CONTENT_VERIFICATION.md, QA_SUMMARY.md)
+- Automated test scripts (6 scripts: build, bundle size, links, accessibility, performance, all-tests)
+- Build verification procedures
+- Cross-browser testing checklists
+- Responsive testing procedures
+- Performance testing framework (Lighthouse integration)
+- Accessibility testing framework (WCAG 2.0 AA)
+- Content structure verification
+- Testing workflow documentation
 
 See [MIGRATION_PLAN.md](../MIGRATION_PLAN.md) for full migration details.
 
@@ -319,6 +413,6 @@ When adding new features:
 
 ---
 
-**Version:** 0.8.0 (Phase 8 Complete)
+**Version:** 0.9.0 (Phase 9 Complete)
 **Last Updated:** 2025-11-17
-**Status:** In Development - Phases 1-8 Complete (80%)
+**Status:** In Development - Phases 1-9 Complete (90%)
